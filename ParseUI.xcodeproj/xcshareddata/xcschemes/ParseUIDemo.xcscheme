@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "81FFE9CC19D50BFC003AC99E"
+               BlueprintIdentifier = "81472F661A1AB33800FD6EED"
                BuildableName = "ParseUIDemo.app"
                BlueprintName = "ParseUIDemo"
-               ReferencedContainer = "container:ParseUIDemo.xcodeproj">
+               ReferencedContainer = "container:ParseUI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "81FFE9CC19D50BFC003AC99E"
+            BlueprintIdentifier = "81472F661A1AB33800FD6EED"
             BuildableName = "ParseUIDemo.app"
             BlueprintName = "ParseUIDemo"
-            ReferencedContainer = "container:ParseUIDemo.xcodeproj">
+            ReferencedContainer = "container:ParseUI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "81FFE9CC19D50BFC003AC99E"
+            BlueprintIdentifier = "81472F661A1AB33800FD6EED"
             BuildableName = "ParseUIDemo.app"
             BlueprintName = "ParseUIDemo"
-            ReferencedContainer = "container:ParseUIDemo.xcodeproj">
+            ReferencedContainer = "container:ParseUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "81FFE9CC19D50BFC003AC99E"
+            BlueprintIdentifier = "81472F661A1AB33800FD6EED"
             BuildableName = "ParseUIDemo.app"
             BlueprintName = "ParseUIDemo"
-            ReferencedContainer = "container:ParseUIDemo.xcodeproj">
+            ReferencedContainer = "container:ParseUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
