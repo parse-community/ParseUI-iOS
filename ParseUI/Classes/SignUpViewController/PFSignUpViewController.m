@@ -245,14 +245,14 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
 
     NSString *username = _signUpView.usernameField.text ?: @"";
     NSString *password = _signUpView.passwordField.text ?: @"";
-    NSString *email = _signUpView.emailField.text;
+    NSString *email = (self.emailAsUsername ? username : _signUpView.emailField.text);
     NSString *additional = _signUpView.additionalField.text;
 
     NSMutableDictionary *dictionary = [@{ PFSignUpViewControllerDelegateInfoUsernameKey : username,
                                           PFSignUpViewControllerDelegateInfoPasswordKey : password } mutableCopy];
 
     if (email) {
-        dictionary[PFSignUpViewControllerDelegateInfoUsernameKey] = email;
+        dictionary[PFSignUpViewControllerDelegateInfoEmailKey] = email;
     }
     if (additional) {
         dictionary[PFSignUpViewControllerDelegateInfoAdditionalKey] = additional;
@@ -281,9 +281,7 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
     user.username = username;
     user.password = password;
 
-    if (self.emailAsUsername) {
-        user.email = username;
-    } else if (email) {
+    if (email) {
         user.email = email;
     }
     if (additional) {
