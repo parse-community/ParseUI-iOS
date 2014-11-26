@@ -59,7 +59,12 @@
     return source.task;
 }
 
+
 - (void)loadInBackground:(void (^)(UIImage *, NSError *))completion {
+    [self loadInBackground:completion progressBlock:nil];
+}
+
+- (void)loadInBackground:(void (^)(UIImage *, NSError *))completion progressBlock:(PFProgressBlock)progressBlock {
     if (!self.file) {
         // When there is nothing to load, the user just wants to display
         // the placeholder image. I think the better design decision is
@@ -142,6 +147,10 @@
                 [[PFImageCache sharedCache] setImage:image forURL:url];
             }
         });
+    } progressBlock:^(int percentDone) {
+        if (progressBlock) {
+            progressBlock(percentDone);
+        }
     }];
 }
 

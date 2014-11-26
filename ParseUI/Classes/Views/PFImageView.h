@@ -54,4 +54,15 @@
  */
 - (void)loadInBackground:(void (^)(UIImage *image, NSError *error))completion;
 
+/*!
+ @abstract Initiate downloading of the remote image.
+ 
+ @discussion Once the download completes, the remote image will be displayed.
+ 
+ @param completion the completion block.
+ @param progressBlock called with the download progress as the image is being downloaded. May not be called
+        if the image is cached.
+ */
+- (void)loadInBackground:(void (^)(UIImage *, NSError *))completion progressBlock:(void (^)(int percentDone))progressBlock;
+
 @end
