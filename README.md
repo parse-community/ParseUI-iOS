@@ -1,4 +1,9 @@
 # ParseUI
+
+[![Pod Version](http://img.shields.io/cocoapods/v/ParseUI.svg?style=flat)](http://cocoadocs.org/docsets/ParseUI/)
+[![Pod Platform](http://img.shields.io/cocoapods/p/ParseUI.svg?style=flat)](http://cocoadocs.org/docsets/ParseUI/)
+[![Pod License](http://img.shields.io/cocoapods/l/ParseUI.svg?style=flat)](https://github.com/ParsePlatform/ParseUI-iOS/blob/master/LICENSE)
+
 ## Overview
 
 `ParseUI` is a collection of a handy user interface components to be used with Parse iOS SDK,  
