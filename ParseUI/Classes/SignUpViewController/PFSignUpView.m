@@ -116,7 +116,6 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    self.contentSize = self.bounds.size;
     CGRect bounds = self.bounds;
 
     if (_dismissButton) {
