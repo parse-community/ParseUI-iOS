@@ -4,5 +4,5 @@ workspace 'ParseUI'
 xcodeproj 'ParseUI.xcodeproj'
 link_with 'ParseUIDemo'
 
-pod 'Parse', '~> 1.5.0'
-pod 'ParseFacebookUtils', '~> 1.5.0'
+pod 'Parse', '~> 1.5'
+pod 'ParseFacebookUtils', '~> 1.5'

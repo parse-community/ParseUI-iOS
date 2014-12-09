@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ParseUI'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.license          =  { :type => 'SDK', :file => 'LICENSE'}
   s.homepage         = 'https://www.parse.com/'
   s.summary          = 'ParseUI is a library of useful User Interface components for the Parse iOS SDK.'
@@ -31,6 +31,6 @@ Pod::Spec.new do |s|
                           'CoreGraphics',
                           'QuartzCore'
 
-  s.dependency 'Parse', '~> 1.5.0'
-  s.dependency 'ParseFacebookUtils', '~> 1.5.0'
+  s.dependency 'Parse', '~> 1.5'
+  s.dependency 'ParseFacebookUtils', '~> 1.5'
 end
