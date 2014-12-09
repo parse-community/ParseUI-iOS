@@ -359,7 +359,7 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
 }
 
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    // Do nothing, as the view controller dismisses itself
 }
 
 #pragma mark -
@@ -369,8 +369,8 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)signUpViewControllerDidCancelLogIn:(PFSignUpViewController *)signUpController {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    // Do nothing, as the view controller dismisses itself
 }
 
 @end
