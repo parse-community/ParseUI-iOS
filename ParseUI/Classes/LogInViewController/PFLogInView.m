@@ -169,8 +169,6 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    self.contentSize = self.bounds.size;
-
     const CGRect bounds = PFRectMakeWithOriginSize(CGPointZero, self.bounds.size);
 
     if (_dismissButton) {
