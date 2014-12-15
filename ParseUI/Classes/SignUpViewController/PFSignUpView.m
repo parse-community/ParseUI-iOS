@@ -171,7 +171,7 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
         currentY = CGRectGetMaxY(frame);
     }
 
-    if (_emailField) {
+    if (_emailField && !_emailAsUsername) {
         CGRect frame = PFRectMakeWithSizeCenteredInRect([_emailField sizeThatFits:contentSize], contentRect);
         frame.origin.y = currentY;
         _emailField.frame = frame;
@@ -226,7 +226,7 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
         CGSize fieldSize = [_passwordField sizeThatFits:boundingSize];
         size.height += fieldSize.height;
     }
-    if (_emailField) {
+    if (_emailField && !_emailAsUsername) {
         CGSize fieldSize = [_emailField sizeThatFits:boundingSize];
         size.height += fieldSize.height;
     }
