@@ -21,7 +21,7 @@
 
 #import "PFQueryTableViewController.h"
 
-#import <Parse/PFQuery.h>
+#import <Parse/Parse.h>
 
 #import "PFActivityIndicatorTableViewCell.h"
 #import "PFImageView.h"
@@ -158,7 +158,7 @@
 
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
-    if ([self.objects count] == 0) {
+    if ([self.objects count] == 0 && ![Parse isLocalDatastoreEnabled]) {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
 
@@ -192,7 +192,9 @@
     PFQuery *query = [self queryForTable];
     [self _alterQuery:query forLoadingPage:page];
     [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
-        if (query.cachePolicy != kPFCachePolicyCacheOnly && error.code == kPFErrorCacheMiss) {
+        if (![Parse isLocalDatastoreEnabled] &&
+            query.cachePolicy != kPFCachePolicyCacheOnly &&
+            error.code == kPFErrorCacheMiss) {
             // no-op on cache miss
             return;
         }
