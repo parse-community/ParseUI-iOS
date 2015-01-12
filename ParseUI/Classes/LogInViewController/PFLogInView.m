@@ -117,7 +117,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
         _usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         _usernameField.returnKeyType = UIReturnKeyNext;
         [self addSubview:_usernameField];
-        [self _updateUsernameFieldPlaceholder];
+        [self _updateUsernameFieldStyle];
 
         _passwordField = [[PFTextField alloc] initWithFrame:CGRectZero
                                              separatorStyle:PFTextFieldSeparatorStyleBottom];
@@ -393,7 +393,8 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
 - (void)setEmailAsUsername:(BOOL)otherEmailAsUsername {
     if (_emailAsUsername != otherEmailAsUsername) {
         _emailAsUsername = otherEmailAsUsername;
-        [self _updateUsernameFieldPlaceholder];
+
+        [self _updateUsernameFieldStyle];
     }
 }
 
@@ -421,15 +422,19 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
     }
 }
 
-- (void)_updateUsernameFieldPlaceholder {
-    NSString *usernamePlaceholder;
+- (void)_updateUsernameFieldStyle {
+    UIKeyboardType keyboardType = UIKeyboardTypeDefault;
+    NSString *usernamePlaceholder = nil;
     if (!_emailAsUsername) {
+        keyboardType = UIKeyboardTypeDefault;
         usernamePlaceholder = NSLocalizedString(@"Username", @"Username");
     } else {
+        keyboardType = UIKeyboardTypeEmailAddress;
         usernamePlaceholder = NSLocalizedString(@"Email", @"Email");
     }
 
     _usernameField.placeholder = usernamePlaceholder;
+    _usernameField.keyboardType = keyboardType;
 }
 
 @end

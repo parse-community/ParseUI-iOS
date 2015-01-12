@@ -61,7 +61,7 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
     _usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     _usernameField.returnKeyType = UIReturnKeyNext;
     [self addSubview:_usernameField];
-    [self _updateUsernameFieldPlaceholder];
+    [self _updateUsernameFieldStyle];
 
     _passwordField = [[PFTextField alloc] initWithFrame:CGRectZero
                                          separatorStyle:PFTextFieldSeparatorStyleBottom];
@@ -293,22 +293,26 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
             }
             [self setNeedsLayout];
         }
-        [self _updateUsernameFieldPlaceholder];
+        [self _updateUsernameFieldStyle];
     }
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)_updateUsernameFieldPlaceholder {
-    NSString *placeholder;
+- (void)_updateUsernameFieldStyle {
+    UIKeyboardType keyboardType = UIKeyboardTypeDefault;
+    NSString *placeholder = nil;
     if (!_emailAsUsername) {
         placeholder = NSLocalizedString(@"Username", @"Username");
+        keyboardType = UIKeyboardTypeDefault;
     } else {
         placeholder = NSLocalizedString(@"Email", @"Email");
+        keyboardType = UIKeyboardTypeEmailAddress;
     }
 
     _usernameField.placeholder = placeholder;
+    _usernameField.keyboardType = keyboardType;
 }
 
 @end
