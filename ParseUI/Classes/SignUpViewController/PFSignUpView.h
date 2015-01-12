@@ -45,6 +45,8 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
                              PFSignUpFieldsDismissButton)
 };
 
+@class PFTextField;
+
 /*!
  The `PFSignUpView` class provides a standard sign up interface for authenticating a <PFUser>.
  */
@@ -104,24 +106,24 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 /*!
  @abstract The username text field.
  */
-@property (nonatomic, strong, readonly) UITextField *usernameField;
+@property (nonatomic, strong, readonly) PFTextField *usernameField;
 
 /*!
  @abstract The password text field.
  */
-@property (nonatomic, strong, readonly) UITextField *passwordField;
+@property (nonatomic, strong, readonly) PFTextField *passwordField;
 
 /*!
  @abstract The email text field. It is `nil` if the element is not enabled.
  */
-@property (nonatomic, strong, readonly) UITextField *emailField;
+@property (nonatomic, strong, readonly) PFTextField *emailField;
 
 /*!
  @abstract The additional text field. It is `nil` if the element is not enabled.
 
  @discussion This field is intended to be customized.
  */
-@property (nonatomic, strong, readonly) UITextField *additionalField;
+@property (nonatomic, strong, readonly) PFTextField *additionalField;
 
 /*!
  @abstract The sign up button. It is `nil` if the element is not enabled.

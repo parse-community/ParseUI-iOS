@@ -39,6 +39,8 @@
 
     self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 
+    _separatorColor = [PFColor textFieldSeparatorColor];
+
     return self;
 }
 
@@ -76,7 +78,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     if (self.separatorStyle != PFTextFieldSeparatorStyleNone) {
-        [[PFColor textFieldSeparatorColor] setFill];
+        [self.separatorColor setFill];
     }
 
     if (self.separatorStyle & PFTextFieldSeparatorStyleTop) {

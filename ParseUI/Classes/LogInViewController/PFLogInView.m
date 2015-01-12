@@ -34,17 +34,6 @@ static NSString *const PFLogInViewDefaultLogoImageName = @"parse_logo.png";
 static NSString *const PFLogInViewDefaultFacebookButtonImageName = @"facebook_icon.png";
 static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon.png";
 
-
-@interface PFLogInView ()
-
-@property (nonatomic, strong, readwrite) PFActionButton *facebookButton;
-@property (nonatomic, strong, readwrite) PFActionButton *twitterButton;
-
-@property (nonatomic, strong, readwrite) UITextField *usernameField;
-@property (nonatomic, strong, readwrite) UITextField *passwordField;
-
-@end
-
 @implementation PFLogInView
 
 #pragma mark -

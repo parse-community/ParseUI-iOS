@@ -28,4 +28,5 @@
 #import <ParseUI/PFSignUpView.h>
 #import <ParseUI/PFSignUpViewController.h>
 #import <ParseUI/PFTableViewCell.h>
+#import <ParseUI/PFTextField.h>
 #import <ParseUI/ParseUIConstants.h>
