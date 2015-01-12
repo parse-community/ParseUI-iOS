@@ -33,6 +33,9 @@
 
 @implementation PFPrimaryButton
 
+#pragma mark -
+#pragma mark Init
+
 - (instancetype)initWithBackgroundImageColor:(UIColor *)color {
     self = [super initWithFrame:CGRectZero];
     if (!self) return nil;

@@ -32,6 +32,9 @@
 
 @implementation PFLoadingView
 
+#pragma mark -
+#pragma mark Init
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -48,6 +51,9 @@
     }
     return self;
 }
+
+#pragma mark -
+#pragma mark UIView
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -69,4 +75,5 @@
     loadingLabelFrame.origin.x = CGRectGetMaxX(activityIndicatorFrame) + viewsInset;
     _loadingLabel.frame = loadingLabelFrame;
 }
+
 @end
