@@ -340,14 +340,14 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
                                         @"Password missing error message in PFSignUpViewController");
             responder = _signUpView.passwordField;
         } else if (errorCode == kPFErrorUsernameTaken) {
-            NSString *format = NSLocalizedString(@"The username '%@' is taken. Please try choosing another username.",
+            NSString *format = NSLocalizedString(@"The username '%@' is taken. Please try choosing a different username.",
                                                  @"Username taken error format in PFSignUpViewController");
             message = [NSString stringWithFormat:format, _signUpView.usernameField.text];
             responder = _signUpView.usernameField;
         } else if (error.code == kPFErrorUserEmailTaken) {
-            NSString *format = NSLocalizedString(@"The email '%@' is taken. Please try using another email.",
+            NSString *format = NSLocalizedString(@"The email '%@' is taken. Please try using a different email.",
                                                  @"Email is taken error format in PFSignUpViewController.");
-            UITextField *textField = self.emailAsUsername ? _signUpView.usernameField : _signUpView.usernameField;
+            UITextField *textField = self.emailAsUsername ? _signUpView.usernameField : _signUpView.emailField;
 
             message = [NSString stringWithFormat:format, textField.text];
             responder = textField;
