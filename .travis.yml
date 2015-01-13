@@ -1,0 +1,12 @@
+language: objective-c
+before_install:
+  - brew update
+  - brew reinstall xctool
+  - gem install cocoapods --quiet
+  - pod setup --silent
+  - pod repo update --silent
+script:
+  - pod install
+  - pod lib lint
+  - xctool -workspace ParseUI.xcworkspace -scheme 'ParseUI' -sdk iphonesimulator build
+  - xctool -workspace ParseUI.xcworkspace -scheme 'ParseUIDemo' -sdk iphonesimulator build
