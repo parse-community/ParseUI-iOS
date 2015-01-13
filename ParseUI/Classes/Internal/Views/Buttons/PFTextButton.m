@@ -23,6 +23,9 @@
 
 @implementation PFTextButton
 
+#pragma mark -
+#pragma mark Init
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
@@ -36,6 +39,9 @@
 
     return self;
 }
+
+#pragma mark -
+#pragma mark UIView
 
 - (CGSize)sizeThatFits:(CGSize)boundingSize {
     CGSize size = [super sizeThatFits:boundingSize];

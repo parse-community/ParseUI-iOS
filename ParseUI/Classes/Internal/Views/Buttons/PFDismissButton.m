@@ -25,6 +25,9 @@
 
 @implementation PFDismissButton
 
+#pragma mark -
+#pragma mark Init
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
@@ -33,6 +36,9 @@
 
     return self;
 }
+
+#pragma mark -
+#pragma mark Init
 
 - (UIImage *)_defaultImage {
     CGRect imageRect = PFRectMakeWithSize(CGSizeMake(22.0f, 22.0f));
@@ -58,6 +64,9 @@
 
     return image;
 }
+
+#pragma mark -
+#pragma mark UIView
 
 - (CGSize)sizeThatFits:(CGSize)boundingSize {
     CGSize size = CGSizeZero;

@@ -55,6 +55,8 @@ typedef NS_OPTIONS(NSInteger, PFLogInFields) {
                             PFLogInFieldsDismissButton)
 };
 
+@class PFTextField;
+
 /*!
  The `PFLogInView` class provides a standard log in interface for authenticating a <PFUser>.
  */
@@ -112,12 +114,12 @@ typedef NS_OPTIONS(NSInteger, PFLogInFields) {
 /*!
  @abstract The username text field. It is `nil` if the element is not enabled.
  */
-@property (nonatomic, strong, readonly) UITextField *usernameField;
+@property (nonatomic, strong, readonly) PFTextField *usernameField;
 
 /*!
  @abstract The password text field. It is `nil` if the element is not enabled.
  */
-@property (nonatomic, strong, readonly) UITextField *passwordField;
+@property (nonatomic, strong, readonly) PFTextField *passwordField;
 
 /*!
  @abstract The password forgotten button. It is `nil` if the element is not enabled.

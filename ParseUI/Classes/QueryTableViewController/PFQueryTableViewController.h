@@ -223,5 +223,4 @@
  */
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath;
 
-
 @end

@@ -27,6 +27,7 @@
 #import "PFAlertView.h"
 #import "PFPrimaryButton.h"
 #import "PFSignUpViewController.h"
+#import "PFTextField.h"
 
 NSString *const PFLogInSuccessNotification = @"com.parse.ui.login.success";
 NSString *const PFLogInFailureNotification = @"com.parse.ui.login.failure";
