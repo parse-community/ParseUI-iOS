@@ -56,6 +56,7 @@
 		8185BA791A64241B002815C0 /* PFQueryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8185BA771A64241B002815C0 /* PFQueryCollectionViewController.m */; };
 		8185BA7C1A642A8B002815C0 /* PFCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8185BA7A1A642A8B002815C0 /* PFCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8185BA7D1A642A8B002815C0 /* PFCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8185BA7B1A642A8B002815C0 /* PFCollectionViewCell.m */; };
+		819A4B3A1A6808EA00D01241 /* SubtitleImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819A4B391A6808EA00D01241 /* SubtitleImageCollectionViewController.m */; };
 		81C5993F1A64346000F574E8 /* SimpleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C5993E1A64346000F574E8 /* SimpleCollectionViewController.m */; };
 		81C599421A6454C900F574E8 /* PaginatedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C599411A6454C900F574E8 /* PaginatedCollectionViewController.m */; };
 		81C599451A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C599431A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h */; };
@@ -146,6 +147,8 @@
 		8185BA771A64241B002815C0 /* PFQueryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFQueryCollectionViewController.m; sourceTree = "<group>"; };
 		8185BA7A1A642A8B002815C0 /* PFCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCollectionViewCell.h; sourceTree = "<group>"; };
 		8185BA7B1A642A8B002815C0 /* PFCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCollectionViewCell.m; sourceTree = "<group>"; };
+		819A4B381A6808EA00D01241 /* SubtitleImageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtitleImageCollectionViewController.h; sourceTree = "<group>"; };
+		819A4B391A6808EA00D01241 /* SubtitleImageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtitleImageCollectionViewController.m; sourceTree = "<group>"; };
 		81C5993D1A64346000F574E8 /* SimpleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCollectionViewController.h; sourceTree = "<group>"; };
 		81C5993E1A64346000F574E8 /* SimpleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCollectionViewController.m; sourceTree = "<group>"; };
 		81C599401A6454C900F574E8 /* PaginatedCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaginatedCollectionViewController.h; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 				81C599411A6454C900F574E8 /* PaginatedCollectionViewController.m */,
 				81C599471A64636200F574E8 /* SectionedCollectionViewController.h */,
 				81C599481A64636200F574E8 /* SectionedCollectionViewController.m */,
+				819A4B381A6808EA00D01241 /* SubtitleImageCollectionViewController.h */,
+				819A4B391A6808EA00D01241 /* SubtitleImageCollectionViewController.m */,
 			);
 			path = QueryCollectionViewController;
 			sourceTree = "<group>";
@@ -580,7 +585,6 @@
 				810D6C2319F7F006005B3DB2 /* PFDismissButton.h in Headers */,
 				810D6C2719F7F006005B3DB2 /* PFTextButton.h in Headers */,
 				81ED077C19F6809F009745F4 /* PFTableViewCell.h in Headers */,
-				810D6C2B19F7F006005B3DB2 /* PFTextField.h in Headers */,
 				8185BA781A64241B002815C0 /* PFQueryCollectionViewController.h in Headers */,
 				810D6C1519F7F006005B3DB2 /* PFActivityIndicatorTableViewCell.h in Headers */,
 				810D6C1919F7F006005B3DB2 /* PFColor.h in Headers */,
@@ -750,6 +754,7 @@
 				81472FB31A1AB37500FD6EED /* CustomSignUpViewController.m in Sources */,
 				81472FB41A1AB37500FD6EED /* CustomLogInViewController.m in Sources */,
 				81472FB91A1AB37500FD6EED /* CustomProductTableViewController.m in Sources */,
+				819A4B3A1A6808EA00D01241 /* SubtitleImageCollectionViewController.m in Sources */,
 				81472FB51A1AB37500FD6EED /* SimpleTableViewController.m in Sources */,
 				81472FB61A1AB37500FD6EED /* PaginatedTableViewController.m in Sources */,
 				81472FB71A1AB37500FD6EED /* SectionedTableViewController.m in Sources */,
@@ -779,7 +784,6 @@
 				81ED077D19F6809F009745F4 /* PFTableViewCell.m in Sources */,
 				810D6C2219F7F006005B3DB2 /* PFActionButton.m in Sources */,
 				810D6C2819F7F006005B3DB2 /* PFTextButton.m in Sources */,
-				810D6C2C19F7F006005B3DB2 /* PFTextField.m in Sources */,
 				8185BA7D1A642A8B002815C0 /* PFCollectionViewCell.m in Sources */,
 				810D6C1619F7F006005B3DB2 /* PFActivityIndicatorTableViewCell.m in Sources */,
 				810D6C2419F7F006005B3DB2 /* PFDismissButton.m in Sources */,

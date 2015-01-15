@@ -32,6 +32,7 @@
 #import "SectionedTableViewController.h"
 #import "SimpleCollectionViewController.h"
 #import "SimpleTableViewController.h"
+#import "SubtitleImageCollectionViewController.h"
 #import "SubtitleImageTableViewController.h"
 
 typedef NS_ENUM(uint8_t, PFUIDemoType) {
@@ -60,6 +61,7 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
     PFUIDemoTypeSignUpMinPasswordLength,
     PFUIDemoTypeImageTableDefaultStyle,
     PFUIDemoTypeImageTableSubtitleStyle,
+    PFUIDemoTypeImageCollection,
     PFUIDemoTypePurchase,
     PFUIDemoTypeCustomizedPurchase
 };
@@ -105,6 +107,7 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
                            @"Sign Up Minimum Password Length",
                            @"Remote Image Table Default Style",
                            @"Remote Image Table Subtitle Style",
+                           @"Remote Image Collection",
                            @"Purchase",
                            @"Custom Purchase" ];
     }
@@ -363,6 +366,11 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
             [self.navigationController pushViewController:tableViewController animated:YES];
             break;
         }
+        case PFUIDemoTypeImageCollection: {
+            SubtitleImageCollectionViewController *controller = [[SubtitleImageCollectionViewController alloc] initWithClassName:@"App"];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
         case PFUIDemoTypePurchase: {
             PFProductTableViewController *purchaseController = [[PFProductTableViewController alloc] init];
             [self.navigationController pushViewController:purchaseController animated:YES];
