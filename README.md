@@ -67,6 +67,26 @@ PFQueryTableViewController *controller = [[PFQueryTableViewController alloc] ini
 [self presentViewController:controller animated:YES completion:nil];
 ```
 
+#### PFQueryCollectionViewController
+A lot of advanced use cases usually include displaying data in a custom dynamic layout that is a different from simple list.
+`PFQueryTableViewController` is a sub-class of `UICollectionViewController` that provides a layer of abstraction that lets you easily display data from one of your Parse classes in any dynamic and custom layout you might think of
+
+To display data in a simple grid layout you can use the default `UICollectionViewFlowLayout`:
+```objective-c
+PFQueryCollectionViewController *controller = [[PFQueryCollectionViewController alloc] initWithClassName:@"Todo"];
+UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)controller.collectionViewLayout;
+flowLayout.itemSize = CGSizeMake(100.0f, 100.0f);
+[self presentViewController:controller animated:YES completion:nil];
+```
+
+And, for example, to display data in a circular layout - you can pass an instance of `UICollectionViewLayout` at initialization time:
+```objective-c
+UICollectionViewLayout *customCircularLayout = ...;
+PFQueryCollectionViewController *controller = [[PFQueryCollectionViewController alloc] initWithCollectionViewLayout:customCircularLayout
+                                                                                                          className:@"Todo"];
+[self presentViewController:controller animated:YES completion:nil];
+```
+
 #### PFImageView
 Many apps need to display images stored in the Parse Cloud as `PFFile`s.  
 However, to load remote images with the built-in `UIImageView` involves writing many lines of boilerplate code.  
