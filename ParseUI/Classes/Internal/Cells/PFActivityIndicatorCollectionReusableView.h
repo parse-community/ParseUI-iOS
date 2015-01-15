@@ -19,16 +19,20 @@
  *
  */
 
-#import <ParseUI/PFCollectionViewCell.h>
-#import <ParseUI/PFImageView.h>
-#import <ParseUI/PFLogInView.h>
-#import <ParseUI/PFLogInViewController.h>
-#import <ParseUI/PFProductTableViewController.h>
-#import <ParseUI/PFPurchaseTableViewCell.h>
-#import <ParseUI/PFQueryCollectionViewController.h>
-#import <ParseUI/PFQueryTableViewController.h>
-#import <ParseUI/PFSignUpView.h>
-#import <ParseUI/PFSignUpViewController.h>
-#import <ParseUI/PFTableViewCell.h>
-#import <ParseUI/PFTextField.h>
-#import <ParseUI/ParseUIConstants.h>
+#import <UIKit/UIKit.h>
+
+/*!
+ The `PFActivityIndicatorCollectionReusableView` class represents a collection footer
+ that has a simple text label and displays UIActivityIndicatorView if <animating> property is set to `YES`.
+ An instance of this class is used as a default next page button inside <PFQueryCollectionViewController>.
+ */
+@interface PFActivityIndicatorCollectionReusableView : UICollectionReusableView
+
+@property (nonatomic, strong, readonly) UILabel *textLabel;
+
+@property (nonatomic, assign, getter=isAnimating) BOOL animating;
+
+- (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
+- (void)removeTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
+
+@end

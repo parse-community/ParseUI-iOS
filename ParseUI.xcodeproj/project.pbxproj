@@ -52,6 +52,16 @@
 		81472FC41A1AB51600FD6EED /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* ParseUI.framework */; };
 		816A5CCF1A641D1900427332 /* PFTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 816A5CCD1A641D1900427332 /* PFTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		816A5CD01A641D1900427332 /* PFTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 816A5CCE1A641D1900427332 /* PFTextField.m */; };
+		8185BA781A64241B002815C0 /* PFQueryCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8185BA761A64241B002815C0 /* PFQueryCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8185BA791A64241B002815C0 /* PFQueryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8185BA771A64241B002815C0 /* PFQueryCollectionViewController.m */; };
+		8185BA7C1A642A8B002815C0 /* PFCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8185BA7A1A642A8B002815C0 /* PFCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8185BA7D1A642A8B002815C0 /* PFCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8185BA7B1A642A8B002815C0 /* PFCollectionViewCell.m */; };
+		819A4B3A1A6808EA00D01241 /* SubtitleImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819A4B391A6808EA00D01241 /* SubtitleImageCollectionViewController.m */; };
+		81C5993F1A64346000F574E8 /* SimpleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C5993E1A64346000F574E8 /* SimpleCollectionViewController.m */; };
+		81C599421A6454C900F574E8 /* PaginatedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C599411A6454C900F574E8 /* PaginatedCollectionViewController.m */; };
+		81C599451A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C599431A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h */; };
+		81C599461A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C599441A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.m */; };
+		81C599491A64636200F574E8 /* SectionedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C599481A64636200F574E8 /* SectionedCollectionViewController.m */; };
 		81E9CCFF19F56D3100487B0F /* PFSignUpView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81E9CCD319F56D3000487B0F /* PFSignUpView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81E9CD0019F56D3100487B0F /* PFSignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E9CCD419F56D3000487B0F /* PFSignUpView.m */; };
 		81E9CD0119F56D3100487B0F /* PFSignUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 81E9CCD519F56D3000487B0F /* PFSignUpViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -133,6 +143,20 @@
 		81472FB01A1AB37500FD6EED /* ParseUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = ParseUIDemo.app; sourceTree = SOURCE_ROOT; };
 		816A5CCD1A641D1900427332 /* PFTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTextField.h; sourceTree = "<group>"; };
 		816A5CCE1A641D1900427332 /* PFTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFTextField.m; sourceTree = "<group>"; };
+		8185BA761A64241B002815C0 /* PFQueryCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFQueryCollectionViewController.h; sourceTree = "<group>"; };
+		8185BA771A64241B002815C0 /* PFQueryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFQueryCollectionViewController.m; sourceTree = "<group>"; };
+		8185BA7A1A642A8B002815C0 /* PFCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCollectionViewCell.h; sourceTree = "<group>"; };
+		8185BA7B1A642A8B002815C0 /* PFCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCollectionViewCell.m; sourceTree = "<group>"; };
+		819A4B381A6808EA00D01241 /* SubtitleImageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtitleImageCollectionViewController.h; sourceTree = "<group>"; };
+		819A4B391A6808EA00D01241 /* SubtitleImageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtitleImageCollectionViewController.m; sourceTree = "<group>"; };
+		81C5993D1A64346000F574E8 /* SimpleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCollectionViewController.h; sourceTree = "<group>"; };
+		81C5993E1A64346000F574E8 /* SimpleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCollectionViewController.m; sourceTree = "<group>"; };
+		81C599401A6454C900F574E8 /* PaginatedCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaginatedCollectionViewController.h; sourceTree = "<group>"; };
+		81C599411A6454C900F574E8 /* PaginatedCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaginatedCollectionViewController.m; sourceTree = "<group>"; };
+		81C599431A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFActivityIndicatorCollectionReusableView.h; sourceTree = "<group>"; };
+		81C599441A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFActivityIndicatorCollectionReusableView.m; sourceTree = "<group>"; };
+		81C599471A64636200F574E8 /* SectionedCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionedCollectionViewController.h; sourceTree = "<group>"; };
+		81C599481A64636200F574E8 /* SectionedCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionedCollectionViewController.m; sourceTree = "<group>"; };
 		81E9CCD319F56D3000487B0F /* PFSignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSignUpView.h; sourceTree = "<group>"; };
 		81E9CCD419F56D3000487B0F /* PFSignUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFSignUpView.m; sourceTree = "<group>"; };
 		81E9CCD519F56D3000487B0F /* PFSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSignUpViewController.h; sourceTree = "<group>"; };
@@ -234,6 +258,8 @@
 			children = (
 				810D6BFA19F7F005005B3DB2 /* PFActivityIndicatorTableViewCell.h */,
 				810D6BFB19F7F005005B3DB2 /* PFActivityIndicatorTableViewCell.m */,
+				81C599431A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h */,
+				81C599441A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -363,6 +389,7 @@
 				81472F931A1AB37500FD6EED /* SignUpViewController */,
 				81472F961A1AB37500FD6EED /* LogInViewController */,
 				81472FA11A1AB37500FD6EED /* QueryTableViewController */,
+				81C5993C1A64344800F574E8 /* QueryCollectionViewController */,
 			);
 			path = CustomViewControllers;
 			sourceTree = "<group>";
@@ -412,12 +439,37 @@
 			path = ParseUIDemo/Resources;
 			sourceTree = "<group>";
 		};
+		8185BA751A64241B002815C0 /* QueryCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8185BA761A64241B002815C0 /* PFQueryCollectionViewController.h */,
+				8185BA771A64241B002815C0 /* PFQueryCollectionViewController.m */,
+			);
+			path = QueryCollectionViewController;
+			sourceTree = "<group>";
+		};
+		81C5993C1A64344800F574E8 /* QueryCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81C5993D1A64346000F574E8 /* SimpleCollectionViewController.h */,
+				81C5993E1A64346000F574E8 /* SimpleCollectionViewController.m */,
+				81C599401A6454C900F574E8 /* PaginatedCollectionViewController.h */,
+				81C599411A6454C900F574E8 /* PaginatedCollectionViewController.m */,
+				81C599471A64636200F574E8 /* SectionedCollectionViewController.h */,
+				81C599481A64636200F574E8 /* SectionedCollectionViewController.m */,
+				819A4B381A6808EA00D01241 /* SubtitleImageCollectionViewController.h */,
+				819A4B391A6808EA00D01241 /* SubtitleImageCollectionViewController.m */,
+			);
+			path = QueryCollectionViewController;
+			sourceTree = "<group>";
+		};
 		81E9CCB419F56D3000487B0F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				81E9CCD219F56D3000487B0F /* SignUpViewController */,
 				81ED075019F68028009745F4 /* LogInViewController */,
 				81ED079819F680B9009745F4 /* QueryTableViewController */,
+				8185BA751A64241B002815C0 /* QueryCollectionViewController */,
 				810D6C2D19F7F379005B3DB2 /* ProductTableViewController */,
 				81ED075919F6809F009745F4 /* Cells */,
 				81ED077919F6809F009745F4 /* Views */,
@@ -466,6 +518,8 @@
 				81ED075B19F6809F009745F4 /* PFTableViewCell.m */,
 				810D6C3219F7F38B005B3DB2 /* PFPurchaseTableViewCell.h */,
 				810D6C3319F7F38B005B3DB2 /* PFPurchaseTableViewCell.m */,
+				8185BA7A1A642A8B002815C0 /* PFCollectionViewCell.h */,
+				8185BA7B1A642A8B002815C0 /* PFCollectionViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -509,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81E9CD1419F56D6B00487B0F /* ParseUIConstants.h in Headers */,
+				8185BA7C1A642A8B002815C0 /* PFCollectionViewCell.h in Headers */,
 				810D6C1F19F7F006005B3DB2 /* PFImageCache.h in Headers */,
 				81E9CD1319F56D6B00487B0F /* ParseUI.h in Headers */,
 				810D6C3419F7F38B005B3DB2 /* PFPurchaseTableViewCell.h in Headers */,
@@ -523,12 +578,14 @@
 				81ED075519F68028009745F4 /* PFLogInView.h in Headers */,
 				810D6C1D19F7F006005B3DB2 /* PFRect.h in Headers */,
 				810D6C2919F7F006005B3DB2 /* PFLoadingView.h in Headers */,
+				81C599451A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h in Headers */,
 				810D6C1B19F7F006005B3DB2 /* PFImage.h in Headers */,
 				81ED075719F68028009745F4 /* PFLogInViewController.h in Headers */,
 				810D6C2519F7F006005B3DB2 /* PFPrimaryButton.h in Headers */,
 				810D6C2319F7F006005B3DB2 /* PFDismissButton.h in Headers */,
 				810D6C2719F7F006005B3DB2 /* PFTextButton.h in Headers */,
 				81ED077C19F6809F009745F4 /* PFTableViewCell.h in Headers */,
+				8185BA781A64241B002815C0 /* PFQueryCollectionViewController.h in Headers */,
 				810D6C1519F7F006005B3DB2 /* PFActivityIndicatorTableViewCell.h in Headers */,
 				810D6C1919F7F006005B3DB2 /* PFColor.h in Headers */,
 				81E9CD0119F56D3100487B0F /* PFSignUpViewController.h in Headers */,
@@ -691,15 +748,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C5993F1A64346000F574E8 /* SimpleCollectionViewController.m in Sources */,
 				81472FBB1A1AB37500FD6EED /* main.m in Sources */,
+				81C599421A6454C900F574E8 /* PaginatedCollectionViewController.m in Sources */,
 				81472FB31A1AB37500FD6EED /* CustomSignUpViewController.m in Sources */,
 				81472FB41A1AB37500FD6EED /* CustomLogInViewController.m in Sources */,
 				81472FB91A1AB37500FD6EED /* CustomProductTableViewController.m in Sources */,
+				819A4B3A1A6808EA00D01241 /* SubtitleImageCollectionViewController.m in Sources */,
 				81472FB51A1AB37500FD6EED /* SimpleTableViewController.m in Sources */,
 				81472FB61A1AB37500FD6EED /* PaginatedTableViewController.m in Sources */,
 				81472FB71A1AB37500FD6EED /* SectionedTableViewController.m in Sources */,
 				81472FB11A1AB37500FD6EED /* AppDelegate.m in Sources */,
 				81472FB21A1AB37500FD6EED /* PFUIDemoViewController.m in Sources */,
+				81C599491A64636200F574E8 /* SectionedCollectionViewController.m in Sources */,
 				81472FB81A1AB37500FD6EED /* SubtitleImageTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -709,6 +770,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81ED075819F68028009745F4 /* PFLogInViewController.m in Sources */,
+				8185BA791A64241B002815C0 /* PFQueryCollectionViewController.m in Sources */,
 				810D6C1C19F7F006005B3DB2 /* PFImage.m in Sources */,
 				810D6C1819F7F006005B3DB2 /* PFAlertView.m in Sources */,
 				81E9CD0219F56D3100487B0F /* PFSignUpViewController.m in Sources */,
@@ -717,10 +779,12 @@
 				816A5CD01A641D1900427332 /* PFTextField.m in Sources */,
 				810D6C3519F7F38B005B3DB2 /* PFPurchaseTableViewCell.m in Sources */,
 				81ED079C19F680B9009745F4 /* PFQueryTableViewController.m in Sources */,
+				81C599461A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.m in Sources */,
 				81E9CD4219F57AC500487B0F /* PFResources.m in Sources */,
 				81ED077D19F6809F009745F4 /* PFTableViewCell.m in Sources */,
 				810D6C2219F7F006005B3DB2 /* PFActionButton.m in Sources */,
 				810D6C2819F7F006005B3DB2 /* PFTextButton.m in Sources */,
+				8185BA7D1A642A8B002815C0 /* PFCollectionViewCell.m in Sources */,
 				810D6C1619F7F006005B3DB2 /* PFActivityIndicatorTableViewCell.m in Sources */,
 				810D6C2419F7F006005B3DB2 /* PFDismissButton.m in Sources */,
 				810D6C1E19F7F006005B3DB2 /* PFRect.m in Sources */,

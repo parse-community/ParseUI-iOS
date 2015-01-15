@@ -26,15 +26,22 @@
 #import "CustomLogInViewController.h"
 #import "CustomProductTableViewController.h"
 #import "CustomSignUpViewController.h"
+#import "PaginatedCollectionViewController.h"
 #import "PaginatedTableViewController.h"
+#import "SectionedCollectionViewController.h"
 #import "SectionedTableViewController.h"
+#import "SimpleCollectionViewController.h"
 #import "SimpleTableViewController.h"
+#import "SubtitleImageCollectionViewController.h"
 #import "SubtitleImageTableViewController.h"
 
 typedef NS_ENUM(uint8_t, PFUIDemoType) {
     PFUIDemoTypeSimpleTable,
     PFUIDemoTypePaginatedTable,
     PFUIDemoTypeSectionedTable,
+    PFUIDemoTypeSimpleCollection,
+    PFUIDemoTypePaginatedCollection,
+    PFUIDemoTypeSectionedCollection,
     PFUIDemoTypeLogInDefault,
     PFUIDemoTypeLogInUsernamePassword,
     PFUIDemoTypeLogInPasswordForgotten,
@@ -54,6 +61,7 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
     PFUIDemoTypeSignUpMinPasswordLength,
     PFUIDemoTypeImageTableDefaultStyle,
     PFUIDemoTypeImageTableSubtitleStyle,
+    PFUIDemoTypeImageCollection,
     PFUIDemoTypePurchase,
     PFUIDemoTypeCustomizedPurchase
 };
@@ -77,6 +85,9 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
         _descriptions = @[ @"Simple Table",
                            @"Paginated Table",
                            @"Sectioned Table",
+                           @"Simple Collection",
+                           @"Paginated Collection",
+                           @"Sectioned Collection",
                            @"Log In Default",
                            @"Log In Username and Password",
                            @"Log In Password Forgotten",
@@ -96,6 +107,7 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
                            @"Sign Up Minimum Password Length",
                            @"Remote Image Table Default Style",
                            @"Remote Image Table Subtitle Style",
+                           @"Remote Image Collection",
                            @"Purchase",
                            @"Custom Purchase" ];
     }
@@ -146,6 +158,21 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
             [self.navigationController pushViewController:controller animated:YES];
             break;
         }
+        case PFUIDemoTypeSimpleCollection: {
+            SimpleCollectionViewController *controller = [[SimpleCollectionViewController alloc] initWithClassName:@"Todo"];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+        case PFUIDemoTypePaginatedCollection: {
+            PaginatedCollectionViewController *controller = [[PaginatedCollectionViewController alloc] initWithClassName:@"Todo"];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+        case PFUIDemoTypeSectionedCollection: {
+            SectionedCollectionViewController *controller = [[SectionedCollectionViewController alloc] initWithClassName:@"Todo"];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
         case PFUIDemoTypeLogInDefault: {
             PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
             logInController.delegate = self;
@@ -339,6 +366,11 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
             [self.navigationController pushViewController:tableViewController animated:YES];
             break;
         }
+        case PFUIDemoTypeImageCollection: {
+            SubtitleImageCollectionViewController *controller = [[SubtitleImageCollectionViewController alloc] initWithClassName:@"App"];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
         case PFUIDemoTypePurchase: {
             PFProductTableViewController *purchaseController = [[PFProductTableViewController alloc] init];
             [self.navigationController pushViewController:purchaseController animated:YES];
