@@ -83,8 +83,6 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
 #pragma mark UIViewController
 
 - (void)loadView {
-    [super loadView];
-
     self.collectionView.backgroundColor = [UIColor whiteColor];
 
     [self.collectionView registerClass:[PFCollectionViewCell class]
