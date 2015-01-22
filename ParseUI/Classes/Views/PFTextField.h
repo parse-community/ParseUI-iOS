@@ -24,7 +24,7 @@
 /*!
  `PFTextFieldSeparatorStyle` bitmask specifies the style of the separators,
  that should be used for a given `PFTextField`.
- 
+
  @see PFTextField
  */
 typedef NS_OPTIONS(uint8_t, PFTextFieldSeparatorStyle){
@@ -46,14 +46,14 @@ typedef NS_OPTIONS(uint8_t, PFTextFieldSeparatorStyle){
  @abstract Separator style bitmask that should be applied to this textfield.
 
  @discussion Default: <PFTextFieldSeparatorStyleNone>
- 
+
  @see PFTextFieldSeparatorStyle
  */
 @property (nonatomic, assign) PFTextFieldSeparatorStyle separatorStyle;
 
 /*!
  @abstract Color that should be used for the separators, if they are visible.
- 
+
  @discussion Default: `227,227,227,1.0`.
  */
 @property (nonatomic, strong) UIColor *separatorColor UI_APPEARANCE_SELECTOR;

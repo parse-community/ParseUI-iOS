@@ -23,10 +23,10 @@
 
 #import <Parse/Parse.h>
 
+#import "PFActivityIndicatorCollectionReusableView.h"
+#import "PFCollectionViewCell.h"
 #import "PFImageView.h"
 #import "PFLoadingView.h"
-#import "PFCollectionViewCell.h"
-#import "PFActivityIndicatorCollectionReusableView.h"
 
 static NSString *const PFQueryCollectionViewCellIdentifier = @"cell";
 static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"nextPageView";

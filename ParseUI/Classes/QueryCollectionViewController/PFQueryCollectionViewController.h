@@ -21,9 +21,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class PFQuery;
-@class PFObject;
 @class PFCollectionViewCell;
+@class PFObject;
+@class PFQuery;
 
 /*!
  This class allows you to think about a one-to-one mapping between a <PFObject> and a `UICollectionViewCell`,
@@ -37,7 +37,7 @@
  - Loading screen, shown before any data is loaded.
  - Automatic loading and management of the objects array.
  - Various methods that can be overridden to customize behavior at major events in the data cycle.
- 
+
  @see PFCollectionViewCell
  */
 @interface PFQueryCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
