@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ParseUI'
-  s.version          = '1.0.3'
+  s.version          = '1.1.0'
   s.license          =  { :type => 'SDK', :file => 'LICENSE'}
   s.homepage         = 'https://www.parse.com/'
   s.summary          = 'ParseUI is a library of useful User Interface components for the Parse iOS SDK.'
@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'ParseUI/Classes/LogInViewController/*.h',
                           'ParseUI/Classes/SignUpViewController/*.h',
                           'ParseUI/Classes/QueryTableViewController/*.h',
+                          'ParseUI/Classes/QueryCollectionViewController/*.h',
                           'ParseUI/Classes/ProductTableViewController/*.h',
                           'ParseUI/Classes/Views/*.h',
                           'ParseUI/Classes/Cells/*.h',
