@@ -90,6 +90,9 @@
         if (cachedImage) {
             self.image = cachedImage;
 
+            if (progressBlock) {
+                progressBlock(100);
+            }
             if (completion) {
                 completion(cachedImage, nil);
             }
@@ -147,11 +150,7 @@
                 [[PFImageCache sharedCache] setImage:image forURL:url];
             }
         });
-    } progressBlock:^(int percentDone) {
-        if (progressBlock) {
-            progressBlock(percentDone);
-        }
-    }];
+    } progressBlock:progressBlock];
 }
 
 @end

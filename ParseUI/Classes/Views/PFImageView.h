@@ -60,8 +60,8 @@
  @discussion Once the download completes, the remote image will be displayed.
  
  @param completion the completion block.
- @param progressBlock called with the download progress as the image is being downloaded. May not be called
-        if the image is cached.
+ @param progressBlock called with the download progress as the image is being downloaded. 
+ Will be called with a value of 100 before the completion block is called.
  */
 - (void)loadInBackground:(void (^)(UIImage *, NSError *))completion progressBlock:(void (^)(int percentDone))progressBlock;
 
