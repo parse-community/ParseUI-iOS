@@ -32,6 +32,7 @@
 #import "SectionedTableViewController.h"
 #import "SimpleCollectionViewController.h"
 #import "SimpleTableViewController.h"
+#import "StoryboardCollectionViewController.h"
 #import "SubtitleImageCollectionViewController.h"
 #import "SubtitleImageTableViewController.h"
 
@@ -42,6 +43,7 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
     PFUIDemoTypeSimpleCollection,
     PFUIDemoTypePaginatedCollection,
     PFUIDemoTypeSectionedCollection,
+    PFUIDemoTypeStoryboardCollection,
     PFUIDemoTypeLogInDefault,
     PFUIDemoTypeLogInUsernamePassword,
     PFUIDemoTypeLogInPasswordForgotten,
@@ -88,6 +90,7 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
                            @"Simple Collection",
                            @"Paginated Collection",
                            @"Sectioned Collection",
+                           @"Simple Storyboard Collection",
                            @"Log In Default",
                            @"Log In Username and Password",
                            @"Log In Password Forgotten",
@@ -173,6 +176,13 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
             [self.navigationController pushViewController:controller animated:YES];
         }
             break;
+        case PFUIDemoTypeStoryboardCollection: {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SimpleQueryCollectionStoryboard" bundle:NULL];
+            StoryboardCollectionViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"StoryboardCollectionViewController"];
+
+            [self.navigationController pushViewController:controller animated:YES];
+            break;
+        }
         case PFUIDemoTypeLogInDefault: {
             PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
             logInController.delegate = self;

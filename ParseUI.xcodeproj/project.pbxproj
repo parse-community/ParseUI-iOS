@@ -34,6 +34,8 @@
 		810D6C3119F7F379005B3DB2 /* PFProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 810D6C2F19F7F379005B3DB2 /* PFProductTableViewController.m */; };
 		810D6C3419F7F38B005B3DB2 /* PFPurchaseTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 810D6C3219F7F38B005B3DB2 /* PFPurchaseTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810D6C3519F7F38B005B3DB2 /* PFPurchaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 810D6C3319F7F38B005B3DB2 /* PFPurchaseTableViewCell.m */; };
+		812E5C011A7A8EB4000FBDE1 /* SimpleQueryCollectionStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 812E5C001A7A8EB4000FBDE1 /* SimpleQueryCollectionStoryboard.storyboard */; };
+		812E5C041A7A8EFB000FBDE1 /* StoryboardCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E5C031A7A8EFB000FBDE1 /* StoryboardCollectionViewController.m */; };
 		81472FB11A1AB37500FD6EED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81472F8E1A1AB37500FD6EED /* AppDelegate.m */; };
 		81472FB21A1AB37500FD6EED /* PFUIDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81472F901A1AB37500FD6EED /* PFUIDemoViewController.m */; };
 		81472FB31A1AB37500FD6EED /* CustomSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81472F921A1AB37500FD6EED /* CustomSignUpViewController.m */; };
@@ -113,6 +115,9 @@
 		810D6C3219F7F38B005B3DB2 /* PFPurchaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPurchaseTableViewCell.h; sourceTree = "<group>"; };
 		810D6C3319F7F38B005B3DB2 /* PFPurchaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPurchaseTableViewCell.m; sourceTree = "<group>"; };
 		811B095A1A0843B9008B3393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ParseUI/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		812E5C001A7A8EB4000FBDE1 /* SimpleQueryCollectionStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SimpleQueryCollectionStoryboard.storyboard; sourceTree = "<group>"; };
+		812E5C021A7A8EFB000FBDE1 /* StoryboardCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryboardCollectionViewController.h; sourceTree = "<group>"; };
+		812E5C031A7A8EFB000FBDE1 /* StoryboardCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryboardCollectionViewController.m; sourceTree = "<group>"; };
 		81472F671A1AB33800FD6EED /* ParseUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81472F8D1A1AB37500FD6EED /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81472F8E1A1AB37500FD6EED /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -425,6 +430,7 @@
 				81472FA91A1AB37500FD6EED /* 0.png */,
 				81472FAA1A1AB37500FD6EED /* 1.png */,
 				81472FAB1A1AB37500FD6EED /* 2.png */,
+				812E5C001A7A8EB4000FBDE1 /* SimpleQueryCollectionStoryboard.storyboard */,
 			);
 			name = Resources;
 			path = ParseUIDemo/Resources;
@@ -459,6 +465,8 @@
 				81C599481A64636200F574E8 /* SectionedCollectionViewController.m */,
 				819A4B381A6808EA00D01241 /* SubtitleImageCollectionViewController.h */,
 				819A4B391A6808EA00D01241 /* SubtitleImageCollectionViewController.m */,
+				812E5C021A7A8EFB000FBDE1 /* StoryboardCollectionViewController.h */,
+				812E5C031A7A8EFB000FBDE1 /* StoryboardCollectionViewController.m */,
 			);
 			path = QueryCollectionViewController;
 			sourceTree = "<group>";
@@ -690,6 +698,7 @@
 				81472FBE1A1AB37500FD6EED /* 0.png in Resources */,
 				81472FBF1A1AB37500FD6EED /* 1.png in Resources */,
 				81472FC01A1AB37500FD6EED /* 2.png in Resources */,
+				812E5C011A7A8EB4000FBDE1 /* SimpleQueryCollectionStoryboard.storyboard in Resources */,
 				81472FBD1A1AB37500FD6EED /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,6 +764,7 @@
 				81472FB41A1AB37500FD6EED /* CustomLogInViewController.m in Sources */,
 				81472FB91A1AB37500FD6EED /* CustomProductTableViewController.m in Sources */,
 				819A4B3A1A6808EA00D01241 /* SubtitleImageCollectionViewController.m in Sources */,
+				812E5C041A7A8EFB000FBDE1 /* StoryboardCollectionViewController.m in Sources */,
 				81472FB51A1AB37500FD6EED /* SimpleTableViewController.m in Sources */,
 				81472FB61A1AB37500FD6EED /* PaginatedTableViewController.m in Sources */,
 				81472FB71A1AB37500FD6EED /* SectionedTableViewController.m in Sources */,
