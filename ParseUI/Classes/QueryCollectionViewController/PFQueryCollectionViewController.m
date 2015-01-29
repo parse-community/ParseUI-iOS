@@ -44,12 +44,36 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
 
 @property (nonatomic, strong) PFActivityIndicatorCollectionReusableView *nextPageView;
 
+- (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
+
 @end
 
 @implementation PFQueryCollectionViewController
 
 #pragma mark -
 #pragma mark Init
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+    // initWithCoder is usually a parallel designated initializer, as is the case here
+    // It's used by storyboard
+    self = [super initWithCoder:decoder];
+    if (!self) return nil;
+
+    [self _setupWithClassName:nil];
+
+    return self;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    // This is used by interface builder
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (!self) return nil;
+
+    [self _setupWithClassName:nil];
+
+    return self;
+}
 
 - (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout className:(NSString *)className {
     self = [super initWithCollectionViewLayout:layout];
