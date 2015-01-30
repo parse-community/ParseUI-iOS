@@ -48,10 +48,21 @@
         CGSize imageViewSize = PFSizeMin(imageViewFrame.size, maxImageViewSize);
 
         imageViewFrame = PFRectMakeWithSizeCenteredInRect(imageViewSize, PFRectMakeWithSize(maxImageViewSize));
-        textLabelFrame = PFRectMakeWithOriginSize(CGPointMake(0.0f, CGRectGetMaxY(imageViewFrame)),
-                                                  CGSizeMake(CGRectGetWidth(bounds), CGRectGetHeight(bounds) - CGRectGetMaxY(imageViewFrame)));
+        CGFloat textLabelTopInset = (CGRectIsEmpty(imageViewFrame) ? 0.0f : CGRectGetMaxY(imageViewFrame));
+        
+        textLabelFrame = PFRectMakeWithOriginSize(CGPointMake(0.0f, textLabelTopInset),
+                                                  CGSizeMake(CGRectGetWidth(bounds), CGRectGetHeight(bounds) - textLabelTopInset));
     }
 
+    // Adapt content mode of _imageView to fit the image in bounds if the layout frame is smaller or center if it's bigger.
+    if (!CGRectIsEmpty(imageViewFrame)) {
+        if (CGRectContainsRect(PFRectMakeWithSize(_imageView.image.size), imageViewFrame)) {
+            _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        } else {
+            _imageView.contentMode = UIViewContentModeCenter;
+        }
+    }
+    
     _imageView.frame = CGRectIntegral(imageViewFrame);
     _textLabel.frame = CGRectIntegral(textLabelFrame);
 }
@@ -69,7 +80,6 @@
 - (PFImageView *)imageView {
     if (!_imageView) {
         _imageView = [[PFImageView alloc] initWithFrame:CGRectZero];
-        _imageView.contentMode = UIViewContentModeCenter;
         [self.contentView addSubview:_imageView];
     }
     return _imageView;
