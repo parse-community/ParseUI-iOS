@@ -191,7 +191,27 @@
 
     PFQuery *query = [self queryForTable];
     [self _alterQuery:query forLoadingPage:page];
+    
+    
+    __block int completionRunCount = 0;
+    __block NSArray *foundCachedObjects;
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
+        // If you are using kPFCachePolicyCacheThenNetwork, then your callback block will always be invoked twice.
+        // The first invocation will always be the result from the cache, while the second will always be the result from the server.
+        if (completionRunCount == 0) {
+            completionRunCount++;
+            // Remember the objects returned from the cache.
+            foundCachedObjects = [foundObjects valueForKey:@"objectId"];
+        }
+        else {
+            // Objects from server: Same as objects from cache? If so, do nothing; no need to reload table.
+            NSArray *foundServerObjects = [foundObjects valueForKey:@"objectId"];
+            if ([foundServerObjects isEqualToArray:foundCachedObjects])
+                return;
+        }
+      
+      
         if (![Parse isLocalDatastoreEnabled] &&
             query.cachePolicy != kPFCachePolicyCacheOnly &&
             error.code == kPFErrorCacheMiss) {
