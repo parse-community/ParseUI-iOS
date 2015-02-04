@@ -25,6 +25,10 @@ pod 'ParseUI'
 
 You can download the latest release in a form of `ParseUI.framework` from our [Releases](https://github.com/ParsePlatform/ParseUI-iOS/releases) page.
 
+Add `ParseUI.framework` to your Xcode project by dragging it into your project folder target, then add the following to any files that use `ParseUI` components:
+
+    #import <ParseUI/ParseUI.h>
+
 #### Build from Source
 
 `ParseUI` can also be built from source and supports Xcode subproject referencing.  
