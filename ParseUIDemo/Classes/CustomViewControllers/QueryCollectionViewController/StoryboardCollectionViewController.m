@@ -28,21 +28,6 @@
 @implementation StoryboardCollectionViewController
 
 #pragma mark -
-#pragma mark Init
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [super initWithCoder:decoder];
-    if (!self) return nil;
-
-    self.title = @"Storyboard Collection";
-    self.parseClassName = @"Todo";
-    self.pullToRefreshEnabled = YES;
-    self.paginationEnabled = NO;
-
-    return self;
-}
-
-#pragma mark -
 #pragma mark UIViewController
 
 - (void)viewDidLoad {

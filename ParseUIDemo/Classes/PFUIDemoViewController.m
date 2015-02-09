@@ -179,7 +179,6 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
         case PFUIDemoTypeStoryboardCollection: {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SimpleQueryCollectionStoryboard" bundle:NULL];
             StoryboardCollectionViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"StoryboardCollectionViewController"];
-
             [self.navigationController pushViewController:controller animated:YES];
             break;
         }
