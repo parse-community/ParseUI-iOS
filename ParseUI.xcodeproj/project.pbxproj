@@ -64,6 +64,8 @@
 		81C599451A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C599431A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h */; };
 		81C599461A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C599441A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.m */; };
 		81C599491A64636200F574E8 /* SectionedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C599481A64636200F574E8 /* SectionedCollectionViewController.m */; };
+		81C8D9BA1A89085D007B8DCF /* SimpleQueryTableStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C8D9B91A890857007B8DCF /* SimpleQueryTableStoryboard.storyboard */; };
+		81C8D9BD1A890BCA007B8DCF /* StoryboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C8D9BC1A890BCA007B8DCF /* StoryboardTableViewController.m */; };
 		81E9CCFF19F56D3100487B0F /* PFSignUpView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81E9CCD319F56D3000487B0F /* PFSignUpView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81E9CD0019F56D3100487B0F /* PFSignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E9CCD419F56D3000487B0F /* PFSignUpView.m */; };
 		81E9CD0119F56D3100487B0F /* PFSignUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 81E9CCD519F56D3000487B0F /* PFSignUpViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -115,7 +117,7 @@
 		810D6C3219F7F38B005B3DB2 /* PFPurchaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPurchaseTableViewCell.h; sourceTree = "<group>"; };
 		810D6C3319F7F38B005B3DB2 /* PFPurchaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPurchaseTableViewCell.m; sourceTree = "<group>"; };
 		811B095A1A0843B9008B3393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ParseUI/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
-		812E5C001A7A8EB4000FBDE1 /* SimpleQueryCollectionStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SimpleQueryCollectionStoryboard.storyboard; sourceTree = "<group>"; };
+		812E5C001A7A8EB4000FBDE1 /* SimpleQueryCollectionStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SimpleQueryCollectionStoryboard.storyboard; path = ../../../Resources/SimpleQueryCollectionStoryboard.storyboard; sourceTree = "<group>"; };
 		812E5C021A7A8EFB000FBDE1 /* StoryboardCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryboardCollectionViewController.h; sourceTree = "<group>"; };
 		812E5C031A7A8EFB000FBDE1 /* StoryboardCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryboardCollectionViewController.m; sourceTree = "<group>"; };
 		81472F671A1AB33800FD6EED /* ParseUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +164,9 @@
 		81C599441A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFActivityIndicatorCollectionReusableView.m; sourceTree = "<group>"; };
 		81C599471A64636200F574E8 /* SectionedCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionedCollectionViewController.h; sourceTree = "<group>"; };
 		81C599481A64636200F574E8 /* SectionedCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionedCollectionViewController.m; sourceTree = "<group>"; };
+		81C8D9B91A890857007B8DCF /* SimpleQueryTableStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SimpleQueryTableStoryboard.storyboard; path = ParseUIDemo/Resources/SimpleQueryTableStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
+		81C8D9BB1A890BCA007B8DCF /* StoryboardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryboardTableViewController.h; sourceTree = "<group>"; };
+		81C8D9BC1A890BCA007B8DCF /* StoryboardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryboardTableViewController.m; sourceTree = "<group>"; };
 		81E9CCD319F56D3000487B0F /* PFSignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSignUpView.h; sourceTree = "<group>"; };
 		81E9CCD419F56D3000487B0F /* PFSignUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFSignUpView.m; sourceTree = "<group>"; };
 		81E9CCD519F56D3000487B0F /* PFSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSignUpViewController.h; sourceTree = "<group>"; };
@@ -384,6 +389,9 @@
 				81472F9E1A1AB37500FD6EED /* SubtitleImageTableViewController.m */,
 				81472F9F1A1AB37500FD6EED /* CustomProductTableViewController.h */,
 				81472FA01A1AB37500FD6EED /* CustomProductTableViewController.m */,
+				81C8D9BB1A890BCA007B8DCF /* StoryboardTableViewController.h */,
+				81C8D9BC1A890BCA007B8DCF /* StoryboardTableViewController.m */,
+				81C8D9B91A890857007B8DCF /* SimpleQueryTableStoryboard.storyboard */,
 			);
 			path = QueryTableViewController;
 			sourceTree = "<group>";
@@ -430,7 +438,6 @@
 				81472FA91A1AB37500FD6EED /* 0.png */,
 				81472FAA1A1AB37500FD6EED /* 1.png */,
 				81472FAB1A1AB37500FD6EED /* 2.png */,
-				812E5C001A7A8EB4000FBDE1 /* SimpleQueryCollectionStoryboard.storyboard */,
 			);
 			name = Resources;
 			path = ParseUIDemo/Resources;
@@ -467,6 +474,7 @@
 				819A4B391A6808EA00D01241 /* SubtitleImageCollectionViewController.m */,
 				812E5C021A7A8EFB000FBDE1 /* StoryboardCollectionViewController.h */,
 				812E5C031A7A8EFB000FBDE1 /* StoryboardCollectionViewController.m */,
+				812E5C001A7A8EB4000FBDE1 /* SimpleQueryCollectionStoryboard.storyboard */,
 			);
 			path = QueryCollectionViewController;
 			sourceTree = "<group>";
@@ -695,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81472FBC1A1AB37500FD6EED /* Images.xcassets in Resources */,
+				81C8D9BA1A89085D007B8DCF /* SimpleQueryTableStoryboard.storyboard in Resources */,
 				81472FBE1A1AB37500FD6EED /* 0.png in Resources */,
 				81472FBF1A1AB37500FD6EED /* 1.png in Resources */,
 				81472FC01A1AB37500FD6EED /* 2.png in Resources */,
@@ -767,6 +776,7 @@
 				812E5C041A7A8EFB000FBDE1 /* StoryboardCollectionViewController.m in Sources */,
 				81472FB51A1AB37500FD6EED /* SimpleTableViewController.m in Sources */,
 				81472FB61A1AB37500FD6EED /* PaginatedTableViewController.m in Sources */,
+				81C8D9BD1A890BCA007B8DCF /* StoryboardTableViewController.m in Sources */,
 				81472FB71A1AB37500FD6EED /* SectionedTableViewController.m in Sources */,
 				81472FB11A1AB37500FD6EED /* AppDelegate.m in Sources */,
 				81472FB21A1AB37500FD6EED /* PFUIDemoViewController.m in Sources */,
