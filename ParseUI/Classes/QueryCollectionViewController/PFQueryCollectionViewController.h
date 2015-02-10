@@ -45,27 +45,27 @@
 /*!
  @abstract The class name of the <PFObject> this collection will use as a datasource.
  */
-@property (nonatomic, copy) NSString *parseClassName;
+@property (nonatomic, copy) IBInspectable NSString *parseClassName;
 
 /*!
  @abstract Whether the collection should use the default loading view. Default - `YES`.
  */
-@property (nonatomic, assign) BOOL loadingViewEnabled;
+@property (nonatomic, assign) IBInspectable BOOL loadingViewEnabled;
 
 /*!
  @abstract Whether the collection should use the built-in pull-to-refresh feature. Defualt - `YES`.
  */
-@property (nonatomic, assign) BOOL pullToRefreshEnabled;
+@property (nonatomic, assign) IBInspectable BOOL pullToRefreshEnabled;
 
 /*!
  @abstract Whether the collection should use the built-in pagination feature. Default - `YES`.
  */
-@property (nonatomic, assign) BOOL paginationEnabled;
+@property (nonatomic, assign) IBInspectable BOOL paginationEnabled;
 
 /*!
  @abstract The number of objects to show per page. Default - `25`.
  */
-@property (nonatomic, assign) NSUInteger objectsPerPage;
+@property (nonatomic, assign) IBInspectable NSUInteger objectsPerPage;
 
 /*!
  @abstract Whether the collection is actively loading new data from the server.
