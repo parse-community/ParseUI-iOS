@@ -385,7 +385,7 @@
     if (self.infiniteScrolling) {
         return NO;
     }
-    return [self _shouldLoadNextPage]
+    return [self _shouldLoadNextPage];
 }
 
 // There is another page?
