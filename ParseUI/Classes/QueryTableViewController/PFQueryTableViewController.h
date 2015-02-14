@@ -118,6 +118,11 @@
  */
 @property (nonatomic, assign, getter=isLoading) BOOL loading;
 
+/*!
+ @abstract Whether the table should use built-in infinite scrolling feature.  Default - `NO`.
+ */
+@property (nonatomic, assign) BOOL infiniteScrolling;
+
 ///--------------------------------------
 /// @name Responding to Events
 ///--------------------------------------
