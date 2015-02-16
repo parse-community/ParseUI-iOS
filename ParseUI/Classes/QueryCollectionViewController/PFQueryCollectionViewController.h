@@ -21,6 +21,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import <ParseUI/ParseUIConstants.h>
+
+PFUI_ASSUME_NONNULL_BEGIN
+
 @class PFCollectionViewCell;
 @class PFObject;
 @class PFQuery;
@@ -45,7 +49,7 @@
 /*!
  @abstract The class name of the <PFObject> this collection will use as a datasource.
  */
-@property (nonatomic, copy) IBInspectable NSString *parseClassName;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, copy) IBInspectable NSString *parseClassName;
 
 /*!
  @abstract Whether the collection should use the default loading view. Default - `YES`.
@@ -84,7 +88,7 @@
 
  @returns An initialized `PFQueryCollectionViewController` object or `nil` if the object couldn't be created.
  */
-- (instancetype)initWithClassName:(NSString *)className;
+- (instancetype)initWithClassName:(PFUI_NULLABLE NSString *)className;
 
 /*!
  @abstract Initializes a view controller with a class name of <PFObject> that will be associated with this collection.
@@ -94,7 +98,8 @@
 
  @returns An initialized `PFQueryCollectionViewController` object or `nil` if the object couldn't be created.
  */
-- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout className:(NSString *)className NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
+                                   className:(PFUI_NULLABLE NSString *)className NS_DESIGNATED_INITIALIZER;
 
 ///--------------------------------------
 /// @name Responding to Events
@@ -111,7 +116,7 @@
  call [super objectsDidLoad:] in your implementation.
  @param error The Parse error from running the PFQuery, if there was any.
  */
-- (void)objectsDidLoad:(NSError *)error NS_REQUIRES_SUPER;
+- (void)objectsDidLoad:(PFUI_NULLABLE NSError *)error NS_REQUIRES_SUPER;
 
 ///--------------------------------------
 /// @name Accessing Results
@@ -132,7 +137,7 @@
 
  @returns The object at the specified indexPath.
  */
-- (PFObject *)objectAtIndexPath:(NSIndexPath *)indexPath;
+- (PFUI_NULLABLE PFObject *)objectAtIndexPath:(PFUI_NULLABLE NSIndexPath *)indexPath;
 
 ///--------------------------------------
 /// @name Loading Data
@@ -188,9 +193,9 @@
 
  @returns The cell that represents this object.
  */
-- (PFCollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
-                                  object:(PFObject *)object;
+- (PFUI_NULLABLE PFCollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                                cellForItemAtIndexPath:(NSIndexPath *)indexPath
+                                                object:(PFUI_NULLABLE PFObject *)object;
 
 /*!
  @discussion Override this method to customize the view that allows the user to load the
@@ -200,6 +205,8 @@
 
  @returns The view that allows the user to paginate.
  */
-- (UICollectionReusableView *)collectionViewReusableViewForNextPageAction:(UICollectionView *)collectionView;
+- (PFUI_NULLABLE UICollectionReusableView *)collectionViewReusableViewForNextPageAction:(UICollectionView *)collectionView;
 
 @end
+
+PFUI_ASSUME_NONNULL_END
