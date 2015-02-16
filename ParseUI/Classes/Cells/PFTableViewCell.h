@@ -21,7 +21,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import <ParseUI/ParseUIConstants.h>
 #import <ParseUI/PFImageView.h>
+
+PFUI_ASSUME_NONNULL_BEGIN
 
 /*!
  The `PFTableViewCell` class represents a table view cell which can download and display remote images stored on Parse.
@@ -36,6 +39,8 @@
 
  @see PFImageView
  */
-@property (nonatomic, strong, readonly) PFImageView *imageView;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) PFImageView *imageView;
 
 @end
+
+PFUI_ASSUME_NONNULL_END
