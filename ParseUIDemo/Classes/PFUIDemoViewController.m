@@ -120,6 +120,10 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
     return self;
 }
 
+- (instancetype)initWithStyle:(UITableViewStyle)style {
+    return [self init];
+}
+
 #pragma mark -
 #pragma mark UITableViewDataSource
 
