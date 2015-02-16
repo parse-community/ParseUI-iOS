@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
                           'ParseUI/Classes/Views/*.h',
                           'ParseUI/Classes/Cells/*.h',
                           'ParseUI/Other/*.h'
+  s.xcconfig = { 'OTHER_LDFLAGS' => '$(inherited) -undefined dynamic_lookup' }
   s.frameworks          = 'Foundation',
                           'UIKit',
                           'CoreGraphics',
