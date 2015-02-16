@@ -19,7 +19,12 @@
  *
  */
 
+#import <UIKit/UIKit.h>
+
+#import <ParseUI/ParseUIConstants.h>
 #import <ParseUI/PFQueryTableViewController.h>
+
+PFUI_ASSUME_NONNULL_BEGIN
 
 /*!
  `PFProductTableViewController` displays in-app purchase products stored on Parse.
@@ -38,3 +43,5 @@
 - (instancetype)initWithStyle:(UITableViewStyle)style NS_DESIGNATED_INITIALIZER;
 
 @end
+
+PFUI_ASSUME_NONNULL_END
