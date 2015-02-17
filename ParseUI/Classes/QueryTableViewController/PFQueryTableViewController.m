@@ -28,6 +28,17 @@
 #import "PFLoadingView.h"
 #import "PFTableViewCell.h"
 
+// Add headers to kill any warnings.
+// `initWithStyle:` is a UITableViewController method.
+// `initWithCoder:`/`initWithNibName:bundle:` are UIViewController methods and are, for sure, available.
+@interface UITableViewController ()
+
+- (instancetype)initWithStyle:(UITableViewStyle)style NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
+
+@end
+
 @interface PFQueryTableViewController () {
     NSMutableArray *_mutableObjects;
 
