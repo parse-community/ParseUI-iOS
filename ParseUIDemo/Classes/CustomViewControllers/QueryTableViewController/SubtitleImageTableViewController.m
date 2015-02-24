@@ -37,7 +37,7 @@
         cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
 
-    cell.textLabel.text = object[@"title"];
+    cell.textLabel.text = object[@"name"];
     cell.detailTextLabel.text = @"@parseit";
 
     cell.imageView.image = [UIImage imageNamed:@"Icon.png"];
