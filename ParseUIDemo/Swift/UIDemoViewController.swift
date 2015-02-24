@@ -42,6 +42,12 @@ enum UIDemoType : Int {
     case SignUpAll
     case SignUpEmailAsUsername
     case SignUpMinPasswordLength
+    case SimpleTable
+    case PaginatedTable
+    case SectionedTable
+    case StoryboardTable
+    case ImageTableDefaultStyle
+    case ImageTableSubtitleStyle
 
     static var count: Int {
         var count = 0
@@ -88,6 +94,18 @@ extension UIDemoType : Printable {
             return "Sign Up Email as Username"
         case SignUpMinPasswordLength:
             return "Sign Up Minimum Password Length"
+        case SimpleTable:
+            return "Simple Table"
+        case PaginatedTable:
+            return "Paginated Table"
+        case SectionedTable:
+            return "Sectioned Table"
+        case StoryboardTable:
+            return "Simple Storyboard Table"
+        case ImageTableDefaultStyle:
+            return "Remote Image Table Default Style"
+        case ImageTableSubtitleStyle:
+            return "Remote Image Table Subtitle Style"
         }
     }
 
@@ -232,6 +250,36 @@ extension UIDemoViewController : UITableViewDelegate {
                 signUpViewController.fields = .UsernameAndPassword | .SignUpButton | .DismissButton
                 signUpViewController.minPasswordLength = 6
                 presentViewController(signUpViewController, animated: true, completion: nil)
+                // -----
+                // PFQueryTableViewController
+                // -----
+            case .SimpleTable:
+                let tableViewController = SimpleTableViewController(className: "Todo")
+                navigationController?.pushViewController(tableViewController, animated: true)
+            case .PaginatedTable:
+                let tableViewController = PaginatedTableViewController(className: "Todo")
+                navigationController?.pushViewController(tableViewController, animated: true)
+            case .SectionedTable:
+                let tableViewController = SectionedTableViewController(className: "Todo")
+                navigationController?.pushViewController(tableViewController, animated: true)
+            case .StoryboardTable:
+                let storyboard = UIStoryboard(name: "SimpleQueryTableStoryboard-Swift", bundle: nil)
+                let tableViewController = storyboard.instantiateViewControllerWithIdentifier("StoryboardTableViewController") as? StoryboardTableViewController
+                navigationController?.pushViewController(tableViewController!, animated: true)
+            case .ImageTableDefaultStyle:
+                let tableViewController = PFQueryTableViewController(className: "App")
+                tableViewController.imageKey = "icon"
+                tableViewController.textKey = "name"
+                tableViewController.paginationEnabled = false
+                tableViewController.placeholderImage = UIImage(named: "Icon.png")
+                navigationController?.pushViewController(tableViewController, animated: true)
+            case .ImageTableSubtitleStyle:
+                let tableViewController = SubtitleImageTableViewController(className: "App")
+                tableViewController.imageKey = "icon"
+                tableViewController.textKey = "name"
+                tableViewController.paginationEnabled = false
+                tableViewController.placeholderImage = UIImage(named: "Icon.png")
+                navigationController?.pushViewController(tableViewController, animated: true)
             }
         }
     }

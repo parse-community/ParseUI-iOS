@@ -96,6 +96,12 @@
 		81ED079C19F680B9009745F4 /* PFQueryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81ED079A19F680B9009745F4 /* PFQueryTableViewController.m */; };
 		81FC6B4A1A9D1ADB00104E45 /* CustomLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B3A1A9D1ADB00104E45 /* CustomLogInViewController.swift */; };
 		81FC6B561A9D1ADB00104E45 /* CustomSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B491A9D1ADB00104E45 /* CustomSignUpViewController.swift */; };
+		81FC6B5F1A9D1BFC00104E45 /* PaginatedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B591A9D1BFC00104E45 /* PaginatedTableViewController.swift */; };
+		81FC6B601A9D1BFC00104E45 /* SectionedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B5A1A9D1BFC00104E45 /* SectionedTableViewController.swift */; };
+		81FC6B611A9D1BFC00104E45 /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B5B1A9D1BFC00104E45 /* SimpleTableViewController.swift */; };
+		81FC6B621A9D1BFC00104E45 /* StoryboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B5C1A9D1BFC00104E45 /* StoryboardTableViewController.swift */; };
+		81FC6B631A9D1BFC00104E45 /* SubtitleImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B5D1A9D1BFC00104E45 /* SubtitleImageTableViewController.swift */; };
+		81FC6B651A9D1C2000104E45 /* SimpleQueryTableStoryboard-Swift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FC6B641A9D1C2000104E45 /* SimpleQueryTableStoryboard-Swift.storyboard */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -203,6 +209,12 @@
 		81ED079A19F680B9009745F4 /* PFQueryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFQueryTableViewController.m; sourceTree = "<group>"; };
 		81FC6B3A1A9D1ADB00104E45 /* CustomLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLogInViewController.swift; sourceTree = "<group>"; };
 		81FC6B491A9D1ADB00104E45 /* CustomSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSignUpViewController.swift; sourceTree = "<group>"; };
+		81FC6B591A9D1BFC00104E45 /* PaginatedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedTableViewController.swift; sourceTree = "<group>"; };
+		81FC6B5A1A9D1BFC00104E45 /* SectionedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedTableViewController.swift; sourceTree = "<group>"; };
+		81FC6B5B1A9D1BFC00104E45 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
+		81FC6B5C1A9D1BFC00104E45 /* StoryboardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardTableViewController.swift; sourceTree = "<group>"; };
+		81FC6B5D1A9D1BFC00104E45 /* SubtitleImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleImageTableViewController.swift; sourceTree = "<group>"; };
+		81FC6B641A9D1C2000104E45 /* SimpleQueryTableStoryboard-Swift.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "SimpleQueryTableStoryboard-Swift.storyboard"; path = "ParseUIDemo/Swift/Resources/SimpleQueryTableStoryboard-Swift.storyboard"; sourceTree = SOURCE_ROOT; };
 		8B9A896BC88788709F10E353 /* Pods-ParseUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParseUI/Pods-ParseUI.debug.xcconfig"; sourceTree = "<group>"; };
 		8CBD5368A83B8B99AC0AE128 /* libPods-ParseUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParseUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -614,6 +626,7 @@
 			children = (
 				81FC6B391A9D1ADB00104E45 /* LogInViewController */,
 				81FC6B481A9D1ADB00104E45 /* SignUpViewController */,
+				81FC6B571A9D1BFC00104E45 /* QueryTableViewController */,
 			);
 			path = CustomViewControllers;
 			sourceTree = "<group>";
@@ -632,6 +645,19 @@
 				81FC6B491A9D1ADB00104E45 /* CustomSignUpViewController.swift */,
 			);
 			path = SignUpViewController;
+			sourceTree = "<group>";
+		};
+		81FC6B571A9D1BFC00104E45 /* QueryTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81FC6B5B1A9D1BFC00104E45 /* SimpleTableViewController.swift */,
+				81FC6B591A9D1BFC00104E45 /* PaginatedTableViewController.swift */,
+				81FC6B5A1A9D1BFC00104E45 /* SectionedTableViewController.swift */,
+				81FC6B5C1A9D1BFC00104E45 /* StoryboardTableViewController.swift */,
+				81FC6B5D1A9D1BFC00104E45 /* SubtitleImageTableViewController.swift */,
+				81FC6B641A9D1C2000104E45 /* SimpleQueryTableStoryboard-Swift.storyboard */,
+			);
+			path = QueryTableViewController;
 			sourceTree = "<group>";
 		};
 		B9A7CC75B8E97A83D7340201 /* Pods */ = {
@@ -798,6 +824,7 @@
 			files = (
 				8129E5F51A9CB067006752BC /* Images.xcassets in Resources */,
 				8129E5F71A9CB067006752BC /* 0.png in Resources */,
+				81FC6B651A9D1C2000104E45 /* SimpleQueryTableStoryboard-Swift.storyboard in Resources */,
 				8129E5F81A9CB067006752BC /* 1.png in Resources */,
 				8129E5F91A9CB067006752BC /* 2.png in Resources */,
 				8129E5FA1A9CB067006752BC /* SimpleQueryCollectionStoryboard.storyboard in Resources */,
@@ -904,9 +931,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FC6B4A1A9D1ADB00104E45 /* CustomLogInViewController.swift in Sources */,
+				81FC6B601A9D1BFC00104E45 /* SectionedTableViewController.swift in Sources */,
+				81FC6B5F1A9D1BFC00104E45 /* PaginatedTableViewController.swift in Sources */,
+				81FC6B611A9D1BFC00104E45 /* SimpleTableViewController.swift in Sources */,
 				81FC6B561A9D1ADB00104E45 /* CustomSignUpViewController.swift in Sources */,
+				81FC6B621A9D1BFC00104E45 /* StoryboardTableViewController.swift in Sources */,
 				8129E6091A9CB1BE006752BC /* AppDelegate.swift in Sources */,
 				8129E63A1A9CB320006752BC /* UIDemoViewController.swift in Sources */,
+				81FC6B631A9D1BFC00104E45 /* SubtitleImageTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
