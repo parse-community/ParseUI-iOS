@@ -48,6 +48,11 @@ enum UIDemoType : Int {
     case StoryboardTable
     case ImageTableDefaultStyle
     case ImageTableSubtitleStyle
+    case SimpleCollection
+    case PaginatedCollection
+    case SectionedCollection
+    case StoryboardCollection
+    case ImageCollection
 
     static var count: Int {
         var count = 0
@@ -106,6 +111,16 @@ extension UIDemoType : Printable {
             return "Remote Image Table Default Style"
         case ImageTableSubtitleStyle:
             return "Remote Image Table Subtitle Style"
+        case SimpleCollection:
+            return "Simple Collection"
+        case PaginatedCollection:
+            return "Paginated Collection"
+        case SectionedCollection:
+            return "Sectioned Collection"
+        case StoryboardCollection:
+            return "Simple Storyboard Collection"
+        case ImageCollection:
+            return "Remote Image Collection"
         }
     }
 
@@ -280,6 +295,25 @@ extension UIDemoViewController : UITableViewDelegate {
                 tableViewController.paginationEnabled = false
                 tableViewController.placeholderImage = UIImage(named: "Icon.png")
                 navigationController?.pushViewController(tableViewController, animated: true)
+                // -----
+                // PFQueryCollectionViewController
+                // -----
+            case .SimpleCollection:
+                let collectionViewController = SimpleCollectionViewController(className: "Todo")
+                navigationController?.pushViewController(collectionViewController, animated: true)
+            case .PaginatedCollection:
+                let collectionViewController = PaginatedCollectionViewController(className: "Todo")
+                navigationController?.pushViewController(collectionViewController, animated: true)
+            case .SectionedCollection:
+                let collectionViewController = SectionedCollectionViewController(className: "Todo")
+                navigationController?.pushViewController(collectionViewController, animated: true)
+            case .StoryboardCollection:
+                let storyboard = UIStoryboard(name: "SimpleQueryCollectionStoryboard-Swift", bundle: nil)
+                let collectionViewController = storyboard.instantiateViewControllerWithIdentifier("StoryboardCollectionViewController") as? StoryboardCollectionViewController
+                navigationController?.pushViewController(collectionViewController!, animated: true)
+            case .ImageCollection:
+                let collectionViewController = SubtitleImageCollectionViewController(className: "App")
+                navigationController?.pushViewController(collectionViewController, animated: true)
             }
         }
     }

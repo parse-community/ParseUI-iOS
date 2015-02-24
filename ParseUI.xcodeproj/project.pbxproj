@@ -102,6 +102,12 @@
 		81FC6B621A9D1BFC00104E45 /* StoryboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B5C1A9D1BFC00104E45 /* StoryboardTableViewController.swift */; };
 		81FC6B631A9D1BFC00104E45 /* SubtitleImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B5D1A9D1BFC00104E45 /* SubtitleImageTableViewController.swift */; };
 		81FC6B651A9D1C2000104E45 /* SimpleQueryTableStoryboard-Swift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FC6B641A9D1C2000104E45 /* SimpleQueryTableStoryboard-Swift.storyboard */; };
+		81FC6B6C1A9D1CE900104E45 /* PaginatedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B671A9D1CE900104E45 /* PaginatedCollectionViewController.swift */; };
+		81FC6B6D1A9D1CE900104E45 /* SectionedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B681A9D1CE900104E45 /* SectionedCollectionViewController.swift */; };
+		81FC6B6E1A9D1CE900104E45 /* SimpleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B691A9D1CE900104E45 /* SimpleCollectionViewController.swift */; };
+		81FC6B6F1A9D1CE900104E45 /* StoryboardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B6A1A9D1CE900104E45 /* StoryboardCollectionViewController.swift */; };
+		81FC6B701A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B6B1A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift */; };
+		81FC6B721A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FC6B711A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -215,6 +221,12 @@
 		81FC6B5C1A9D1BFC00104E45 /* StoryboardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardTableViewController.swift; sourceTree = "<group>"; };
 		81FC6B5D1A9D1BFC00104E45 /* SubtitleImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleImageTableViewController.swift; sourceTree = "<group>"; };
 		81FC6B641A9D1C2000104E45 /* SimpleQueryTableStoryboard-Swift.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "SimpleQueryTableStoryboard-Swift.storyboard"; path = "ParseUIDemo/Swift/Resources/SimpleQueryTableStoryboard-Swift.storyboard"; sourceTree = SOURCE_ROOT; };
+		81FC6B671A9D1CE900104E45 /* PaginatedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedCollectionViewController.swift; sourceTree = "<group>"; };
+		81FC6B681A9D1CE900104E45 /* SectionedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedCollectionViewController.swift; sourceTree = "<group>"; };
+		81FC6B691A9D1CE900104E45 /* SimpleCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCollectionViewController.swift; sourceTree = "<group>"; };
+		81FC6B6A1A9D1CE900104E45 /* StoryboardCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardCollectionViewController.swift; sourceTree = "<group>"; };
+		81FC6B6B1A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleImageCollectionViewController.swift; sourceTree = "<group>"; };
+		81FC6B711A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "SimpleQueryCollectionStoryboard-Swift.storyboard"; path = "ParseUIDemo/Swift/Resources/SimpleQueryCollectionStoryboard-Swift.storyboard"; sourceTree = SOURCE_ROOT; };
 		8B9A896BC88788709F10E353 /* Pods-ParseUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParseUI/Pods-ParseUI.debug.xcconfig"; sourceTree = "<group>"; };
 		8CBD5368A83B8B99AC0AE128 /* libPods-ParseUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParseUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -627,6 +639,7 @@
 				81FC6B391A9D1ADB00104E45 /* LogInViewController */,
 				81FC6B481A9D1ADB00104E45 /* SignUpViewController */,
 				81FC6B571A9D1BFC00104E45 /* QueryTableViewController */,
+				81FC6B661A9D1CE900104E45 /* QueryCollectionViewController */,
 			);
 			path = CustomViewControllers;
 			sourceTree = "<group>";
@@ -658,6 +671,19 @@
 				81FC6B641A9D1C2000104E45 /* SimpleQueryTableStoryboard-Swift.storyboard */,
 			);
 			path = QueryTableViewController;
+			sourceTree = "<group>";
+		};
+		81FC6B661A9D1CE900104E45 /* QueryCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81FC6B691A9D1CE900104E45 /* SimpleCollectionViewController.swift */,
+				81FC6B671A9D1CE900104E45 /* PaginatedCollectionViewController.swift */,
+				81FC6B681A9D1CE900104E45 /* SectionedCollectionViewController.swift */,
+				81FC6B6A1A9D1CE900104E45 /* StoryboardCollectionViewController.swift */,
+				81FC6B6B1A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift */,
+				81FC6B711A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard */,
+			);
+			path = QueryCollectionViewController;
 			sourceTree = "<group>";
 		};
 		B9A7CC75B8E97A83D7340201 /* Pods */ = {
@@ -828,6 +854,7 @@
 				8129E5F81A9CB067006752BC /* 1.png in Resources */,
 				8129E5F91A9CB067006752BC /* 2.png in Resources */,
 				8129E5FA1A9CB067006752BC /* SimpleQueryCollectionStoryboard.storyboard in Resources */,
+				81FC6B721A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard in Resources */,
 				8129E5FB1A9CB067006752BC /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -934,8 +961,13 @@
 				81FC6B601A9D1BFC00104E45 /* SectionedTableViewController.swift in Sources */,
 				81FC6B5F1A9D1BFC00104E45 /* PaginatedTableViewController.swift in Sources */,
 				81FC6B611A9D1BFC00104E45 /* SimpleTableViewController.swift in Sources */,
+				81FC6B6E1A9D1CE900104E45 /* SimpleCollectionViewController.swift in Sources */,
+				81FC6B6D1A9D1CE900104E45 /* SectionedCollectionViewController.swift in Sources */,
 				81FC6B561A9D1ADB00104E45 /* CustomSignUpViewController.swift in Sources */,
 				81FC6B621A9D1BFC00104E45 /* StoryboardTableViewController.swift in Sources */,
+				81FC6B6C1A9D1CE900104E45 /* PaginatedCollectionViewController.swift in Sources */,
+				81FC6B6F1A9D1CE900104E45 /* StoryboardCollectionViewController.swift in Sources */,
+				81FC6B701A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift in Sources */,
 				8129E6091A9CB1BE006752BC /* AppDelegate.swift in Sources */,
 				8129E63A1A9CB320006752BC /* UIDemoViewController.swift in Sources */,
 				81FC6B631A9D1BFC00104E45 /* SubtitleImageTableViewController.swift in Sources */,
