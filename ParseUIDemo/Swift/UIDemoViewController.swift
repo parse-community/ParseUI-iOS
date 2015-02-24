@@ -35,6 +35,13 @@ enum UIDemoType : Int {
     case LogInAll
     case LogInAllNavigation
     case LogInCustomizedLogoAndBackground
+    case SignUpDefault
+    case SignUpUsernamePassword
+    case SignUpUsernamePasswordEmail
+    case SignUpUsernamePasswordEmailSignUp
+    case SignUpAll
+    case SignUpEmailAsUsername
+    case SignUpMinPasswordLength
 
     static var count: Int {
         var count = 0
@@ -67,6 +74,20 @@ extension UIDemoType : Printable {
             return "Log In All as Navigation"
         case LogInCustomizedLogoAndBackground:
             return "Log In Customized Background"
+        case SignUpDefault:
+            return "Sign Up Default"
+        case SignUpUsernamePassword:
+            return "Sign Up Username and Password"
+        case SignUpUsernamePasswordEmail:
+            return "Sign Up Email"
+        case SignUpUsernamePasswordEmailSignUp:
+            return "Sign Up Email And SignUp"
+        case SignUpAll:
+            return "Sign Up All"
+        case SignUpEmailAsUsername:
+            return "Sign Up Email as Username"
+        case SignUpMinPasswordLength:
+            return "Sign Up Minimum Password Length"
         }
     }
 
@@ -172,6 +193,45 @@ extension UIDemoViewController : UITableViewDelegate {
 
                 logInViewController.signUpController = signUpViewController
                 presentViewController(logInViewController, animated: true, completion: nil)
+                // -----
+                // PFSignUpViewController
+                // -----
+            case .SignUpDefault:
+                let signUpViewController = PFSignUpViewController()
+                signUpViewController.delegate = self
+                presentViewController(signUpViewController, animated: true, completion: nil)
+            case .SignUpUsernamePassword:
+                let signUpViewController = PFSignUpViewController()
+                signUpViewController.delegate = self
+                signUpViewController.fields = .UsernameAndPassword | .DismissButton
+                presentViewController(signUpViewController, animated: true, completion: nil)
+            case .SignUpUsernamePasswordEmail:
+                let signUpViewController = PFSignUpViewController()
+                signUpViewController.delegate = self
+                signUpViewController.fields = .UsernameAndPassword | .Email | .DismissButton
+                presentViewController(signUpViewController, animated: true, completion: nil)
+            case .SignUpUsernamePasswordEmailSignUp:
+                let signUpViewController = PFSignUpViewController()
+                signUpViewController.delegate = self
+                signUpViewController.fields = .UsernameAndPassword | .Email | .SignUpButton | .DismissButton
+                presentViewController(signUpViewController, animated: true, completion: nil)
+            case .SignUpAll:
+                let signUpViewController = PFSignUpViewController()
+                signUpViewController.delegate = self
+                signUpViewController.fields = .UsernameAndPassword | .Email | .Additional | .SignUpButton | .DismissButton
+                presentViewController(signUpViewController, animated: true, completion: nil)
+            case .SignUpEmailAsUsername:
+                let signUpViewController = PFSignUpViewController()
+                signUpViewController.delegate = self
+                signUpViewController.fields = .UsernameAndPassword | .SignUpButton | .DismissButton
+                signUpViewController.emailAsUsername = true
+                presentViewController(signUpViewController, animated: true, completion: nil)
+            case .SignUpMinPasswordLength:
+                let signUpViewController = PFSignUpViewController()
+                signUpViewController.delegate = self
+                signUpViewController.fields = .UsernameAndPassword | .SignUpButton | .DismissButton
+                signUpViewController.minPasswordLength = 6
+                presentViewController(signUpViewController, animated: true, completion: nil)
             }
         }
     }
