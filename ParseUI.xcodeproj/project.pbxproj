@@ -94,6 +94,8 @@
 		81ED079719F6809F009745F4 /* PFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81ED077B19F6809F009745F4 /* PFImageView.m */; };
 		81ED079B19F680B9009745F4 /* PFQueryTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 81ED079919F680B9009745F4 /* PFQueryTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81ED079C19F680B9009745F4 /* PFQueryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81ED079A19F680B9009745F4 /* PFQueryTableViewController.m */; };
+		81FC6B4A1A9D1ADB00104E45 /* CustomLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B3A1A9D1ADB00104E45 /* CustomLogInViewController.swift */; };
+		81FC6B561A9D1ADB00104E45 /* CustomSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B491A9D1ADB00104E45 /* CustomSignUpViewController.swift */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -199,6 +201,8 @@
 		81ED077B19F6809F009745F4 /* PFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFImageView.m; sourceTree = "<group>"; };
 		81ED079919F680B9009745F4 /* PFQueryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFQueryTableViewController.h; sourceTree = "<group>"; };
 		81ED079A19F680B9009745F4 /* PFQueryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFQueryTableViewController.m; sourceTree = "<group>"; };
+		81FC6B3A1A9D1ADB00104E45 /* CustomLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLogInViewController.swift; sourceTree = "<group>"; };
+		81FC6B491A9D1ADB00104E45 /* CustomSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSignUpViewController.swift; sourceTree = "<group>"; };
 		8B9A896BC88788709F10E353 /* Pods-ParseUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParseUI/Pods-ParseUI.debug.xcconfig"; sourceTree = "<group>"; };
 		8CBD5368A83B8B99AC0AE128 /* libPods-ParseUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParseUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -373,6 +377,7 @@
 			children = (
 				8129E6081A9CB1BE006752BC /* AppDelegate.swift */,
 				8129E6391A9CB320006752BC /* UIDemoViewController.swift */,
+				81FC6B381A9D1ADB00104E45 /* CustomViewControllers */,
 				8129E6381A9CB287006752BC /* ParseUIDemo-Bridging-Header.h */,
 			);
 			name = Swift;
@@ -602,6 +607,31 @@
 				81ED079A19F680B9009745F4 /* PFQueryTableViewController.m */,
 			);
 			path = QueryTableViewController;
+			sourceTree = "<group>";
+		};
+		81FC6B381A9D1ADB00104E45 /* CustomViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				81FC6B391A9D1ADB00104E45 /* LogInViewController */,
+				81FC6B481A9D1ADB00104E45 /* SignUpViewController */,
+			);
+			path = CustomViewControllers;
+			sourceTree = "<group>";
+		};
+		81FC6B391A9D1ADB00104E45 /* LogInViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81FC6B3A1A9D1ADB00104E45 /* CustomLogInViewController.swift */,
+			);
+			path = LogInViewController;
+			sourceTree = "<group>";
+		};
+		81FC6B481A9D1ADB00104E45 /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81FC6B491A9D1ADB00104E45 /* CustomSignUpViewController.swift */,
+			);
+			path = SignUpViewController;
 			sourceTree = "<group>";
 		};
 		B9A7CC75B8E97A83D7340201 /* Pods */ = {
@@ -873,6 +903,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FC6B4A1A9D1ADB00104E45 /* CustomLogInViewController.swift in Sources */,
+				81FC6B561A9D1ADB00104E45 /* CustomSignUpViewController.swift in Sources */,
 				8129E6091A9CB1BE006752BC /* AppDelegate.swift in Sources */,
 				8129E63A1A9CB320006752BC /* UIDemoViewController.swift in Sources */,
 			);
