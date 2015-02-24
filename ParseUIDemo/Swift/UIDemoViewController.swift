@@ -53,6 +53,8 @@ enum UIDemoType : Int {
     case SectionedCollection
     case StoryboardCollection
     case ImageCollection
+    case Product
+    case CustomizedProduct
 
     static var count: Int {
         var count = 0
@@ -121,6 +123,10 @@ extension UIDemoType : Printable {
             return "Simple Storyboard Collection"
         case ImageCollection:
             return "Remote Image Collection"
+        case Product:
+            return "Product"
+        case CustomizedProduct:
+            return "Customized Product"
         }
     }
 
@@ -314,6 +320,15 @@ extension UIDemoViewController : UITableViewDelegate {
             case .ImageCollection:
                 let collectionViewController = SubtitleImageCollectionViewController(className: "App")
                 navigationController?.pushViewController(collectionViewController, animated: true)
+                // -----
+                // PFProductTableViewController
+                // -----
+            case .Product:
+                let productTableViewController = PFProductTableViewController()
+                navigationController?.pushViewController(productTableViewController, animated: true)
+            case .CustomizedProduct:
+                let productTableViewController = CustomProductTableViewController()
+                navigationController?.pushViewController(productTableViewController, animated: true)
             }
         }
     }

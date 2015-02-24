@@ -108,6 +108,7 @@
 		81FC6B6F1A9D1CE900104E45 /* StoryboardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B6A1A9D1CE900104E45 /* StoryboardCollectionViewController.swift */; };
 		81FC6B701A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B6B1A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift */; };
 		81FC6B721A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FC6B711A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard */; };
+		81FC6B751A9D1D4700104E45 /* CustomProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B741A9D1D4700104E45 /* CustomProductTableViewController.swift */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -227,6 +228,7 @@
 		81FC6B6A1A9D1CE900104E45 /* StoryboardCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardCollectionViewController.swift; sourceTree = "<group>"; };
 		81FC6B6B1A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleImageCollectionViewController.swift; sourceTree = "<group>"; };
 		81FC6B711A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "SimpleQueryCollectionStoryboard-Swift.storyboard"; path = "ParseUIDemo/Swift/Resources/SimpleQueryCollectionStoryboard-Swift.storyboard"; sourceTree = SOURCE_ROOT; };
+		81FC6B741A9D1D4700104E45 /* CustomProductTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProductTableViewController.swift; sourceTree = "<group>"; };
 		8B9A896BC88788709F10E353 /* Pods-ParseUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParseUI/Pods-ParseUI.debug.xcconfig"; sourceTree = "<group>"; };
 		8CBD5368A83B8B99AC0AE128 /* libPods-ParseUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParseUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -640,6 +642,7 @@
 				81FC6B481A9D1ADB00104E45 /* SignUpViewController */,
 				81FC6B571A9D1BFC00104E45 /* QueryTableViewController */,
 				81FC6B661A9D1CE900104E45 /* QueryCollectionViewController */,
+				81FC6B731A9D1D4700104E45 /* ProductTableViewController */,
 			);
 			path = CustomViewControllers;
 			sourceTree = "<group>";
@@ -684,6 +687,14 @@
 				81FC6B711A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard */,
 			);
 			path = QueryCollectionViewController;
+			sourceTree = "<group>";
+		};
+		81FC6B731A9D1D4700104E45 /* ProductTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81FC6B741A9D1D4700104E45 /* CustomProductTableViewController.swift */,
+			);
+			path = ProductTableViewController;
 			sourceTree = "<group>";
 		};
 		B9A7CC75B8E97A83D7340201 /* Pods */ = {
@@ -965,6 +976,7 @@
 				81FC6B6D1A9D1CE900104E45 /* SectionedCollectionViewController.swift in Sources */,
 				81FC6B561A9D1ADB00104E45 /* CustomSignUpViewController.swift in Sources */,
 				81FC6B621A9D1BFC00104E45 /* StoryboardTableViewController.swift in Sources */,
+				81FC6B751A9D1D4700104E45 /* CustomProductTableViewController.swift in Sources */,
 				81FC6B6C1A9D1CE900104E45 /* PaginatedCollectionViewController.swift in Sources */,
 				81FC6B6F1A9D1CE900104E45 /* StoryboardCollectionViewController.swift in Sources */,
 				81FC6B701A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift in Sources */,
