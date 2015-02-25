@@ -333,7 +333,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)otherTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PFTableViewCell *cell;
-    if ([self _shouldShowPaginationCell] && [indexPath isEqual:[self _indexPathForPaginationCell]]) {
+    if ([self _shouldShowPaginationCell] && [indexPath isEqual:[self indexPathForPaginationCell]]) {
         // Return the pagination cell on the last cell
         cell = [self tableView:otherTableView cellForNextPageAtIndexPath:indexPath];
     } else {
@@ -355,6 +355,11 @@
     return cell;
 }
 
+// The row of the pagination cell
+- (NSIndexPath *)indexPathForPaginationCell {
+    return [NSIndexPath indexPathForRow:[self.objects count] inSection:0];
+}
+
 #pragma mark -
 #pragma mark UITableViewDelegate
 
@@ -362,7 +367,7 @@
     // Handle selection of the next page row
     if (!_firstLoad &&
         self.paginationEnabled &&
-        [indexPath isEqual:[self _indexPathForPaginationCell]]) {
+        [indexPath isEqual:[self indexPathForPaginationCell]]) {
         [self loadNextPage];
     }
 }
@@ -380,14 +385,9 @@
 // Selectively refresh pagination cell
 - (void)_refreshPaginationCell {
     if ([self _shouldShowPaginationCell]) {
-        [self.tableView reloadRowsAtIndexPaths:@[ [self _indexPathForPaginationCell] ]
+        [self.tableView reloadRowsAtIndexPaths:@[ [self indexPathForPaginationCell] ]
                               withRowAnimation:UITableViewRowAnimationNone];
     }
-}
-
-// The row of the pagination cell
-- (NSIndexPath *)_indexPathForPaginationCell {
-    return [NSIndexPath indexPathForRow:[self.objects count] inSection:0];
 }
 
 - (void)_loadImagesForOnscreenRows {
