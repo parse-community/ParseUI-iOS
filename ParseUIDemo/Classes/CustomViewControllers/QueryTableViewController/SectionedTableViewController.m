@@ -72,9 +72,9 @@
     [self.tableView reloadData];
 }
 
-- (PFObject *)objectAtIndex:(NSIndexPath *)indexPath {
-    NSArray *sectionAray = _sections[_sectionSortedKeys[indexPath.section]];
-    return sectionAray[indexPath.row];
+- (PFObject *)objectAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *sectionArray = _sections[_sectionSortedKeys[indexPath.section]];
+    return sectionArray[indexPath.row];
 }
 
 #pragma mark -
