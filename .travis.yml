@@ -7,7 +7,7 @@ before_install:
   - pod repo update --silent
 script:
   - pod install
-  - pod lib lint ParseUI.podspec
-  - pod lib lint --use-frameworks --quick ParseUI.podspec
+  - pod lib lint --quick ParseUI.podspec
+  - pod lib lint --use-libraries ParseUI.podspec
   - xctool -workspace ParseUI.xcworkspace -scheme 'ParseUI' -sdk iphonesimulator build
   - xctool -workspace ParseUI.xcworkspace -scheme 'ParseUIDemo' -sdk iphonesimulator build
