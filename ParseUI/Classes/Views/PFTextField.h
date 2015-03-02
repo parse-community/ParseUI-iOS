@@ -21,6 +21,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import <ParseUI/ParseUIConstants.h>
+
+PFUI_ASSUME_NONNULL_BEGIN
+
 /*!
  `PFTextFieldSeparatorStyle` bitmask specifies the style of the separators,
  that should be used for a given `PFTextField`.
@@ -56,7 +60,7 @@ typedef NS_OPTIONS(uint8_t, PFTextFieldSeparatorStyle){
 
  @discussion Default: `227,227,227,1.0`.
  */
-@property (nonatomic, strong) UIColor *separatorColor UI_APPEARANCE_SELECTOR;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong) UIColor *separatorColor UI_APPEARANCE_SELECTOR;
 
 /*!
  This method is a convenience initializer that sets both `frame` and `separatorStyle` for an instance of `PFTextField.`
@@ -69,3 +73,5 @@ typedef NS_OPTIONS(uint8_t, PFTextFieldSeparatorStyle){
 - (instancetype)initWithFrame:(CGRect)frame separatorStyle:(PFTextFieldSeparatorStyle)separatorStyle;
 
 @end
+
+PFUI_ASSUME_NONNULL_END

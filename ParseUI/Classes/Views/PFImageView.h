@@ -21,6 +21,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import <ParseUI/ParseUIConstants.h>
+
+PFUI_ASSUME_NONNULL_BEGIN
+
 @class BFTask;
 @class PFFile;
 
@@ -34,7 +38,7 @@
 
  @warning Note that the download does not start until <loadInBackground:> is called.
  */
-@property (nonatomic, strong) PFFile *file;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong) PFFile *file;
 
 /*!
  @abstract Initiate downloading of the remote image.
@@ -52,7 +56,7 @@
 
  @param completion the completion block.
  */
-- (void)loadInBackground:(void (^)(UIImage *image, NSError *error))completion;
+- (void)loadInBackground:(PFUI_NULLABLE void (^)(PFUI_NULLABLE_S UIImage *image, PFUI_NULLABLE_S NSError *error))completion;
 
 /*!
  @abstract Initiate downloading of the remote image.
@@ -63,6 +67,9 @@
  @param progressBlock called with the download progress as the image is being downloaded. 
  Will be called with a value of 100 before the completion block is called.
  */
-- (void)loadInBackground:(void (^)(UIImage *, NSError *))completion progressBlock:(void (^)(int percentDone))progressBlock;
+- (void)loadInBackground:(PFUI_NULLABLE void (^)(PFUI_NULLABLE_S UIImage *image, PFUI_NULLABLE_S NSError *error))completion
+           progressBlock:(PFUI_NULLABLE void (^)(int percentDone))progressBlock;
 
 @end
+
+PFUI_ASSUME_NONNULL_END

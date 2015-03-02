@@ -21,6 +21,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import <ParseUI/ParseUIConstants.h>
+
+PFUI_ASSUME_NONNULL_BEGIN
+
 /*!
  `PFSignUpFields` bitmask specifies the sign up elements which are enabled in the view.
 
@@ -72,7 +76,7 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 
  @discussion Used to lay out elements correctly when the presenting view controller has translucent elements.
  */
-@property (nonatomic, weak) UIViewController *presentingViewController;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, weak) UIViewController *presentingViewController;
 
 ///--------------------------------------
 /// @name Customizing the Logo
@@ -81,7 +85,7 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 /*!
  @abstract The logo. By default, it is the Parse logo.
  */
-@property (nonatomic, strong) UIView *logo;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong) UIView *logo;
 
 ///--------------------------------------
 /// @name Configure Username Behaviour
@@ -106,33 +110,35 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 /*!
  @abstract The username text field.
  */
-@property (nonatomic, strong, readonly) PFTextField *usernameField;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) PFTextField *usernameField;
 
 /*!
  @abstract The password text field.
  */
-@property (nonatomic, strong, readonly) PFTextField *passwordField;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) PFTextField *passwordField;
 
 /*!
  @abstract The email text field. It is `nil` if the element is not enabled.
  */
-@property (nonatomic, strong, readonly) PFTextField *emailField;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) PFTextField *emailField;
 
 /*!
  @abstract The additional text field. It is `nil` if the element is not enabled.
 
  @discussion This field is intended to be customized.
  */
-@property (nonatomic, strong, readonly) PFTextField *additionalField;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) PFTextField *additionalField;
 
 /*!
  @abstract The sign up button. It is `nil` if the element is not enabled.
  */
-@property (nonatomic, strong, readonly) UIButton *signUpButton;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) UIButton *signUpButton;
 
 /*!
  @abstract The dismiss button. It is `nil` if the element is not enabled.
  */
-@property (nonatomic, strong, readonly) UIButton *dismissButton;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) UIButton *dismissButton;
 
 @end
+
+PFUI_ASSUME_NONNULL_END

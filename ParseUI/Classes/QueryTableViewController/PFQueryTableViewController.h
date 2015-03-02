@@ -21,6 +21,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import <ParseUI/ParseUIConstants.h>
+
+PFUI_ASSUME_NONNULL_BEGIN
+
 @class PFObject;
 @class PFQuery;
 @class PFTableViewCell;
@@ -52,7 +56,8 @@
 
  @returns An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
  */
-- (instancetype)initWithStyle:(UITableViewStyle)style className:(NSString *)className NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithStyle:(UITableViewStyle)style
+                    className:(PFUI_NULLABLE NSString *)className NS_DESIGNATED_INITIALIZER;
 
 /*!
  @abstract Initializes with a class name of the PFObjects that will be associated with this table.
@@ -61,7 +66,7 @@
 
  @returns An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
  */
-- (instancetype)initWithClassName:(NSString *)className;
+- (instancetype)initWithClassName:(PFUI_NULLABLE NSString *)className;
 
 ///--------------------------------------
 /// @name Configuring Behavior
@@ -70,28 +75,28 @@
 /*!
  @abstract The class name of the <PFObject> this table will use as a datasource.
  */
-@property (nonatomic, copy) IBInspectable NSString *parseClassName;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, copy) IBInspectable NSString *parseClassName;
 
 /*!
  @abstract The key to use to display for the cell text label.
 
  @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
-@property (nonatomic, copy) IBInspectable NSString *textKey;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, copy) IBInspectable NSString *textKey;
 
 /*!
  @abstract The key to use to display for the cell image view.
 
  @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
-@property (nonatomic, copy) IBInspectable NSString *imageKey;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, copy) IBInspectable NSString *imageKey;
 
 /*!
  @abstract The image to use as a placeholder for the cell images.
 
  @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
-@property (nonatomic, strong) IBInspectable UIImage *placeholderImage;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong) IBInspectable UIImage *placeholderImage;
 
 /*!
  @abstract Whether the table should use the default loading view. Default - `YES`.
@@ -133,7 +138,7 @@
  call [super objectsDidLoad:] in your implementation.
  @param error The Parse error from running the PFQuery, if there was any.
  */
-- (void)objectsDidLoad:(NSError *)error;
+- (void)objectsDidLoad:(PFUI_NULLABLE NSError *)error;
 
 ///--------------------------------------
 /// @name Accessing Results
@@ -142,7 +147,7 @@
 /*!
  @abstract The array of instances of <PFObject> that is used as a data source.
  */
-@property (nonatomic, copy, readonly) NSArray *objects;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, copy, readonly) NSArray *objects;
 
 /*!
  @abstract Returns an object at a particular indexPath.
@@ -154,7 +159,7 @@
 
  @returns The object at the specified index
  */
-- (PFObject *)objectAtIndexPath:(NSIndexPath *)indexPath;
+- (PFUI_NULLABLE PFObject *)objectAtIndexPath:(PFUI_NULLABLE NSIndexPath *)indexPath;
 
 /*!
  @abstract Clears the table of all objects.
@@ -208,9 +213,9 @@
 
  @returns The cell that represents this object.
  */
-- (PFTableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
-                        object:(PFObject *)object;
+- (PFUI_NULLABLE PFTableViewCell *)tableView:(UITableView *)tableView
+                       cellForRowAtIndexPath:(NSIndexPath *)indexPath
+                                      object:(PFUI_NULLABLE PFObject *)object;
 
 /*!
  @discussion Override this method to customize the cell that allows the user to load the
@@ -221,6 +226,9 @@
 
  @returns The cell that allows the user to paginate.
  */
-- (PFTableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath;
+- (PFUI_NULLABLE PFTableViewCell *)tableView:(UITableView *)tableView
+                  cellForNextPageAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
+
+PFUI_ASSUME_NONNULL_END

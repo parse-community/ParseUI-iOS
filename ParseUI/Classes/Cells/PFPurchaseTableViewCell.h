@@ -21,7 +21,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import <ParseUI/ParseUIConstants.h>
 #import <ParseUI/PFTableViewCell.h>
+
+PFUI_ASSUME_NONNULL_BEGIN
 
 /*!
  An enum that represents states of the PFPurchaseTableViewCell.
@@ -53,11 +56,13 @@ typedef NS_ENUM(uint8_t, PFPurchaseTableViewCellState) {
 /*!
  @abstract Label where price of the product is displayed.
  */
-@property (nonatomic, strong, readonly) UILabel *priceLabel;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) UILabel *priceLabel;
 
 /*!
  @abstract Progress view that is shown, when the product is downloading.
  */
-@property (nonatomic, strong, readonly) UIProgressView *progressView;
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) UIProgressView *progressView;
 
 @end
+
+PFUI_ASSUME_NONNULL_END
