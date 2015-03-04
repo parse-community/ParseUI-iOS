@@ -92,7 +92,7 @@
     _paginationEnabled = YES;
     _pullToRefreshEnabled = YES;
     _lastLoadCount = -1;
-    _infiniteScrolling = NO;
+    _automaticallyLoadsNextPage = NO;
 
     _parseClassName = [otherClassName copy];
 }
@@ -253,9 +253,9 @@
 
 // loadNextPage if infiniteSrolling = YES
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.infiniteScrolling) {
-        if (scrollView.contentSize.height - scrollView.contentOffset.y < (self.view.bounds.size.height)) {
-            if (![self isLoading]) {
+    if (self.automaticallyLoadsNextPage) {
+        if (scrollView.contentSize.height - scrollView.contentOffset.y < CGRectGetMaxY(self.view.bounds)) {
+            if (!self.loading){
                 [self loadNextPage];
             }
         }
@@ -378,7 +378,7 @@
 
 // Whether we need to show the pagination cell
 - (BOOL)_shouldShowPaginationCell {
-    if (self.infiniteScrolling) {
+    if (self.automaticallyLoadsNextPage) {
         return NO;
     }
     return (self.paginationEnabled &&
