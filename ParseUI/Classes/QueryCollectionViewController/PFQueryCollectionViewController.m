@@ -40,6 +40,7 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
 }
 
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 @property (nonatomic, strong) PFLoadingView *loadingView;
 
 @property (nonatomic, strong) PFActivityIndicatorCollectionReusableView *currentNextPageView;
@@ -120,8 +121,8 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
     if (self.pullToRefreshEnabled) {
         self.refreshControl = [[UIRefreshControl alloc] init];
         [self.refreshControl addTarget:self
-                           action:@selector(_refreshControlValueChanged:)
-                 forControlEvents:UIControlEventValueChanged];
+                                action:@selector(_refreshControlValueChanged:)
+                      forControlEvents:UIControlEventValueChanged];
         [self.collectionView addSubview:self.refreshControl];
         self.collectionView.alwaysBounceVertical = YES;
     }
@@ -143,17 +144,11 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
 #pragma mark Responding to Events
 
 - (void)objectsWillLoad {
-    if (_firstLoad) {
-        if (self.loadingViewEnabled) {
-            self.loadingView = [[PFLoadingView alloc] initWithFrame:self.collectionView.bounds];
-            [self.collectionView addSubview:self.loadingView];
-        }
-    }
+    [self _refreshLoadingView];
 }
 
 - (void)objectsDidLoad:(NSError *)error {
-    [self.loadingView removeFromSuperview];
-    self.loadingView = nil;
+    [self _refreshLoadingView];
     _firstLoad = NO;
 }
 
@@ -268,8 +263,8 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
 
 - (UICollectionReusableView *)collectionViewReusableViewForNextPageAction:(UICollectionView *)collectionView {
     _currentNextPageView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                                  withReuseIdentifier:PFQueryCollectionViewNextPageReusableViewIdentifier
-                                                                         forIndexPath:[self _indexPathForPaginationReusableView]];
+                                                              withReuseIdentifier:PFQueryCollectionViewNextPageReusableViewIdentifier
+                                                                     forIndexPath:[self _indexPathForPaginationReusableView]];
     _currentNextPageView.textLabel.text = NSLocalizedString(@"Load more...", @"Load more...");
     [_currentNextPageView addTarget:self action:@selector(loadNextPage) forControlEvents:UIControlEventTouchUpInside];
     _currentNextPageView.animating = self.loading;
@@ -330,7 +325,34 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
 #pragma mark Actions
 
 - (void)_refreshControlValueChanged:(UIRefreshControl *)refreshControl {
-    [self loadObjects];
+    if (!self.loading) {
+        [self loadObjects];
+    }
+}
+
+#pragma mark -
+#pragma mark Loading View
+
+- (void)_refreshLoadingView {
+    BOOL showLoadingView = self.loadingViewEnabled && self.loading && _firstLoad;
+
+    if (showLoadingView) {
+        [self.collectionView addSubview:self.loadingView];
+        [self.view setNeedsLayout];
+    } else {
+        // Avoid loading `loadingView` - just use an ivar.
+        if (_loadingView) {
+            [self.loadingView removeFromSuperview];
+            self.loadingView = nil;
+        }
+    }
+}
+
+- (PFLoadingView *)loadingView {
+    if (!_loadingView) {
+        _loadingView = [[PFLoadingView alloc] initWithFrame:CGRectZero];
+    }
+    return _loadingView;
 }
 
 @end
