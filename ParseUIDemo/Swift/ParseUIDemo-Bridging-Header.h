@@ -23,6 +23,7 @@
 #define ParseStarterProject_Bridging_Header_h
 
 #import <Bolts/Bolts.h>
-#import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #endif

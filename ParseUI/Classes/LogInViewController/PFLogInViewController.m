@@ -37,9 +37,13 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
  This protocol exists so that we can weakly refer to messages to pass to PFFacebookUtils without
  actually taking a dependency on the symbols.
  */
-@protocol WeaklyReferencedFBUtils
+@protocol WeaklyReferencedFBUtils <NSObject>
 
-+ (void)logInWithPermissions:(NSArray *)permissions block:(void(^)(PFUser *user, NSError *error))block;
+// FBSDKv3
++ (void)logInWithPermissions:(NSArray *)permissions block:(PFUserResultBlock)block;
+// FBSDKv4
++ (void)logInInBackgroundWithReadPermissions:(NSArray *)permissions block:(PFUserResultBlock)block;
++ (void)logInInBackgroundWithPublishPermissions:(NSArray *)permissions block:(PFUserResultBlock)block;
 
 @end
 
@@ -279,6 +283,8 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
     }];
 }
 
+#pragma mark Log In With Facebook
+
 - (void)_loginWithFacebook {
     if (self.loading) {
         return;
@@ -289,22 +295,54 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
         [(PFActionButton *)_logInView.facebookButton setLoading:YES];
     }
 
-    Class fbUtils = NSClassFromString(@"PFFacebookUtils");
-    [fbUtils logInWithPermissions:_facebookPermissions block:^(PFUser *user, NSError *error) {
-        self.loading = NO;
+    __weak typeof(self) wself = self;
+    PFUserResultBlock resultBlock = ^(PFUser *user, NSError *error) {
+        __strong typeof(wself) sself = wself;
+        sself.loading = NO;
         if ([_logInView.facebookButton isKindOfClass:[PFActionButton class]]) {
             [(PFActionButton *)_logInView.facebookButton setLoading:NO];
         }
 
         if (user) {
-            [self _loginDidSuceedWithUser:user];
+            [sself _loginDidSuceedWithUser:user];
         } else if (error) {
-            [self _loginDidFailWithError:error];
+            [sself _loginDidFailWithError:error];
         } else {
             // User cancelled login.
         }
-    }];
+    };
+
+    Class fbUtils = NSClassFromString(@"PFFacebookUtils");
+    if ([fbUtils respondsToSelector:@selector(logInWithPermissions:block:)]) {
+        // Facebook SDK v3 Login
+        [fbUtils logInWithPermissions:_facebookPermissions block:resultBlock];
+    } else if ([fbUtils respondsToSelector:@selector(logInInBackgroundWithReadPermissions:block:)]) {
+        // Facebook SDK v4 Login
+        if ([self _permissionsContainsFacebookPublishPermission:_facebookPermissions]) {
+            [fbUtils logInInBackgroundWithPublishPermissions:_facebookPermissions block:resultBlock];
+        } else {
+            [fbUtils logInInBackgroundWithReadPermissions:_facebookPermissions block:resultBlock];
+        }
+    } else {
+        [NSException raise:NSInternalInconsistencyException
+                    format:@"Can't find PFFacebookUtils. Please link with ParseFacebookUtils or ParseFacebookUtilsV4 to enable login with Facebook."];
+    }
 }
+
+- (BOOL)_permissionsContainsFacebookPublishPermission:(NSArray *)permissions {
+    for (NSString *permission in permissions) {
+        if ([permission hasPrefix:@"publish"] ||
+            [permission hasPrefix:@"manage"] ||
+            [permission isEqualToString:@"ads_management"] ||
+            [permission isEqualToString:@"create_event"] ||
+            [permission isEqualToString:@"rsvp_event"]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+#pragma mark Log In With Twitter
 
 - (void)_loginWithTwitter {
     if (self.loading) {
@@ -331,6 +369,8 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
         }
     }];
 }
+
+#pragma mark Log In
 
 - (void)_loginAction {
     if (self.loading) {
@@ -522,7 +562,7 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
         contentOffset = CGPointMake(0.0f, MIN(offsetForScrollingTextFieldToTop,
                                               offsetForScrollingLowestViewToBottom));
     }
-
+    
     [_logInView setContentOffset:contentOffset animated:animated];
 }
 
