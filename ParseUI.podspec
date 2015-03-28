@@ -33,6 +33,5 @@ Pod::Spec.new do |s|
                           'CoreGraphics',
                           'QuartzCore'
 
-  s.dependency 'Parse', '~> 1.6'
-  s.dependency 'ParseFacebookUtils', '~> 1.6'
+  s.dependency 'Parse', '~> 1.7'
 end
