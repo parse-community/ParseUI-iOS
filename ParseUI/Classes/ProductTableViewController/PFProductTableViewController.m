@@ -26,6 +26,7 @@
 #import <Parse/PFQuery.h>
 
 #import "PFAlertView.h"
+#import "PFLocalization.h"
 #import "PFPurchaseTableViewCell.h"
 
 static NSString *const PFProductMetadataPriceKey = @"price";

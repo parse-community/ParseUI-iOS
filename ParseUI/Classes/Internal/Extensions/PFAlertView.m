@@ -21,6 +21,8 @@
 
 #import "PFAlertView.h"
 
+#import "PFLocalization.h"
+
 @implementation PFUIAlertView
 
 + (void)showAlertViewWithTitle:(NSString *)title

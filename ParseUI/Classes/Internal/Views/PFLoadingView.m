@@ -22,6 +22,7 @@
 #import "PFLoadingView.h"
 
 #import "PFRect.h"
+#import "PFLocalization.h"
 
 @interface PFLoadingView ()
 
