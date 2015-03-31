@@ -27,6 +27,7 @@
 #import "PFCollectionViewCell.h"
 #import "PFImageView.h"
 #import "PFLoadingView.h"
+#import "PFLocalization.h"
 
 static NSString *const PFQueryCollectionViewCellIdentifier = @"cell";
 static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"nextPageView";

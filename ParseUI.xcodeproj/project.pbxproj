@@ -70,6 +70,8 @@
 		8185BA7C1A642A8B002815C0 /* PFCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8185BA7A1A642A8B002815C0 /* PFCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8185BA7D1A642A8B002815C0 /* PFCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8185BA7B1A642A8B002815C0 /* PFCollectionViewCell.m */; };
 		819A4B3A1A6808EA00D01241 /* SubtitleImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819A4B391A6808EA00D01241 /* SubtitleImageCollectionViewController.m */; };
+		81B3F26C1AC9EDE000A92677 /* ParseUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81B3F26A1AC9EDE000A92677 /* ParseUI.strings */; };
+		81B3F26E1AC9EE0000A92677 /* PFLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B3F26D1AC9EE0000A92677 /* PFLocalization.h */; };
 		81C5993F1A64346000F574E8 /* SimpleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C5993E1A64346000F574E8 /* SimpleCollectionViewController.m */; };
 		81C599421A6454C900F574E8 /* PaginatedCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C599411A6454C900F574E8 /* PaginatedCollectionViewController.m */; };
 		81C599451A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C599431A645A9100F574E8 /* PFActivityIndicatorCollectionReusableView.h */; };
@@ -186,6 +188,8 @@
 		8185BA7B1A642A8B002815C0 /* PFCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCollectionViewCell.m; sourceTree = "<group>"; };
 		819A4B381A6808EA00D01241 /* SubtitleImageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtitleImageCollectionViewController.h; sourceTree = "<group>"; };
 		819A4B391A6808EA00D01241 /* SubtitleImageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtitleImageCollectionViewController.m; sourceTree = "<group>"; };
+		81B3F26B1AC9EDE000A92677 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ParseUI.strings; sourceTree = "<group>"; };
+		81B3F26D1AC9EE0000A92677 /* PFLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFLocalization.h; sourceTree = "<group>"; };
 		81C5993D1A64346000F574E8 /* SimpleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCollectionViewController.h; sourceTree = "<group>"; };
 		81C5993E1A64346000F574E8 /* SimpleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCollectionViewController.m; sourceTree = "<group>"; };
 		81C599401A6454C900F574E8 /* PaginatedCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaginatedCollectionViewController.h; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 				810D6BFC19F7F005005B3DB2 /* Extensions */,
 				810D6C0519F7F005005B3DB2 /* PFImageCache.h */,
 				810D6C0619F7F006005B3DB2 /* PFImageCache.m */,
+				81B3F26D1AC9EE0000A92677 /* PFLocalization.h */,
 				810D6C0719F7F006005B3DB2 /* Views */,
 			);
 			path = Internal;
@@ -381,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				811B095A1A0843B9008B3393 /* Info.plist */,
+				81B3F2691AC9EDE000A92677 /* Localization */,
 			);
 			name = Resources;
 			path = ParseUI/Generated;
@@ -535,6 +541,15 @@
 			);
 			path = QueryCollectionViewController;
 			sourceTree = "<group>";
+		};
+		81B3F2691AC9EDE000A92677 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				81B3F26A1AC9EDE000A92677 /* ParseUI.strings */,
+			);
+			name = Localization;
+			path = ParseUI/Resources/Localization;
+			sourceTree = SOURCE_ROOT;
 		};
 		81C5993C1A64344800F574E8 /* QueryCollectionViewController */ = {
 			isa = PBXGroup;
@@ -736,6 +751,7 @@
 				81ED075719F68028009745F4 /* PFLogInViewController.h in Headers */,
 				810D6C2519F7F006005B3DB2 /* PFPrimaryButton.h in Headers */,
 				810D6C2319F7F006005B3DB2 /* PFDismissButton.h in Headers */,
+				81B3F26E1AC9EE0000A92677 /* PFLocalization.h in Headers */,
 				810D6C2719F7F006005B3DB2 /* PFTextButton.h in Headers */,
 				81ED077C19F6809F009745F4 /* PFTableViewCell.h in Headers */,
 				8185BA781A64241B002815C0 /* PFQueryCollectionViewController.h in Headers */,
@@ -790,10 +806,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "ParseUI" */;
 			buildPhases = (
-				D2AAC07A0554694100DB518D /* Headers */,
+				81B3F2561AC9E70F00A92677 /* Generate Localizable Strings */,
 				81E9CD3D19F5781700487B0F /* Convert Images to Code */,
+				D2AAC07A0554694100DB518D /* Headers */,
 				D2AAC07B0554694100DB518D /* Sources */,
 				D2AAC07C0554694100DB518D /* Frameworks */,
+				81B3F25B1AC9E85D00A92677 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -884,6 +902,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		81B3F25B1AC9E85D00A92677 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81B3F26C1AC9EDE000A92677 /* ParseUI.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -931,6 +957,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		81B3F2561AC9E70F00A92677 /* Generate Localizable Strings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Localizable Strings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "// Extract all strings\nfind $PROJECT_DIR/ParseUI/Classes -name '*.m' -print0 | xargs -0 genstrings -q -o $PROJECT_DIR/ParseUI/Resources/Localization/en.lproj\nmv $PROJECT_DIR/ParseUI/Resources/Localization/en.lproj/Localizable.strings $PROJECT_DIR/ParseUI/Resources/Localization/en.lproj/ParseUI.strings";
 		};
 		81E9CD3D19F5781700487B0F /* Convert Images to Code */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1042,6 +1082,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		81B3F26A1AC9EDE000A92677 /* ParseUI.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81B3F26B1AC9EDE000A92677 /* en */,
+			);
+			name = ParseUI.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB921F08733DC00010E9CD /* Debug */ = {

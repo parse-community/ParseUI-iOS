@@ -25,6 +25,7 @@
 #import <Parse/PFUser.h>
 
 #import "PFAlertView.h"
+#import "PFLocalization.h"
 #import "PFPrimaryButton.h"
 #import "PFTextField.h"
 

@@ -25,6 +25,7 @@
 
 #import "PFActionButton.h"
 #import "PFAlertView.h"
+#import "PFLocalization.h"
 #import "PFPrimaryButton.h"
 #import "PFSignUpViewController.h"
 #import "PFTextField.h"

@@ -26,6 +26,7 @@
 #import "PFActivityIndicatorTableViewCell.h"
 #import "PFImageView.h"
 #import "PFLoadingView.h"
+#import "PFLocalization.h"
 #import "PFTableViewCell.h"
 
 // Add headers to kill any warnings.

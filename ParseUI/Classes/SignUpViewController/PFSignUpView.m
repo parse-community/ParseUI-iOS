@@ -24,6 +24,7 @@
 #import "PFColor.h"
 #import "PFDismissButton.h"
 #import "PFImage.h"
+#import "PFLocalization.h"
 #import "PFPrimaryButton.h"
 #import "PFRect.h"
 #import "PFTextButton.h"

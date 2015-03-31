@@ -21,6 +21,7 @@
 
 #import "PFPurchaseTableViewCell.h"
 
+#import "PFLocalization.h"
 #import "PFRect.h"
 
 @interface PFPurchaseTableViewCell ()
