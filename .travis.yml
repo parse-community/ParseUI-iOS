@@ -1,7 +1,7 @@
 language: objective-c
+osx_image: xcode611
 before_install:
-  - brew update
-  - brew reinstall xctool
+  - gem install xcpretty -N
   - gem install cocoapods --pre --quiet
   - pod setup --silent
   - pod repo update --silent
@@ -9,6 +9,7 @@ script:
   - pod install
   - pod lib lint --quick ParseUI.podspec
   - pod lib lint --use-libraries ParseUI.podspec
-  - xctool -workspace ParseUI.xcworkspace -scheme 'ParseUI' -sdk iphonesimulator build
-  - xctool -workspace ParseUI.xcworkspace -scheme 'ParseUIDemo' -sdk iphonesimulator build
-  - xctool -workspace ParseUI.xcworkspace -scheme 'ParseUIDemo-Swift' -sdk iphonesimulator build
+  - set -o pipefail
+  - xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUI' -sdk iphonesimulator build | xcpretty -c
+  - xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUIDemo' -sdk iphonesimulator build | xcpretty -c
+  - xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUIDemo-Swift' -sdk iphonesimulator build | xcpretty -c
