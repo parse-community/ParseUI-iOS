@@ -25,6 +25,8 @@
 
 PFUI_ASSUME_NONNULL_BEGIN
 
+typedef void(^PFImageViewImageResultBlock)(UIImage *PFUI_NULLABLE_S image,  NSError *PFUI_NULLABLE_S error);
+
 @class BFTask;
 @class PFFile;
 
@@ -56,7 +58,7 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @param completion the completion block.
  */
-- (void)loadInBackground:(PFUI_NULLABLE void (^)(PFUI_NULLABLE_S UIImage *image, PFUI_NULLABLE_S NSError *error))completion;
+- (void)loadInBackground:(PFUI_NULLABLE PFImageViewImageResultBlock)completion;
 
 /*!
  @abstract Initiate downloading of the remote image.
@@ -67,7 +69,7 @@ PFUI_ASSUME_NONNULL_BEGIN
  @param progressBlock called with the download progress as the image is being downloaded. 
  Will be called with a value of 100 before the completion block is called.
  */
-- (void)loadInBackground:(PFUI_NULLABLE void (^)(PFUI_NULLABLE_S UIImage *image, PFUI_NULLABLE_S NSError *error))completion
+- (void)loadInBackground:(PFUI_NULLABLE PFImageViewImageResultBlock)completion
            progressBlock:(PFUI_NULLABLE void (^)(int percentDone))progressBlock;
 
 @end
