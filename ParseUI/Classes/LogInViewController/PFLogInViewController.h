@@ -155,6 +155,9 @@ shouldBeginLogInWithUsername:(NSString *)username
 /*!
  @abstract Sent to the delegate when the log in attempt fails.
 
+ @discussion If you implement this method, PFLoginViewController will not automatically show its default
+ login failure alert view. Instead, you should show your custom alert view in your implementation.
+
  @param logInController The login view controller where login failed.
  @param error `NSError` object representing the error that occured.
  */
