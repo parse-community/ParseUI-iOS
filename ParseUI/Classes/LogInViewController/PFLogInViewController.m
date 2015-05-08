@@ -305,7 +305,7 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
         }
 
         if (user) {
-            [sself _loginDidSuceedWithUser:user];
+            [sself _loginDidSucceedWithUser:user];
         } else if (error) {
             [sself _loginDidFailWithError:error];
         } else {
@@ -362,7 +362,7 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
         }
 
         if (user) {
-            [self _loginDidSuceedWithUser:user];
+            [self _loginDidSucceedWithUser:user];
         } else if (error) {
             [self _loginDidFailWithError:error];
         } else {
@@ -399,7 +399,7 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
         }
 
         if (user) {
-            [self _loginDidSuceedWithUser:user];
+            [self _loginDidSucceedWithUser:user];
         } else {
             [self _loginDidFailWithError:error];
         }
@@ -413,7 +413,7 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
     [self presentViewController:self.signUpController animated:YES completion:nil];
 }
 
-- (void)_loginDidSuceedWithUser:(PFUser *)user {
+- (void)_loginDidSucceedWithUser:(PFUser *)user {
     if (_delegateExistingMethods.didLogInUser) {
         [_delegate logInViewController:self didLogInUser:user];
     }
@@ -423,11 +423,17 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
 - (void)_loginDidFailWithError:(NSError *)error {
     if (_delegateExistingMethods.didFailToLogIn) {
         [_delegate logInViewController:self didFailToLogInWithError:error];
+    } else {
+        NSString *title = NSLocalizedString(@"Login Failed", @"Login failed alert title in PFLogInViewController");
+        NSString *message = nil;
+        if (error.code == kPFErrorObjectNotFound) {
+            message = NSLocalizedString(@"The username and password you entered don't match", @"Invalid login credentials alert message in PFLogInViewController");
+        } else {
+            message = NSLocalizedString(@"Please try again", @"Generic login failed alert message in PFLogInViewController");
+        }
+        [PFUIAlertView showAlertViewWithTitle:title message:message];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:PFLogInFailureNotification object:self];
-
-    NSString *title = NSLocalizedString(@"Login Error", @"Login error alert title in PFLogInViewController");
-    [PFUIAlertView showAlertViewWithTitle:title error:error];
 }
 
 - (void)cancelLogIn {
@@ -563,7 +569,7 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
         contentOffset = CGPointMake(0.0f, MIN(offsetForScrollingTextFieldToTop,
                                               offsetForScrollingLowestViewToBottom));
     }
-    
+
     [_logInView setContentOffset:contentOffset animated:animated];
 }
 
