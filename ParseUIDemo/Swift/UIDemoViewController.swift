@@ -154,7 +154,7 @@ extension UIDemoViewController : UITableViewDataSource {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath:indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath:indexPath) as! UITableViewCell
         cell.textLabel?.text = UIDemoType(rawValue: indexPath.row)?.description
         return cell
     }
