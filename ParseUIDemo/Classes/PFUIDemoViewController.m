@@ -75,6 +75,8 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
     NSArray *_descriptions;
 }
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
+
 @end
 
 @implementation PFUIDemoViewController
@@ -83,44 +85,53 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
 #pragma mark Init
 
 - (instancetype)init {
-    self = [super initWithStyle:UITableViewStylePlain];
-    if (self) {
-        self.title = @"ParseUI Demo";
-        _descriptions = @[ @"Simple Table",
-                           @"Paginated Table",
-                           @"Sectioned Table",
-                           @"Simple Storyboard Table",
-                           @"Simple Collection",
-                           @"Paginated Collection",
-                           @"Sectioned Collection",
-                           @"Simple Storyboard Collection",
-                           @"Log In Default",
-                           @"Log In Username and Password",
-                           @"Log In Password Forgotten",
-                           @"Log In Done Button",
-                           @"Log In Email as Username",
-                           @"Log In Facebook",
-                           @"Log In Facebook and Twitter",
-                           @"Log In All",
-                           @"Log In All as Navigation",
-                           @"Log In Customized Background",
-                           @"Sign Up Default",
-                           @"Sign Up Username and Password",
-                           @"Sign Up Email",
-                           @"Sign Up Email And SignUp",
-                           @"Sign Up All",
-                           @"Sign Up Email as Username",
-                           @"Sign Up Minimum Password Length",
-                           @"Remote Image Table Default Style",
-                           @"Remote Image Table Subtitle Style",
-                           @"Remote Image Collection",
-                           @"Purchase",
-                           @"Custom Purchase" ];
-    }
-    return self;
+    return [super initWithStyle:UITableViewStylePlain];
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
+    return [self init];
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (!self) return nil;
+
+    self.title = @"ParseUI Demo";
+    _descriptions = @[ @"Simple Table",
+                       @"Paginated Table",
+                       @"Sectioned Table",
+                       @"Simple Storyboard Table",
+                       @"Simple Collection",
+                       @"Paginated Collection",
+                       @"Sectioned Collection",
+                       @"Simple Storyboard Collection",
+                       @"Log In Default",
+                       @"Log In Username and Password",
+                       @"Log In Password Forgotten",
+                       @"Log In Done Button",
+                       @"Log In Email as Username",
+                       @"Log In Facebook",
+                       @"Log In Facebook and Twitter",
+                       @"Log In All",
+                       @"Log In All as Navigation",
+                       @"Log In Customized Background",
+                       @"Sign Up Default",
+                       @"Sign Up Username and Password",
+                       @"Sign Up Email",
+                       @"Sign Up Email And SignUp",
+                       @"Sign Up All",
+                       @"Sign Up Email as Username",
+                       @"Sign Up Minimum Password Length",
+                       @"Remote Image Table Default Style",
+                       @"Remote Image Table Subtitle Style",
+                       @"Remote Image Collection",
+                       @"Purchase",
+                       @"Custom Purchase" ];
+
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
     return [self init];
 }
 
