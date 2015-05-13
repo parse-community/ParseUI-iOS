@@ -25,23 +25,21 @@
 
 @implementation PFUIAlertView
 
-+ (void)showAlertViewWithTitle:(NSString *)title
-                         error:(NSError *)error {
-    NSString *message = nil;
-    if (error.userInfo[@"originalError"]) {
-        message = [error.userInfo[@"originalError"] localizedDescription];
-    } else if (error.userInfo[@"error"]) {
-        message = error.userInfo[@"error"];
-    } else {
-        message = [error localizedDescription];
++ (void)showAlertViewWithTitle:(NSString *)title error:(NSError *)error {
+    NSString *message = error.userInfo[@"error"];
+    if (!message) {
+      message = [error.userInfo[@"originalError"] localizedDescription];
     }
-
+    if (!message) {
+      message = [error localizedDescription];      
+    }
     [self showAlertViewWithTitle:title message:message];
 }
 
-+ (void)showAlertViewWithTitle:(NSString *)title
-                       message:(NSString *)message {
-    [self showAlertViewWithTitle:title message:message cancelButtonTitle:NSLocalizedString(@"OK", @"OK")];
++ (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message {
+    [self showAlertViewWithTitle:title
+                         message:message
+               cancelButtonTitle:NSLocalizedString(@"OK", @"OK")];
 }
 
 + (void)showAlertViewWithTitle:(NSString *)title
