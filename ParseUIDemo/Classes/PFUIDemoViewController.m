@@ -376,7 +376,9 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
         }
         case PFUIDemoTypeSignUpAll: {
             PFSignUpViewController *signUpController = [[PFSignUpViewController alloc] init];
-            signUpController.fields = (PFSignUpFieldsEmail
+            signUpController.fields = (PFSignUpFieldsFirstName
+                                       | PFSignUpFieldsLastName
+                                       | PFSignUpFieldsEmail
                                        | PFSignUpFieldsAdditional
                                        | PFSignUpFieldsSignUpButton
                                        | PFSignUpFieldsDismissButton);

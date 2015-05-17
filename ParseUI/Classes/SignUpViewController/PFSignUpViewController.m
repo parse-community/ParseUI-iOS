@@ -38,6 +38,9 @@ static NSString *const PFSignUpViewControllerDelegateInfoUsernameKey = @"usernam
 static NSString *const PFSignUpViewControllerDelegateInfoPasswordKey = @"password";
 static NSString *const PFSignUpViewControllerDelegateInfoEmailKey = @"email";
 static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"additional";
+static NSString *const PFSignUpViewControllerDelegateInfoFirstNameKey = @"firstname";
+static NSString *const PFSignUpViewControllerDelegateInfoLastNameKey = @"lastname";
+
 
 @interface PFSignUpViewController () {
     struct {
@@ -176,6 +179,16 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == _signUpView.firstNameField) {
+        [_signUpView.lastNameField becomeFirstResponder];
+        return YES;
+    }
+
+    if (textField == _signUpView.lastNameField) {
+        [_signUpView.usernameField becomeFirstResponder];
+        return YES;
+    }
+
     if (textField == _signUpView.usernameField) {
         [_signUpView.passwordField becomeFirstResponder];
         return YES;
@@ -211,6 +224,9 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
     [_signUpView.dismissButton addTarget:self
                                   action:@selector(_dismissAction)
                         forControlEvents:UIControlEventTouchUpInside];
+    _signUpView.firstNameField.delegate = self;
+
+    _signUpView.lastNameField.delegate = self;
     _signUpView.usernameField.delegate = self;
     _signUpView.passwordField.delegate = self;
     _signUpView.emailField.delegate = self;
@@ -251,6 +267,8 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
     email = [email stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
     NSString *additional = _signUpView.additionalField.text;
+    NSString *firstName = _signUpView.firstNameField.text;
+    NSString *lastName = _signUpView.lastNameField.text;
 
     NSMutableDictionary *dictionary = [@{ PFSignUpViewControllerDelegateInfoUsernameKey : username,
                                           PFSignUpViewControllerDelegateInfoPasswordKey : password } mutableCopy];
@@ -261,7 +279,13 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
     if (additional) {
         dictionary[PFSignUpViewControllerDelegateInfoAdditionalKey] = additional;
     }
-
+    if(firstName) {
+        dictionary[PFSignUpViewControllerDelegateInfoFirstNameKey] = firstName;
+    }
+    if(lastName) {
+        dictionary[PFSignUpViewControllerDelegateInfoLastNameKey] = lastName;
+    }
+    
     if (_delegateExistingMethods.shouldSignUp) {
         if (![_delegate signUpViewController:self shouldBeginSignUp:dictionary]) {
             return;
@@ -291,7 +315,13 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
     if (additional) {
         user[PFSignUpViewControllerDelegateInfoAdditionalKey] = additional;
     }
-
+    if(firstName) {
+        user[PFSignUpViewControllerDelegateInfoFirstNameKey] = firstName;
+    }
+    if(lastName) {
+        user[PFSignUpViewControllerDelegateInfoLastNameKey] = lastName;
+    }
+    
     self.loading = YES;
     if ([_signUpView.signUpButton isKindOfClass:[PFPrimaryButton class]]) {
         [(PFPrimaryButton *)_signUpView.signUpButton setLoading:YES];
@@ -381,6 +411,13 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
 }
 
 - (UIView *)_currentFirstResponder {
+    
+    if ([_signUpView.firstNameField isFirstResponder]) {
+        return _signUpView.firstNameField;
+    }
+    if ([_signUpView.lastNameField isFirstResponder]) {
+        return _signUpView.lastNameField;
+    }
     if ([_signUpView.usernameField isFirstResponder]) {
         return _signUpView.usernameField;
     }
@@ -467,7 +504,7 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
     if (self.visibleKeyboardHeight > 0.0f) {
         // Scroll the view to keep fields visible
         CGFloat offsetForScrollingTextFieldToTop = CGRectGetMinY([self _currentFirstResponder].frame);
-
+        
         UIView *lowestView;
         if (_signUpView.signUpButton) {
             lowestView = _signUpView.signUpButton;
