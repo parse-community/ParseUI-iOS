@@ -46,12 +46,14 @@ enum UIDemoType : Int {
     case PaginatedTable
     case SectionedTable
     case StoryboardTable
+    case DeletionTable
     case ImageTableDefaultStyle
     case ImageTableSubtitleStyle
     case SimpleCollection
     case PaginatedCollection
     case SectionedCollection
     case StoryboardCollection
+    case DeletionCollection
     case ImageCollection
     case Product
     case CustomizedProduct
@@ -109,6 +111,8 @@ extension UIDemoType : Printable {
             return "Sectioned Table"
         case StoryboardTable:
             return "Simple Storyboard Table"
+        case .DeletionTable:
+            return "Deletion Table"
         case ImageTableDefaultStyle:
             return "Remote Image Table Default Style"
         case ImageTableSubtitleStyle:
@@ -121,6 +125,8 @@ extension UIDemoType : Printable {
             return "Sectioned Collection"
         case StoryboardCollection:
             return "Simple Storyboard Collection"
+        case DeletionCollection:
+            return "Deletion Collection"
         case ImageCollection:
             return "Remote Image Collection"
         case Product:
@@ -287,6 +293,9 @@ extension UIDemoViewController : UITableViewDelegate {
                 let storyboard = UIStoryboard(name: "SimpleQueryTableStoryboard-Swift", bundle: nil)
                 let tableViewController = storyboard.instantiateViewControllerWithIdentifier("StoryboardTableViewController") as? StoryboardTableViewController
                 navigationController?.pushViewController(tableViewController!, animated: true)
+            case .DeletionTable:
+                let tableViewController = DeletionTableViewController(className: "PublicTodo");
+                navigationController?.pushViewController(tableViewController, animated: true);
             case .ImageTableDefaultStyle:
                 let tableViewController = PFQueryTableViewController(className: "App")
                 tableViewController.imageKey = "icon"
@@ -317,6 +326,9 @@ extension UIDemoViewController : UITableViewDelegate {
                 let storyboard = UIStoryboard(name: "SimpleQueryCollectionStoryboard-Swift", bundle: nil)
                 let collectionViewController = storyboard.instantiateViewControllerWithIdentifier("StoryboardCollectionViewController") as? StoryboardCollectionViewController
                 navigationController?.pushViewController(collectionViewController!, animated: true)
+            case .DeletionCollection:
+                let collectionViewController = DeletionCollectionViewController(className: "PublicTodo");
+                navigationController?.pushViewController(collectionViewController, animated: true)
             case .ImageCollection:
                 let collectionViewController = SubtitleImageCollectionViewController(className: "App")
                 navigationController?.pushViewController(collectionViewController, animated: true)

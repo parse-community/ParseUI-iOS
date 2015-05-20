@@ -25,6 +25,7 @@
 
 PFUI_ASSUME_NONNULL_BEGIN
 
+@class BFTask;
 @class PFCollectionViewCell;
 @class PFObject;
 @class PFQuery;
@@ -139,14 +140,26 @@ PFUI_ASSUME_NONNULL_BEGIN
  */
 - (PFUI_NULLABLE PFObject *)objectAtIndexPath:(PFUI_NULLABLE NSIndexPath *)indexPath;
 
+/*!
+ @abstract Removes an object at the specified index path, animated.
+ */
+- (void)removeObjectAtIndexPath:(PFUI_NULLABLE NSIndexPath *)indexPath;
+
+/*!
+ @abstract Removes all objects at the specified index paths, animated.
+ */
+- (void)removeObjectsAtIndexPaths:(PFUI_NULLABLE NSArray *)indexes;
+
 ///--------------------------------------
 /// @name Loading Data
 ///--------------------------------------
 
 /*!
  @abstract Clears the collection view and loads the first page of objects.
+
+ @returns An awaitable task that completes when the reload succeeds
  */
-- (void)loadObjects;
+- (BFTask *)loadObjects;
 
 /*!
  @abstract Loads the objects of the <parseClassName> at the specified page and appends it to the
@@ -154,8 +167,10 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @param page  The page of objects to load.
  @param clear Whether to clear the collection view after receiving the objects.
+
+ @returns An awaitable task that completes when the reload succeeds
  */
-- (void)loadObjects:(NSInteger)page clear:(BOOL)clear;
+- (BFTask *)loadObjects:(NSInteger)page clear:(BOOL)clear;
 
 /*!
  @abstract Loads the next page of objects, appends to table, and refreshes.

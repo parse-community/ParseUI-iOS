@@ -116,6 +116,10 @@
 		A5375DF534FF03442906BCAC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91892E5A1364B4A9F064902 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		BD1FB4C4DFB833BFFD3E209A /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		F57F3D231B0C03D40087F60B /* DeletionCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F57F3D201B0C03C90087F60B /* DeletionCollectionViewController.m */; };
+		F57F3D241B0C03DB0087F60B /* DeletionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F57F3D1C1B0C03BA0087F60B /* DeletionTableViewController.m */; };
+		F57F3D271B0C050C0087F60B /* DeletionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F3D251B0C04EF0087F60B /* DeletionTableViewController.swift */; };
+		F57F3D291B0C05280087F60B /* DeletionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F3D281B0C05280087F60B /* DeletionCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -240,6 +244,12 @@
 		B774A7483212431D2C034600 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B91892E5A1364B4A9F064902 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AAC07E0554694100DB518D /* ParseUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ParseUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F57F3D1B1B0C03BA0087F60B /* DeletionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeletionTableViewController.h; sourceTree = "<group>"; };
+		F57F3D1C1B0C03BA0087F60B /* DeletionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeletionTableViewController.m; sourceTree = "<group>"; };
+		F57F3D1F1B0C03C90087F60B /* DeletionCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeletionCollectionViewController.h; sourceTree = "<group>"; };
+		F57F3D201B0C03C90087F60B /* DeletionCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeletionCollectionViewController.m; sourceTree = "<group>"; };
+		F57F3D251B0C04EF0087F60B /* DeletionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletionTableViewController.swift; sourceTree = "<group>"; };
+		F57F3D281B0C05280087F60B /* DeletionCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletionCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +477,8 @@
 		81472FA11A1AB37500FD6EED /* QueryTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F57F3D1B1B0C03BA0087F60B /* DeletionTableViewController.h */,
+				F57F3D1C1B0C03BA0087F60B /* DeletionTableViewController.m */,
 				81472F971A1AB37500FD6EED /* SimpleTableViewController.h */,
 				81472F981A1AB37500FD6EED /* SimpleTableViewController.m */,
 				81472F991A1AB37500FD6EED /* PaginatedTableViewController.h */,
@@ -558,6 +570,8 @@
 		81C5993C1A64344800F574E8 /* QueryCollectionViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F57F3D1F1B0C03C90087F60B /* DeletionCollectionViewController.h */,
+				F57F3D201B0C03C90087F60B /* DeletionCollectionViewController.m */,
 				81C5993D1A64346000F574E8 /* SimpleCollectionViewController.h */,
 				81C5993E1A64346000F574E8 /* SimpleCollectionViewController.m */,
 				81C599401A6454C900F574E8 /* PaginatedCollectionViewController.h */,
@@ -685,6 +699,7 @@
 		81FC6B571A9D1BFC00104E45 /* QueryTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F57F3D251B0C04EF0087F60B /* DeletionTableViewController.swift */,
 				81FC6B5B1A9D1BFC00104E45 /* SimpleTableViewController.swift */,
 				81FC6B591A9D1BFC00104E45 /* PaginatedTableViewController.swift */,
 				81FC6B5A1A9D1BFC00104E45 /* SectionedTableViewController.swift */,
@@ -698,6 +713,7 @@
 		81FC6B661A9D1CE900104E45 /* QueryCollectionViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F57F3D281B0C05280087F60B /* DeletionCollectionViewController.swift */,
 				81FC6B691A9D1CE900104E45 /* SimpleCollectionViewController.swift */,
 				81FC6B671A9D1CE900104E45 /* PaginatedCollectionViewController.swift */,
 				81FC6B681A9D1CE900104E45 /* SectionedCollectionViewController.swift */,
@@ -1078,7 +1094,9 @@
 				81FC6B601A9D1BFC00104E45 /* SectionedTableViewController.swift in Sources */,
 				81FC6B5F1A9D1BFC00104E45 /* PaginatedTableViewController.swift in Sources */,
 				81FC6B611A9D1BFC00104E45 /* SimpleTableViewController.swift in Sources */,
+				F57F3D291B0C05280087F60B /* DeletionCollectionViewController.swift in Sources */,
 				81FC6B6E1A9D1CE900104E45 /* SimpleCollectionViewController.swift in Sources */,
+				F57F3D271B0C050C0087F60B /* DeletionTableViewController.swift in Sources */,
 				81FC6B6D1A9D1CE900104E45 /* SectionedCollectionViewController.swift in Sources */,
 				81FC6B561A9D1ADB00104E45 /* CustomSignUpViewController.swift in Sources */,
 				81FC6B621A9D1BFC00104E45 /* StoryboardTableViewController.swift in Sources */,
@@ -1103,8 +1121,10 @@
 				81472FB41A1AB37500FD6EED /* CustomLogInViewController.m in Sources */,
 				81472FB91A1AB37500FD6EED /* CustomProductTableViewController.m in Sources */,
 				819A4B3A1A6808EA00D01241 /* SubtitleImageCollectionViewController.m in Sources */,
+				F57F3D241B0C03DB0087F60B /* DeletionTableViewController.m in Sources */,
 				812E5C041A7A8EFB000FBDE1 /* StoryboardCollectionViewController.m in Sources */,
 				81472FB51A1AB37500FD6EED /* SimpleTableViewController.m in Sources */,
+				F57F3D231B0C03D40087F60B /* DeletionCollectionViewController.m in Sources */,
 				81472FB61A1AB37500FD6EED /* PaginatedTableViewController.m in Sources */,
 				81C8D9BD1A890BCA007B8DCF /* StoryboardTableViewController.m in Sources */,
 				81472FB71A1AB37500FD6EED /* SectionedTableViewController.m in Sources */,
