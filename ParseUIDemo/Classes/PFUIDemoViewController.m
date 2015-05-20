@@ -26,6 +26,8 @@
 #import "CustomLogInViewController.h"
 #import "CustomProductTableViewController.h"
 #import "CustomSignUpViewController.h"
+#import "DeletionCollectionViewController.h"
+#import "DeletionTableViewController.h"
 #import "PaginatedCollectionViewController.h"
 #import "PaginatedTableViewController.h"
 #import "SectionedCollectionViewController.h"
@@ -42,10 +44,12 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
     PFUIDemoTypePaginatedTable,
     PFUIDemoTypeSectionedTable,
     PFUIDemoTypeStoryboardTable,
+    PFUIDemoTypeDeletionTable,
     PFUIDemoTypeSimpleCollection,
     PFUIDemoTypePaginatedCollection,
     PFUIDemoTypeSectionedCollection,
     PFUIDemoTypeStoryboardCollection,
+    PFUIDemoTypeDeletionCollection,
     PFUIDemoTypeLogInDefault,
     PFUIDemoTypeLogInUsernamePassword,
     PFUIDemoTypeLogInPasswordForgotten,
@@ -101,10 +105,12 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
                        @"Paginated Table",
                        @"Sectioned Table",
                        @"Simple Storyboard Table",
+                       @"Deletion Table",
                        @"Simple Collection",
                        @"Paginated Collection",
                        @"Sectioned Collection",
                        @"Simple Storyboard Collection",
+                       @"Deletion Collection",
                        @"Log In Default",
                        @"Log In Username and Password",
                        @"Log In Password Forgotten",
@@ -185,7 +191,11 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
             [self.navigationController pushViewController:controller animated:YES];
             break;
         }
+        case PFUIDemoTypeDeletionTable: {
+            PFQueryTableViewController *controller = [[DeletionTableViewController alloc] initWithClassName:@"PublicTodo"];
+            [self.navigationController pushViewController:controller animated:YES];
             break;
+        }
         case PFUIDemoTypeSimpleCollection: {
             SimpleCollectionViewController *controller = [[SimpleCollectionViewController alloc] initWithClassName:@"Todo"];
             [self.navigationController pushViewController:controller animated:YES];
@@ -204,6 +214,11 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
         case PFUIDemoTypeStoryboardCollection: {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SimpleQueryCollectionStoryboard" bundle:NULL];
             StoryboardCollectionViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"StoryboardCollectionViewController"];
+            [self.navigationController pushViewController:controller animated:YES];
+            break;
+        }
+        case PFUIDemoTypeDeletionCollection: {
+            PFQueryCollectionViewController *controller = [[DeletionCollectionViewController alloc] initWithClassName:@"PublicTodo"];
             [self.navigationController pushViewController:controller animated:YES];
             break;
         }

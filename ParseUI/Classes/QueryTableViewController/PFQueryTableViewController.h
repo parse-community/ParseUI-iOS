@@ -25,6 +25,7 @@
 
 PFUI_ASSUME_NONNULL_BEGIN
 
+@class BFTask;
 @class PFObject;
 @class PFQuery;
 @class PFTableViewCell;
@@ -162,23 +163,47 @@ PFUI_ASSUME_NONNULL_BEGIN
 - (PFUI_NULLABLE PFObject *)objectAtIndexPath:(PFUI_NULLABLE NSIndexPath *)indexPath;
 
 /*!
+ @abstract Removes an object at the specified index path, animated.
+ */
+- (void)removeObjectAtIndexPath:(PFUI_NULLABLE NSIndexPath *)indexPath;
+
+/*!
+ @abstract Removes an object at the specified index path, with or without animation.
+ */
+- (void)removeObjectAtIndexPath:(PFUI_NULLABLE NSIndexPath *)indexPath animated:(BOOL)animated;
+
+/*!
+ @abstract Removes all objects at the specified index paths, animated.
+ */
+- (void)removeObjectsAtIndexPaths:(PFUI_NULLABLE NSArray *)indexes;
+
+/*!
+ @abstract Removes all objects at the specified index paths, with or without animation.
+ */
+- (void)removeObjectsAtIndexPaths:(PFUI_NULLABLE NSArray *)indexes animated:(BOOL)animated;
+
+/*!
  @abstract Clears the table of all objects.
  */
 - (void)clear;
 
 /*!
  @abstract Clears the table and loads the first page of objects.
+
+ @returns An awaitable task that completes when the reload succeeds
  */
-- (void)loadObjects;
+- (BFTask *)loadObjects;
 
 /*!
  @abstract Loads the objects of the className at the specified page and appends it to the
  objects already loaded and refreshes the table.
 
  @param page The page of objects to load.
- @param clear Whether to clear the table after receiving the objects.
+ @param clear Whether to clear the table after receiving the objects
+
+ @returns An awaitable task that completes when the reload succeeds
  */
-- (void)loadObjects:(NSInteger)page clear:(BOOL)clear;
+- (BFTask *)loadObjects:(NSInteger)page clear:(BOOL)clear;
 
 /*!
  @abstract Loads the next page of objects, appends to table, and refreshes.
