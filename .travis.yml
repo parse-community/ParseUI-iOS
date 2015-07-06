@@ -1,13 +1,11 @@
 language: objective-c
-osx_image: xcode63
+osx_image: xcode6.4
 before_install:
-  - gem install xcpretty -N
-  - gem install cocoapods --pre --quiet
-  - pod setup --silent
-  - pod repo update --silent
+  - gem install xcpretty --no-document -N
+  - gem install cocoapods --no-document --pre --quiet
 script:
   - pod install
-  - pod lib lint --quick ParseUI.podspec
+  - pod lib lint ParseUI.podspec
   - pod lib lint --use-libraries ParseUI.podspec
   - set -o pipefail
   - xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUI' -sdk iphonesimulator build | xcpretty -c
