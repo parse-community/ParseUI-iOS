@@ -351,12 +351,7 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath {
-    if ([self _shouldShowPaginationView] &&
-        [kind isEqualToString:UICollectionElementKindSectionFooter] &&
-        [indexPath isEqual:[self _indexPathForPaginationReusableView]]) {
-        return [self collectionViewReusableViewForNextPageAction:collectionView];
-    }
-    return nil;
+    return [self collectionViewReusableViewForNextPageAction:collectionView];
 }
 
 #pragma mark -
