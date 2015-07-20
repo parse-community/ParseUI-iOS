@@ -157,8 +157,6 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
 #pragma mark UIView
 
 - (void)layoutSubviews {
-    [super layoutSubviews];
-
     const CGRect bounds = PFRectMakeWithOriginSize(CGPointZero, self.bounds.size);
 
     if (_dismissButton) {
@@ -301,6 +299,8 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
         frame.origin.y = currentY + forgotPasswordInset;
         _passwordForgottenButton.frame = frame;
     }
+	
+	[super layoutSubviews];
 }
 
 - (CGSize)_loginContentSizeThatFits:(CGSize)boundingSize withContentSizeScale:(CGSize)contentSizeScale {
