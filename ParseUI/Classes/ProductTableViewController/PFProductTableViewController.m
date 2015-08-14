@@ -25,7 +25,7 @@
 #import <Parse/PFPurchase.h>
 #import <Parse/PFQuery.h>
 
-#import "PFAlertView.h"
+#import "PFUIAlertView.h"
 #import "PFLocalization.h"
 #import "PFPurchaseTableViewCell.h"
 

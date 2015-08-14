@@ -10,8 +10,8 @@
 		3A105F8401D6777BE50537C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91892E5A1364B4A9F064902 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		810D6C1519F7F006005B3DB2 /* PFActivityIndicatorTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 810D6BFA19F7F005005B3DB2 /* PFActivityIndicatorTableViewCell.h */; };
 		810D6C1619F7F006005B3DB2 /* PFActivityIndicatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 810D6BFB19F7F005005B3DB2 /* PFActivityIndicatorTableViewCell.m */; };
-		810D6C1719F7F006005B3DB2 /* PFAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 810D6BFD19F7F005005B3DB2 /* PFAlertView.h */; };
-		810D6C1819F7F006005B3DB2 /* PFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810D6BFE19F7F005005B3DB2 /* PFAlertView.m */; };
+		810D6C1719F7F006005B3DB2 /* PFUIAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 810D6BFD19F7F005005B3DB2 /* PFUIAlertView.h */; };
+		810D6C1819F7F006005B3DB2 /* PFUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810D6BFE19F7F005005B3DB2 /* PFUIAlertView.m */; };
 		810D6C1919F7F006005B3DB2 /* PFColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 810D6BFF19F7F005005B3DB2 /* PFColor.h */; };
 		810D6C1A19F7F006005B3DB2 /* PFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 810D6C0019F7F005005B3DB2 /* PFColor.m */; };
 		810D6C1B19F7F006005B3DB2 /* PFImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 810D6C0119F7F005005B3DB2 /* PFImage.h */; };
@@ -126,8 +126,8 @@
 		2C9AC93D6C1063CD6DCC1F9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		810D6BFA19F7F005005B3DB2 /* PFActivityIndicatorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFActivityIndicatorTableViewCell.h; sourceTree = "<group>"; };
 		810D6BFB19F7F005005B3DB2 /* PFActivityIndicatorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFActivityIndicatorTableViewCell.m; sourceTree = "<group>"; };
-		810D6BFD19F7F005005B3DB2 /* PFAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAlertView.h; sourceTree = "<group>"; };
-		810D6BFE19F7F005005B3DB2 /* PFAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFAlertView.m; sourceTree = "<group>"; };
+		810D6BFD19F7F005005B3DB2 /* PFUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFUIAlertView.h; sourceTree = "<group>"; };
+		810D6BFE19F7F005005B3DB2 /* PFUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFUIAlertView.m; sourceTree = "<group>"; };
 		810D6BFF19F7F005005B3DB2 /* PFColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFColor.h; sourceTree = "<group>"; };
 		810D6C0019F7F005005B3DB2 /* PFColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFColor.m; sourceTree = "<group>"; };
 		810D6C0119F7F005005B3DB2 /* PFImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFImage.h; sourceTree = "<group>"; };
@@ -351,8 +351,8 @@
 		810D6BFC19F7F005005B3DB2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				810D6BFD19F7F005005B3DB2 /* PFAlertView.h */,
-				810D6BFE19F7F005005B3DB2 /* PFAlertView.m */,
+				810D6BFD19F7F005005B3DB2 /* PFUIAlertView.h */,
+				810D6BFE19F7F005005B3DB2 /* PFUIAlertView.m */,
 				810D6BFF19F7F005005B3DB2 /* PFColor.h */,
 				810D6C0019F7F005005B3DB2 /* PFColor.m */,
 				810D6C0119F7F005005B3DB2 /* PFImage.h */,
@@ -755,7 +755,7 @@
 				810D6C3419F7F38B005B3DB2 /* PFPurchaseTableViewCell.h in Headers */,
 				81ED079619F6809F009745F4 /* PFImageView.h in Headers */,
 				81ED079B19F680B9009745F4 /* PFQueryTableViewController.h in Headers */,
-				810D6C1719F7F006005B3DB2 /* PFAlertView.h in Headers */,
+				810D6C1719F7F006005B3DB2 /* PFUIAlertView.h in Headers */,
 				81E9CCFF19F56D3100487B0F /* PFSignUpView.h in Headers */,
 				810D6C2119F7F006005B3DB2 /* PFActionButton.h in Headers */,
 				81E9CD4119F57AC500487B0F /* PFResources.h in Headers */,
@@ -1142,7 +1142,7 @@
 				81ED075819F68028009745F4 /* PFLogInViewController.m in Sources */,
 				8185BA791A64241B002815C0 /* PFQueryCollectionViewController.m in Sources */,
 				810D6C1C19F7F006005B3DB2 /* PFImage.m in Sources */,
-				810D6C1819F7F006005B3DB2 /* PFAlertView.m in Sources */,
+				810D6C1819F7F006005B3DB2 /* PFUIAlertView.m in Sources */,
 				81E9CD0219F56D3100487B0F /* PFSignUpViewController.m in Sources */,
 				81ED075619F68028009745F4 /* PFLogInView.m in Sources */,
 				810D6C2619F7F006005B3DB2 /* PFPrimaryButton.m in Sources */,

@@ -24,7 +24,7 @@
 #import <Parse/PFUser.h>
 
 #import "PFActionButton.h"
-#import "PFAlertView.h"
+#import "PFUIAlertView.h"
 #import "PFLocalization.h"
 #import "PFPrimaryButton.h"
 #import "PFSignUpViewController.h"
