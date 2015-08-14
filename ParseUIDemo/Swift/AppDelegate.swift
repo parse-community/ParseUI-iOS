@@ -22,6 +22,7 @@
 import UIKit
 import Parse
 import ParseFacebookUtilsV4
+import ParseTwitterUtils
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
