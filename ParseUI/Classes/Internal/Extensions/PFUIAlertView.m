@@ -19,7 +19,7 @@
  *
  */
 
-#import "PFAlertView.h"
+#import "PFUIAlertView.h"
 
 #import "PFLocalization.h"
 
