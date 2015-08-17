@@ -72,7 +72,7 @@ PFQueryTableViewController *controller = [[PFQueryTableViewController alloc] ini
 ```
 
 #### PFQueryCollectionViewController
-A lot of advanced use cases usually include displaying data in a custom dynamic layout that is a different from simple list.
+A lot of advanced use cases usually include displaying data in a custom dynamic layout that is different from a simple list.
 `PFQueryTableViewController` is a sub-class of `UICollectionViewController` that provides a layer of abstraction that lets you easily display data from one of your Parse classes in any dynamic and custom layout you might think of
 
 To display data in a simple grid layout you can use the default `UICollectionViewFlowLayout`:
