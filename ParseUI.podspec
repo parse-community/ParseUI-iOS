@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ParseUI'
-  s.version          = '1.1.4'
+  s.version          = '1.1.5'
   s.license          =  { :type => 'SDK', :file => 'LICENSE'}
   s.homepage         = 'https://www.parse.com/'
   s.summary          = 'ParseUI is a library of useful User Interface components for the Parse iOS SDK.'
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   
   s.platform              = :ios
   s.requires_arc          = true
-  s.ios.deployment_target = '6.0'
+  s.ios.deployment_target = '7.0'
   
   s.prepare_command     = <<-CMD
                           ruby ParseUI/Scripts/convert_images.rb \
@@ -28,11 +28,11 @@ Pod::Spec.new do |s|
                           'ParseUI/Classes/Cells/*.h',
                           'ParseUI/Other/*.h'
   s.resources  = ['ParseUI/Resources/Localization/*.lproj']
-  s.xcconfig = { 'OTHER_LDFLAGS' => '$(inherited) -undefined dynamic_lookup' }
   s.frameworks          = 'Foundation',
                           'UIKit',
                           'CoreGraphics',
                           'QuartzCore'
 
-  s.dependency 'Parse', '~> 1.7'
+  s.dependency 'Bolts/Tasks', '~> 1.2'
+  s.dependency 'Parse', '~> 1.8'
 end

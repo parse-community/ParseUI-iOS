@@ -21,10 +21,10 @@
 
 #import "PFLogInViewController.h"
 
-#import <Parse/PFTwitterUtils.h>
+#import <Parse/PFUser.h>
 
 #import "PFActionButton.h"
-#import "PFAlertView.h"
+#import "PFUIAlertView.h"
 #import "PFLocalization.h"
 #import "PFPrimaryButton.h"
 #import "PFSignUpViewController.h"
@@ -45,6 +45,12 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
 // FBSDKv4
 + (void)logInInBackgroundWithReadPermissions:(NSArray *)permissions block:(PFUserResultBlock)block;
 + (void)logInInBackgroundWithPublishPermissions:(NSArray *)permissions block:(PFUserResultBlock)block;
+
+@end
+
+@protocol WeaklyReferenceTwitterUtils <NSObject>
+
++ (void)logInWithBlock:(PFUserResultBlock)block;
 
 @end
 
@@ -355,20 +361,26 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
     }
     self.loading = YES;
 
-    [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
-        self.loading = NO;
-        if ([_logInView.facebookButton isKindOfClass:[PFActionButton class]]) {
-            [(PFActionButton *)_logInView.twitterButton setLoading:NO];
-        }
+    Class twitterUtils = NSClassFromString(@"PFTwitterUtils");
+    if (twitterUtils && [twitterUtils respondsToSelector:@selector(logInWithBlock:)]) {
+        [twitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
+            self.loading = NO;
+            if ([_logInView.facebookButton isKindOfClass:[PFActionButton class]]) {
+                [(PFActionButton *)_logInView.twitterButton setLoading:NO];
+            }
 
-        if (user) {
-            [self _loginDidSucceedWithUser:user];
-        } else if (error) {
-            [self _loginDidFailWithError:error];
-        } else {
-            // User cancelled login.
-        }
-    }];
+            if (user) {
+                [self _loginDidSucceedWithUser:user];
+            } else if (error) {
+                [self _loginDidFailWithError:error];
+            } else {
+                // User cancelled login.
+            }
+        }];
+    } else {
+        [NSException raise:NSInternalInconsistencyException
+                    format:@"Can't find PFTwitterUtils. Please link with ParseTwitterUtils to enable login with Twitter."];
+    }
 }
 
 #pragma mark Log In
