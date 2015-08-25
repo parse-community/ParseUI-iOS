@@ -34,6 +34,7 @@
 		810D6C3119F7F379005B3DB2 /* PFProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 810D6C2F19F7F379005B3DB2 /* PFProductTableViewController.m */; };
 		810D6C3419F7F38B005B3DB2 /* PFPurchaseTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 810D6C3219F7F38B005B3DB2 /* PFPurchaseTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810D6C3519F7F38B005B3DB2 /* PFPurchaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 810D6C3319F7F38B005B3DB2 /* PFPurchaseTableViewCell.m */; };
+		811EE7A31B8C17550058B3BE /* PFLogInView_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 811EE7A21B8C17550058B3BE /* PFLogInView_Private.h */; };
 		8129E5F21A9CB067006752BC /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* ParseUI.framework */; };
 		8129E5F31A9CB067006752BC /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8129E5F51A9CB067006752BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81472FA71A1AB37500FD6EED /* Images.xcassets */; };
@@ -151,6 +152,7 @@
 		810D6C3219F7F38B005B3DB2 /* PFPurchaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPurchaseTableViewCell.h; sourceTree = "<group>"; };
 		810D6C3319F7F38B005B3DB2 /* PFPurchaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPurchaseTableViewCell.m; sourceTree = "<group>"; };
 		811B095A1A0843B9008B3393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ParseUI/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		811EE7A21B8C17550058B3BE /* PFLogInView_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFLogInView_Private.h; sourceTree = "<group>"; };
 		8129E6001A9CB067006752BC /* ParseUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8129E6081A9CB1BE006752BC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8129E6391A9CB320006752BC /* UIDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDemoViewController.swift; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 				81ED075319F68028009745F4 /* PFLogInViewController.h */,
 				81ED075419F68028009745F4 /* PFLogInViewController.m */,
 				81ED075119F68028009745F4 /* PFLogInView.h */,
+				811EE7A21B8C17550058B3BE /* PFLogInView_Private.h */,
 				81ED075219F68028009745F4 /* PFLogInView.m */,
 			);
 			path = LogInViewController;
@@ -751,6 +754,7 @@
 				81E9CD1419F56D6B00487B0F /* ParseUIConstants.h in Headers */,
 				8185BA7C1A642A8B002815C0 /* PFCollectionViewCell.h in Headers */,
 				810D6C1F19F7F006005B3DB2 /* PFImageCache.h in Headers */,
+				811EE7A31B8C17550058B3BE /* PFLogInView_Private.h in Headers */,
 				81E9CD1319F56D6B00487B0F /* ParseUI.h in Headers */,
 				810D6C3419F7F38B005B3DB2 /* PFPurchaseTableViewCell.h in Headers */,
 				81ED079619F6809F009745F4 /* PFImageView.h in Headers */,
