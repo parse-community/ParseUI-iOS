@@ -158,7 +158,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
     }
 
     if (_fields & PFLogInFieldsPasswordForgotten) {
-        if (_passwordForgottenButton) {
+        if (!_passwordForgottenButton) {
             _passwordForgottenButton = [[PFTextButton alloc] initWithFrame:CGRectZero];
             [_passwordForgottenButton setTitle:NSLocalizedString(@"Forgot Password?", "Forgot Password?")
                                       forState:UIControlStateNormal];
@@ -192,7 +192,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
     }
 
     if (_fields & PFLogInFieldsTwitter) {
-        if (_twitterButton) {
+        if (!_twitterButton) {
             _twitterButton = [[PFActionButton alloc] initWithConfiguration:[[self class] _defaultTwitterButtonConfiguration]
                                                                buttonStyle:PFActionButtonStyleNormal];
             [self addSubview:_twitterButton];
@@ -480,7 +480,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
         keyboardType = UIKeyboardTypeEmailAddress;
         usernamePlaceholder = NSLocalizedString(@"Email", @"Email");
     }
-
+    
     _usernameField.placeholder = usernamePlaceholder;
     _usernameField.keyboardType = keyboardType;
 }
