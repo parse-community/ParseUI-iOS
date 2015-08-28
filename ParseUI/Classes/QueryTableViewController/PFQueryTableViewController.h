@@ -218,7 +218,7 @@ PFUI_ASSUME_NONNULL_BEGIN
  Override to construct your own custom PFQuery to get the objects.
  @result PFQuery that loadObjects will use to the objects for this table.
  */
-- (PFQuery *)queryForTable;
+- (PFUI_NULLABLE PFQuery *)queryForTable;
 
 ///--------------------------------------
 /// @name Data Source Methods
