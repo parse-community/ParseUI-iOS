@@ -24,6 +24,6 @@
 
 #undef NSLocalizedString
 #define NSLocalizedString(key, comment) \
-[[NSBundle mainBundle] localizedStringForKey:key value:nil table:@"ParseUI"]
+[[NSBundle bundleForClass:[self class]] localizedStringForKey:key value:nil table:@"ParseUI"]
 
 #endif
