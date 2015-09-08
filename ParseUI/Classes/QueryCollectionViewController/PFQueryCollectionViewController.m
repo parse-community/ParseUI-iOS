@@ -399,11 +399,13 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
 
         [self presentViewController:errorController animated:YES completion:nil];
     } else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error")
-                                                            message:errorMessage
-                                                           delegate:nil
-                                                  cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
-                                                  otherButtonTitles:nil];
+        // Cast to `id` is required for building succesfully for app extensions,
+        // this code actually never runs in App Extensions, since they are iOS 8.0+, so we are good with just a hack
+        UIAlertView *alertView = [(id)[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error")
+                                                                message:errorMessage
+                                                               delegate:nil
+                                                      cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                                                      otherButtonTitles:nil];
 
         [alertView show];
     }
