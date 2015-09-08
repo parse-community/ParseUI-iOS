@@ -288,7 +288,7 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)_forgotPasswordAction {
+- (void)_forgotPasswordAction PF_EXTENSION_UNAVAILABLE("") {
     NSString *title = NSLocalizedString(@"Reset Password", @"Forgot password request title in PFLogInViewController");
     NSString *message = NSLocalizedString(@"Please enter the email address for your account.",
                                           @"Email request message in PFLogInViewController");
