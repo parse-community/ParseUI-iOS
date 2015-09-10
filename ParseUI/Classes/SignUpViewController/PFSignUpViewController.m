@@ -130,7 +130,7 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
 #pragma mark -
 #pragma mark Rotation
 
-- (NSUInteger)supportedInterfaceOrientations {
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         return UIInterfaceOrientationMaskAll;
     }

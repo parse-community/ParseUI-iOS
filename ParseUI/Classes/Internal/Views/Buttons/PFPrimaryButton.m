@@ -29,12 +29,23 @@
     UIActivityIndicatorView *_activityIndicatorView;
 }
 
+- (instancetype)initWithCoder:(nonnull NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
+
 @end
 
 @implementation PFPrimaryButton
 
 #pragma mark -
 #pragma mark Init
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    return [super initWithFrame:frame];
+}
+
+- (instancetype)initWithCoder:(nonnull NSCoder *)decoder {
+    return [super initWithCoder:decoder];
+}
 
 - (instancetype)initWithBackgroundImageColor:(UIColor *)color {
     self = [super initWithFrame:CGRectZero];
