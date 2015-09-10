@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ParseUI'
-  s.version          = '1.1.5'
+  s.version          = '1.1.6'
   s.license          =  { :type => 'SDK', :file => 'LICENSE'}
   s.homepage         = 'https://www.parse.com/'
   s.summary          = 'ParseUI is a library of useful User Interface components for the Parse iOS SDK.'
