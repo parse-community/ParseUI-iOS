@@ -80,6 +80,10 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
     return self;
 }
 
+- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
+    return[self initWithCollectionViewLayout:layout className:nil];
+}
+
 - (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout className:(NSString *)className {
     self = [super initWithCollectionViewLayout:layout];
     if (!self) return nil;
