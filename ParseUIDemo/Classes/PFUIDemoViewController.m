@@ -97,48 +97,56 @@ typedef NS_ENUM(uint8_t, PFUIDemoType) {
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (!self) return nil;
-
-    self.title = @"ParseUI Demo";
-    _descriptions = @[ @"Simple Table",
-                       @"Paginated Table",
-                       @"Sectioned Table",
-                       @"Simple Storyboard Table",
-                       @"Deletion Table",
-                       @"Simple Collection",
-                       @"Paginated Collection",
-                       @"Sectioned Collection",
-                       @"Simple Storyboard Collection",
-                       @"Deletion Collection",
-                       @"Log In Default",
-                       @"Log In Username and Password",
-                       @"Log In Password Forgotten",
-                       @"Log In Done Button",
-                       @"Log In Email as Username",
-                       @"Log In Facebook",
-                       @"Log In Facebook and Twitter",
-                       @"Log In All",
-                       @"Log In All as Navigation",
-                       @"Log In Customized Background",
-                       @"Sign Up Default",
-                       @"Sign Up Username and Password",
-                       @"Sign Up Email",
-                       @"Sign Up Email And SignUp",
-                       @"Sign Up All",
-                       @"Sign Up Email as Username",
-                       @"Sign Up Minimum Password Length",
-                       @"Remote Image Table Default Style",
-                       @"Remote Image Table Subtitle Style",
-                       @"Remote Image Collection",
-                       @"Purchase",
-                       @"Custom Purchase" ];
-
-    return self;
+    return [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)decoder {
     return [self init];
+}
+
+#pragma mark -
+#pragma mark View
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    if (!self.title) {
+        self.title = @"ParseUI Demo";
+    }
+    if (!_descriptions) {
+        _descriptions = @[ @"Simple Table",
+                           @"Paginated Table",
+                           @"Sectioned Table",
+                           @"Simple Storyboard Table",
+                           @"Deletion Table",
+                           @"Simple Collection",
+                           @"Paginated Collection",
+                           @"Sectioned Collection",
+                           @"Simple Storyboard Collection",
+                           @"Deletion Collection",
+                           @"Log In Default",
+                           @"Log In Username and Password",
+                           @"Log In Password Forgotten",
+                           @"Log In Done Button",
+                           @"Log In Email as Username",
+                           @"Log In Facebook",
+                           @"Log In Facebook and Twitter",
+                           @"Log In All",
+                           @"Log In All as Navigation",
+                           @"Log In Customized Background",
+                           @"Sign Up Default",
+                           @"Sign Up Username and Password",
+                           @"Sign Up Email",
+                           @"Sign Up Email And SignUp",
+                           @"Sign Up All",
+                           @"Sign Up Email as Username",
+                           @"Sign Up Minimum Password Length",
+                           @"Remote Image Table Default Style",
+                           @"Remote Image Table Subtitle Style",
+                           @"Remote Image Collection",
+                           @"Purchase",
+                           @"Custom Purchase" ];
+    }
 }
 
 #pragma mark -

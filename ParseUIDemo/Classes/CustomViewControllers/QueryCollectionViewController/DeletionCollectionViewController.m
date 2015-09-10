@@ -37,7 +37,7 @@
 - (instancetype)initWithClassName:(NSString *)className {
     self = [super initWithClassName:className];
     if (self) {
-        self.title = @"Deletion Table";
+        self.title = @"Deletion Collection";
         self.pullToRefreshEnabled = YES;
         self.objectsPerPage = 10;
         self.paginationEnabled = YES;
