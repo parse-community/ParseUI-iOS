@@ -13,3 +13,4 @@ script:
   - set -o pipefail
   - xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUI' -sdk iphonesimulator build | xcpretty -c
   - xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUIDemo' -sdk iphonesimulator build | xcpretty -c
+  - xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUIDemo-Swift' -sdk iphonesimulator build | xcpretty -c

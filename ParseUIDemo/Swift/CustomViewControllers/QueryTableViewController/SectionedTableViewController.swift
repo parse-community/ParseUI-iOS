@@ -52,7 +52,7 @@ class SectionedTableViewController: PFQueryTableViewController {
                 sections[priority] = array
             }
         }
-        sectionKeys = sections.keys.array.sorted(<)
+        sectionKeys = sections.keys.sort(<)
 
         tableView.reloadData()
     }
@@ -66,7 +66,7 @@ class SectionedTableViewController: PFQueryTableViewController {
     }
 }
 
-extension SectionedTableViewController : UITableViewDataSource {
+extension SectionedTableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sections.count
