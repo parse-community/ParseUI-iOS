@@ -130,7 +130,7 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
 #pragma mark -
 #pragma mark Rotation
 
-- (NSUInteger)supportedInterfaceOrientations {
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         return UIInterfaceOrientationMaskAll;
     }
@@ -248,6 +248,8 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
     NSString *username = _signUpView.usernameField.text ?: @"";
     NSString *password = _signUpView.passwordField.text ?: @"";
     NSString *email = (self.emailAsUsername ? username : _signUpView.emailField.text);
+    email = [email stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
     NSString *additional = _signUpView.additionalField.text;
 
     NSMutableDictionary *dictionary = [@{ PFSignUpViewControllerDelegateInfoUsernameKey : username,

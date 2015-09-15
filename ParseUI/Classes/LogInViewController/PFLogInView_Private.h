@@ -19,11 +19,10 @@
  *
  */
 
-#ifndef ParseUI_PFLocalization_h
-#define ParseUI_PFLocalization_h
+#import <ParseUI/PFLogInView.h>
 
-#undef NSLocalizedString
-#define NSLocalizedString(key, comment) \
-[[NSBundle bundleForClass:[self class]] localizedStringForKey:key value:nil table:@"ParseUI"]
+@interface PFLogInView (Private)
 
-#endif
+@property (nonatomic, assign, readwrite) PFLogInFields fields;
+
+@end

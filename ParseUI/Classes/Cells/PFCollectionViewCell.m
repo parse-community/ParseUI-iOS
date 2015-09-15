@@ -56,7 +56,7 @@
 
     // Adapt content mode of _imageView to fit the image in bounds if the layout frame is smaller or center if it's bigger.
     if (!CGRectIsEmpty(imageViewFrame)) {
-        if (CGRectContainsRect(PFRectMakeWithSize(_imageView.image.size), imageViewFrame)) {
+        if (CGRectContainsRect(PFRectMakeWithSize(_imageView.image.size), PFRectMakeWithSize(imageViewFrame.size))) {
             _imageView.contentMode = UIViewContentModeScaleAspectFit;
         } else {
             _imageView.contentMode = UIViewContentModeCenter;
