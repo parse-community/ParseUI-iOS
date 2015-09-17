@@ -34,7 +34,7 @@ class SimpleCollectionReusableView : UICollectionReusableView {
         addSubview(label)
     }
 
-    required init(coder decoder: NSCoder) {
+    required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
 
         label.textAlignment = .Center
@@ -97,7 +97,7 @@ class SectionedCollectionViewController: PFQueryCollectionViewController {
                 sections[priority] = array
             }
         }
-        sectionKeys = sections.keys.array.sorted(<)
+        sectionKeys = sections.keys.sort(<)
 
         collectionView?.reloadData()
     }
@@ -112,7 +112,7 @@ class SectionedCollectionViewController: PFQueryCollectionViewController {
 
 }
 
-extension SectionedCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension SectionedCollectionViewController {
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return sections.count

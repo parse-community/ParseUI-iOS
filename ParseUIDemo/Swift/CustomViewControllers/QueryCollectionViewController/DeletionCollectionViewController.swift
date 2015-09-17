@@ -60,20 +60,22 @@ class DeletionCollectionViewController: PFQueryCollectionViewController, UIAlert
 
     @objc
     func addTodo() {
-        if NSClassFromString("UIAlertController") != nil  {
+        if #available(iOS 8.0, *) {
             let alertDialog = UIAlertController(title: "Add Todo", message: nil, preferredStyle: .Alert)
 
-            var titleTextField : UITextField! = nil
+            var titleTextField : UITextField? = nil
             alertDialog.addTextFieldWithConfigurationHandler() {
                 titleTextField = $0
             }
 
             alertDialog.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
             alertDialog.addAction(UIAlertAction(title: "Save", style: .Default) { (action) -> Void in
-                let object = PFObject(className: self.parseClassName!, dictionary: [ "title": titleTextField.text ])
-                object.saveEventually().continueWithSuccessBlock({ (_) -> AnyObject! in
-                    return self.loadObjects()
-                })
+                if let title = titleTextField?.text {
+                    let object = PFObject(className: self.parseClassName!, dictionary: [ "title": title ])
+                    object.saveEventually().continueWithSuccessBlock { (_) -> AnyObject! in
+                        return self.loadObjects()
+                    }
+                }
                 })
 
             presentViewController(alertDialog, animated: true, completion: nil)
@@ -88,7 +90,7 @@ class DeletionCollectionViewController: PFQueryCollectionViewController, UIAlert
 
             alertView.alertViewStyle = .PlainTextInput
             alertView.textFieldAtIndex(0)?.placeholder = "Name"
-            
+
             alertView.show()
         }
     }
@@ -119,13 +121,15 @@ class DeletionCollectionViewController: PFQueryCollectionViewController, UIAlert
             return
         }
 
-        let object = PFObject(
-            className: self.parseClassName!,
-            dictionary: [ "title": alertView.textFieldAtIndex(0)!.text ]
-        )
-
-        object.saveEventually().continueWithSuccessBlock({ (_) -> AnyObject! in
-            return self.loadObjects()
-        })
+        if let title =  alertView.textFieldAtIndex(0)?.text {
+            let object = PFObject(
+                className: self.parseClassName!,
+                dictionary: [ "title": title ]
+            )
+            
+            object.saveEventually().continueWithSuccessBlock({ (_) -> AnyObject! in
+                return self.loadObjects()
+            })
+        }
     }
 }

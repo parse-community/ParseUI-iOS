@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
@@ -71,27 +71,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         var objects: [PFObject] = Array()
 
-        let query = PFQuery(className: "Todo")
-        if let todos = query.findObjects() as? [PFObject] {
+        do {
+            let todos = try PFQuery(className: "Todo").findObjects()
             if todos.count == 0 {
-                for (index, title) in enumerate(todoTitles) {
+                for (index, title) in todoTitles.enumerate() {
                     let todo = PFObject(className: "Todo")
                     todo["title"] = title
                     todo["priority"] = index % 3
                     objects.append(todo)
                 }
             }
-        }
+        } catch {}
 
         let appNames = [ "Anypic", "Anywall", "f8" ]
-        let appsQuery = PFQuery(className: "App")
-        if let apps = appsQuery.findObjects() as? [PFObject] {
+        do {
+            let apps = try PFQuery(className: "App").findObjects()
             if apps.count == 0 {
-                for (index, appName) in enumerate(appNames) {
+                for (index, appName) in appNames.enumerate() {
                     let bundle = NSBundle.mainBundle()
-                    if let filePath = bundle.pathForResource(String(index), ofType: "png") {
-                        if let data = NSData(contentsOfFile: filePath) {
-                            let file = PFFile(name: filePath.lastPathComponent, data: data)
+                    if let fileURL = bundle.URLForResource(String(index), withExtension: "png") {
+                        if let data = NSData(contentsOfURL: fileURL) {
+                            let file = PFFile(name: fileURL.lastPathComponent, data: data)
                             let object = PFObject(className: "App")
                             object["icon"] = file
                             object["name"] = appName
@@ -100,10 +100,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             }
-        }
+        } catch {}
 
         if objects.count != 0 {
-            PFObject.saveAll(objects)
+            do {
+                try PFObject.saveAll(objects)
+            } catch {}
         }
     }
 
