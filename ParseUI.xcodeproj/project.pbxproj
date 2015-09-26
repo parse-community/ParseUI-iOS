@@ -62,17 +62,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06A1EF631BB6799700BA55EC /* ParseUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06A1EF641BB6799700BA55EC /* ParseUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		323E48C3F5A6E337CF362B8F /* Pods-ParseUIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseUIDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParseUIDemo/Pods-ParseUIDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3583C464D666C3687E5AAD0E /* Pods-ParseUIDemo-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseUIDemo-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParseUIDemo-Swift/Pods-ParseUIDemo-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		71B8D6C92C9693FC9DA8F19B /* Pods-ParseUIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseUIDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParseUIDemo/Pods-ParseUIDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		8129E6001A9CB067006752BC /* ParseUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ParseUIDemo.app; path = "/Users/nlutsenko/src/parse/ios-client/ParseUI/src/build/Debug-iphoneos/ParseUIDemo.app"; sourceTree = "<absolute>"; };
 		8129E6081A9CB1BE006752BC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8129E6391A9CB320006752BC /* UIDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDemoViewController.swift; sourceTree = "<group>"; };
 		812E5C001A7A8EB4000FBDE1 /* SimpleQueryCollectionStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SimpleQueryCollectionStoryboard.storyboard; path = ../../../Resources/SimpleQueryCollectionStoryboard.storyboard; sourceTree = "<group>"; };
 		812E5C021A7A8EFB000FBDE1 /* StoryboardCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryboardCollectionViewController.h; sourceTree = "<group>"; };
 		812E5C031A7A8EFB000FBDE1 /* StoryboardCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryboardCollectionViewController.m; sourceTree = "<group>"; };
 		814155B01A9CD9CA002D9683 /* SimpleQueryTableStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SimpleQueryTableStoryboard.storyboard; path = ParseUIDemo/Resources/SimpleQueryTableStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
-		81472F671A1AB33800FD6EED /* ParseUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ParseUIDemo.app; path = "/Users/nlutsenko/src/parse/ios-client/ParseUI/src/build/Debug-iphoneos/ParseUIDemo.app"; sourceTree = "<absolute>"; };
 		81472F8D1A1AB37500FD6EED /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81472F8E1A1AB37500FD6EED /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		81472F8F1A1AB37500FD6EED /* PFUIDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFUIDemoViewController.h; sourceTree = "<group>"; };
@@ -174,6 +174,8 @@
 				81472F621A1AB31F00FD6EED /* ParseUIDemo */,
 				3F5307328F84566C90FBCF25 /* Frameworks */,
 				07A8DE7A188BFADCF65DF735 /* Pods */,
+				06A1EF631BB6799700BA55EC /* ParseUIDemo.app */,
+				06A1EF641BB6799700BA55EC /* ParseUIDemo.app */,
 			);
 			name = Breakpad;
 			sourceTree = "<group>";
@@ -420,7 +422,7 @@
 			);
 			name = "ParseUIDemo-Swift";
 			productName = ParseUIDemo;
-			productReference = 8129E6001A9CB067006752BC /* ParseUIDemo.app */;
+			productReference = 06A1EF641BB6799700BA55EC /* ParseUIDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		81472F661A1AB33800FD6EED /* ParseUIDemo */ = {
@@ -440,7 +442,7 @@
 			);
 			name = ParseUIDemo;
 			productName = ParseUIDemo;
-			productReference = 81472F671A1AB33800FD6EED /* ParseUIDemo.app */;
+			productReference = 06A1EF631BB6799700BA55EC /* ParseUIDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -451,7 +453,7 @@
 			attributes = {
 				CLASSPREFIX = PF;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Parse Inc.";
 				TargetAttributes = {
 					81472F661A1AB33800FD6EED = {
@@ -674,10 +676,7 @@
 		1DEB922308733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"$(ARCHS_STANDARD)",
-					armv7s,
-				);
+				ENABLE_TESTABILITY = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_SHADOW = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -693,10 +692,6 @@
 		1DEB922408733DC00010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"$(ARCHS_STANDARD)",
-					armv7s,
-				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_SHADOW = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -741,6 +736,7 @@
 				INFOPLIST_FILE = ParseUIDemo/Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ParseUIDemo;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -775,6 +771,7 @@
 				INFOPLIST_FILE = ParseUIDemo/Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ParseUIDemo;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -815,6 +812,7 @@
 				INFOPLIST_FILE = ParseUIDemo/Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -847,6 +845,7 @@
 				INFOPLIST_FILE = ParseUIDemo/Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
