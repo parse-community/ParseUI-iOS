@@ -138,8 +138,8 @@ extension SectionedCollectionViewController {
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader,
             let view = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as? SimpleCollectionReusableView {
-            view.label.text = "Priority \(sectionKeys[indexPath.section])"
-            return view
+                view.label.text = "Priority \(sectionKeys[indexPath.section])"
+                return view
         }
         return super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, atIndexPath: indexPath)
     }
