@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F487952B83BF80EF1A5C4C4 /* Pods_ParseUIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11BDB9C48788D891789AC4D /* Pods_ParseUIDemo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		3082A3CE396F45707D6A7F38 /* Pods_ParseUIDemo_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00130E2D30BC9B48B6FC033 /* Pods_ParseUIDemo_Swift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0F487952B83BF80EF1A5C4C4 /* Pods_ParseUIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11BDB9C48788D891789AC4D /* Pods_ParseUIDemo.framework */; };
+		3082A3CE396F45707D6A7F38 /* Pods_ParseUIDemo_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00130E2D30BC9B48B6FC033 /* Pods_ParseUIDemo_Swift.framework */; };
 		8129E5F51A9CB067006752BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81472FA71A1AB37500FD6EED /* Images.xcassets */; };
 		8129E5F71A9CB067006752BC /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 81472FA91A1AB37500FD6EED /* 0.png */; };
 		8129E5F81A9CB067006752BC /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 81472FAA1A1AB37500FD6EED /* 1.png */; };

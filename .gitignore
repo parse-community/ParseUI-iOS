@@ -13,10 +13,8 @@
 *.xcuserdatad
 
 Pods
-Podfile.lock
 
 DerivedData
 build
 
-PFResources.*
 ParseUI.xcworkspace
