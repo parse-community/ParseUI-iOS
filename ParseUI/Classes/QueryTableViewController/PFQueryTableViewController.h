@@ -105,7 +105,7 @@ PFUI_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) IBInspectable BOOL loadingViewEnabled;
 
 /*!
- @abstract Whether the table should use the built-in pull-to-refresh feature. Defualt - `YES`.
+ @abstract Whether the table should use the built-in pull-to-refresh feature. Default - `YES`.
  */
 @property (nonatomic, assign) IBInspectable BOOL pullToRefreshEnabled;
 
