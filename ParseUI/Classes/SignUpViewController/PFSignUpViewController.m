@@ -24,7 +24,7 @@
 #import <Parse/PFConstants.h>
 #import <Parse/PFUser.h>
 
-#import "PFUIAlertView.h"
+#import "PFUIAlertController.h"
 #import "PFLocalization.h"
 #import "PFPrimaryButton.h"
 #import "PFTextField.h"
@@ -362,7 +362,7 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
         }
 
         if (message != nil) {
-            [PFUIAlertView showAlertViewWithTitle:title message:message];
+            [PFUIAlertController showAlertControllerWithTitle:title message:message onViewController:self];
             [responder becomeFirstResponder];
 
             return;
@@ -370,7 +370,7 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
     }
 
     // Show the generic error alert, as no custom cases matched before
-    [PFUIAlertView showAlertViewWithTitle:title error:error];
+    [PFUIAlertController showAlertControllerWithTitle:title error:error onViewController:self];
 }
 
 - (void)_cancelSignUp {

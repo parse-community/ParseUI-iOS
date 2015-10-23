@@ -21,14 +21,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PFUIAlertView : UIAlertView
+@interface PFUIAlertController : UIAlertController
 
-+ (void)showAlertViewWithTitle:(NSString *)title
-                         error:(NSError *)error;
-+ (void)showAlertViewWithTitle:(NSString *)title
-                       message:(NSString *)message;
-+ (void)showAlertViewWithTitle:(NSString *)title
-                       message:(NSString *)message
-             cancelButtonTitle:(NSString *)cancelButtonTitle;
++ (void)showAlertControllerWithTitle:(NSString *)title
+                               error:(NSError *)error
+                    onViewController:(UIViewController *)viewController;
+
++ (void)showAlertControllerWithTitle:(NSString *)title
+                             message:(NSString *)message
+                    onViewController:(UIViewController *)viewController;
+
++ (void)showAlertControllerWithTitle:(NSString *)title
+                             message:(NSString *)message
+                   cancelButtonTitle:(NSString *)cancelButtonTitle
+                    onViewController:(UIViewController *)viewController;
 
 @end
