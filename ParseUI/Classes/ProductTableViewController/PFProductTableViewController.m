@@ -25,7 +25,7 @@
 #import <Parse/PFPurchase.h>
 #import <Parse/PFQuery.h>
 
-#import "PFUIAlertView.h"
+#import "PFUIAlertController.h"
 #import "PFLocalization.h"
 #import "PFPurchaseTableViewCell.h"
 
@@ -96,7 +96,7 @@ static NSString *const PFProductMetadataPriceLocaleKey = @"priceLocale";
 
                                                  NSString *title = NSLocalizedString(@"Download Error",
                                                                                      @"Download Error");
-                                                 [PFUIAlertView showAlertViewWithTitle:title error:downloadError];
+                                                 [PFUIAlertController showAlertControllerWithTitle:title error:downloadError onViewController:self];
                                              }
                                          }
                                            progress:^(int percentDone) {
@@ -175,7 +175,7 @@ static NSString *const PFProductMetadataPriceLocaleKey = @"priceLocale";
         [PFPurchase buyProduct:product.productIdentifier block:^(NSError *error) {
             if (error) {
                 NSString *title = NSLocalizedString(@"Purchase Error", @"Purchase Error");
-                [PFUIAlertView showAlertViewWithTitle:title error:error];
+                [PFUIAlertController showAlertControllerWithTitle:title error:error onViewController:self];
             }
         }];
     }

@@ -19,13 +19,13 @@
  *
  */
 
-#import "PFUIAlertView.h"
+#import "PFUIAlertController.h"
 
 #import "PFLocalization.h"
 
-@implementation PFUIAlertView
+@implementation PFUIAlertController
 
-+ (void)showAlertViewWithTitle:(NSString *)title error:(NSError *)error {
++ (void)showAlertControllerWithTitle:(NSString *)title error:(NSError *)error onViewController:(UIViewController *)viewController {
     NSString *message = error.userInfo[@"error"];
     if (!message) {
       message = [error.userInfo[@"originalError"] localizedDescription];
@@ -33,24 +33,29 @@
     if (!message) {
       message = [error localizedDescription];      
     }
-    [self showAlertViewWithTitle:title message:message];
+    [self showAlertControllerWithTitle:title message:message onViewController:viewController];
 }
 
-+ (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message {
-    [self showAlertViewWithTitle:title
++ (void)showAlertControllerWithTitle:(NSString *)title message:(NSString *)message onViewController:(UIViewController *)viewController {
+    [self showAlertControllerWithTitle:title
                          message:message
-               cancelButtonTitle:NSLocalizedString(@"OK", @"OK")];
+               cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                onViewController:viewController];
 }
 
-+ (void)showAlertViewWithTitle:(NSString *)title
++ (void)showAlertControllerWithTitle:(NSString *)title
                        message:(NSString *)message
-             cancelButtonTitle:(NSString *)cancelButtonTitle {
-    UIAlertView *alertView = [[self alloc] initWithTitle:title
-                                                 message:message
-                                                delegate:nil
-                                       cancelButtonTitle:cancelButtonTitle
-                                       otherButtonTitles:nil];
-    [alertView show];
+             cancelButtonTitle:(NSString *)cancelButtonTitle
+              onViewController:(UIViewController *)viewController {
+    UIAlertController *controller = [self alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [viewController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [controller addAction:cancelAction];
+    
+    [viewController presentViewController:controller animated:YES completion:nil];
 }
 
 @end

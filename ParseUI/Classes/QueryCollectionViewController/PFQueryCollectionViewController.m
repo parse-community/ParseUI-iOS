@@ -31,6 +31,7 @@
 #import "PFImageView.h"
 #import "PFLoadingView.h"
 #import "PFLocalization.h"
+#import "PFUIAlertController.h"
 
 static NSString *const PFQueryCollectionViewCellIdentifier = @"cell";
 static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"nextPageView";
@@ -393,15 +394,7 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
                               error.localizedDescription];
 
     if ([UIAlertController class]) {
-        UIAlertController *errorController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", @"Error")
-                                                                                 message:errorMessage
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-
-        [errorController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK")
-                                                            style:UIAlertActionStyleCancel
-                                                          handler:nil]];
-
-        [self presentViewController:errorController animated:YES completion:nil];
+        [PFUIAlertController showAlertControllerWithTitle:NSLocalizedString(@"Error", @"Error") message:errorMessage onViewController:self];
     } else {
         // Cast to `id` is required for building succesfully for app extensions,
         // this code actually never runs in App Extensions, since they are iOS 8.0+, so we are good with just a hack
