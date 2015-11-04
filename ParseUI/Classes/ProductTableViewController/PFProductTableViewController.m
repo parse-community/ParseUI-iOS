@@ -94,7 +94,7 @@ static NSString *const PFProductMetadataPriceLocaleKey = @"priceLocale";
                                              } else {
                                                  cell.state = PFPurchaseTableViewCellStateNormal;
 
-                                                 NSString *title = NSLocalizedString(@"Download Error",
+                                                 NSString *title = PFLocalizedString(@"Download Error",
                                                                                      @"Download Error");
                                                  [PFUIAlertView showAlertViewWithTitle:title error:downloadError];
                                              }
@@ -174,7 +174,7 @@ static NSString *const PFProductMetadataPriceLocaleKey = @"priceLocale";
         PFProduct *product = self.objects[indexPath.row];
         [PFPurchase buyProduct:product.productIdentifier block:^(NSError *error) {
             if (error) {
-                NSString *title = NSLocalizedString(@"Purchase Error", @"Purchase Error");
+                NSString *title = PFLocalizedString(@"Purchase Error", @"Purchase Error");
                 [PFUIAlertView showAlertViewWithTitle:title error:error];
             }
         }];
