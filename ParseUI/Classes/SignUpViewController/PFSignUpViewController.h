@@ -27,7 +27,7 @@
 @class PFUser;
 @protocol PFSignUpViewControllerDelegate;
 
-PFUI_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
 /*!
  The `PFSignUpViewController` class that presents and manages
@@ -51,7 +51,7 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @see PFSignUpView
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) PFSignUpView *signUpView;
+@property (nullable, nonatomic, strong, readonly) PFSignUpView *signUpView;
 
 ///--------------------------------------
 /// @name Configuring Sign Up Behaviors
@@ -62,7 +62,7 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @see PFSignUpViewControllerDelegate
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, weak) id<PFSignUpViewControllerDelegate> delegate;
+@property (nullable, nonatomic, weak) id<PFSignUpViewControllerDelegate> delegate;
 
 /*!
  @abstract Minimum required password length for user signups, defaults to `0`.
@@ -146,7 +146,7 @@ extern NSString *const PFSignUpCancelNotification;
  @param error `NSError` object representing the error that occured.
  */
 - (void)signUpViewController:(PFSignUpViewController *)signUpController
-    didFailToSignUpWithError:(PFUI_NULLABLE NSError *)error;
+    didFailToSignUpWithError:(nullable NSError *)error;
 
 /*!
  @abstract Sent to the delegate when the sign up screen is cancelled.
@@ -157,4 +157,4 @@ extern NSString *const PFSignUpCancelNotification;
 
 @end
 
-PFUI_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END

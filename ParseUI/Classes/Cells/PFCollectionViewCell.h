@@ -23,7 +23,7 @@
 
 #import <ParseUI/ParseUIConstants.h>
 
-PFUI_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
 @class PFImageView;
 @class PFObject;
@@ -54,8 +54,8 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @param object An instance of `PFObject` to update from.
  */
-- (void)updateFromObject:(PFUI_NULLABLE PFObject *)object;
+- (void)updateFromObject:(nullable PFObject *)object;
 
 @end
 
-PFUI_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END

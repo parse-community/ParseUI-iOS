@@ -24,7 +24,7 @@
 #import <ParseUI/ParseUIConstants.h>
 #import <ParseUI/PFQueryTableViewController.h>
 
-PFUI_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
 /*!
  `PFProductTableViewController` displays in-app purchase products stored on Parse.
@@ -44,4 +44,4 @@ PFUI_ASSUME_NONNULL_BEGIN
 
 @end
 
-PFUI_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END

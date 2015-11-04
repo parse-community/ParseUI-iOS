@@ -24,7 +24,7 @@
 #import <ParseUI/ParseUIConstants.h>
 #import <ParseUI/PFLogInView.h>
 
-PFUI_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
 @class PFSignUpViewController;
 @class PFUser;
@@ -52,7 +52,7 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @see PFLogInView
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) PFLogInView *logInView;
+@property (nullable, nonatomic, strong, readonly) PFLogInView *logInView;
 
 ///--------------------------------------
 /// @name Configuring Log In Behaviors
@@ -63,14 +63,14 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @see PFLogInViewControllerDelegate
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, weak) id<PFLogInViewControllerDelegate> delegate;
+@property (nullable, nonatomic, weak) id<PFLogInViewControllerDelegate> delegate;
 
 /*!
  @abstract The facebook permissions that Facebook log in requests for.
 
  @discussion If unspecified, the default is basic facebook permissions.
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, copy) NSArray *facebookPermissions;
+@property (nullable, nonatomic, copy) NSArray *facebookPermissions;
 
 /*!
  @abstract The sign up controller if sign up is enabled.
@@ -78,7 +78,7 @@ PFUI_ASSUME_NONNULL_BEGIN
  @discussion Use this to configure the sign up view, and the transition animation to the sign up view.
  The default is a sign up view with a username, a password, a dismiss button and a sign up button.
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, strong) PFSignUpViewController *signUpController;
+@property (nullable, nonatomic, strong) PFSignUpViewController *signUpController;
 
 /*!
  @abstract Whether to prompt for the email as username on the login view.
@@ -162,7 +162,7 @@ shouldBeginLogInWithUsername:(NSString *)username
  @param error `NSError` object representing the error that occured.
  */
 - (void)logInViewController:(PFLogInViewController *)logInController
-    didFailToLogInWithError:(PFUI_NULLABLE NSError *)error;
+    didFailToLogInWithError:(nullable NSError *)error;
 
 /*!
  @abstract Sent to the delegate when the log in screen is cancelled.
@@ -173,4 +173,4 @@ shouldBeginLogInWithUsername:(NSString *)username
 
 @end
 
-PFUI_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END

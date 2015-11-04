@@ -23,7 +23,7 @@
 
 #import <ParseUI/ParseUIConstants.h>
 
-PFUI_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
 @class BFTask;
 @class PFObject;
@@ -58,7 +58,7 @@ PFUI_ASSUME_NONNULL_BEGIN
  @returns An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
  */
 - (instancetype)initWithStyle:(UITableViewStyle)style
-                    className:(PFUI_NULLABLE NSString *)className NS_DESIGNATED_INITIALIZER;
+                    className:(nullable NSString *)className NS_DESIGNATED_INITIALIZER;
 
 /*!
  @abstract Initializes with a class name of the PFObjects that will be associated with this table.
@@ -67,7 +67,7 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @returns An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
  */
-- (instancetype)initWithClassName:(PFUI_NULLABLE NSString *)className;
+- (instancetype)initWithClassName:(nullable NSString *)className;
 
 ///--------------------------------------
 /// @name Configuring Behavior
@@ -76,28 +76,28 @@ PFUI_ASSUME_NONNULL_BEGIN
 /*!
  @abstract The class name of the <PFObject> this table will use as a datasource.
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, copy) IBInspectable NSString *parseClassName;
+@property (nullable, nonatomic, copy) IBInspectable NSString *parseClassName;
 
 /*!
  @abstract The key to use to display for the cell text label.
 
  @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, copy) IBInspectable NSString *textKey;
+@property (nullable, nonatomic, copy) IBInspectable NSString *textKey;
 
 /*!
  @abstract The key to use to display for the cell image view.
 
  @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, copy) IBInspectable NSString *imageKey;
+@property (nullable, nonatomic, copy) IBInspectable NSString *imageKey;
 
 /*!
  @abstract The image to use as a placeholder for the cell images.
 
  @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, strong) IBInspectable UIImage *placeholderImage;
+@property (nullable, nonatomic, strong) IBInspectable UIImage *placeholderImage;
 
 /*!
  @abstract Whether the table should use the default loading view. Default - `YES`.
@@ -139,7 +139,7 @@ PFUI_ASSUME_NONNULL_BEGIN
  call [super objectsDidLoad:] in your implementation.
  @param error The Parse error from running the PFQuery, if there was any.
  */
-- (void)objectsDidLoad:(PFUI_NULLABLE NSError *)error;
+- (void)objectsDidLoad:(nullable NSError *)error;
 
 ///--------------------------------------
 /// @name Accessing Results
@@ -148,7 +148,7 @@ PFUI_ASSUME_NONNULL_BEGIN
 /*!
  @abstract The array of instances of <PFObject> that is used as a data source.
  */
-@property (PFUI_NULLABLE_PROPERTY nonatomic, copy, readonly) NSArray *objects;
+@property (nullable, nonatomic, copy, readonly) NSArray *objects;
 
 /*!
  @abstract Returns an object at a particular indexPath.
@@ -160,27 +160,27 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @returns The object at the specified index
  */
-- (PFUI_NULLABLE PFObject *)objectAtIndexPath:(PFUI_NULLABLE NSIndexPath *)indexPath;
+- (nullable PFObject *)objectAtIndexPath:(nullable NSIndexPath *)indexPath;
 
 /*!
  @abstract Removes an object at the specified index path, animated.
  */
-- (void)removeObjectAtIndexPath:(PFUI_NULLABLE NSIndexPath *)indexPath;
+- (void)removeObjectAtIndexPath:(nullable NSIndexPath *)indexPath;
 
 /*!
  @abstract Removes an object at the specified index path, with or without animation.
  */
-- (void)removeObjectAtIndexPath:(PFUI_NULLABLE NSIndexPath *)indexPath animated:(BOOL)animated;
+- (void)removeObjectAtIndexPath:(nullable NSIndexPath *)indexPath animated:(BOOL)animated;
 
 /*!
  @abstract Removes all objects at the specified index paths, animated.
  */
-- (void)removeObjectsAtIndexPaths:(PFUI_NULLABLE NSArray *)indexes;
+- (void)removeObjectsAtIndexPaths:(nullable NSArray *)indexes;
 
 /*!
  @abstract Removes all objects at the specified index paths, with or without animation.
  */
-- (void)removeObjectsAtIndexPaths:(PFUI_NULLABLE NSArray *)indexes animated:(BOOL)animated;
+- (void)removeObjectsAtIndexPaths:(nullable NSArray *)indexes animated:(BOOL)animated;
 
 /*!
  @abstract Clears the table of all objects.
@@ -238,9 +238,9 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @returns The cell that represents this object.
  */
-- (PFUI_NULLABLE PFTableViewCell *)tableView:(UITableView *)tableView
+- (nullable PFTableViewCell *)tableView:(UITableView *)tableView
                        cellForRowAtIndexPath:(NSIndexPath *)indexPath
-                                      object:(PFUI_NULLABLE PFObject *)object;
+                                      object:(nullable PFObject *)object;
 
 /*!
  @discussion Override this method to customize the cell that allows the user to load the
@@ -251,9 +251,9 @@ PFUI_ASSUME_NONNULL_BEGIN
 
  @returns The cell that allows the user to paginate.
  */
-- (PFUI_NULLABLE PFTableViewCell *)tableView:(UITableView *)tableView
+- (nullable PFTableViewCell *)tableView:(UITableView *)tableView
                   cellForNextPageAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
-PFUI_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END
