@@ -408,7 +408,7 @@
     if (cell == nil) {
         cell = [[PFActivityIndicatorTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                        reuseIdentifier:cellIdentifier];
-        cell.textLabel.text = NSLocalizedString(@"Load more...", @"Load more...");
+        cell.textLabel.text = PFLocalizedString(@"Load more...", @"Load more...");
     }
 
     cell.animating = self.loading;
@@ -517,15 +517,15 @@
     [self loadObjects];
 
     NSString *errorMessage = [NSString stringWithFormat:@"%@: \"%@\"",
-                              NSLocalizedString(@"Error occurred during deletion", @"Error occurred during deletion"),
+                              PFLocalizedString(@"Error occurred during deletion", @"Error occurred during deletion"),
                               error.localizedDescription];
 
     if ([UIAlertController class]) {
-        UIAlertController *errorController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", @"Error")
+        UIAlertController *errorController = [UIAlertController alertControllerWithTitle:PFLocalizedString(@"Error", @"Error")
                                                                                  message:errorMessage
                                                                           preferredStyle:UIAlertControllerStyleAlert];
 
-        [errorController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK")
+        [errorController addAction:[UIAlertAction actionWithTitle:PFLocalizedString(@"OK", @"OK")
                                                             style:UIAlertActionStyleCancel
                                                           handler:nil]];
 
@@ -533,10 +533,10 @@
     } else {
         // Cast to `id` is required for building succesfully for app extensions,
         // this code actually never runs in App Extensions, since they are iOS 8.0+, so we are good with just a hack
-        UIAlertView *alertView = [(id)[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error")
+        UIAlertView *alertView = [(id)[UIAlertView alloc] initWithTitle:PFLocalizedString(@"Error", @"Error")
                                                                 message:errorMessage
                                                                delegate:nil
-                                                      cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                                                      cancelButtonTitle:PFLocalizedString(@"OK", @"OK")
                                                       otherButtonTitles:nil];
 
         [alertView show];
