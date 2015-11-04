@@ -66,7 +66,7 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
 
     _passwordField = [[PFTextField alloc] initWithFrame:CGRectZero
                                          separatorStyle:PFTextFieldSeparatorStyleBottom];
-    _passwordField.placeholder = NSLocalizedString(@"Password", @"Password");
+    _passwordField.placeholder = PFLocalizedString(@"Password", @"Password");
     _passwordField.secureTextEntry = YES;
     _passwordField.autocorrectionType = UITextAutocorrectionTypeNo;
     _passwordField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -83,7 +83,7 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
         _emailField.autocorrectionType = UITextAutocorrectionTypeNo;
         _emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         _emailField.keyboardType = UIKeyboardTypeEmailAddress;
-        _emailField.placeholder = NSLocalizedString(@"Email", @"Email");
+        _emailField.placeholder = PFLocalizedString(@"Email", @"Email");
         if (!(_fields & PFSignUpFieldsAdditional)) {
             _emailField.returnKeyType = UIReturnKeyDone;
         } else {
@@ -97,14 +97,14 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
                                                separatorStyle:PFTextFieldSeparatorStyleBottom];
         _additionalField.autocorrectionType = UITextAutocorrectionTypeNo;
         _additionalField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        _additionalField.placeholder = NSLocalizedString(@"Additional", @"Additional");
+        _additionalField.placeholder = PFLocalizedString(@"Additional", @"Additional");
         _additionalField.returnKeyType = UIReturnKeyDone;
         [self addSubview:_additionalField];
     }
 
     if (_fields & PFSignUpFieldsSignUpButton) {
         _signUpButton = [[PFPrimaryButton alloc] initWithBackgroundImageColor:[PFColor signupButtonBackgroundColor]];
-        [_signUpButton setTitle:NSLocalizedString(@"Sign Up", @"Sign Up") forState:UIControlStateNormal];
+        [_signUpButton setTitle:PFLocalizedString(@"Sign Up", @"Sign Up") forState:UIControlStateNormal];
         [self addSubview:_signUpButton];
     }
 
@@ -305,10 +305,10 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
     UIKeyboardType keyboardType = UIKeyboardTypeDefault;
     NSString *placeholder = nil;
     if (!_emailAsUsername) {
-        placeholder = NSLocalizedString(@"Username", @"Username");
+        placeholder = PFLocalizedString(@"Username", @"Username");
         keyboardType = UIKeyboardTypeDefault;
     } else {
-        placeholder = NSLocalizedString(@"Email", @"Email");
+        placeholder = PFLocalizedString(@"Email", @"Email");
         keyboardType = UIKeyboardTypeEmailAddress;
     }
 

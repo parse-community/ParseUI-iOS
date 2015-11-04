@@ -39,7 +39,7 @@
 + (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message {
     [self showAlertViewWithTitle:title
                          message:message
-               cancelButtonTitle:NSLocalizedString(@"OK", @"OK")];
+               cancelButtonTitle:PFLocalizedString(@"OK", @"OK")];
 }
 
 + (void)showAlertViewWithTitle:(NSString *)title

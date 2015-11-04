@@ -125,7 +125,7 @@
         {
             self.detailTextLabel.numberOfLines = 1;
             self.priceLabel.backgroundColor = [UIColor colorWithRed:132.0f/255.0f green:175.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
-            NSString *downloadingText = NSLocalizedString(@"DOWNLOADING", @"DOWNLOADING");
+            NSString *downloadingText = PFLocalizedString(@"DOWNLOADING", @"DOWNLOADING");
             self.priceLabel.text = [NSString stringWithFormat:@"  %@  ", downloadingText];
             self.priceLabel.textColor = [UIColor whiteColor];
             self.priceLabel.shadowColor = [UIColor blackColor];
@@ -136,7 +136,7 @@
         case PFPurchaseTableViewCellStateDownloaded:
         {
             self.detailTextLabel.numberOfLines = 2;
-            NSString *installedText = NSLocalizedString(@"INSTALLED", @"INSTALLED");
+            NSString *installedText = PFLocalizedString(@"INSTALLED", @"INSTALLED");
             self.priceLabel.text = [NSString stringWithFormat:@"  %@  ", installedText];
             self.priceLabel.textColor = [UIColor whiteColor];
             self.priceLabel.shadowColor = [UIColor blackColor];
