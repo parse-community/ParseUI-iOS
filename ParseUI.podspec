@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ParseUI'
-  s.version          = '1.1.6'
+  s.version          = '1.1.7'
   s.license          =  { :type => 'SDK', :file => 'LICENSE'}
   s.homepage         = 'https://www.parse.com/'
   s.summary          = 'ParseUI is a library of useful User Interface components for the Parse iOS SDK.'
@@ -8,11 +8,11 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/ParseIt'
 
   s.source           = { :git => "https://github.com/ParsePlatform/ParseUI-iOS.git", :tag => s.version.to_s }
-  
+
   s.platform              = :ios
   s.requires_arc          = true
   s.ios.deployment_target = '7.0'
-  
+
   s.prepare_command     = <<-CMD
                           ruby ParseUI/Scripts/convert_images.rb \
                                ParseUI/Resources/Images/ \
@@ -33,6 +33,6 @@ Pod::Spec.new do |s|
                           'CoreGraphics',
                           'QuartzCore'
 
-  s.dependency 'Bolts/Tasks', '~> 1.2'
-  s.dependency 'Parse', '~> 1.8'
+  s.dependency 'Bolts/Tasks', '~> 1.3'
+  s.dependency 'Parse', '~> 1.9'
 end
