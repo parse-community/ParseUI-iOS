@@ -1,34 +1,34 @@
 PODS:
-  - Bolts (1.3.0):
-    - Bolts/AppLinks (= 1.3.0)
-    - Bolts/Tasks (= 1.3.0)
-  - Bolts/AppLinks (1.3.0):
+  - Bolts (1.5.0):
+    - Bolts/AppLinks (= 1.5.0)
+    - Bolts/Tasks (= 1.5.0)
+  - Bolts/AppLinks (1.5.0):
     - Bolts/Tasks
-  - Bolts/Tasks (1.3.0)
-  - FBSDKCoreKit (4.7.0):
+  - Bolts/Tasks (1.5.0)
+  - FBSDKCoreKit (4.8.0):
     - Bolts (~> 1.1)
-    - FBSDKCoreKit/arc (= 4.7.0)
-    - FBSDKCoreKit/no-arc (= 4.7.0)
-  - FBSDKCoreKit/arc (4.7.0):
+    - FBSDKCoreKit/arc (= 4.8.0)
+    - FBSDKCoreKit/no-arc (= 4.8.0)
+  - FBSDKCoreKit/arc (4.8.0):
     - Bolts (~> 1.1)
-  - FBSDKCoreKit/no-arc (4.7.0):
+  - FBSDKCoreKit/no-arc (4.8.0):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc
-  - FBSDKLoginKit (4.7.0.1):
+  - FBSDKLoginKit (4.8.0):
     - FBSDKCoreKit
-  - Parse (1.9.0):
-    - Bolts/Tasks (>= 1.3.0)
-  - ParseFacebookUtilsV4 (1.9.0):
-    - Bolts/Tasks (>= 1.3.0)
-    - FBSDKCoreKit (~> 4.7)
-    - FBSDKLoginKit (~> 4.7)
+  - Parse (1.10.0):
+    - Bolts/Tasks (~> 1.5)
+  - ParseFacebookUtilsV4 (1.9.1):
+    - Bolts/Tasks (>= 1.5)
+    - FBSDKCoreKit (~> 4.8)
+    - FBSDKLoginKit (~> 4.8)
     - Parse (~> 1.9)
-  - ParseTwitterUtils (1.9.0):
-    - Bolts/Tasks (>= 1.3.0)
+  - ParseTwitterUtils (1.9.1):
+    - Bolts/Tasks (~> 1.5)
     - Parse (~> 1.9)
-  - ParseUI (1.1.6):
-    - Bolts/Tasks (~> 1.2)
-    - Parse (~> 1.8)
+  - ParseUI (1.1.7):
+    - Bolts/Tasks (~> 1.3)
+    - Parse (~> 1.9)
 
 DEPENDENCIES:
   - ParseFacebookUtilsV4
@@ -40,12 +40,12 @@ EXTERNAL SOURCES:
     :path: "."
 
 SPEC CHECKSUMS:
-  Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
-  FBSDKCoreKit: eb580bfc2040ad44f4c0b4f4d0befb1d35bce59c
-  FBSDKLoginKit: 028c5a205990441123764609fe795e65027c447f
-  Parse: 712efbc476d4f47b0f96b70db7e53101575753aa
-  ParseFacebookUtilsV4: aadebfaaaf4a45bf0a0992863bf48c8fc49189e3
-  ParseTwitterUtils: 0155d1a4e388690aa5d80405a586474e66606968
-  ParseUI: 8a22e448c03f825203d8c379c80523517f68baa3
+  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
+  FBSDKCoreKit: 66a935d17b6e00b6b64e604f2eb9b72c9ab7deb8
+  FBSDKLoginKit: d893fcbb98d854496925e9ff73c67b896982d3c4
+  Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
+  ParseFacebookUtilsV4: eab9b4ade12f0800b4d30f6b808bca55ce17a0e9
+  ParseTwitterUtils: 41e8849e37db471e874c6e515190ded19e043dc8
+  ParseUI: c2bcdfbb00330e464b5b773266ae221697a3bb7b
 
 COCOAPODS: 0.39.0
