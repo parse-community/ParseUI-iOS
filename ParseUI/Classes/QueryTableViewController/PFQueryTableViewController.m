@@ -401,6 +401,65 @@
      continueWithBlock:deletionHandlerBlock];
 }
 
+- (void)validateIndexPathsForMovingObject:(NSArray *)indexPaths {
+    for (NSIndexPath *indexPath in indexPaths) {
+        if (indexPath.section != 0) {
+            [NSException raise:NSRangeException format:@"Index Path section %lu out of range!", (long)indexPath.section];
+        }
+        
+        if (indexPath.row >= self.objects.count) {
+            [NSException raise:NSRangeException format:@"Index Path row %lu out of range!", (long)indexPath.row];
+        }
+    }
+}
+- (void)validateIndexPathForAddingObject:(NSIndexPath *)indexPath {
+    if (indexPath.section != 0) {
+        [NSException raise:NSRangeException format:@"Index Path section %lu out of range!", (long)indexPath.section];
+    }
+    
+    if (indexPath.row > self.objects.count) {
+        [NSException raise:NSRangeException format:@"Index Path row %lu out of range!", (long)indexPath.row];
+    }
+}
+
+
+- (void)willMoveRowFromIndexPath:(NSIndexPath *)indexPathSource toIndexPath:(NSIndexPath *)indexPathDestination {
+    [self validateIndexPathsForMovingObject:@[indexPathSource, indexPathDestination]];
+    
+    PFObject *obj = [_mutableObjects objectAtIndex:indexPathSource.row];
+    [_mutableObjects removeObjectAtIndex:indexPathSource.row];
+    [_mutableObjects insertObject:obj atIndex:indexPathDestination.row];
+}
+- (void)moveRowFromIndexPath:(NSIndexPath *)indexPathSource toIndexPath:(NSIndexPath *)indexPathDestination {
+    [self willMoveRowFromIndexPath:indexPathSource toIndexPath:indexPathDestination];
+    [self.tableView moveRowAtIndexPath:indexPathSource toIndexPath:indexPathDestination];
+}
+
+
+- (void)willInsertRowForObject:(PFObject *)object atIndexPath:(NSIndexPath *)indexPath {
+    [self validateIndexPathForAddingObject:indexPath];
+
+    [_mutableObjects insertObject:object atIndex:indexPath.row];
+}
+- (void)insertRowForObject:(PFObject *)object atIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
+    [self willInsertRowForObject:object atIndexPath:indexPath];
+    UITableViewRowAnimation anim = animated ? UITableViewRowAnimationLeft : UITableViewRowAnimationNone;
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:anim];
+}
+
+
+- (void)willDeleteRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self validateIndexPathsForMovingObject:@[indexPath]];
+    
+    [_mutableObjects removeObjectAtIndex:indexPath.row];
+}
+- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
+    [self willDeleteRowAtIndexPath:indexPath];
+    UITableViewRowAnimation anim = animated ? UITableViewRowAnimationLeft : UITableViewRowAnimationNone;
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:anim];
+}
+
+
 - (PFTableViewCell *)tableView:(UITableView *)otherTableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"PFTableViewCellNextPage";
 
