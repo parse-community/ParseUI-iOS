@@ -105,6 +105,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) IBInspectable BOOL loadingViewEnabled;
 
 /*!
+ @abstract Whether the table should use the default footer loading view. Default - `YES`.
+ 
+ @discussion Works only if infiniteScrollingEnabled = YES
+ */
+@property (nonatomic, assign) IBInspectable BOOL footerLoadingViewEnabled;
+
+/*!
  @abstract Whether the table should use the built-in pull-to-refresh feature. Default - `YES`.
  */
 @property (nonatomic, assign) IBInspectable BOOL pullToRefreshEnabled;
@@ -113,6 +120,12 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract Whether the table should use the built-in pagination feature. Default - `YES`.
  */
 @property (nonatomic, assign) IBInspectable BOOL paginationEnabled;
+
+/*!
+ @abstract W Whether the table should use built-in infinite scrolling feature.  Default - `NO`.
+ */
+
+@property (nonatomic, assign) BOOL infiniteScrollingEnabled;
 
 /*!
  @abstract The number of objects to show per page. Default - `25`.
