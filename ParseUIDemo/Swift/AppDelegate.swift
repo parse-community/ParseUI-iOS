@@ -101,12 +101,76 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         } catch {}
-
+        
+        let cityNames = [
+            "Kabul",
+            "Tirana",
+            "Andorra la Vella",
+            "Luanda",
+            "St. John’s",
+            "Buenos Aires",
+            "Yerevan",
+            "Canberra",
+            "Vienna",
+            "Baku",
+            "Nassau",
+            "Manama",
+            "Dhaka",
+            "Bridgetown",
+            "Minsk",
+            "Brussels",
+            "Belmopan",
+            "Cotonou",
+            "Thimphu",
+            "La Paz and Sucre",
+            "Sarajevo",
+            "Gaborone",
+            "Brasília",
+            "Bandar Seri Begawan",
+            "Sofia",
+            "Ouagadougou",
+            "Bujumbura",
+            "Phnom Penh",
+            "Yaoundé",
+            "Ottawa",
+            "Praia",
+            "George Town",
+            "Bangui",
+            "N’Djamena",
+            "Santiago",
+            "Beijing",
+            "Bogotá",
+            "Moroni",
+            "San José",
+            "Yamoussoukro",
+            "Zagreb",
+            "Havana",
+            "Nicosia",
+            "Prague",
+            "Kinshasa",
+            "Copenhagen",
+            "Djibouti",
+            "Roseau",
+            "Santo Domingo",
+            "Dili"]
+        
+        do {
+            let cities = try PFQuery(className: "City").findObjects()
+            if cities.count == 0 {
+                for cityName in cityNames {
+                    let city = PFObject(className: "City")
+                    city["name"] = cityName
+                    objects.append(city)
+                }
+            }
+        } catch {}
+        
         if objects.count != 0 {
             do {
                 try PFObject.saveAll(objects)
             } catch {}
         }
+        
     }
 
 }
