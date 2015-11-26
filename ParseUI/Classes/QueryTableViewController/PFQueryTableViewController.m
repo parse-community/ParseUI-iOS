@@ -29,6 +29,7 @@
 #import "PFActivityIndicatorTableViewCell.h"
 #import "PFImageView.h"
 #import "PFLoadingView.h"
+#import "PFTableFooterLoadingView.h"
 #import "PFLocalization.h"
 #import "PFTableViewCell.h"
 
@@ -54,6 +55,8 @@
 }
 
 @property (nonatomic, strong) PFLoadingView *loadingView;
+@property (nonatomic, strong) PFTableFooterLoadingView *footerLoadingView;
+
 
 - (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_DESIGNATED_INITIALIZER;
@@ -104,7 +107,9 @@
     // Set some reasonable defaults
     _objectsPerPage = 25;
     _loadingViewEnabled = YES;
+    _footerLoadingViewEnabled = YES;
     _paginationEnabled = YES;
+    _infiniteScrollingEnabled = NO;
     _pullToRefreshEnabled = YES;
     _lastLoadCount = -1;
 
@@ -266,6 +271,37 @@
 
 #pragma mark -
 #pragma mark UIScrollViewDelegate
+
+// loadNextPage if infiniteSrolling = YES
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    if (self.isLoading) {
+        return;
+    }
+    
+    // Default UITableView reports height = 1 on empty tables
+    BOOL hasContent = scrollView.contentSize.height > 1;
+    if (!hasContent) {
+        return;
+    }
+    
+    // is user initiated?
+    if(![scrollView isDragging]) {
+        return;
+    }
+    
+    if (self.infiniteScrollingEnabled) {
+        CGFloat currentPosition = scrollView.contentOffset.y;
+        CGFloat viewHeight = scrollView.bounds.size.height;
+        CGFloat contentHeight = scrollView.contentSize.height;
+        
+        if (currentPosition + viewHeight > contentHeight ) {
+            if ([self _shouldLoadNextPage]) {
+                [self loadNextPage];
+            }
+        }
+    }
+}
 
 // scrollViewDidEndDragging:willDecelerate: is called when a user stops dragging the table view.
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -474,6 +510,11 @@
 
 // Whether we need to show the pagination cell
 - (BOOL)_shouldShowPaginationCell {
+    return (self.infiniteScrollingEnabled) ? NO : [self _shouldLoadNextPage];
+}
+
+// Whether we need to load next page
+- (BOOL)_shouldLoadNextPage {
     return (self.paginationEnabled &&
             !self.editing &&
             [self.objects count] != 0 &&
@@ -562,6 +603,7 @@
 
 - (void)_refreshLoadingView {
     BOOL showLoadingView = self.loadingViewEnabled && self.loading && _firstLoad;
+    BOOL showLoadingFooterView = self.infiniteScrollingEnabled && self.footerLoadingViewEnabled && self.loading && !_firstLoad;
 
     if (showLoadingView) {
         [self.tableView addSubview:self.loadingView];
@@ -573,6 +615,9 @@
             self.loadingView = nil;
         }
     }
+    
+    self.tableView.tableFooterView = showLoadingFooterView ? self.footerLoadingView : nil;
+    
 }
 
 - (PFLoadingView *)loadingView {
@@ -580,6 +625,15 @@
         _loadingView = [[PFLoadingView alloc] initWithFrame:CGRectZero];
     }
     return _loadingView;
+}
+
+- (PFTableFooterLoadingView *)footerLoadingView {
+    if (!_footerLoadingView) {
+        CGRect footerLoadingViewFrame = CGRectZero;
+        footerLoadingViewFrame.size.height = 44;
+        _footerLoadingView = [[PFTableFooterLoadingView alloc] initWithFrame:footerLoadingViewFrame];
+    }
+    return _footerLoadingView;
 }
 
 @end
