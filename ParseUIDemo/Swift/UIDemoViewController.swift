@@ -44,6 +44,7 @@ enum UIDemoType : Int {
     case SignUpMinPasswordLength
     case SimpleTable
     case PaginatedTable
+    case InfiniteScrollingTable
     case SectionedTable
     case StoryboardTable
     case DeletionTable
@@ -107,6 +108,8 @@ extension UIDemoType : CustomStringConvertible {
             return "Simple Table"
         case PaginatedTable:
             return "Paginated Table"
+        case InfiniteScrollingTable:
+            return "Infinite Scrolling Table"
         case SectionedTable:
             return "Sectioned Table"
         case StoryboardTable:
@@ -285,6 +288,9 @@ extension UIDemoViewController {
                 navigationController?.pushViewController(tableViewController, animated: true)
             case .PaginatedTable:
                 let tableViewController = PaginatedTableViewController(className: "Todo")
+                navigationController?.pushViewController(tableViewController, animated: true)
+            case .InfiniteScrollingTable:
+                let tableViewController = InfiniteScrollingTableViewController(className: "City")
                 navigationController?.pushViewController(tableViewController, animated: true)
             case .SectionedTable:
                 let tableViewController = SectionedTableViewController(className: "Todo")
