@@ -55,6 +55,7 @@
 		81FC6B701A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B6B1A9D1CE900104E45 /* SubtitleImageCollectionViewController.swift */; };
 		81FC6B721A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FC6B711A9D1CFD00104E45 /* SimpleQueryCollectionStoryboard-Swift.storyboard */; };
 		81FC6B751A9D1D4700104E45 /* CustomProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC6B741A9D1D4700104E45 /* CustomProductTableViewController.swift */; };
+		DFDFEC951C07A265002756B0 /* InfiniteScrollingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDFEC931C079C85002756B0 /* InfiniteScrollingTableViewController.swift */; };
 		F57F3D231B0C03D40087F60B /* DeletionCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F57F3D201B0C03C90087F60B /* DeletionCollectionViewController.m */; };
 		F57F3D241B0C03DB0087F60B /* DeletionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F57F3D1C1B0C03BA0087F60B /* DeletionTableViewController.m */; };
 		F57F3D271B0C050C0087F60B /* DeletionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F3D251B0C04EF0087F60B /* DeletionTableViewController.swift */; };
@@ -129,6 +130,7 @@
 		B01F654B200E4F6A9AAF2E14 /* Pods-ParseUIDemo-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseUIDemo-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParseUIDemo-Swift/Pods-ParseUIDemo-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		B11BDB9C48788D891789AC4D /* Pods_ParseUIDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseUIDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91892E5A1364B4A9F064902 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFDFEC931C079C85002756B0 /* InfiniteScrollingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollingTableViewController.swift; sourceTree = "<group>"; };
 		F57F3D1B1B0C03BA0087F60B /* DeletionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeletionTableViewController.h; sourceTree = "<group>"; };
 		F57F3D1C1B0C03BA0087F60B /* DeletionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeletionTableViewController.m; sourceTree = "<group>"; };
 		F57F3D1F1B0C03C90087F60B /* DeletionCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeletionCollectionViewController.h; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				F57F3D251B0C04EF0087F60B /* DeletionTableViewController.swift */,
 				81FC6B5B1A9D1BFC00104E45 /* SimpleTableViewController.swift */,
 				81FC6B591A9D1BFC00104E45 /* PaginatedTableViewController.swift */,
+				DFDFEC931C079C85002756B0 /* InfiniteScrollingTableViewController.swift */,
 				81FC6B5A1A9D1BFC00104E45 /* SectionedTableViewController.swift */,
 				81FC6B5C1A9D1BFC00104E45 /* StoryboardTableViewController.swift */,
 				81FC6B5D1A9D1BFC00104E45 /* SubtitleImageTableViewController.swift */,
@@ -452,7 +455,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PF;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Parse Inc.";
 				TargetAttributes = {
@@ -628,6 +631,7 @@
 				81FC6B4A1A9D1ADB00104E45 /* CustomLogInViewController.swift in Sources */,
 				81FC6B601A9D1BFC00104E45 /* SectionedTableViewController.swift in Sources */,
 				81FC6B5F1A9D1BFC00104E45 /* PaginatedTableViewController.swift in Sources */,
+				DFDFEC951C07A265002756B0 /* InfiniteScrollingTableViewController.swift in Sources */,
 				81FC6B611A9D1BFC00104E45 /* SimpleTableViewController.swift in Sources */,
 				F57F3D291B0C05280087F60B /* DeletionCollectionViewController.swift in Sources */,
 				81FC6B6E1A9D1CE900104E45 /* SimpleCollectionViewController.swift in Sources */,
@@ -814,6 +818,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
