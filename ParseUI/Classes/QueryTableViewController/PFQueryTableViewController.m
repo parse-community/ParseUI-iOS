@@ -423,40 +423,42 @@
 }
 
 
-- (void)willMoveRowFromIndexPath:(NSIndexPath *)indexPathSource toIndexPath:(NSIndexPath *)indexPathDestination {
+- (void)willMoveRowForObjectFromIndexPath:(NSIndexPath *)indexPathSource toIndexPath:(NSIndexPath *)indexPathDestination {
     [self validateIndexPathsForMovingObject:@[indexPathSource, indexPathDestination]];
     
     PFObject *obj = [_mutableObjects objectAtIndex:indexPathSource.row];
     [_mutableObjects removeObjectAtIndex:indexPathSource.row];
     [_mutableObjects insertObject:obj atIndex:indexPathDestination.row];
 }
-- (void)moveRowFromIndexPath:(NSIndexPath *)indexPathSource toIndexPath:(NSIndexPath *)indexPathDestination {
-    [self willMoveRowFromIndexPath:indexPathSource toIndexPath:indexPathDestination];
+
+- (void)moveRowForObjectFromIndexPath:(NSIndexPath *)indexPathSource toIndexPath:(NSIndexPath *)indexPathDestination {
+    [self willMoveRowForObjectFromIndexPath:indexPathSource toIndexPath:indexPathDestination];
     [self.tableView moveRowAtIndexPath:indexPathSource toIndexPath:indexPathDestination];
 }
 
 
-- (void)willInsertRowForObject:(PFObject *)object atIndexPath:(NSIndexPath *)indexPath {
-    [self validateIndexPathForAddingObject:indexPath];
-
-    [_mutableObjects insertObject:object atIndex:indexPath.row];
+- (void)insertRowForObject:(PFObject *)object atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation {
+    [self insertRowsForObjects:@[object] atIndexPaths:@[indexPath] withRowAnimation:animation];
 }
-- (void)insertRowForObject:(PFObject *)object atIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
-    [self willInsertRowForObject:object atIndexPath:indexPath];
-    UITableViewRowAnimation anim = animated ? UITableViewRowAnimationLeft : UITableViewRowAnimationNone;
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:anim];
-}
-
-
-- (void)willDeleteRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self validateIndexPathsForMovingObject:@[indexPath]];
+- (void)insertRowsForObjects:(NSArray *)objects atIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
     
-    [_mutableObjects removeObjectAtIndex:indexPath.row];
+    [_mutableObjects addObjectsFromArray:objects];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
-- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
-    [self willDeleteRowAtIndexPath:indexPath];
-    UITableViewRowAnimation anim = animated ? UITableViewRowAnimationLeft : UITableViewRowAnimationNone;
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:anim];
+
+- (void)deleteRowForObjectAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation {
+    [self deleteRowsForObjectsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+}
+
+- (void)deleteRowsForObjectsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
+    NSMutableIndexSet *indexes = [[NSMutableIndexSet alloc] init];
+    for (int i = 0; i < [indexPaths count]; i++) {
+        NSIndexPath *indexPath = indexPaths[i];
+        [indexes addIndex:indexPath.row];
+    }
+    
+    [_mutableObjects removeObjectsAtIndexes:indexes];
+    [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
 

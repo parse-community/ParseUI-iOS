@@ -185,32 +185,24 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  @abstract Reflects that there's been a change in the results of `queryForTable` and there is about to be a change in `tableView` as rendered, such that the object at `_mutableObjects[indexPathSource.row]` must be moved to `_mutableObjects[indexPathDestination.row]`.
  */
-- (void)willMoveRowFromIndexPath:(NSIndexPath *)indexPathSource toIndexPath:(NSIndexPath *)indexPathDestination;
+- (void)willMoveRowForObjectFromIndexPath:(NSIndexPath *)indexPathSource toIndexPath:(NSIndexPath *)indexPathDestination;
 
 /*!
  @abstract Reflects that there's been a change in the results of `queryForTable`, such that `tableView` as rendered must change -- specifically, the object at `indexPathSource` must now appear at `indexPathDestination` -- and the object at `_mutableObjects[indexPathSource.row]` must be moved to `_mutableObjects[indexPathDestination.row]`
  */
-- (void)moveRowFromIndexPath:(NSIndexPath *)indexPathSource toIndexPath:(NSIndexPath *)indexPathDestination;
-
-/*!
- @abstract Reflects that there's been a change in the results of `queryForTable` and there is about to be a change in `tableView` as rendered, such that `_mutableObjects` must have `object` inserted at `indexPath.row`.
- */
-- (void)willInsertRowForObject:(PFObject *)object atIndexPath:(NSIndexPath *)indexPath;
+- (void)moveRowForObjectFromIndexPath:(NSIndexPath *)indexPathSource toIndexPath:(NSIndexPath *)indexPathDestination;
 
 /*!
  @abstract Reflects that there's been a change in the results of `queryForTable`, so that `tableView` as rendered must change -- specifically, `object` must be inserted at `indexPath` -- and `_mutableObjects` must have `object` inserted at `indexPath.row`.
  */
-- (void)insertRowForObject:(PFObject *)object atIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
-
-/*!
- @abstract Reflects that there's been a change in the results of `queryForTable` and there is about to be a change in `tableView` as rendered, such that the object at `_mutableObjects[indexPathSource.row]` must be moved to `_mutableObjects[indexPathDestination.row]`.
- */
-- (void)willDeleteRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)insertRowForObject:(PFObject *)object atIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)insertRowsForObjects:(NSArray *)objects atIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
 
 /*!
  @abstract Reflects that there's been a change in the results of `queryForTable`, so that `tableView` as rendered must change -- specifically, the row at `indexPath` must be deleted -- and `_mutableObjects[indexPath.row]` must be removed.
  */
-- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
+- (void)deleteRowForObjectAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)deleteRowsForObjectsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
 
 /*!
  @abstract Clears the table of all objects.
