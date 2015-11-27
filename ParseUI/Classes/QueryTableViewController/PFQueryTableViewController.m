@@ -442,7 +442,13 @@
 }
 - (void)insertRowsForObjects:(NSArray *)objects atIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
     
-    [_mutableObjects addObjectsFromArray:objects];
+    NSMutableIndexSet *indexes = [[NSMutableIndexSet alloc] init];
+    for (int i = 0; i < [indexPaths count]; i++) {
+        NSIndexPath *indexPath = indexPaths[i];
+        [indexes addIndex:indexPath.row];
+    }
+
+    [_mutableObjects insertObjects:objects atIndexes:indexes];
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
