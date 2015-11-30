@@ -21,6 +21,7 @@
 
 #import "PFQueryTableViewController.h"
 
+#import <Bolts/BFExecutor.h>
 #import <Bolts/BFTask.h>
 #import <Bolts/BFTaskCompletionSource.h>
 
@@ -397,8 +398,8 @@
         [allDeletionTasks addObject:[obj deleteInBackground]];
     }
 
-    [[BFTask taskForCompletionOfAllTasks:allDeletionTasks]
-     continueWithBlock:deletionHandlerBlock];
+    [[BFTask taskForCompletionOfAllTasks:allDeletionTasks] continueWithExecutor:[BFExecutor mainThreadExecutor]
+                                                                      withBlock:deletionHandlerBlock];
 }
 
 - (PFTableViewCell *)tableView:(UITableView *)otherTableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
