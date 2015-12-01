@@ -55,9 +55,47 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
         [self addSubview:_dismissButton];
     }
 
-    _usernameField = [[PFTextField alloc] initWithFrame:CGRectZero
+    if (_fields & PFSignUpFieldsFirstName) {
+        _firstNameField = [[PFTextField alloc] initWithFrame:CGRectZero
                                          separatorStyle:(PFTextFieldSeparatorStyleTop |
                                                          PFTextFieldSeparatorStyleBottom)];
+
+        _firstNameField.placeholder = NSLocalizedString(@"FirstName", @"FirstName");
+        _firstNameField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _firstNameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        _firstNameField.returnKeyType = UIReturnKeyNext;
+        [self addSubview:_firstNameField];
+    }
+    
+    if (_fields & PFSignUpFieldsLastName) {
+        
+        if (_fields & PFSignUpFieldsFirstName) {
+            _lastNameField = [[PFTextField alloc] initWithFrame:CGRectZero
+                                                 separatorStyle:(PFTextFieldSeparatorStyleBottom)];
+        } else {
+            _lastNameField = [[PFTextField alloc] initWithFrame:CGRectZero
+                                                 separatorStyle:(PFTextFieldSeparatorStyleTop |
+                                                                 PFTextFieldSeparatorStyleBottom)];
+        }
+            
+        _lastNameField.placeholder = NSLocalizedString(@"LastName", @"LastName");
+        _lastNameField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _lastNameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        _lastNameField.returnKeyType = UIReturnKeyNext;
+        [self addSubview:_lastNameField];
+
+    }
+    
+    if (_fields & PFSignUpFieldsFirstName ||
+        _fields & PFSignUpFieldsLastName) {
+        _usernameField = [[PFTextField alloc] initWithFrame:CGRectZero
+                                             separatorStyle:PFTextFieldSeparatorStyleBottom];
+    } else {
+        _usernameField = [[PFTextField alloc] initWithFrame:CGRectZero
+                                             separatorStyle:(PFTextFieldSeparatorStyleTop |
+                                                             PFTextFieldSeparatorStyleBottom)];
+    }
+    
     _usernameField.autocorrectionType = UITextAutocorrectionTypeNo;
     _usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     _usernameField.returnKeyType = UIReturnKeyNext;
@@ -155,7 +193,23 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
 
         currentY = floorf(CGRectGetMaxY(frame) + logoBottomInset);
     }
-
+    
+    if (_firstNameField) {
+        CGRect frame = PFRectMakeWithSizeCenteredInRect([_firstNameField sizeThatFits:contentSize], contentRect);
+        frame.origin.y = currentY;
+        _firstNameField.frame = frame;
+        
+        currentY = CGRectGetMaxY(frame);
+    }
+ 
+    if (_lastNameField) {
+        CGRect frame = PFRectMakeWithSizeCenteredInRect([_lastNameField sizeThatFits:contentSize], contentRect);
+        frame.origin.y = currentY;
+        _lastNameField.frame = frame;
+        
+        currentY = CGRectGetMaxY(frame);
+    }
+    
     if (_usernameField) {
         CGRect frame = PFRectMakeWithSizeCenteredInRect([_usernameField sizeThatFits:contentSize], contentRect);
         frame.origin.y = currentY;
@@ -179,7 +233,7 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
 
         currentY = CGRectGetMaxY(frame);
     }
-
+    
     if (_additionalField) {
         CGRect frame = PFRectMakeWithSizeCenteredInRect([_additionalField sizeThatFits:contentSize], contentRect);
         frame.origin.y = currentY;
@@ -187,7 +241,7 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
 
         currentY = CGRectGetMaxY(frame);
     }
-
+    
     if (_signUpButton) {
         CGFloat loginButtonTopInset = floorf(24.0f * contentSizeScale.height);
 
@@ -219,6 +273,16 @@ static NSString *const PFSignUpViewDefaultLogoImageName = @"parse_logo.png";
 
         size.height += logoSize.height + logoTopInset + logoBottomInset;
     }
+
+    if (_firstNameField) {
+        CGSize fieldSize = [_firstNameField sizeThatFits:boundingSize];
+        size.height += fieldSize.height;
+    }
+    if (_lastNameField) {
+        CGSize fieldSize = [_lastNameField sizeThatFits:boundingSize];
+        size.height += fieldSize.height;
+    }
+
     if (_usernameField) {
         CGSize fieldSize = [_usernameField sizeThatFits:boundingSize];
         size.height += fieldSize.height;

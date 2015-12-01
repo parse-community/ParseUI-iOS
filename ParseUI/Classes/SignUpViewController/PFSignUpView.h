@@ -42,6 +42,11 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
     PFSignUpFieldsSignUpButton = 1 << 2,
     /*! Dismiss Button */
     PFSignUpFieldsDismissButton = 1 << 3,
+    /*! This field can be used for something else. */
+    PFSignUpFieldsFirstName   = 1 << 4,
+    /*! This field can be used for something else. */
+    PFSignUpFieldsLastName    = 1 << 5,
+
     /*! Default value. Combines Username, Password, Email, Sign Up and Dismiss Buttons. */
     PFSignUpFieldsDefault = (PFSignUpFieldsUsernameAndPassword |
                              PFSignUpFieldsEmail |
@@ -106,6 +111,16 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
  @abstract The bitmask which specifies the enabled sign up elements in the view
  */
 @property (nonatomic, assign, readonly) PFSignUpFields fields;
+
+/*!
+ @abstract The first name text field.
+ */
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) PFTextField *firstNameField;
+
+/*!
+ @abstract The last name text field.
+ */
+@property (PFUI_NULLABLE_PROPERTY nonatomic, strong, readonly) PFTextField *lastNameField;
 
 /*!
  @abstract The username text field.
