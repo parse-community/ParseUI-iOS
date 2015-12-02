@@ -73,7 +73,7 @@ typedef NS_OPTIONS(NSInteger, PFLogInFields) {
 
  @param fields A bitmask specifying the log in elements which are enabled in the view
 
- @returns An initialized `PFLogInView` object or `nil` if the object couldn't be created.
+ @return An initialized `PFLogInView` object or `nil` if the object couldn't be created.
 
  @see PFLogInFields
  */

@@ -87,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param className The class name of the instances of <PFObject> that this table will display.
 
- @returns An initialized `PFQueryCollectionViewController` object or `nil` if the object couldn't be created.
+ @return An initialized `PFQueryCollectionViewController` object or `nil` if the object couldn't be created.
  */
 - (instancetype)initWithClassName:(nullable NSString *)className;
 
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param layout    Layout for collection view to use.
  @param className The class name of the instances of <PFObject> that this table will display.
 
- @returns An initialized `PFQueryCollectionViewController` object or `nil` if the object couldn't be created.
+ @return An initialized `PFQueryCollectionViewController` object or `nil` if the object couldn't be created.
  */
 - (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
                                    className:(nullable NSString *)className NS_DESIGNATED_INITIALIZER;
@@ -136,7 +136,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param indexPath An instance of `NSIndexPath`.
 
- @returns The object at the specified indexPath.
+ @return The object at the specified indexPath.
  */
 - (nullable PFObject *)objectAtIndexPath:(nullable NSIndexPath *)indexPath;
 
@@ -157,7 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Clears the collection view and loads the first page of objects.
 
- @returns An awaitable task that completes when the reload succeeds
+ @return An awaitable task that completes when the reload succeeds
  */
 - (BFTask *)loadObjects;
 
@@ -168,7 +168,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param page  The page of objects to load.
  @param clear Whether to clear the collection view after receiving the objects.
 
- @returns An awaitable task that completes when the reload succeeds
+ @return An awaitable task that completes when the reload succeeds
  */
 - (BFTask *)loadObjects:(NSInteger)page clear:(BOOL)clear;
 
@@ -189,7 +189,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Override to construct your own custom <PFQuery> to get the objects.
 
- @returns An instance of <PFQuery> that <loadObjects> method will use to the objects for this collection.
+ @return An instance of `PFQuery` that `-loadObjects` method will use to the objects for this collection.
  */
 - (PFQuery *)queryForCollection;
 
@@ -206,7 +206,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param indexPath      The indexPath of the cell.
  @param object         The <PFObject> that is associated with the cell.
 
- @returns The cell that represents this object.
+ @return The cell that represents this object.
  */
 - (nullable PFCollectionViewCell *)collectionView:(UICollectionView *)collectionView
                                 cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -218,7 +218,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param collectionView The collection view object associated with this controller.
 
- @returns The view that allows the user to paginate.
+ @return The view that allows the user to paginate.
  */
 - (nullable UICollectionReusableView *)collectionViewReusableViewForNextPageAction:(UICollectionView *)collectionView;
 

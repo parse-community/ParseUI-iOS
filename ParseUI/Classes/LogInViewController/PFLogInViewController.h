@@ -134,7 +134,7 @@ extern NSString *const PFLogInCancelNotification;
  @param username the username the user tries to log in with.
  @param password the password the user tries to log in with.
 
- @returns A `BOOL` indicating whether the log in should proceed.
+ @return A `BOOL` indicating whether the log in should proceed.
  */
 - (BOOL)logInViewController:(PFLogInViewController *)logInController
 shouldBeginLogInWithUsername:(NSString *)username

@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param style The UITableViewStyle for the table
  @param className The class name of the instances of <PFObject> that this table will display.
 
- @returns An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
+ @return An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
  */
 - (instancetype)initWithStyle:(UITableViewStyle)style
                     className:(nullable NSString *)className NS_DESIGNATED_INITIALIZER;
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param className The class name of the instances of <PFObject> that this table will display.
 
- @returns An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
+ @return An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
  */
 - (instancetype)initWithClassName:(nullable NSString *)className;
 
@@ -158,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param indexPath The indexPath.
 
- @returns The object at the specified index
+ @return The object at the specified index
  */
 - (nullable PFObject *)objectAtIndexPath:(nullable NSIndexPath *)indexPath;
 
@@ -190,7 +190,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Clears the table and loads the first page of objects.
 
- @returns An awaitable task that completes when the reload succeeds
+ @return An awaitable task that completes when the reload succeeds
  */
 - (BFTask *)loadObjects;
 
@@ -201,7 +201,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param page The page of objects to load.
  @param clear Whether to clear the table after receiving the objects
 
- @returns An awaitable task that completes when the reload succeeds
+ @return An awaitable task that completes when the reload succeeds
  */
 - (BFTask *)loadObjects:(NSInteger)page clear:(BOOL)clear;
 
@@ -236,7 +236,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param indexPath The indexPath of the cell.
  @param object The PFObject that is associated with the cell.
 
- @returns The cell that represents this object.
+ @return The cell that represents this object.
  */
 - (nullable PFTableViewCell *)tableView:(UITableView *)tableView
                        cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -249,7 +249,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param tableView The table view object associated with this controller.
  @param indexPath The indexPath of the cell.
 
- @returns The cell that allows the user to paginate.
+ @return The cell that allows the user to paginate.
  */
 - (nullable PFTableViewCell *)tableView:(UITableView *)tableView
                   cellForNextPageAtIndexPath:(NSIndexPath *)indexPath;

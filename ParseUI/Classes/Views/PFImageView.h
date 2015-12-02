@@ -47,7 +47,7 @@ typedef void(^PFImageViewImageResultBlock)(UIImage *__nullable image,  NSError *
 
  Once the download completes, the remote image will be displayed.
 
- @returns The task, that encapsulates the work being done.
+ @return The task, that encapsulates the work being done.
  */
 - (BFTask *)loadInBackground;
 

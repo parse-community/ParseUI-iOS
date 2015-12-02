@@ -65,7 +65,7 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 
  @param fields A bitmask specifying the sign up elements which are enabled in the view
 
- @returns An initialized `PFSignUpView` object or `nil` if the object couldn't be created.
+ @return An initialized `PFSignUpView` object or `nil` if the object couldn't be created.
 
  @see PFSignUpFields
  */

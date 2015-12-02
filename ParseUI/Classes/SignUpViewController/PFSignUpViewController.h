@@ -123,7 +123,7 @@ extern NSString *const PFSignUpCancelNotification;
  @param signUpController The signup view controller that is requesting the data.
  @param info An `NSDictionary` instance which contains all sign up information that the user entered.
 
- @returns A `BOOL` indicating whether the sign up should proceed.
+ @return A `BOOL` indicating whether the sign up should proceed.
  */
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info;
 
