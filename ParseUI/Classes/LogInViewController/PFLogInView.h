@@ -60,7 +60,7 @@ typedef NS_OPTIONS(NSInteger, PFLogInFields) {
 @class PFTextField;
 
 /**
- The `PFLogInView` class provides a standard log in interface for authenticating a <PFUser>.
+ The `PFLogInView` class provides a standard log in interface for authenticating a `PFUser`.
  */
 @interface PFLogInView : UIScrollView
 

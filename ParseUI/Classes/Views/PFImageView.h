@@ -38,7 +38,7 @@ typedef void(^PFImageViewImageResultBlock)(UIImage *__nullable image,  NSError *
 /**
  The remote file on Parse's server that stores the image.
 
- @warning Note that the download does not start until <loadInBackground:> is called.
+ @warning Note that the download does not start until `-loadInBackground:` is called.
  */
 @property (nullable, nonatomic, strong) PFFile *file;
 

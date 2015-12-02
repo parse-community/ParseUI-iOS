@@ -27,8 +27,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- An enum that represents states of the PFPurchaseTableViewCell.
- @see PFPurchaseTableViewCell
+ An enum that represents states of the `PFPurchaseTableViewCell`.
+ @see `PFPurchaseTableViewCell`
  */
 typedef NS_ENUM(uint8_t, PFPurchaseTableViewCellState) {
     /** Normal state of the cell. */
@@ -40,16 +40,16 @@ typedef NS_ENUM(uint8_t, PFPurchaseTableViewCellState) {
 };
 
 /**
- `PFPurchaseTableViewCell` is a subclass <PFTableViewCell> that is used to show
- products in a <PFProductTableViewController>.
+ `PFPurchaseTableViewCell` is a subclass `PFTableViewCell` that is used to show
+ products in a `PFProductTableViewController`.
 
- @see PFProductTableViewController
+ @see `PFProductTableViewController`
  */
 @interface PFPurchaseTableViewCell : PFTableViewCell
 
 /**
  State of the cell.
- @see PFPurchaseTableViewCellState
+ @see `PFPurchaseTableViewCellState`
  */
 @property (nonatomic, assign) PFPurchaseTableViewCellState state;
 

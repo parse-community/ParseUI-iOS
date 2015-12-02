@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The `PFSignUpViewController` class that presents and manages
- a standard authentication interface for signing up a <PFUser>.
+ a standard authentication interface for signing up a `PFUser`.
  */
 @interface PFSignUpViewController : UIViewController <UITextFieldDelegate, UIScrollViewDelegate>
 
@@ -70,11 +70,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSUInteger minPasswordLength;
 
 /**
- Whether to use the email as username on the attached <signUpView>.
+ Whether to use the email as username on the attached `signUpView`.
 
  If set to `YES`, we'll hide the email field, prompt for the email in
  the username field, and save the email into both username and email
- fields on the new <PFUser> object. By default, this is set to `NO`.
+ fields on the new `PFUser` object. By default, this is set to `NO`.
  */
 @property (nonatomic, assign) BOOL emailAsUsername;
 
@@ -106,7 +106,7 @@ extern NSString *const PFSignUpCancelNotification;
 ///--------------------------------------
 
 /**
- The `PFLogInViewControllerDelegate` protocol defines methods a delegate of a <PFSignUpViewController> should implement.
+ The `PFLogInViewControllerDelegate` protocol defines methods a delegate of a `PFSignUpViewController` should implement.
  All methods of this protocol are optional.
  */
 @protocol PFSignUpViewControllerDelegate <NSObject>
@@ -132,10 +132,10 @@ extern NSString *const PFSignUpCancelNotification;
 ///--------------------------------------
 
 /**
- Sent to the delegate when a <PFUser> is signed up.
+ Sent to the delegate when a `PFUser` is signed up.
 
  @param signUpController The signup view controller where signup finished.
- @param user <PFUser> object that is a result of the sign up.
+ @param user `PFUser` object that is a result of the sign up.
  */
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user;
 

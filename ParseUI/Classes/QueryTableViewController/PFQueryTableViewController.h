@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class PFTableViewCell;
 
 /**
- This class allows you to think about a one-to-one mapping between a <PFObject> and a `UITableViewCell`,
+ This class allows you to think about a one-to-one mapping between a `PFObject` and a `UITableViewCell`,
  rather than having to juggle index paths.
 
  You also get the following features out of the box:
@@ -50,10 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- Initializes with a class name of the <PFObject> that will be associated with this table.
+ Initializes with a class name of the `PFObject` that will be associated with this table.
 
  @param style The UITableViewStyle for the table
- @param className The class name of the instances of <PFObject> that this table will display.
+ @param className The class name of the instances of `PFObject` that this table will display.
 
  @return An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
  */
@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Initializes with a class name of the PFObjects that will be associated with this table.
 
- @param className The class name of the instances of <PFObject> that this table will display.
+ @param className The class name of the instances of `PFObject` that this table will display.
 
  @return An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
  */
@@ -74,28 +74,28 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- The class name of the <PFObject> this table will use as a datasource.
+ The class name of the `PFObject` this table will use as a datasource.
  */
 @property (nullable, nonatomic, copy) IBInspectable NSString *parseClassName;
 
 /**
  The key to use to display for the cell text label.
 
- This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
+ This won't apply if you override `-tableView:cellForRowAtIndexPath:object:`
  */
 @property (nullable, nonatomic, copy) IBInspectable NSString *textKey;
 
 /**
  The key to use to display for the cell image view.
 
- This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
+ This won't apply if you override `-tableView:cellForRowAtIndexPath:object:`
  */
 @property (nullable, nonatomic, copy) IBInspectable NSString *imageKey;
 
 /**
  The image to use as a placeholder for the cell images.
 
- This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
+ This won't apply if you override `-tableView:cellForRowAtIndexPath:object:`
  */
 @property (nullable, nonatomic, strong) IBInspectable UIImage *placeholderImage;
 
@@ -146,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- The array of instances of <PFObject> that is used as a data source.
+ The array of instances of `PFObject` that is used as a data source.
  */
 @property (nullable, nonatomic, copy, readonly) NSArray *objects;
 
@@ -230,7 +230,7 @@ NS_ASSUME_NONNULL_BEGIN
  If you don't override this method, it will use a default style cell and display either
  the first data key from the object, or it will display the key as specified with `textKey`, `imageKey`.
 
- @warning The cell should inherit from <PFTableViewCell> which is a subclass of `UITableViewCell`.
+ @warning The cell should inherit from `PFTableViewCell` which is a subclass of `UITableViewCell`.
 
  @param tableView The table view object associated with this controller.
  @param indexPath The indexPath of the cell.

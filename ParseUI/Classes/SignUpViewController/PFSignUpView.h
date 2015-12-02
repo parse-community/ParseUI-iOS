@@ -52,7 +52,7 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 @class PFTextField;
 
 /**
- The `PFSignUpView` class provides a standard sign up interface for authenticating a <PFUser>.
+ The `PFSignUpView` class provides a standard sign up interface for authenticating a `PFUser`.
  */
 @interface PFSignUpView : UIScrollView
 

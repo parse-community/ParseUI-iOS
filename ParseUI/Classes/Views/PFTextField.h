@@ -49,7 +49,7 @@ typedef NS_OPTIONS(uint8_t, PFTextFieldSeparatorStyle){
 /**
  Separator style bitmask that should be applied to this textfield.
 
- Default: <PFTextFieldSeparatorStyleNone>
+ Default: `PFTextFieldSeparatorStyleNone`
 
  @see PFTextFieldSeparatorStyle
  */

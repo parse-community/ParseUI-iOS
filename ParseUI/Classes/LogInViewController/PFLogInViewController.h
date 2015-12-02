@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol PFLogInViewControllerDelegate;
 
 /**
- The `PFLogInViewController` class presents and manages a standard authentication interface for logging in a <PFUser>.
+ The `PFLogInViewController` class presents and manages a standard authentication interface for logging in a `PFUser`.
  */
 @interface PFLogInViewController : UIViewController <UITextFieldDelegate>
 
@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
  Whether to prompt for the email as username on the login view.
 
  If set to `YES`, we'll prompt for the email in the username field.
- This property value propagates to the attached <signUpController>.
+ This property value propagates to the attached `signUpController`.
  By default, this is set to `NO`.
  */
 @property (nonatomic, assign) BOOL emailAsUsername;
@@ -116,7 +116,7 @@ extern NSString *const PFLogInCancelNotification;
 ///--------------------------------------
 
 /**
- The `PFLogInViewControllerDelegate` protocol defines methods a delegate of a <PFLogInViewController> should implement.
+ The `PFLogInViewControllerDelegate` protocol defines methods a delegate of a `PFLogInViewController` should implement.
  All methods of this protocol are optional.
  */
 @protocol PFLogInViewControllerDelegate <NSObject>
@@ -145,10 +145,10 @@ shouldBeginLogInWithUsername:(NSString *)username
 ///--------------------------------------
 
 /**
- Sent to the delegate when a <PFUser> is logged in.
+ Sent to the delegate when a `PFUser` is logged in.
 
  @param logInController The login view controller where login finished.
- @param user <PFUser> object that is a result of the login.
+ @param user `PFUser` object that is a result of the login.
  */
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user;
 

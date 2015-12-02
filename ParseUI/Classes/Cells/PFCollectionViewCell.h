@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  This method should update all the relevant information inside a subclass of `PFCollectionViewCell`.
 
- This method is automatically called by <PFQueryCollectionViewController> whenever the cell
+ This method is automatically called by `PFQueryCollectionViewController` whenever the cell
  should display new information. By default this method does nothing.
 
  @param object An instance of `PFObject` to update from.

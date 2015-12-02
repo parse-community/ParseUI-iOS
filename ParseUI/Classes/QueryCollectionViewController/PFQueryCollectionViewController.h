@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class PFQuery;
 
 /**
- This class allows you to think about a one-to-one mapping between a <PFObject> and a `UICollectionViewCell`,
+ This class allows you to think about a one-to-one mapping between a `PFObject` and a `UICollectionViewCell`,
  rather than having to juggle index paths.
 
  You also get the following features out of the box:
@@ -43,12 +43,12 @@ NS_ASSUME_NONNULL_BEGIN
  - Automatic loading and management of the objects array.
  - Various methods that can be overridden to customize behavior at major events in the data cycle.
 
- @see PFCollectionViewCell
+ @see `PFCollectionViewCell`
  */
 @interface PFQueryCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
 
 /**
- The class name of the <PFObject> this collection will use as a datasource.
+ The class name of the `PFObject` this collection will use as a datasource.
  */
 @property (nullable, nonatomic, copy) IBInspectable NSString *parseClassName;
 
@@ -83,19 +83,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Initializes a view controller with a `UICollectionViewFlowLayout` and a class name
- of <PFObject> that will be associated with this collection.
+ of `PFObject` that will be associated with this collection.
 
- @param className The class name of the instances of <PFObject> that this table will display.
+ @param className The class name of the instances of `PFObject` that this table will display.
 
  @return An initialized `PFQueryCollectionViewController` object or `nil` if the object couldn't be created.
  */
 - (instancetype)initWithClassName:(nullable NSString *)className;
 
 /**
- Initializes a view controller with a class name of <PFObject> that will be associated with this collection.
+ Initializes a view controller with a class name of `PFObject` that will be associated with this collection.
 
  @param layout    Layout for collection view to use.
- @param className The class name of the instances of <PFObject> that this table will display.
+ @param className The class name of the instances of `PFObject` that this table will display.
 
  @return An initialized `PFQueryCollectionViewController` object or `nil` if the object couldn't be created.
  */
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- The array of instances of <PFObject> that is used as a data source.
+ The array of instances of `PFObject` that is used as a data source.
  */
 @property (nonatomic, copy, readonly) NSArray *objects;
 
@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BFTask *)loadObjects;
 
 /**
- Loads the objects of the <parseClassName> at the specified page and appends it to the
+ Loads the objects of the `PFObject.parseClassName` at the specified page and appends it to the
  objects already loaded and refreshes the collection.
 
  @param page  The page of objects to load.
@@ -187,7 +187,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- Override to construct your own custom <PFQuery> to get the objects.
+ Override to construct your own custom `PFQuery` to get the objects.
 
  @return An instance of `PFQuery` that `-loadObjects` method will use to the objects for this collection.
  */
@@ -198,13 +198,13 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- Override this method to customize each cell given a <PFObject> that is loaded.
+ Override this method to customize each cell given a `PFObject` that is loaded.
 
- @warning The cell should inherit from <PFCollectionViewCell> which is a subclass of `UICollectionViewCell`.
+ @warning The cell should inherit from `PFCollectionViewCell` which is a subclass of `UICollectionViewCell`.
 
  @param collectionView The collection view object associated with this controller.
  @param indexPath      The indexPath of the cell.
- @param object         The <PFObject> that is associated with the cell.
+ @param object         The `PFObject` that is associated with the cell.
 
  @return The cell that represents this object.
  */
