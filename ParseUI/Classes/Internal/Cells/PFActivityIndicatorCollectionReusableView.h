@@ -21,7 +21,7 @@
 
 #import <UIKit/UIKit.h>
 
-/*!
+/**
  The `PFActivityIndicatorCollectionReusableView` class represents a collection footer
  that has a simple text label and displays UIActivityIndicatorView if <animating> property is set to `YES`.
  An instance of this class is used as a default next page button inside <PFQueryCollectionViewController>.

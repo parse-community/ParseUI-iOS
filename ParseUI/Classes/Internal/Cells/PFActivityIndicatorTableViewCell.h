@@ -23,7 +23,7 @@
 
 #import <ParseUI/PFTableViewCell.h>
 
-/*!
+/**
  The `PFActivityIndicatorTableViewCell` class represents a table view cell
  that displays UIActivityIndicatorView as the accessory view.
  */
