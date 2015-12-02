@@ -82,7 +82,7 @@ typedef NS_OPTIONS(NSInteger, PFLogInFields) {
 /**
  The view controller that will present this view.
 
- @discussion Used to lay out elements correctly when the presenting view controller has translucent elements.
+ Used to lay out elements correctly when the presenting view controller has translucent elements.
  */
 @property (nullable, nonatomic, weak) UIViewController *presentingViewController;
 
@@ -100,7 +100,7 @@ typedef NS_OPTIONS(NSInteger, PFLogInFields) {
 /**
  If email should be used to log in, instead of username
 
- @discussion By default, this is set to `NO`.
+ By default, this is set to `NO`.
  */
 @property (nonatomic, assign) BOOL emailAsUsername;
 

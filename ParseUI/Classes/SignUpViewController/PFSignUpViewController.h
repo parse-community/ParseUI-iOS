@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Whether to use the email as username on the attached <signUpView>.
 
- @discussion If set to `YES`, we'll hide the email field, prompt for the email in
+ If set to `YES`, we'll hide the email field, prompt for the email in
  the username field, and save the email into both username and email
  fields on the new <PFUser> object. By default, this is set to `NO`.
  */
@@ -92,7 +92,7 @@ extern NSString *const PFSignUpSuccessNotification;
 /**
  The notification is posted immediately after the sign up fails.
 
- @discussion If the delegate prevents the sign up to start, the notification is not sent.
+ If the delegate prevents the sign up to start, the notification is not sent.
  */
 extern NSString *const PFSignUpFailureNotification;
 

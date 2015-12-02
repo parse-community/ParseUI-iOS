@@ -131,7 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Returns an object at a particular indexPath.
 
- @discussion The default impementation returns the object at `indexPath.item`.
+ The default impementation returns the object at `indexPath.item`.
  If you want to return objects in a different indexPath order, like for sections, override this method.
 
  @param indexPath An instance of `NSIndexPath`.
@@ -213,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
                                                 object:(nullable PFObject *)object;
 
 /**
- @discussion Override this method to customize the view that allows the user to load the
+ Override this method to customize the view that allows the user to load the
  next page when pagination is turned on.
 
  @param collectionView The collection view object associated with this controller.

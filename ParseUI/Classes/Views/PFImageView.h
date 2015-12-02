@@ -45,7 +45,7 @@ typedef void(^PFImageViewImageResultBlock)(UIImage *__nullable image,  NSError *
 /**
  Initiate downloading of the remote image.
 
- @discussion Once the download completes, the remote image will be displayed.
+ Once the download completes, the remote image will be displayed.
 
  @returns The task, that encapsulates the work being done.
  */
@@ -54,7 +54,7 @@ typedef void(^PFImageViewImageResultBlock)(UIImage *__nullable image,  NSError *
 /**
  Initiate downloading of the remote image.
 
- @discussion Once the download completes, the remote image will be displayed.
+ Once the download completes, the remote image will be displayed.
 
  @param completion the completion block.
  */
@@ -63,7 +63,7 @@ typedef void(^PFImageViewImageResultBlock)(UIImage *__nullable image,  NSError *
 /**
  Initiate downloading of the remote image.
  
- @discussion Once the download completes, the remote image will be displayed.
+ Once the download completes, the remote image will be displayed.
  
  @param completion the completion block.
  @param progressBlock called with the download progress as the image is being downloaded. 

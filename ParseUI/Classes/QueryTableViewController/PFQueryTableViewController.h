@@ -81,21 +81,21 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The key to use to display for the cell text label.
 
- @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
+ This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
 @property (nullable, nonatomic, copy) IBInspectable NSString *textKey;
 
 /**
  The key to use to display for the cell image view.
 
- @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
+ This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
 @property (nullable, nonatomic, copy) IBInspectable NSString *imageKey;
 
 /**
  The image to use as a placeholder for the cell images.
 
- @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
+ This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
 @property (nullable, nonatomic, strong) IBInspectable UIImage *placeholderImage;
 
@@ -153,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Returns an object at a particular indexPath.
 
- @discussion The default impementation returns the object at `indexPath.row`.
+ The default impementation returns the object at `indexPath.row`.
  If you want to return objects in a different indexPath order, like for sections, override this method.
 
  @param indexPath The indexPath.
@@ -227,7 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Override this method to customize each cell given a PFObject that is loaded.
 
- @discussion If you don't override this method, it will use a default style cell and display either
+ If you don't override this method, it will use a default style cell and display either
  the first data key from the object, or it will display the key as specified with `textKey`, `imageKey`.
 
  @warning The cell should inherit from <PFTableViewCell> which is a subclass of `UITableViewCell`.
@@ -243,7 +243,7 @@ NS_ASSUME_NONNULL_BEGIN
                                       object:(nullable PFObject *)object;
 
 /**
- @discussion Override this method to customize the cell that allows the user to load the
+ Override this method to customize the cell that allows the user to load the
  next page when pagination is turned on.
 
  @param tableView The table view object associated with this controller.
