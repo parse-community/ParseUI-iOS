@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PFTableViewCell : UITableViewCell
 
 /**
- @abstract The imageView of the table view cell.
+ The imageView of the table view cell.
 
  @see PFImageView
  */

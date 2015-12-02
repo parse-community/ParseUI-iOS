@@ -40,14 +40,14 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract A bitmask specifying the log in elements which are enabled in the view.
+ A bitmask specifying the log in elements which are enabled in the view.
 
  @see PFSignUpFields
  */
 @property (nonatomic, assign) PFSignUpFields fields;
 
 /**
- @abstract The sign up view. It contains all the enabled log in elements.
+ The sign up view. It contains all the enabled log in elements.
 
  @see PFSignUpView
  */
@@ -58,19 +58,19 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract The delegate that responds to the control events of `PFSignUpViewController`.
+ The delegate that responds to the control events of `PFSignUpViewController`.
 
  @see PFSignUpViewControllerDelegate
  */
 @property (nullable, nonatomic, weak) id<PFSignUpViewControllerDelegate> delegate;
 
 /**
- @abstract Minimum required password length for user signups, defaults to `0`.
+ Minimum required password length for user signups, defaults to `0`.
  */
 @property (nonatomic, assign) NSUInteger minPasswordLength;
 
 /**
- @abstract Whether to use the email as username on the attached <signUpView>.
+ Whether to use the email as username on the attached <signUpView>.
 
  @discussion If set to `YES`, we'll hide the email field, prompt for the email in
  the username field, and save the email into both username and email
@@ -85,19 +85,19 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract The notification is posted immediately after the sign up succeeds.
+ The notification is posted immediately after the sign up succeeds.
  */
 extern NSString *const PFSignUpSuccessNotification;
 
 /**
- @abstract The notification is posted immediately after the sign up fails.
+ The notification is posted immediately after the sign up fails.
 
  @discussion If the delegate prevents the sign up to start, the notification is not sent.
  */
 extern NSString *const PFSignUpFailureNotification;
 
 /**
- @abstract The notification is posted immediately after the user cancels sign up.
+ The notification is posted immediately after the user cancels sign up.
  */
 extern NSString *const PFSignUpCancelNotification;
 
@@ -118,7 +118,7 @@ extern NSString *const PFSignUpCancelNotification;
 ///--------------------------------------
 
 /**
- @abstract Sent to the delegate to determine whether the sign up request should be submitted to the server.
+ Sent to the delegate to determine whether the sign up request should be submitted to the server.
 
  @param signUpController The signup view controller that is requesting the data.
  @param info An `NSDictionary` instance which contains all sign up information that the user entered.
@@ -132,7 +132,7 @@ extern NSString *const PFSignUpCancelNotification;
 ///--------------------------------------
 
 /**
- @abstract Sent to the delegate when a <PFUser> is signed up.
+ Sent to the delegate when a <PFUser> is signed up.
 
  @param signUpController The signup view controller where signup finished.
  @param user <PFUser> object that is a result of the sign up.
@@ -140,7 +140,7 @@ extern NSString *const PFSignUpCancelNotification;
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user;
 
 /**
- @abstract Sent to the delegate when the sign up attempt fails.
+ Sent to the delegate when the sign up attempt fails.
 
  @param signUpController The signup view controller where signup failed.
  @param error `NSError` object representing the error that occured.
@@ -149,7 +149,7 @@ extern NSString *const PFSignUpCancelNotification;
     didFailToSignUpWithError:(nullable NSError *)error;
 
 /**
- @abstract Sent to the delegate when the sign up screen is cancelled.
+ Sent to the delegate when the sign up screen is cancelled.
 
  @param signUpController The signup view controller where signup was cancelled.
  */

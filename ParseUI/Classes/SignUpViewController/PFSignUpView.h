@@ -61,7 +61,7 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 ///--------------------------------------
 
 /**
- @abstract Initializes the view with the specified sign up elements.
+ Initializes the view with the specified sign up elements.
 
  @param fields A bitmask specifying the sign up elements which are enabled in the view
 
@@ -72,7 +72,7 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 - (instancetype)initWithFields:(PFSignUpFields)fields;
 
 /**
- @abstract The view controller that will present this view.
+ The view controller that will present this view.
 
  @discussion Used to lay out elements correctly when the presenting view controller has translucent elements.
  */
@@ -83,7 +83,7 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 ///--------------------------------------
 
 /**
- @abstract The logo. By default, it is the Parse logo.
+ The logo. By default, it is the Parse logo.
  */
 @property (nullable, nonatomic, strong) UIView *logo;
 
@@ -92,7 +92,7 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 ///--------------------------------------
 
 /**
- @abstract If email should be used to log in, instead of username
+ If email should be used to log in, instead of username
 
  @discussion By default, this is set to `NO`.
  */
@@ -103,39 +103,39 @@ typedef NS_OPTIONS(NSInteger, PFSignUpFields) {
 ///--------------------------------------
 
 /**
- @abstract The bitmask which specifies the enabled sign up elements in the view
+ The bitmask which specifies the enabled sign up elements in the view
  */
 @property (nonatomic, assign, readonly) PFSignUpFields fields;
 
 /**
- @abstract The username text field.
+ The username text field.
  */
 @property (nullable, nonatomic, strong, readonly) PFTextField *usernameField;
 
 /**
- @abstract The password text field.
+ The password text field.
  */
 @property (nullable, nonatomic, strong, readonly) PFTextField *passwordField;
 
 /**
- @abstract The email text field. It is `nil` if the element is not enabled.
+ The email text field. It is `nil` if the element is not enabled.
  */
 @property (nullable, nonatomic, strong, readonly) PFTextField *emailField;
 
 /**
- @abstract The additional text field. It is `nil` if the element is not enabled.
+ The additional text field. It is `nil` if the element is not enabled.
 
  @discussion This field is intended to be customized.
  */
 @property (nullable, nonatomic, strong, readonly) PFTextField *additionalField;
 
 /**
- @abstract The sign up button. It is `nil` if the element is not enabled.
+ The sign up button. It is `nil` if the element is not enabled.
  */
 @property (nullable, nonatomic, strong, readonly) UIButton *signUpButton;
 
 /**
- @abstract The dismiss button. It is `nil` if the element is not enabled.
+ The dismiss button. It is `nil` if the element is not enabled.
  */
 @property (nullable, nonatomic, strong, readonly) UIButton *dismissButton;
 

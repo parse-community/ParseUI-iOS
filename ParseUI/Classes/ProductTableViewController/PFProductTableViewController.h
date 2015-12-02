@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PFProductTableViewController : PFQueryTableViewController
 
 /**
- @abstract Initializes a product table view controller.
+ Initializes a product table view controller.
 
  @param style The UITableViewStyle for the table
 

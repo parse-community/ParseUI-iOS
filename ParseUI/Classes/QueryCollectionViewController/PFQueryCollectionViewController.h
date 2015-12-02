@@ -48,32 +48,32 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PFQueryCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
 
 /**
- @abstract The class name of the <PFObject> this collection will use as a datasource.
+ The class name of the <PFObject> this collection will use as a datasource.
  */
 @property (nullable, nonatomic, copy) IBInspectable NSString *parseClassName;
 
 /**
- @abstract Whether the collection should use the default loading view. Default - `YES`.
+ Whether the collection should use the default loading view. Default - `YES`.
  */
 @property (nonatomic, assign) IBInspectable BOOL loadingViewEnabled;
 
 /**
- @abstract Whether the collection should use the built-in pull-to-refresh feature. Default - `YES`.
+ Whether the collection should use the built-in pull-to-refresh feature. Default - `YES`.
  */
 @property (nonatomic, assign) IBInspectable BOOL pullToRefreshEnabled;
 
 /**
- @abstract Whether the collection should use the built-in pagination feature. Default - `YES`.
+ Whether the collection should use the built-in pagination feature. Default - `YES`.
  */
 @property (nonatomic, assign) IBInspectable BOOL paginationEnabled;
 
 /**
- @abstract The number of objects to show per page. Default - `25`.
+ The number of objects to show per page. Default - `25`.
  */
 @property (nonatomic, assign) IBInspectable NSUInteger objectsPerPage;
 
 /**
- @abstract Whether the collection is actively loading new data from the server.
+ Whether the collection is actively loading new data from the server.
  */
 @property (nonatomic, assign, getter=isLoading) BOOL loading;
 
@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract Initializes a view controller with a `UICollectionViewFlowLayout` and a class name
+ Initializes a view controller with a `UICollectionViewFlowLayout` and a class name
  of <PFObject> that will be associated with this collection.
 
  @param className The class name of the instances of <PFObject> that this table will display.
@@ -92,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithClassName:(nullable NSString *)className;
 
 /**
- @abstract Initializes a view controller with a class name of <PFObject> that will be associated with this collection.
+ Initializes a view controller with a class name of <PFObject> that will be associated with this collection.
 
  @param layout    Layout for collection view to use.
  @param className The class name of the instances of <PFObject> that this table will display.
@@ -124,12 +124,12 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract The array of instances of <PFObject> that is used as a data source.
+ The array of instances of <PFObject> that is used as a data source.
  */
 @property (nonatomic, copy, readonly) NSArray *objects;
 
 /**
- @abstract Returns an object at a particular indexPath.
+ Returns an object at a particular indexPath.
 
  @discussion The default impementation returns the object at `indexPath.item`.
  If you want to return objects in a different indexPath order, like for sections, override this method.
@@ -141,12 +141,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable PFObject *)objectAtIndexPath:(nullable NSIndexPath *)indexPath;
 
 /**
- @abstract Removes an object at the specified index path, animated.
+ Removes an object at the specified index path, animated.
  */
 - (void)removeObjectAtIndexPath:(nullable NSIndexPath *)indexPath;
 
 /**
- @abstract Removes all objects at the specified index paths, animated.
+ Removes all objects at the specified index paths, animated.
  */
 - (void)removeObjectsAtIndexPaths:(nullable NSArray *)indexes;
 
@@ -155,14 +155,14 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract Clears the collection view and loads the first page of objects.
+ Clears the collection view and loads the first page of objects.
 
  @returns An awaitable task that completes when the reload succeeds
  */
 - (BFTask *)loadObjects;
 
 /**
- @abstract Loads the objects of the <parseClassName> at the specified page and appends it to the
+ Loads the objects of the <parseClassName> at the specified page and appends it to the
  objects already loaded and refreshes the collection.
 
  @param page  The page of objects to load.
@@ -173,12 +173,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (BFTask *)loadObjects:(NSInteger)page clear:(BOOL)clear;
 
 /**
- @abstract Loads the next page of objects, appends to table, and refreshes.
+ Loads the next page of objects, appends to table, and refreshes.
  */
 - (void)loadNextPage;
 
 /**
- @abstract Clears the collection view of all objects.
+ Clears the collection view of all objects.
  */
 - (void)clear;
 
@@ -187,7 +187,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract Override to construct your own custom <PFQuery> to get the objects.
+ Override to construct your own custom <PFQuery> to get the objects.
 
  @returns An instance of <PFQuery> that <loadObjects> method will use to the objects for this collection.
  */
@@ -198,7 +198,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract Override this method to customize each cell given a <PFObject> that is loaded.
+ Override this method to customize each cell given a <PFObject> that is loaded.
 
  @warning The cell should inherit from <PFCollectionViewCell> which is a subclass of `UICollectionViewCell`.
 

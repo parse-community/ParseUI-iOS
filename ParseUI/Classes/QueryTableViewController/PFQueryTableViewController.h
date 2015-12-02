@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract Initializes with a class name of the <PFObject> that will be associated with this table.
+ Initializes with a class name of the <PFObject> that will be associated with this table.
 
  @param style The UITableViewStyle for the table
  @param className The class name of the instances of <PFObject> that this table will display.
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
                     className:(nullable NSString *)className NS_DESIGNATED_INITIALIZER;
 
 /**
- @abstract Initializes with a class name of the PFObjects that will be associated with this table.
+ Initializes with a class name of the PFObjects that will be associated with this table.
 
  @param className The class name of the instances of <PFObject> that this table will display.
 
@@ -74,53 +74,53 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract The class name of the <PFObject> this table will use as a datasource.
+ The class name of the <PFObject> this table will use as a datasource.
  */
 @property (nullable, nonatomic, copy) IBInspectable NSString *parseClassName;
 
 /**
- @abstract The key to use to display for the cell text label.
+ The key to use to display for the cell text label.
 
  @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
 @property (nullable, nonatomic, copy) IBInspectable NSString *textKey;
 
 /**
- @abstract The key to use to display for the cell image view.
+ The key to use to display for the cell image view.
 
  @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
 @property (nullable, nonatomic, copy) IBInspectable NSString *imageKey;
 
 /**
- @abstract The image to use as a placeholder for the cell images.
+ The image to use as a placeholder for the cell images.
 
  @discussion This won't apply if you override <tableView:cellForRowAtIndexPath:object:>
  */
 @property (nullable, nonatomic, strong) IBInspectable UIImage *placeholderImage;
 
 /**
- @abstract Whether the table should use the default loading view. Default - `YES`.
+ Whether the table should use the default loading view. Default - `YES`.
  */
 @property (nonatomic, assign) IBInspectable BOOL loadingViewEnabled;
 
 /**
- @abstract Whether the table should use the built-in pull-to-refresh feature. Default - `YES`.
+ Whether the table should use the built-in pull-to-refresh feature. Default - `YES`.
  */
 @property (nonatomic, assign) IBInspectable BOOL pullToRefreshEnabled;
 
 /**
- @abstract Whether the table should use the built-in pagination feature. Default - `YES`.
+ Whether the table should use the built-in pagination feature. Default - `YES`.
  */
 @property (nonatomic, assign) IBInspectable BOOL paginationEnabled;
 
 /**
- @abstract The number of objects to show per page. Default - `25`.
+ The number of objects to show per page. Default - `25`.
  */
 @property (nonatomic, assign) IBInspectable NSUInteger objectsPerPage;
 
 /**
- @abstract Whether the table is actively loading new data from the server.
+ Whether the table is actively loading new data from the server.
  */
 @property (nonatomic, assign, getter=isLoading) BOOL loading;
 
@@ -146,12 +146,12 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract The array of instances of <PFObject> that is used as a data source.
+ The array of instances of <PFObject> that is used as a data source.
  */
 @property (nullable, nonatomic, copy, readonly) NSArray *objects;
 
 /**
- @abstract Returns an object at a particular indexPath.
+ Returns an object at a particular indexPath.
 
  @discussion The default impementation returns the object at `indexPath.row`.
  If you want to return objects in a different indexPath order, like for sections, override this method.
@@ -163,39 +163,39 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable PFObject *)objectAtIndexPath:(nullable NSIndexPath *)indexPath;
 
 /**
- @abstract Removes an object at the specified index path, animated.
+ Removes an object at the specified index path, animated.
  */
 - (void)removeObjectAtIndexPath:(nullable NSIndexPath *)indexPath;
 
 /**
- @abstract Removes an object at the specified index path, with or without animation.
+ Removes an object at the specified index path, with or without animation.
  */
 - (void)removeObjectAtIndexPath:(nullable NSIndexPath *)indexPath animated:(BOOL)animated;
 
 /**
- @abstract Removes all objects at the specified index paths, animated.
+ Removes all objects at the specified index paths, animated.
  */
 - (void)removeObjectsAtIndexPaths:(nullable NSArray *)indexes;
 
 /**
- @abstract Removes all objects at the specified index paths, with or without animation.
+ Removes all objects at the specified index paths, with or without animation.
  */
 - (void)removeObjectsAtIndexPaths:(nullable NSArray *)indexes animated:(BOOL)animated;
 
 /**
- @abstract Clears the table of all objects.
+ Clears the table of all objects.
  */
 - (void)clear;
 
 /**
- @abstract Clears the table and loads the first page of objects.
+ Clears the table and loads the first page of objects.
 
  @returns An awaitable task that completes when the reload succeeds
  */
 - (BFTask *)loadObjects;
 
 /**
- @abstract Loads the objects of the className at the specified page and appends it to the
+ Loads the objects of the className at the specified page and appends it to the
  objects already loaded and refreshes the table.
 
  @param page The page of objects to load.
@@ -206,7 +206,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BFTask *)loadObjects:(NSInteger)page clear:(BOOL)clear;
 
 /**
- @abstract Loads the next page of objects, appends to table, and refreshes.
+ Loads the next page of objects, appends to table, and refreshes.
  */
 - (void)loadNextPage;
 
@@ -225,7 +225,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- @abstract Override this method to customize each cell given a PFObject that is loaded.
+ Override this method to customize each cell given a PFObject that is loaded.
 
  @discussion If you don't override this method, it will use a default style cell and display either
  the first data key from the object, or it will display the key as specified with `textKey`, `imageKey`.

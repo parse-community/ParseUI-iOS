@@ -48,18 +48,18 @@ typedef NS_ENUM(uint8_t, PFPurchaseTableViewCellState) {
 @interface PFPurchaseTableViewCell : PFTableViewCell
 
 /**
- @abstract State of the cell.
+ State of the cell.
  @see PFPurchaseTableViewCellState
  */
 @property (nonatomic, assign) PFPurchaseTableViewCellState state;
 
 /**
- @abstract Label where price of the product is displayed.
+ Label where price of the product is displayed.
  */
 @property (nullable, nonatomic, strong, readonly) UILabel *priceLabel;
 
 /**
- @abstract Progress view that is shown, when the product is downloading.
+ Progress view that is shown, when the product is downloading.
  */
 @property (nullable, nonatomic, strong, readonly) UIProgressView *progressView;
 
