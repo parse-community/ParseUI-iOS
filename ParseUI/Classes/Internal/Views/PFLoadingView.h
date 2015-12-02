@@ -21,7 +21,7 @@
 
 #import <UIKit/UIKit.h>
 
-/*!
+/**
  A loading view that is used to show users that data is being loaded before any data is available.
  */
 @interface PFLoadingView : UIView

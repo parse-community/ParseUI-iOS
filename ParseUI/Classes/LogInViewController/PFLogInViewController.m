@@ -35,7 +35,7 @@ NSString *const PFLogInSuccessNotification = @"com.parse.ui.login.success";
 NSString *const PFLogInFailureNotification = @"com.parse.ui.login.failure";
 NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
 
-/*!
+/**
  This protocol exists so that we can weakly refer to messages to pass to PFFacebookUtils without
  actually taking a dependency on the symbols.
  */

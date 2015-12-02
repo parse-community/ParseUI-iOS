@@ -30,40 +30,40 @@ typedef void(^PFImageViewImageResultBlock)(UIImage *__nullable image,  NSError *
 @class BFTask;
 @class PFFile;
 
-/*!
+/**
  An image view that downloads and displays remote image stored on Parse's server.
  */
 @interface PFImageView : UIImageView
 
-/*!
- @abstract The remote file on Parse's server that stores the image.
+/**
+ The remote file on Parse's server that stores the image.
 
- @warning Note that the download does not start until <loadInBackground:> is called.
+ @warning Note that the download does not start until `-loadInBackground:` is called.
  */
 @property (nullable, nonatomic, strong) PFFile *file;
 
-/*!
- @abstract Initiate downloading of the remote image.
+/**
+ Initiate downloading of the remote image.
 
- @discussion Once the download completes, the remote image will be displayed.
+ Once the download completes, the remote image will be displayed.
 
- @returns The task, that encapsulates the work being done.
+ @return The task, that encapsulates the work being done.
  */
 - (BFTask *)loadInBackground;
 
-/*!
- @abstract Initiate downloading of the remote image.
+/**
+ Initiate downloading of the remote image.
 
- @discussion Once the download completes, the remote image will be displayed.
+ Once the download completes, the remote image will be displayed.
 
  @param completion the completion block.
  */
 - (void)loadInBackground:(nullable PFImageViewImageResultBlock)completion;
 
-/*!
- @abstract Initiate downloading of the remote image.
+/**
+ Initiate downloading of the remote image.
  
- @discussion Once the download completes, the remote image will be displayed.
+ Once the download completes, the remote image will be displayed.
  
  @param completion the completion block.
  @param progressBlock called with the download progress as the image is being downloaded. 

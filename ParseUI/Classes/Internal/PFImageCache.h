@@ -21,7 +21,7 @@
 
 #import <UIKit/UIKit.h>
 
-/*!
+/**
  A memory cache for UIImage, based on NSCache
  */
 @interface PFImageCache : NSCache
