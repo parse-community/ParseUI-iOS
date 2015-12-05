@@ -21,11 +21,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import <Parse/PFConstants.h>
 #import <ParseUI/ParseUIConstants.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class BFTask;
+@class BFTask PF_GENERIC(__covariant BFGenericType);
 @class PFObject;
 @class PFQuery;
 @class PFTableViewCell;
@@ -148,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The array of instances of `PFObject` that is used as a data source.
  */
-@property (nullable, nonatomic, copy, readonly) NSArray *objects;
+@property (nullable, nonatomic, copy, readonly) NSArray PF_GENERIC(__kindof PFObject *)*objects;
 
 /**
  Returns an object at a particular indexPath.
@@ -175,12 +176,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Removes all objects at the specified index paths, animated.
  */
-- (void)removeObjectsAtIndexPaths:(nullable NSArray *)indexes;
+- (void)removeObjectsAtIndexPaths:(nullable NSArray PF_GENERIC(NSIndexPath *)*)indexPaths;
 
 /**
  Removes all objects at the specified index paths, with or without animation.
  */
-- (void)removeObjectsAtIndexPaths:(nullable NSArray *)indexes animated:(BOOL)animated;
+- (void)removeObjectsAtIndexPaths:(nullable NSArray PF_GENERIC(NSIndexPath *)*)indexPaths animated:(BOOL)animated;
 
 /**
  Clears the table of all objects.
@@ -192,7 +193,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return An awaitable task that completes when the reload succeeds
  */
-- (BFTask *)loadObjects;
+- (BFTask PF_GENERIC(NSArray<__kindof PFObject *> *)*)loadObjects;
 
 /**
  Loads the objects of the className at the specified page and appends it to the
@@ -203,7 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return An awaitable task that completes when the reload succeeds
  */
-- (BFTask *)loadObjects:(NSInteger)page clear:(BOOL)clear;
+- (BFTask PF_GENERIC(NSArray<__kindof PFObject *> *)*)loadObjects:(NSInteger)page clear:(BOOL)clear;
 
 /**
  Loads the next page of objects, appends to table, and refreshes.
@@ -239,8 +240,8 @@ NS_ASSUME_NONNULL_BEGIN
  @return The cell that represents this object.
  */
 - (nullable PFTableViewCell *)tableView:(UITableView *)tableView
-                       cellForRowAtIndexPath:(NSIndexPath *)indexPath
-                                      object:(nullable PFObject *)object;
+                  cellForRowAtIndexPath:(NSIndexPath *)indexPath
+                                 object:(nullable PFObject *)object;
 
 /**
  Override this method to customize the cell that allows the user to load the
@@ -251,8 +252,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return The cell that allows the user to paginate.
  */
-- (nullable PFTableViewCell *)tableView:(UITableView *)tableView
-                  cellForNextPageAtIndexPath:(NSIndexPath *)indexPath;
+- (nullable PFTableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
