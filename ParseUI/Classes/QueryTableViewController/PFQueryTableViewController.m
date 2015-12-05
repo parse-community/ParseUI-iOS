@@ -220,10 +220,10 @@
     self.loading = YES;
     [self objectsWillLoad];
 
-    BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
-
     PFQuery *query = [self queryForTable];
     [self _alterQuery:query forLoadingPage:page];
+
+    BFTaskCompletionSource PF_GENERIC(NSArray<__kindof PFObject *>*)*source = [BFTaskCompletionSource taskCompletionSource];
     [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
         if (![Parse isLocalDatastoreEnabled] &&
             query.cachePolicy != kPFCachePolicyCacheOnly &&
@@ -252,7 +252,11 @@
         [self objectsDidLoad:error];
         [self.refreshControl endRefreshing];
 
-        [source setError:error];
+        if (error) {
+            [source trySetError:error];
+        } else {
+            [source trySetResult:foundObjects];
+        }
     }];
 
     return source.task;
