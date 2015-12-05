@@ -21,6 +21,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import <Parse/PFConstants.h>
+
 #import <ParseUI/ParseUIConstants.h>
 #import <ParseUI/PFLogInView.h>
 
@@ -70,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  If unspecified, the default is basic facebook permissions.
  */
-@property (nullable, nonatomic, copy) NSArray *facebookPermissions;
+@property (nullable, nonatomic, copy) NSArray PF_GENERIC(NSString *)*facebookPermissions;
 
 /**
  The sign up controller if sign up is enabled.
@@ -161,8 +163,7 @@ shouldBeginLogInWithUsername:(NSString *)username
  @param logInController The login view controller where login failed.
  @param error `NSError` object representing the error that occured.
  */
-- (void)logInViewController:(PFLogInViewController *)logInController
-    didFailToLogInWithError:(nullable NSError *)error;
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(nullable NSError *)error;
 
 /**
  Sent to the delegate when the log in screen is cancelled.
