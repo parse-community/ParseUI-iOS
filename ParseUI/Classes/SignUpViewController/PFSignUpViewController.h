@@ -21,6 +21,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import <Parse/PFConstants.h>
+
 #import <ParseUI/ParseUIConstants.h>
 #import <ParseUI/PFSignUpView.h>
 
@@ -125,7 +127,7 @@ extern NSString *const PFSignUpCancelNotification;
 
  @return A `BOOL` indicating whether the sign up should proceed.
  */
-- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info;
+- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary PF_GENERIC(NSString *,NSString *)*)info;
 
 ///--------------------------------------
 /// @name Responding to Actions
@@ -145,8 +147,7 @@ extern NSString *const PFSignUpCancelNotification;
  @param signUpController The signup view controller where signup failed.
  @param error `NSError` object representing the error that occured.
  */
-- (void)signUpViewController:(PFSignUpViewController *)signUpController
-    didFailToSignUpWithError:(nullable NSError *)error;
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(nullable NSError *)error;
 
 /**
  Sent to the delegate when the sign up screen is cancelled.

@@ -27,14 +27,13 @@ import ParseUI
 class CustomProductTableViewController: PFProductTableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let product = objects?[indexPath.row] as? PFObject
+        let product = objects?[indexPath.row]
         if let identifier = product?["productIdentifier"] as? String where identifier == "Cooper" {
             PFPurchase.buyProduct(identifier) { error in
                 if error == nil {
                     UIAlertView(title: "Success!", message: "Yes!", delegate: nil, cancelButtonTitle: "OK").show()
                 }
             }
-            return
         }
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
     }

@@ -45,7 +45,7 @@
 @end
 
 @interface PFQueryTableViewController () {
-    NSMutableArray *_mutableObjects;
+    NSMutableArray PF_GENERIC(PFObject *)*_mutableObjects;
 
     BOOL _firstLoad;           // Whether we have loaded the first set of objects
     NSInteger _currentPage;    // The last page that was loaded
@@ -212,11 +212,11 @@
     _currentPage = 0;
 }
 
-- (BFTask *)loadObjects {
+- (BFTask PF_GENERIC(NSArray<__kindof PFObject *>*)*)loadObjects {
     return [self loadObjects:0 clear:YES];
 }
 
-- (BFTask *)loadObjects:(NSInteger)page clear:(BOOL)clear {
+- (BFTask PF_GENERIC(NSArray<__kindof PFObject *>*)*)loadObjects:(NSInteger)page clear:(BOOL)clear {
     self.loading = YES;
     [self objectsWillLoad];
 
@@ -554,7 +554,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)objects {
+- (NSArray PF_GENERIC(__kindof PFObject *)*)objects {
     return _mutableObjects;
 }
 

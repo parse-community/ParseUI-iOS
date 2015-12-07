@@ -44,7 +44,7 @@ class SectionedTableViewController: PFQueryTableViewController {
         super.objectsDidLoad(error)
 
         sections.removeAll(keepCapacity: false)
-        if let objects = objects as? [PFObject] {
+        if let objects = objects {
             for object in objects {
                 let priority = (object["priority"] as? Int) ?? 0
                 var array = sections[priority] ?? Array()

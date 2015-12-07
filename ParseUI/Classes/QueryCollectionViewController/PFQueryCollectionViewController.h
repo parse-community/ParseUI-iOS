@@ -21,11 +21,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import <Parse/PFConstants.h>
 #import <ParseUI/ParseUIConstants.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class BFTask;
+@class BFTask PF_GENERIC(__covariant BFGenericType);
 @class PFCollectionViewCell;
 @class PFObject;
 @class PFQuery;
@@ -126,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The array of instances of `PFObject` that is used as a data source.
  */
-@property (nonatomic, copy, readonly) NSArray *objects;
+@property (nonatomic, copy, readonly) NSArray PF_GENERIC(__kindof PFObject *)*objects;
 
 /**
  Returns an object at a particular indexPath.
@@ -148,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Removes all objects at the specified index paths, animated.
  */
-- (void)removeObjectsAtIndexPaths:(nullable NSArray *)indexes;
+- (void)removeObjectsAtIndexPaths:(nullable NSArray PF_GENERIC(NSIndexPath *)*)indexes;
 
 ///--------------------------------------
 /// @name Loading Data
@@ -159,7 +160,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return An awaitable task that completes when the reload succeeds
  */
-- (BFTask *)loadObjects;
+- (BFTask PF_GENERIC(NSArray<__kindof PFObject *>*)*)loadObjects;
 
 /**
  Loads the objects of the `PFObject.parseClassName` at the specified page and appends it to the
@@ -170,7 +171,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return An awaitable task that completes when the reload succeeds
  */
-- (BFTask *)loadObjects:(NSInteger)page clear:(BOOL)clear;
+- (BFTask PF_GENERIC(NSArray<__kindof PFObject *>*)*)loadObjects:(NSInteger)page clear:(BOOL)clear;
 
 /**
  Loads the next page of objects, appends to table, and refreshes.
@@ -209,8 +210,8 @@ NS_ASSUME_NONNULL_BEGIN
  @return The cell that represents this object.
  */
 - (nullable PFCollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                                cellForItemAtIndexPath:(NSIndexPath *)indexPath
-                                                object:(nullable PFObject *)object;
+                           cellForItemAtIndexPath:(NSIndexPath *)indexPath
+                                           object:(nullable PFObject *)object;
 
 /**
  Override this method to customize the view that allows the user to load the
