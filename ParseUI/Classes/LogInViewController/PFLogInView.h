@@ -57,6 +57,20 @@ typedef NS_OPTIONS(NSInteger, PFLogInFields) {
                             PFLogInFieldsDismissButton)
 };
 
+/**
+ `PFLoginFields`'s accessibility label identifiers
+ 
+ @see PFLogInView
+ */
+extern NSString *const PFLogInViewUsernameFieldAccessibilityIdentifier;
+extern NSString *const PFLogInViewPasswordFieldAccessibilityIdentifier;
+extern NSString *const PFLogInViewLogInButtonAccessibilityIdentifier;
+extern NSString *const PFLogInViewSignUpButtonAccessibilityIdentifier;
+extern NSString *const PFLogInViewPasswordForgottenButtonAccessibilityIdentifier;
+extern NSString *const PFLogInViewTwitterButtonAccessibilityIdentifier;
+extern NSString *const PFLogInViewFacebookButtonAccessibilityIdentifier;
+extern NSString *const PFLogInViewDismissButtonAccessibilityIdentifier;
+
 @class PFTextField;
 
 /**

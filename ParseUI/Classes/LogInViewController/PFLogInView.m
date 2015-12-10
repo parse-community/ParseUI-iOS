@@ -35,6 +35,19 @@ static NSString *const PFLogInViewDefaultLogoImageName = @"parse_logo.png";
 static NSString *const PFLogInViewDefaultFacebookButtonImageName = @"facebook_icon.png";
 static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon.png";
 
+///--------------------------------------
+#pragma mark - Accessibility Identifiers
+///--------------------------------------
+
+NSString *const PFLogInViewUsernameFieldAccessibilityIdentifier = @"PFLogInViewUsernameFieldAccessibilityIdentifier";
+NSString *const PFLogInViewPasswordFieldAccessibilityIdentifier = @"PFLogInViewPasswordFieldAccessibilityIdentifier";
+NSString *const PFLogInViewLogInButtonAccessibilityIdentifier = @"PFLogInViewLogInButtonAccessibilityIdentifier";
+NSString *const PFLogInViewSignUpButtonAccessibilityIdentifier = @"PFLogInViewSignUpButtonAccessibilityIdentifier";
+NSString *const PFLogInViewPasswordForgottenButtonAccessibilityIdentifier = @"PFLogInViewPasswordForgottenButtonAccessibilityIdentifier";
+NSString *const PFLogInViewTwitterButtonAccessibilityIdentifier = @"PFLogInViewTwitterButtonAccessibilityIdentifier";
+NSString *const PFLogInViewFacebookButtonAccessibilityIdentifier = @"PFLogInViewFacebookButtonAccessibilityIdentifier";
+NSString *const PFLogInViewDismissButtonAccessibilityIdentifier = @"PFLogInViewDismissButtonAccessibilityIdentifier";
+
 @implementation PFLogInView
 
 ///--------------------------------------
@@ -109,6 +122,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
     if (_fields & PFLogInFieldsDismissButton) {
         if (!_dismissButton) {
             _dismissButton = [[PFDismissButton alloc] initWithFrame:CGRectZero];
+            _dismissButton.accessibilityIdentifier = PFLogInViewDismissButtonAccessibilityIdentifier;
             [self addSubview:_dismissButton];
         }
     } else {
@@ -121,6 +135,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
             _usernameField = [[PFTextField alloc] initWithFrame:CGRectZero
                                                  separatorStyle:(PFTextFieldSeparatorStyleTop |
                                                                  PFTextFieldSeparatorStyleBottom)];
+            _usernameField.accessibilityIdentifier = PFLogInViewUsernameFieldAccessibilityIdentifier;
             _usernameField.autocorrectionType = UITextAutocorrectionTypeNo;
             _usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
             _usernameField.returnKeyType = UIReturnKeyNext;
@@ -131,6 +146,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
         if (!_passwordField) {
             _passwordField = [[PFTextField alloc] initWithFrame:CGRectZero
                                                  separatorStyle:PFTextFieldSeparatorStyleBottom];
+            _passwordField.accessibilityIdentifier = PFLogInViewPasswordFieldAccessibilityIdentifier;
             _passwordField.placeholder = PFLocalizedString(@"Password", @"Password");
             _passwordField.secureTextEntry = YES;
             _passwordField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -150,6 +166,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
         if (!_signUpButton) {
             _signUpButton = [[PFActionButton alloc] initWithConfiguration:[[self class] _defaultSignUpButtonConfiguration]
                                                               buttonStyle:PFActionButtonStyleNormal];
+            _signUpButton.accessibilityIdentifier = PFLogInViewSignUpButtonAccessibilityIdentifier;
             [self addSubview:_signUpButton];
         }
     } else {
@@ -160,6 +177,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
     if (_fields & PFLogInFieldsPasswordForgotten) {
         if (!_passwordForgottenButton) {
             _passwordForgottenButton = [[PFTextButton alloc] initWithFrame:CGRectZero];
+            _passwordForgottenButton.accessibilityIdentifier = PFLogInViewPasswordForgottenButtonAccessibilityIdentifier;
             [_passwordForgottenButton setTitle:PFLocalizedString(@"Forgot Password?", "Forgot Password?")
                                       forState:UIControlStateNormal];
             [self addSubview:_passwordForgottenButton];
@@ -172,6 +190,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
     if (_fields & PFLogInFieldsLogInButton) {
         if (!_logInButton) {
             _logInButton = [[PFPrimaryButton alloc] initWithBackgroundImageColor:[PFColor loginButtonBackgroundColor]];
+            _logInButton.accessibilityIdentifier = PFLogInViewLogInButtonAccessibilityIdentifier;
             [_logInButton setTitle:PFLocalizedString(@"Log In", @"Log In") forState:UIControlStateNormal];
             [self addSubview:_logInButton];
         }
@@ -184,6 +203,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
         if (!_facebookButton) {
             _facebookButton = [[PFActionButton alloc] initWithConfiguration:[[self class] _defaultFacebookButtonConfiguration]
                                                                 buttonStyle:PFActionButtonStyleNormal];
+            _facebookButton.accessibilityIdentifier = PFLogInViewFacebookButtonAccessibilityIdentifier;
             [self addSubview:_facebookButton];
         }
     } else {
@@ -195,6 +215,7 @@ static NSString *const PFLogInViewDefaultTwitterButtonImageName = @"twitter_icon
         if (!_twitterButton) {
             _twitterButton = [[PFActionButton alloc] initWithConfiguration:[[self class] _defaultTwitterButtonConfiguration]
                                                                buttonStyle:PFActionButtonStyleNormal];
+            _twitterButton.accessibilityIdentifier = PFLogInViewTwitterButtonAccessibilityIdentifier;
             [self addSubview:_twitterButton];
         }
     } else {
