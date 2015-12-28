@@ -124,7 +124,12 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
 ///--------------------------------------
 
 - (void)loadView {
-    _logInView = [[PFLogInView alloc] initWithFields:_fields];
+    if(self.useCustomNib) {
+        [super loadView];
+        _logInView = self.view;
+    } else {
+        _logInView = [[PFLogInView alloc] initWithFields:_fields];
+    }
     [_logInView setPresentingViewController:self];
 
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_dismissKeyboard)];

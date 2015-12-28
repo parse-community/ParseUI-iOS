@@ -55,6 +55,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nullable, nonatomic, strong, readonly) PFSignUpView *signUpView;
 
+/**
+ A bool specifying whether the view should be loaded from a custom nib.
+
+ @see PFSignUpView
+ */
+@property (nonatomic, assign) BOOL useCustomNib;
+
 ///--------------------------------------
 /// @name Configuring Sign Up Behaviors
 ///--------------------------------------

@@ -48,6 +48,17 @@ NSString *const PFLogInViewTwitterButtonAccessibilityIdentifier = @"PFLogInViewT
 NSString *const PFLogInViewFacebookButtonAccessibilityIdentifier = @"PFLogInViewFacebookButtonAccessibilityIdentifier";
 NSString *const PFLogInViewDismissButtonAccessibilityIdentifier = @"PFLogInViewDismissButtonAccessibilityIdentifier";
 
+///--------------------------------------
+#pragma mark - Interface
+///--------------------------------------
+
+@interface PFLogInView()
+
+/// Whether view have been loaded from nib or not
+@property (nonatomic, assign) BOOL loadedFromNib;
+
+@end
+
 @implementation PFLogInView
 
 ///--------------------------------------
@@ -112,6 +123,13 @@ NSString *const PFLogInViewDismissButtonAccessibilityIdentifier = @"PFLogInViewD
     [self _updateAllFields];
 
     return self;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+
+    // remember view have been loaded from nib
+    self.loadedFromNib = YES;
 }
 
 ///--------------------------------------
@@ -230,6 +248,11 @@ NSString *const PFLogInViewDismissButtonAccessibilityIdentifier = @"PFLogInViewD
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+
+    // don't layout field if view is loaded from nib
+    if(self.loadedFromNib) {
+        return;
+    }
 
     const CGRect bounds = PFRectMakeWithOriginSize(CGPointZero, self.bounds.size);
 

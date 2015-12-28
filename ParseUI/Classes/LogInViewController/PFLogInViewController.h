@@ -56,6 +56,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nullable, nonatomic, strong, readonly) PFLogInView *logInView;
 
+
+/**
+ A bool specifying whether the view should be loaded from a custom nib.
+
+ @see PFLogInView
+ */
+@property (nonatomic, assign) BOOL useCustomNib;
+
 ///--------------------------------------
 /// @name Configuring Log In Behaviors
 ///--------------------------------------

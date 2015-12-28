@@ -125,47 +125,47 @@ extern NSString *const PFLogInViewDismissButtonAccessibilityIdentifier;
 /**
  The bitmask which specifies the enabled log in elements in the view.
  */
-@property (nonatomic, assign, readonly) PFLogInFields fields;
+@property (nonatomic, assign) PFLogInFields fields;
 
 /**
  The username text field. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) PFTextField *usernameField;
+@property (nullable, nonatomic, strong, readonly) IBOutlet PFTextField *usernameField;
 
 /**
  The password text field. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) PFTextField *passwordField;
+@property (nullable, nonatomic, strong, readonly) IBOutlet PFTextField *passwordField;
 
 /**
  The password forgotten button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) UIButton *passwordForgottenButton;
+@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *passwordForgottenButton;
 
 /**
  The log in button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) UIButton *logInButton;
+@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *logInButton;
 
 /**
  The Facebook button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) UIButton *facebookButton;
+@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *facebookButton;
 
 /**
  The Twitter button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) UIButton *twitterButton;
+@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *twitterButton;
 
 /**
  The sign up button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) UIButton *signUpButton;
+@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *signUpButton;
 
 /**
  It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) UIButton *dismissButton;
+@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *dismissButton;
 
 /**
  The facebook/twitter login label.

@@ -43,6 +43,22 @@ NSString *const PFSignUpViewAdditionalFieldAccessibilityIdentifier = @"PFSignUpV
 NSString *const PFSignUpViewSignUpButtonAccessibilityIdentifier = @"PFSignUpViewSignUpButtonAccessibilityIdentifier";
 NSString *const PFSignUpViewDismissButtonAccessibilityIdentifier = @"PFSignUpViewDismissButtonAccessibilityIdentifier";
 
+///--------------------------------------
+#pragma mark - Interface
+///--------------------------------------
+
+@interface PFSignUpView()
+
+/// Whether view have been loaded from nib or not
+@property (nonatomic, assign) BOOL loadedFromNib;
+
+@end
+
+
+///--------------------------------------
+#pragma mark - Class
+///--------------------------------------
+
 @implementation PFSignUpView
 
 #pragma mark -
@@ -128,11 +144,23 @@ NSString *const PFSignUpViewDismissButtonAccessibilityIdentifier = @"PFSignUpVie
     return self;
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+
+    // remember view have been loaded from nib
+    self.loadedFromNib = YES;
+}
+
 #pragma mark -
 #pragma mark UIView
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+
+    // don't layout field if view is loaded from nib
+    if(self.loadedFromNib) {
+        return;
+    }
 
     CGRect bounds = self.bounds;
 
