@@ -31,6 +31,7 @@
 #import "PFImageView.h"
 #import "PFLoadingView.h"
 #import "PFLocalization.h"
+#import "PFUIAlertView.h"
 
 static NSString *const PFQueryCollectionViewCellIdentifier = @"cell";
 static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"nextPageView";
@@ -391,31 +392,10 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
     // Fully reload on error.
     [self loadObjects];
 
-    NSString *errorMessage = [NSString stringWithFormat:@"%@: \"%@\"",
+    NSString *message = [NSString stringWithFormat:@"%@: \"%@\"",
                               PFLocalizedString(@"Error occurred during deletion", @"Error occurred during deletion"),
                               error.localizedDescription];
-
-    if ([UIAlertController class]) {
-        UIAlertController *errorController = [UIAlertController alertControllerWithTitle:PFLocalizedString(@"Error", @"Error")
-                                                                                 message:errorMessage
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-
-        [errorController addAction:[UIAlertAction actionWithTitle:PFLocalizedString(@"OK", @"OK")
-                                                            style:UIAlertActionStyleCancel
-                                                          handler:nil]];
-
-        [self presentViewController:errorController animated:YES completion:nil];
-    } else {
-        // Cast to `id` is required for building succesfully for app extensions,
-        // this code actually never runs in App Extensions, since they are iOS 8.0+, so we are good with just a hack
-        UIAlertView *alertView = [(id)[UIAlertView alloc] initWithTitle:PFLocalizedString(@"Error", @"Error")
-                                                                message:errorMessage
-                                                               delegate:nil
-                                                      cancelButtonTitle:PFLocalizedString(@"OK", @"OK")
-                                                      otherButtonTitles:nil];
-
-        [alertView show];
-    }
+    [PFUIAlertView presentAlertInViewController:self withTitle:PFLocalizedString(@"Delete Error", @"Delete Error") message:message];
 }
 
 #pragma mark -

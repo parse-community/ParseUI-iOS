@@ -21,14 +21,44 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PFUIAlertView : UIAlertView
+NS_ASSUME_NONNULL_BEGIN
 
-+ (void)showAlertViewWithTitle:(NSString *)title
-                         error:(NSError *)error;
-+ (void)showAlertViewWithTitle:(NSString *)title
-                       message:(NSString *)message;
-+ (void)showAlertViewWithTitle:(NSString *)title
-                       message:(NSString *)message
-             cancelButtonTitle:(NSString *)cancelButtonTitle;
+typedef void(^PFUIAlertViewCompletion)(NSUInteger selectedOtherButtonIndex);
+typedef void(^PFUIAlertViewTextFieldCompletion)(UITextField *textField, NSUInteger selectedOtherButtonIndex);
+typedef void(^PFUIAlertViewTextFieldCustomizationHandler)(UITextField *textField);
+
+@interface PFUIAlertView : NSObject
+
+///--------------------------------------
+#pragma mark - Present
+///--------------------------------------
+
++ (void)presentAlertInViewController:(UIViewController *)viewController
+                           withTitle:(NSString *)title
+                             message:(nullable NSString *)message
+                   cancelButtonTitle:(NSString *)cancelButtonTitle
+                   otherButtonTitles:(nullable NSArray *)otherButtonTitles
+                          completion:(nullable PFUIAlertViewCompletion)completion;
+
++ (void)presentAlertInViewController:(UIViewController *)viewController
+                           withTitle:(NSString *)title
+                             message:(nullable NSString *)message
+       textFieldCustomizationHandler:(PFUIAlertViewTextFieldCustomizationHandler)textFieldCustomizationHandler
+                   cancelButtonTitle:(NSString *)cancelButtonTitle
+                   otherButtonTitles:(nullable NSArray *)otherButtonTitles
+                          completion:(nullable PFUIAlertViewTextFieldCompletion)completion;
+
+///--------------------------------------
+#pragma mark - Convenience
+///--------------------------------------
+
++ (void)presentAlertInViewController:(UIViewController *)viewController
+                           withTitle:(NSString *)title
+                               error:(NSError *)error;
++ (void)presentAlertInViewController:(UIViewController *)viewController
+                           withTitle:(NSString *)title
+                             message:(nullable NSString *)message;
 
 @end
+
+NS_ASSUME_NONNULL_END

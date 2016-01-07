@@ -362,7 +362,7 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
         }
 
         if (message != nil) {
-            [PFUIAlertView showAlertViewWithTitle:title message:message];
+            [PFUIAlertView presentAlertInViewController:self withTitle:title message:message];
             [responder becomeFirstResponder];
 
             return;
@@ -370,7 +370,7 @@ static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"addit
     }
 
     // Show the generic error alert, as no custom cases matched before
-    [PFUIAlertView showAlertViewWithTitle:title error:error];
+    [PFUIAlertView presentAlertInViewController:self withTitle:title error:error];
 }
 
 - (void)_cancelSignUp {

@@ -236,17 +236,6 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
 }
 
 ///--------------------------------------
-#pragma mark - UIAlertViewDelegate
-///--------------------------------------
-
-- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex != [alertView cancelButtonIndex]) {
-        NSString *email = [alertView textFieldAtIndex:0].text;
-        [self _requestPasswordResetWithEmail:email];
-    }
-}
-
-///--------------------------------------
 #pragma mark - Private
 ///--------------------------------------
 
@@ -294,19 +283,22 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
     NSString *title = PFLocalizedString(@"Reset Password", @"Forgot password request title in PFLogInViewController");
     NSString *message = PFLocalizedString(@"Please enter the email address for your account.",
                                           @"Email request message in PFLogInViewController");
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:self
-                                              cancelButtonTitle:PFLocalizedString(@"Cancel", @"Cancel")
-                                              otherButtonTitles:PFLocalizedString(@"OK", @"OK"), nil];
-    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-
-    UITextField *textField = [alertView textFieldAtIndex:0];
-    textField.placeholder = PFLocalizedString(@"Email", @"Email");
-    textField.keyboardType = UIKeyboardTypeEmailAddress;
-    textField.returnKeyType = UIReturnKeyDone;
-
-    [alertView show];
+    [PFUIAlertView presentAlertInViewController:self
+                                      withTitle:title
+                                        message:message
+                  textFieldCustomizationHandler:^(UITextField * _Nonnull textField) {
+                      textField.placeholder = PFLocalizedString(@"Email", @"Email");
+                      textField.keyboardType = UIKeyboardTypeEmailAddress;
+                      textField.returnKeyType = UIReturnKeyDone;
+                  }
+                              cancelButtonTitle:PFLocalizedString(@"Cancel", @"Cancel")
+                              otherButtonTitles:@[ PFLocalizedString(@"OK", @"OK")]
+                                     completion:^(UITextField * _Nonnull textField, NSUInteger selectedOtherButtonIndex) {
+                                         if (selectedOtherButtonIndex != NSNotFound) {
+                                             NSString *email = textField.text;
+                                             [self _requestPasswordResetWithEmail:email];
+                                         }
+                                     }];
 }
 
 - (void)_requestPasswordResetWithEmail:(NSString *)email {
@@ -316,13 +308,11 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
                                                 @"Password reset success alert title in PFLogInViewController.");
             NSString *message = [NSString stringWithFormat:PFLocalizedString(@"An email with reset instructions has been sent to '%@'.",
                                                                              @"Password reset message in PFLogInViewController"), email];
-            [PFUIAlertView showAlertViewWithTitle:title
-                                          message:message
-                                cancelButtonTitle:PFLocalizedString(@"OK", @"OK")];
+            [PFUIAlertView presentAlertInViewController:self withTitle:title message:message];
         } else {
             NSString *title = PFLocalizedString(@"Password Reset Failed",
                                                 @"Password reset error alert title in PFLogInViewController.");
-            [PFUIAlertView showAlertViewWithTitle:title error:error];
+            [PFUIAlertView presentAlertInViewController:self withTitle:title error:error];
         }
     }];
 }
@@ -480,7 +470,7 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
         } else {
             message = PFLocalizedString(@"Please try again", @"Generic login failed alert message in PFLogInViewController");
         }
-        [PFUIAlertView showAlertViewWithTitle:title message:message];
+        [PFUIAlertView presentAlertInViewController:self withTitle:title message:message];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:PFLogInFailureNotification object:self];
 }
