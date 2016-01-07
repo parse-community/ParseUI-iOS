@@ -36,7 +36,7 @@ static NSString *const PFQueryCollectionViewCellIdentifier = @"cell";
 static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"nextPageView";
 
 @interface PFQueryCollectionViewController () {
-    NSMutableArray PF_GENERIC(PFObject *)*_mutableObjects;
+    NSMutableArray<PFObject *> *_mutableObjects;
 
     BOOL _firstLoad;           // Whether we have loaded the first set of objects
     NSInteger _currentPage;    // The last page that was loaded
@@ -226,18 +226,18 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
 #pragma mark -
 #pragma mark Loading Data
 
-- (BFTask PF_GENERIC(NSArray<__kindof PFObject *>*)*)loadObjects {
+- (BFTask<NSArray<__kindof PFObject *> *> *)loadObjects {
     return [self loadObjects:0 clear:YES];
 }
 
-- (BFTask PF_GENERIC(NSArray<__kindof PFObject *>*)*)loadObjects:(NSInteger)page clear:(BOOL)clear {
+- (BFTask<NSArray<__kindof PFObject *> *> *)loadObjects:(NSInteger)page clear:(BOOL)clear {
     self.loading = YES;
     [self objectsWillLoad];
 
     PFQuery *query = [self queryForCollection];
     [self _alterQuery:query forLoadingPage:page];
 
-    BFTaskCompletionSource PF_GENERIC(NSArray<__kindof PFObject *>*)*source = [BFTaskCompletionSource taskCompletionSource];
+    BFTaskCompletionSource<NSArray<__kindof PFObject *> *> *source = [BFTaskCompletionSource taskCompletionSource];
     [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
         if (![Parse isLocalDatastoreEnabled] &&
             query.cachePolicy != kPFCachePolicyCacheOnly &&
