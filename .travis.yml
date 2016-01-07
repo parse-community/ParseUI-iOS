@@ -15,7 +15,7 @@ env:
     - TEST_TYPE=CocoaPods
 before_install:
   - gem install xcpretty --no-document -N
-  - gem install cocoapods --no-document --pre --quiet
+  - gem install cocoapods --no-document --quiet
 script:
 - |
   set -o pipefail 
