@@ -127,7 +127,7 @@ extern NSString *const PFSignUpCancelNotification;
 
  @return A `BOOL` indicating whether the sign up should proceed.
  */
-- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary PF_GENERIC(NSString *,NSString *)*)info;
+- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary<NSString *, NSString *> *)info;
 
 ///--------------------------------------
 /// @name Responding to Actions

@@ -26,7 +26,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class BFTask PF_GENERIC(__covariant BFGenericType);
+@class BFTask<__covariant BFGenericType>;
 @class PFObject;
 @class PFQuery;
 @class PFTableViewCell;
@@ -149,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The array of instances of `PFObject` that is used as a data source.
  */
-@property (nullable, nonatomic, copy, readonly) NSArray PF_GENERIC(__kindof PFObject *)*objects;
+@property (nullable, nonatomic, copy, readonly) NSArray<__kindof PFObject *> *objects;
 
 /**
  Returns an object at a particular indexPath.
@@ -176,12 +176,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Removes all objects at the specified index paths, animated.
  */
-- (void)removeObjectsAtIndexPaths:(nullable NSArray PF_GENERIC(NSIndexPath *)*)indexPaths;
+- (void)removeObjectsAtIndexPaths:(nullable NSArray<NSIndexPath *> *)indexPaths;
 
 /**
  Removes all objects at the specified index paths, with or without animation.
  */
-- (void)removeObjectsAtIndexPaths:(nullable NSArray PF_GENERIC(NSIndexPath *)*)indexPaths animated:(BOOL)animated;
+- (void)removeObjectsAtIndexPaths:(nullable NSArray<NSIndexPath *> *)indexPaths animated:(BOOL)animated;
 
 /**
  Clears the table of all objects.
@@ -193,7 +193,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return An awaitable task that completes when the reload succeeds
  */
-- (BFTask PF_GENERIC(NSArray<__kindof PFObject *> *)*)loadObjects;
+- (BFTask<NSArray<__kindof PFObject *> *> *)loadObjects;
 
 /**
  Loads the objects of the className at the specified page and appends it to the
@@ -204,7 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return An awaitable task that completes when the reload succeeds
  */
-- (BFTask PF_GENERIC(NSArray<__kindof PFObject *> *)*)loadObjects:(NSInteger)page clear:(BOOL)clear;
+- (BFTask<NSArray<__kindof PFObject *> *> *)loadObjects:(NSInteger)page clear:(BOOL)clear;
 
 /**
  Loads the next page of objects, appends to table, and refreshes.

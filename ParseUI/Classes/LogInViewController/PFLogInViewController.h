@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  If unspecified, the default is basic facebook permissions.
  */
-@property (nullable, nonatomic, copy) NSArray PF_GENERIC(NSString *)*facebookPermissions;
+@property (nullable, nonatomic, copy) NSArray<NSString *> *facebookPermissions;
 
 /**
  The sign up controller if sign up is enabled.
