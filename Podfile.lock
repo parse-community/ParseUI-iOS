@@ -1,28 +1,22 @@
 PODS:
-  - Bolts (1.5.0):
-    - Bolts/AppLinks (= 1.5.0)
-    - Bolts/Tasks (= 1.5.0)
-  - Bolts/AppLinks (1.5.0):
+  - Bolts (1.5.1):
+    - Bolts/AppLinks (= 1.5.1)
+    - Bolts/Tasks (= 1.5.1)
+  - Bolts/AppLinks (1.5.1):
     - Bolts/Tasks
-  - Bolts/Tasks (1.5.0)
-  - FBSDKCoreKit (4.8.0):
-    - Bolts (~> 1.1)
-    - FBSDKCoreKit/arc (= 4.8.0)
-    - FBSDKCoreKit/no-arc (= 4.8.0)
-  - FBSDKCoreKit/arc (4.8.0):
-    - Bolts (~> 1.1)
-  - FBSDKCoreKit/no-arc (4.8.0):
-    - Bolts (~> 1.1)
-    - FBSDKCoreKit/arc
-  - FBSDKLoginKit (4.8.0):
-    - FBSDKCoreKit
-  - Parse (1.10.0):
+  - Bolts/Tasks (1.5.1)
+  - FBSDKCoreKit (4.9.0-beta2):
+    - Bolts (~> 1.5)
+  - FBSDKLoginKit (4.9.0-beta2):
+    - FBSDKCoreKit (~> 4.9.0-beta)
+  - Parse (1.11.0):
     - Bolts/Tasks (~> 1.5)
-  - ParseFacebookUtilsV4 (1.9.1):
+  - ParseFacebookUtilsV4 (1.10.0):
     - Bolts/Tasks (>= 1.5)
-    - FBSDKCoreKit (~> 4.8)
-    - FBSDKLoginKit (~> 4.8)
-    - Parse (~> 1.9)
+    - FBSDKCoreKit (~> 4.9.0-beta)
+    - FBSDKLoginKit (~> 4.9.0-beta)
+    - FBSDKTVOSKit (~> 4.9.0-beta)
+    - Parse (~> 1.11)
   - ParseTwitterUtils (1.9.1):
     - Bolts/Tasks (~> 1.5)
     - Parse (~> 1.9)
@@ -37,14 +31,14 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   ParseUI:
-    :path: "."
+    :path: .
 
 SPEC CHECKSUMS:
-  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
-  FBSDKCoreKit: 66a935d17b6e00b6b64e604f2eb9b72c9ab7deb8
-  FBSDKLoginKit: d893fcbb98d854496925e9ff73c67b896982d3c4
-  Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
-  ParseFacebookUtilsV4: eab9b4ade12f0800b4d30f6b808bca55ce17a0e9
+  Bolts: a12663244b1d3351c738882e71902fc74db54f64
+  FBSDKCoreKit: d49cbf69741e3c5732166ec9ff4cbd9b288dd53e
+  FBSDKLoginKit: d32e83c0d2d39ef74a942543cacae2dc4de7d088
+  Parse: 886af46a0a677402f6374bb97ac212e795f70afe
+  ParseFacebookUtilsV4: 3cd2d2d69653bad40c8c58131b935c353a0f3f15
   ParseTwitterUtils: 41e8849e37db471e874c6e515190ded19e043dc8
   ParseUI: c2bcdfbb00330e464b5b773266ae221697a3bb7b
 
