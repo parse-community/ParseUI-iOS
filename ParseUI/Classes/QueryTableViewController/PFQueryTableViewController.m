@@ -32,6 +32,7 @@
 #import "PFLoadingView.h"
 #import "PFLocalization.h"
 #import "PFTableViewCell.h"
+#import "PFUIAlertView.h"
 
 // Add headers to kill any warnings.
 // `initWithStyle:` is a UITableViewController method.
@@ -521,31 +522,10 @@
     // Fully reload on error.
     [self loadObjects];
 
-    NSString *errorMessage = [NSString stringWithFormat:@"%@: \"%@\"",
-                              PFLocalizedString(@"Error occurred during deletion", @"Error occurred during deletion"),
-                              error.localizedDescription];
-
-    if ([UIAlertController class]) {
-        UIAlertController *errorController = [UIAlertController alertControllerWithTitle:PFLocalizedString(@"Error", @"Error")
-                                                                                 message:errorMessage
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-
-        [errorController addAction:[UIAlertAction actionWithTitle:PFLocalizedString(@"OK", @"OK")
-                                                            style:UIAlertActionStyleCancel
-                                                          handler:nil]];
-
-        [self presentViewController:errorController animated:YES completion:nil];
-    } else {
-        // Cast to `id` is required for building succesfully for app extensions,
-        // this code actually never runs in App Extensions, since they are iOS 8.0+, so we are good with just a hack
-        UIAlertView *alertView = [(id)[UIAlertView alloc] initWithTitle:PFLocalizedString(@"Error", @"Error")
-                                                                message:errorMessage
-                                                               delegate:nil
-                                                      cancelButtonTitle:PFLocalizedString(@"OK", @"OK")
-                                                      otherButtonTitles:nil];
-
-        [alertView show];
-    }
+    NSString *message = [NSString stringWithFormat:@"%@: \"%@\"",
+                         PFLocalizedString(@"Error occurred during deletion", @"Error occurred during deletion"),
+                         error.localizedDescription];
+    [PFUIAlertView presentAlertInViewController:self withTitle:PFLocalizedString(@"Delete Error", @"Delete Error") message:message];
 }
 
 #pragma mark -

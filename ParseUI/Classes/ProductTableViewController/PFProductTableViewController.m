@@ -88,15 +88,15 @@ static NSString *const PFProductMetadataPriceLocaleKey = @"priceLocale";
 
             cell.state = PFPurchaseTableViewCellStateDownloading;
             [PFPurchase downloadAssetForTransaction:transaction
-                                         completion:^(NSString *filePath, NSError *downloadError) {
-                                             if (!downloadError) {
+                                         completion:^(NSString *filePath, NSError *error) {
+                                             if (!error) {
                                                  cell.state = PFPurchaseTableViewCellStateDownloaded;
                                              } else {
                                                  cell.state = PFPurchaseTableViewCellStateNormal;
 
                                                  NSString *title = PFLocalizedString(@"Download Error",
                                                                                      @"Download Error");
-                                                 [PFUIAlertView showAlertViewWithTitle:title error:downloadError];
+                                                 [PFUIAlertView presentAlertInViewController:self withTitle:title error:error];
                                              }
                                          }
                                            progress:^(int percentDone) {
@@ -175,7 +175,7 @@ static NSString *const PFProductMetadataPriceLocaleKey = @"priceLocale";
         [PFPurchase buyProduct:product.productIdentifier block:^(NSError *error) {
             if (error) {
                 NSString *title = PFLocalizedString(@"Purchase Error", @"Purchase Error");
-                [PFUIAlertView showAlertViewWithTitle:title error:error];
+                [PFUIAlertView presentAlertInViewController:self withTitle:title error:error];
             }
         }];
     }
