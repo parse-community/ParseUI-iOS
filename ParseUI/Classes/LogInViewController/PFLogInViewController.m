@@ -126,13 +126,18 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
 - (void)loadView {
     _logInView = [[PFLogInView alloc] initWithFields:_fields];
     [_logInView setPresentingViewController:self];
+
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_dismissKeyboard)];
+    [_logInView addGestureRecognizer:gestureRecognizer];
+    gestureRecognizer.cancelsTouchesInView = NO;
+
     self.view = _logInView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setupHandlers];
+    [self _setupLogInViewActions];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -179,6 +184,7 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
         // Avoid force loading logInView
         if (_logInView) {
             _logInView.fields = fields;
+            [self _setupLogInViewActions];
         }
     }
 }
@@ -239,33 +245,27 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
 #pragma mark - Private
 ///--------------------------------------
 
-- (void)setupHandlers {
-    [_logInView.dismissButton addTarget:self
-                                 action:@selector(_dismissAction)
-                       forControlEvents:UIControlEventTouchUpInside];
+- (void)_setupLogInViewActions {
+    [_logInView.dismissButton removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
+    [_logInView.dismissButton addTarget:self action:@selector(_dismissAction) forControlEvents:UIControlEventTouchUpInside];
 
     _logInView.usernameField.delegate = self;
     _logInView.passwordField.delegate = self;
+
+    [_logInView.logInButton removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
     [_logInView.logInButton addTarget:self action:@selector(_loginAction) forControlEvents:UIControlEventTouchUpInside];
-    [_logInView.passwordForgottenButton addTarget:self
-                                           action:@selector(_forgotPasswordAction)
-                                 forControlEvents:UIControlEventTouchUpInside];
 
-    [_logInView.facebookButton addTarget:self
-                                  action:@selector(_loginWithFacebook)
-                        forControlEvents:UIControlEventTouchUpInside];
-    [_logInView.twitterButton addTarget:self
-                                 action:@selector(_loginWithTwitter)
-                       forControlEvents:UIControlEventTouchUpInside];
+    [_logInView.passwordForgottenButton removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
+    [_logInView.passwordForgottenButton addTarget:self action:@selector(_forgotPasswordAction) forControlEvents:UIControlEventTouchUpInside];
 
-    [_logInView.signUpButton addTarget:self
-                                action:@selector(_signupAction)
-                      forControlEvents:UIControlEventTouchUpInside];
+    [_logInView.facebookButton removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
+    [_logInView.facebookButton addTarget:self action:@selector(_loginWithFacebook) forControlEvents:UIControlEventTouchUpInside];
 
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                        action:@selector(_dismissKeyboard)];
-    [_logInView addGestureRecognizer:gestureRecognizer];
-    gestureRecognizer.cancelsTouchesInView = NO;
+    [_logInView.twitterButton removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
+    [_logInView.twitterButton addTarget:self action:@selector(_loginWithTwitter) forControlEvents:UIControlEventTouchUpInside];
+
+    [_logInView.signUpButton removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
+    [_logInView.signUpButton addTarget:self action:@selector(_signupAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)_dismissAction {
