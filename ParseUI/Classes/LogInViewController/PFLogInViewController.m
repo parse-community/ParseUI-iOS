@@ -126,7 +126,7 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
 - (void)loadView {
     if(self.useCustomNib) {
         [super loadView];
-        _logInView = self.view;
+        _logInView = (PFLogInView *) self.view;
     } else {
         _logInView = [[PFLogInView alloc] initWithFields:_fields];
     }

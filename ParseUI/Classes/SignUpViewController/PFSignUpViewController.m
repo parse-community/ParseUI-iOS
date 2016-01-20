@@ -106,7 +106,7 @@ NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"additional";
 - (void)loadView {
     if(self.useCustomNib) {
         [super loadView];
-        _signUpView = self.view;
+        _signUpView = (PFSignUpView *) self.view;
     } else {
         _signUpView = [[PFSignUpView alloc] initWithFields:_fields];
         self.view = _signUpView;
