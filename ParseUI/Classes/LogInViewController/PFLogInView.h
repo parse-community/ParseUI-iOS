@@ -130,42 +130,42 @@ extern NSString *const PFLogInViewDismissButtonAccessibilityIdentifier;
 /**
  The username text field. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet PFTextField *usernameField;
+@property (nullable, nonatomic, strong) IBOutlet PFTextField *usernameField;
 
 /**
  The password text field. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet PFTextField *passwordField;
+@property (nullable, nonatomic, strong) IBOutlet PFTextField *passwordField;
 
 /**
  The password forgotten button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *passwordForgottenButton;
+@property (nullable, nonatomic, strong) IBOutlet UIButton *passwordForgottenButton;
 
 /**
  The log in button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *logInButton;
+@property (nullable, nonatomic, strong) IBOutlet UIButton *logInButton;
 
 /**
  The Facebook button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *facebookButton;
+@property (nullable, nonatomic, strong) IBOutlet UIButton *facebookButton;
 
 /**
  The Twitter button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *twitterButton;
+@property (nullable, nonatomic, strong) IBOutlet UIButton *twitterButton;
 
 /**
  The sign up button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *signUpButton;
+@property (nullable, nonatomic, strong) IBOutlet UIButton *signUpButton;
 
 /**
  It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *dismissButton;
+@property (nullable, nonatomic, strong) IBOutlet UIButton *dismissButton;
 
 /**
  The facebook/twitter login label.

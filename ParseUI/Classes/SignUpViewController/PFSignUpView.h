@@ -122,34 +122,34 @@ extern NSString *const PFSignUpViewDismissButtonAccessibilityIdentifier;
 /**
  The username text field.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet PFTextField *usernameField;
+@property (nullable, nonatomic, strong) IBOutlet PFTextField *usernameField;
 
 /**
  The password text field.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet PFTextField *passwordField;
+@property (nullable, nonatomic, strong) IBOutlet PFTextField *passwordField;
 
 /**
  The email text field. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet PFTextField *emailField;
+@property (nullable, nonatomic, strong) IBOutlet PFTextField *emailField;
 
 /**
  The additional text field. It is `nil` if the element is not enabled.
 
  This field is intended to be customized.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet PFTextField *additionalField;
+@property (nullable, nonatomic, strong) IBOutlet PFTextField *additionalField;
 
 /**
  The sign up button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *signUpButton;
+@property (nullable, nonatomic, strong) IBOutlet UIButton *signUpButton;
 
 /**
  The dismiss button. It is `nil` if the element is not enabled.
  */
-@property (nullable, nonatomic, strong, readonly) IBOutlet UIButton *dismissButton;
+@property (nullable, nonatomic, strong) IBOutlet UIButton *dismissButton;
 
 @end
 
