@@ -396,8 +396,7 @@
 
     // Remove the contents from our local cache so we can give the user immediate feedback.
     [_mutableObjects removeObjectsInArray:objectsToRemove];
-    [self.tableView deleteRowsAtIndexPaths:indexPaths
-                          withRowAnimation:animated ? UITableViewRowAnimationAutomatic : UITableViewRowAnimationNone];
+    [self.tableView reloadData];
 
     for (id obj in objectsToRemove) {
         [allDeletionTasks addObject:[obj deleteInBackground]];
