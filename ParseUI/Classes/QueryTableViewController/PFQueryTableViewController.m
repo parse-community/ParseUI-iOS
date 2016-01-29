@@ -362,6 +362,16 @@
     [self removeObjectsAtIndexPaths:indexPaths animated:YES];
 }
 
+- (void)removeCellAtIndexPath:(nullable NSIndexPath *)indexPath animated:(BOOL)animated {
+    [self removeCellsAtIndexPaths:@[indexPath] animated: animated];
+}
+
+- (void)removeCellsAtIndexPaths:(NSArray *)indexPaths animated:(BOOL)animated {
+    [_mutableObjects removeObjectAtIndexPaths:indexPaths];
+    [self.tableView deleteRowsAtIndexPaths:indexPaths
+                          withRowAnimation:animated ? UITableViewRowAnimationAutomatic : UITableViewRowAnimationNone];
+}
+
 - (void)removeObjectsAtIndexPaths:(NSArray *)indexPaths animated:(BOOL)animated {
     if (indexPaths.count == 0) {
         return;
