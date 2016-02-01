@@ -367,7 +367,14 @@
 }
 
 - (void)removeCellsAtIndexPaths:(NSArray *)indexPaths animated:(BOOL)animated {
-    [_mutableObjects removeObjectAtIndexPaths:indexPaths];
+    NSMutableIndexSet *mutableIndexSet = [[NSMutableIndexSet alloc]init];
+    
+    for (NSIndexPath *indexPath in indexPaths) {
+        [mutableIndexSet addIndex:indexPath.row];
+    }
+    
+    [_mutableObjects removeObjectsAtIndexes:mutableIndexSet];
+    
     [self.tableView deleteRowsAtIndexPaths:indexPaths
                           withRowAnimation:animated ? UITableViewRowAnimationAutomatic : UITableViewRowAnimationNone];
 }
