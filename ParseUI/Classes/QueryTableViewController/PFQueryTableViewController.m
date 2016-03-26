@@ -45,8 +45,32 @@
 
 @end
 
+@implementation PFObject (Equatable)
+
+- (BOOL)isEqualToPFObject:(PFObject *)object {
+  return [self.objectId isEqualToString:object.objectId];
+}
+
+- (BOOL)isEqual:(id)object {
+  if (self == object) {
+    return YES;
+  }
+
+  if (![object isKindOfClass:[self class]]) {
+    return NO;
+  }
+
+  return [self isEqualToPFObject:(PFObject *)object];
+}
+
+- (NSUInteger)hash {
+  return [self.objectId hash];
+}
+
+@end
+
 @interface PFQueryTableViewController () {
-    NSMutableArray<PFObject *> *_mutableObjects;
+    NSMutableOrderedSet<PFObject *> *_mutableObjects;
 
     BOOL _firstLoad;           // Whether we have loaded the first set of objects
     NSInteger _currentPage;    // The last page that was loaded
@@ -100,7 +124,7 @@
 }
 
 - (void)_setupWithClassName:(NSString *)otherClassName {
-    _mutableObjects = [NSMutableArray array];
+    _mutableObjects = [NSMutableOrderedSet orderedSet];
     _firstLoad = YES;
 
     // Set some reasonable defaults
@@ -538,7 +562,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray<__kindof PFObject *> *)objects {
+- (NSOrderedSet<__kindof PFObject *> *)objects {
     return _mutableObjects;
 }
 

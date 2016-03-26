@@ -149,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The array of instances of `PFObject` that is used as a data source.
  */
-@property (nullable, nonatomic, copy, readonly) NSArray<__kindof PFObject *> *objects;
+@property (nullable, nonatomic, copy, readonly) NSOrderedSet<__kindof PFObject *> *objects;
 
 /**
  Returns an object at a particular indexPath.
