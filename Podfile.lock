@@ -1,23 +1,23 @@
 PODS:
-  - Bolts (1.5.1):
-    - Bolts/AppLinks (= 1.5.1)
-    - Bolts/Tasks (= 1.5.1)
-  - Bolts/AppLinks (1.5.1):
+  - Bolts (1.7.0):
+    - Bolts/AppLinks (= 1.7.0)
+    - Bolts/Tasks (= 1.7.0)
+  - Bolts/AppLinks (1.7.0):
     - Bolts/Tasks
-  - Bolts/Tasks (1.5.1)
-  - FBSDKCoreKit (4.9.0-beta2):
-    - Bolts (~> 1.5)
-  - FBSDKLoginKit (4.9.0-beta2):
-    - FBSDKCoreKit (~> 4.9.0-beta)
-  - Parse (1.11.0):
-    - Bolts/Tasks (~> 1.5)
-  - ParseFacebookUtilsV4 (1.10.0):
-    - Bolts/Tasks (>= 1.5)
-    - FBSDKCoreKit (~> 4.9.0-beta)
-    - FBSDKLoginKit (~> 4.9.0-beta)
-    - FBSDKTVOSKit (~> 4.9.0-beta)
-    - Parse (~> 1.11)
-  - ParseTwitterUtils (1.9.1):
+  - Bolts/Tasks (1.7.0)
+  - FBSDKCoreKit (4.12.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.12.0):
+    - FBSDKCoreKit
+  - Parse (1.13.0):
+    - Bolts/Tasks (~> 1.6)
+  - ParseFacebookUtilsV4 (1.11.1):
+    - Bolts/Tasks (>= 1.6)
+    - FBSDKCoreKit (~> 4.10)
+    - FBSDKLoginKit (~> 4.10)
+    - FBSDKTVOSKit (~> 4.10)
+    - Parse (~> 1.12)
+  - ParseTwitterUtils (1.10.0):
     - Bolts/Tasks (~> 1.5)
     - Parse (~> 1.9)
   - ParseUI (1.2.0):
@@ -34,14 +34,14 @@ EXTERNAL SOURCES:
     :path: "."
 
 SPEC CHECKSUMS:
-  Bolts: a12663244b1d3351c738882e71902fc74db54f64
-  FBSDKCoreKit: d49cbf69741e3c5732166ec9ff4cbd9b288dd53e
-  FBSDKLoginKit: d32e83c0d2d39ef74a942543cacae2dc4de7d088
-  Parse: 886af46a0a677402f6374bb97ac212e795f70afe
-  ParseFacebookUtilsV4: 3cd2d2d69653bad40c8c58131b935c353a0f3f15
-  ParseTwitterUtils: 41e8849e37db471e874c6e515190ded19e043dc8
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
+  FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
+  Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
+  ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
+  ParseTwitterUtils: 8856ac80da50bbb0f0bcf251def20b62e1ae6bc4
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
 
-PODFILE CHECKSUM: 57f8404b71910b143d0ca72b6e7e4dfbd3efa660
+PODFILE CHECKSUM: f111f239f329836dbd986f3b172a33749d5a6d30
 
 COCOAPODS: 1.0.0
