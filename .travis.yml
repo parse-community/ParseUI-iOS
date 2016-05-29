@@ -18,7 +18,8 @@ before_install:
   - gem install cocoapods --no-document --quiet
 script:
 - |
-  set -o pipefail 
+  set -o pipefail
+  pod repo update 
   pod install
   if [ "$TEST_TYPE" = ParseUI ]; then
     xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUI' -sdk iphonesimulator build | xcpretty -c
