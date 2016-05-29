@@ -13,19 +13,22 @@ env:
     - TEST_TYPE=ParseUIDemo-ObjC
     - TEST_TYPE=ParseUIDemo-Swift
     - TEST_TYPE=CocoaPods
-before_install:
-  - gem install xcpretty --no-document -N
-  - gem install cocoapods --no-document --quiet
+install:
+- |
+  gem install xcpretty --no-document -N
+  gem install cocoapods --no-document --quiet
+  pod repo update
+  pod install
 script:
 - |
-  set -o pipefail
-  pod repo update 
-  pod install
   if [ "$TEST_TYPE" = ParseUI ]; then
+    set -o pipefail
     xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUI' -sdk iphonesimulator build | xcpretty -c
   elif [ "$TEST_TYPE" = ParseUIDemo-ObjC ]; then
+    set -o pipefail
     xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUIDemo' -sdk iphonesimulator build | xcpretty -c
   elif [ "$TEST_TYPE" = ParseUIDemo-Swift ]; then
+    set -o pipefail
     xcodebuild -workspace ParseUI.xcworkspace -scheme 'ParseUIDemo-Swift' -sdk iphonesimulator build | xcpretty -c
   elif [ "$TEST_TYPE" = CocoaPods ]; then
     pod lib lint ParseUI.podspec
