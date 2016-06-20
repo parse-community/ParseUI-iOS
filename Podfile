@@ -1,19 +1,21 @@
 source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
 use_frameworks!
-platform :ios, '7.0'
 
 workspace 'ParseUI'
 # xcodeproj 'ParseUI.xcodeproj'
 
-target 'ParseUIDemo', :exclusive => true do
+def shared_pods
   pod 'ParseFacebookUtilsV4'
   pod 'ParseTwitterUtils'
   pod 'ParseUI', :path => '.'
 end
 
-target 'ParseUIDemo-Swift', :exclusive => true do
-  pod 'ParseFacebookUtilsV4'
-  pod 'ParseTwitterUtils'
-  pod 'ParseUI', :path => '.'
+target 'ParseUIDemo' do
+  shared_pods
 end
 
+target 'ParseUIDemo-Swift' do
+  shared_pods
+end
