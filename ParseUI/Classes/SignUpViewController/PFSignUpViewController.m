@@ -34,10 +34,10 @@ NSString *const PFSignUpFailureNotification = @"com.parse.ui.signup.failure";
 NSString *const PFSignUpCancelNotification = @"com.parse.ui.signup.cancel";
 
 // Keys that are used to pass information to the delegate on `signUpViewController:shouldBeginSignUp`.
-static NSString *const PFSignUpViewControllerDelegateInfoUsernameKey = @"username";
-static NSString *const PFSignUpViewControllerDelegateInfoPasswordKey = @"password";
-static NSString *const PFSignUpViewControllerDelegateInfoEmailKey = @"email";
-static NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"additional";
+NSString *const PFSignUpViewControllerDelegateInfoUsernameKey = @"username";
+NSString *const PFSignUpViewControllerDelegateInfoPasswordKey = @"password";
+NSString *const PFSignUpViewControllerDelegateInfoEmailKey = @"email";
+NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"additional";
 
 @interface PFSignUpViewController () {
     struct {
