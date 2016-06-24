@@ -104,6 +104,30 @@ extern NSString *const PFSignUpFailureNotification;
 extern NSString *const PFSignUpCancelNotification;
 
 ///--------------------------------------
+// @name Keys for info dictionary on `signUpViewController:shouldBeginSignUp` delegate method.
+///--------------------------------------
+
+/**
+ Username supplied during sign up.
+ */
+extern NSString *const PFSignUpViewControllerDelegateInfoUsernameKey;
+
+/**
+ Password supplied during sign up.
+ */
+extern NSString *const PFSignUpViewControllerDelegateInfoPasswordKey;
+
+/**
+ Email address supplied during sign up.
+ */
+extern NSString *const PFSignUpViewControllerDelegateInfoEmailKey;
+
+/**
+ Additional info supplied during sign up.
+ */
+extern NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey;
+
+///--------------------------------------
 /// @name PFSignUpViewControllerDelegate
 ///--------------------------------------
 
