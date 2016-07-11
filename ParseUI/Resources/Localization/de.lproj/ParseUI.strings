@@ -95,7 +95,7 @@
 "The email '%@' is taken. Please try using a different email." = "Die E-Mail-Adresse '%@' wird bereits benutzt. Bitte versuchen Sie eine andere E-Mail-Adresse.";
 
 /* Invalid email address error message in PFSignUpViewControllers */
-"The email address is invalid. Please enter a valid email." = "Die E-Mail Adresse ist ungültig. Bitte geben Sie eine gültige Email-Adresse ein.";
+"The email address is invalid. Please enter a valid email." = "Die E-Mail Adresse ist ungültig. Bitte geben Sie eine gültige E-Mail-Adresse ein.";
 
 /* Username taken error format in PFSignUpViewController */
 "The username '%@' is taken. Please try choosing a different username." = "Der Benutzername '%@' wird bereits benutzt. Bitte versuchen Sie einen anderen Benutzernamen.";
