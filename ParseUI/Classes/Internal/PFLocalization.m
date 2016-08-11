@@ -19,16 +19,28 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+#import "PFLocalization.h"
 
-#define PFLocalizedString(key, comment) \
-[PFLocalization localizedStringForKey:key]
+@implementation PFLocalization
 
-/**
- Used by the above macro to fetch a localized string
- */
-@interface PFLocalization : NSObject
++ (NSString *)localizedStringForKey:key {
+    return [[self resourcesBundle] localizedStringForKey:key value:nil table:@"ParseUI"];
+}
 
-+ (NSString *)localizedStringForKey:key;
++ (NSBundle *)resourcesBundle {
+    static NSBundle *bundle;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSBundle *classBundle = [NSBundle bundleForClass:[self class]];
+        NSURL *bundleURL = [classBundle URLForResource:@"ParseUI" withExtension:@"bundle"];
+        
+        if (bundleURL) {
+            bundle = [NSBundle bundleWithURL:bundleURL];
+        } else {
+            bundle = [NSBundle mainBundle];
+        }
+    });
+    return bundle;
+}
 
 @end

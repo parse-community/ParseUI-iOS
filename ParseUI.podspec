@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
                           'ParseUI/Classes/Views/*.h',
                           'ParseUI/Classes/Cells/*.h',
                           'ParseUI/Other/*.h'
-  s.resources  = ['ParseUI/Resources/Localization/*.lproj']
+  s.resource_bundles    = { 'ParseUI' => ['ParseUI/Resources/Localization/*.lproj'] }
   s.frameworks          = 'Foundation',
                           'UIKit',
                           'CoreGraphics',
