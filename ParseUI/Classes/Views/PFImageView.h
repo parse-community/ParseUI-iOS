@@ -74,6 +74,17 @@ typedef void(^PFImageViewImageResultBlock)(UIImage *__nullable image,  NSError *
 - (void)loadInBackground:(nullable PFImageViewImageResultBlock)completion
            progressBlock:(nullable void (^)(int percentDone))progressBlock;
 
+/*!
+ @abstract Initiate downloading of the remote image.
+ 
+ @discussion Once the download completes, the remote image will be displayed.
+ 
+ @param completion the completion block.
+ @param progressBlock called with the download progress as the image is being downloaded. 
+ Will be called with a value of 100 before the completion block is called.
+ */
+- (void)loadInBackground:(void (^)(UIImage *, NSError *))completion progressBlock:(void (^)(int percentDone))progressBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END
