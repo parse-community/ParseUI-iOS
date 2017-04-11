@@ -21,6 +21,7 @@
 
 #import "PFSignUpViewController.h"
 
+#import <Parse/PFAnonymousUtils.h>
 #import <Parse/PFConstants.h>
 #import <Parse/PFUser.h>
 
@@ -280,8 +281,14 @@ NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"additional";
 
         return;
     }
-
-    PFUser *user = [PFUser user];
+	
+	PFUser *user = nil;
+	if ([PFUser currentUser] && [PFAnonymousUtils isLinkedWithUser:[PFUser currentUser]]) {
+		user = [PFUser currentUser];
+	}
+	else {
+		user = [PFUser user];
+	}
     user.username = username;
     user.password = password;
 
