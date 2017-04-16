@@ -109,6 +109,7 @@
     _paginationEnabled = YES;
     _pullToRefreshEnabled = YES;
     _lastLoadCount = -1;
+    _automaticallyLoadsNextPage = NO;
 
     _parseClassName = [otherClassName copy];
 }
@@ -290,6 +291,18 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self _loadImagesForOnscreenRows];
 }
+
+// loadNextPage if infiniteSrolling = YES
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.automaticallyLoadsNextPage) {
+        if (scrollView.contentSize.height - scrollView.contentOffset.y < CGRectGetMaxY(self.view.bounds)) {
+            if (!self.loading){
+                [self loadNextPage];
+            }
+        }
+    }
+}
+
 
 #pragma mark -
 #pragma mark UITableViewDataSource
@@ -480,6 +493,9 @@
 
 // Whether we need to show the pagination cell
 - (BOOL)_shouldShowPaginationCell {
+    if (self.automaticallyLoadsNextPage) {
+        return NO;
+    }
     return (self.paginationEnabled &&
             !self.editing &&
             [self.objects count] != 0 &&

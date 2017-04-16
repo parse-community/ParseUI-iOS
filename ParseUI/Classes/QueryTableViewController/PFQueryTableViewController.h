@@ -125,6 +125,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign, getter=isLoading) BOOL loading;
 
+/*!
+ @abstract Whether the table should use built-in feature to automatically load next page. Default - `NO`.
+ */
+@property (nonatomic, assign) BOOL automaticallyLoadsNextPage;
+
 ///--------------------------------------
 /// @name Responding to Events
 ///--------------------------------------
