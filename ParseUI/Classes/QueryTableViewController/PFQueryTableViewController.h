@@ -254,6 +254,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (nullable PFTableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath;
 
+- (NSIndexPath *)indexPathForPaginationCell;
+
 @end
 
 NS_ASSUME_NONNULL_END
