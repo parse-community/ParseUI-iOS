@@ -208,9 +208,11 @@
 }
 
 - (void)clear {
-    [_mutableObjects removeAllObjects];
-    [self.tableView reloadData];
-    _currentPage = 0;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_mutableObjects removeAllObjects];
+        [self.tableView reloadData];
+        _currentPage = 0;
+    });
 }
 
 - (BFTask<NSArray<__kindof PFObject *> *> *)loadObjects {
@@ -490,10 +492,12 @@
 
 // Selectively refresh pagination cell
 - (void)_refreshPaginationCell {
-    if ([self _shouldShowPaginationCell]) {
-        [self.tableView reloadRowsAtIndexPaths:@[ [self _indexPathForPaginationCell] ]
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self _shouldShowPaginationCell]) {
+            [self.tableView reloadRowsAtIndexPaths:@[ [self _indexPathForPaginationCell] ]
                               withRowAnimation:UITableViewRowAnimationNone];
-    }
+        }
+    });
 }
 
 // The row of the pagination cell
