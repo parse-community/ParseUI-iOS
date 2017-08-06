@@ -44,8 +44,6 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
     NSInteger _lastLoadCount;  // The count of objects from the last load.
 }
 
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
-
 @property (nonatomic, strong) PFLoadingView *loadingView;
 
 @property (nonatomic, strong) PFActivityIndicatorCollectionReusableView *currentNextPageView;
@@ -132,7 +130,6 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
         [self.refreshControl addTarget:self
                                 action:@selector(_refreshControlValueChanged:)
                       forControlEvents:UIControlEventValueChanged];
-        self.refreshControl = refreshControl;
         self.collectionView.alwaysBounceVertical = YES;
     }
 }
