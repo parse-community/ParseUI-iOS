@@ -126,8 +126,8 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
                    withReuseIdentifier:PFQueryCollectionViewNextPageReusableViewIdentifier];
 
     if (self.pullToRefreshEnabled) {
-        self.refreshControl = [[UIRefreshControl alloc] init];
-        [self.refreshControl addTarget:self
+        self.collectionView.refreshControl = [[UIRefreshControl alloc] init];
+        [self.collectionView.refreshControl addTarget:self
                                 action:@selector(_refreshControlValueChanged:)
                       forControlEvents:UIControlEventValueChanged];
         self.collectionView.alwaysBounceVertical = YES;
@@ -197,7 +197,7 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
     }
 
     BFContinuationBlock deletionHandlerBlock = ^id (BFTask *task) {
-        self.refreshControl.enabled = YES;
+        self.collectionView.refreshControl.enabled = YES;
 
         if (task.error) {
             [self _handleDeletionError:task.error];
@@ -263,7 +263,7 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
             }
 
             [self objectsDidLoad:error];
-            [self.refreshControl endRefreshing];
+            [self.collectionView.refreshControl endRefreshing];
 
             if (error) {
                 [source trySetError:error];
