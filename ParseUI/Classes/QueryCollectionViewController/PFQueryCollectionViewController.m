@@ -132,7 +132,7 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
         [self.refreshControl addTarget:self
                                 action:@selector(_refreshControlValueChanged:)
                       forControlEvents:UIControlEventValueChanged];
-        [self.collectionView addSubview:self.refreshControl];
+        self.refreshControl = refreshControl;
         self.collectionView.alwaysBounceVertical = YES;
     }
 }
