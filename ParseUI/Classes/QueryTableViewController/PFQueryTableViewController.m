@@ -240,7 +240,6 @@
 
             if (error) {
                 _lastLoadCount = -1;
-                [self _refreshPaginationCell];
             } else {
                 _currentPage = page;
                 _lastLoadCount = [foundObjects count];
@@ -250,9 +249,8 @@
                 }
 
                 [_mutableObjects addObjectsFromArray:foundObjects];
-                [self.tableView reloadData];
             }
-
+            [self.tableView reloadData];
             [self objectsDidLoad:error];
             [self.refreshControl endRefreshing];
 
@@ -270,7 +268,6 @@
 - (void)loadNextPage {
     if (!self.loading) {
         [self loadObjects:(_currentPage + 1) clear:NO];
-        [self _refreshPaginationCell];
     }
 }
 
@@ -488,16 +485,6 @@
             !self.editing &&
             [self.objects count] != 0 &&
             (_lastLoadCount == -1 || _lastLoadCount >= (NSInteger)self.objectsPerPage));
-}
-
-// Selectively refresh pagination cell
-- (void)_refreshPaginationCell {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if ([self _shouldShowPaginationCell]) {
-            [self.tableView reloadRowsAtIndexPaths:@[ [self _indexPathForPaginationCell] ]
-                              withRowAnimation:UITableViewRowAnimationNone];
-        }
-    });
 }
 
 // The row of the pagination cell
