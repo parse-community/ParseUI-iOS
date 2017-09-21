@@ -107,9 +107,13 @@ imageView.file = (PFFile *)someObject[@"picture"]; // remote image
 
 ## Learn More
 - Check out [ParseUIDemo](https://github.com/ParsePlatform/ParseUI-iOS/tree/master/ParseUIDemo) project
-- Read the [iOS Guides](https://parse.com/docs/ios_guide#ui/iOS)
+- Read the [iOS Guides](https://parseplatform.github.io/docs/ios/guide/)
 - Browse official [API Reference](https://parse.com/docs/ios/api/)
 - Follow few [tutorials](https://parse.com/tutorials/)
 
 ## Contributing
 See the CONTRIBUTING file for how to help out.
+
+-----
+
+As of April 5, 2017, Parse, LLC has transferred this code to the parse-community organization, and will no longer be contributing to or distributing this code.
