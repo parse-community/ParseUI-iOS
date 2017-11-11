@@ -18,7 +18,7 @@ class DeletionTableViewController: PFQueryTableViewController, UIAlertViewDelega
     // MARK: Init
 
     convenience init(className: String?) {
-        self.init(style: .Plain, className: className)
+        self.init(style: .plain, className: className)
 
         title = "Deletion Table"
         pullToRefreshEnabled = true
@@ -30,17 +30,17 @@ class DeletionTableViewController: PFQueryTableViewController, UIAlertViewDelega
         tableView.allowsMultipleSelectionDuringEditing = true
 
         navigationItem.rightBarButtonItems = [
-            editButtonItem(),
-            UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addTodo")
+            editButtonItem,
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: "addTodo")
         ]
     }
 
-    override func setEditing(editing: Bool, animated: Bool) {
+    override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
 
         if (editing) {
             navigationItem.leftBarButtonItem = UIBarButtonItem(
-                barButtonSystemItem: .Trash,
+                barButtonSystemItem: .trash,
                 target: self,
                 action: "deleteSelectedItems"
             )
@@ -49,11 +49,9 @@ class DeletionTableViewController: PFQueryTableViewController, UIAlertViewDelega
         }
     }
 
-    override func tableView(tableView: UITableView,
-      commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-          forRowAtIndexPath indexPath: NSIndexPath) {
-        if (editingStyle == .Delete) {
-            removeObjectAtIndexPath(indexPath)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            removeObject(at: indexPath as IndexPath)
         }
     }
 
@@ -61,24 +59,24 @@ class DeletionTableViewController: PFQueryTableViewController, UIAlertViewDelega
     func addTodo() {
         
         if #available(iOS 8.0, *) {
-            let alertDialog = UIAlertController(title: "Add Todo", message: nil, preferredStyle: .Alert)
+            let alertDialog = UIAlertController(title: "Add Todo", message: nil, preferredStyle: .alert)
 
             var titleTextField : UITextField! = nil
-            alertDialog.addTextFieldWithConfigurationHandler() {
+            alertDialog.addTextField() {
                 titleTextField = $0
             }
 
-            alertDialog.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            alertDialog.addAction(UIAlertAction(title: "Save", style: .Default) { _ in
+            alertDialog.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alertDialog.addAction(UIAlertAction(title: "Save", style: .default) { _ in
                 if let title = titleTextField.text {
                     let object = PFObject(className: self.parseClassName!, dictionary: [ "title": title ])
-                    object.saveInBackground().continueWithSuccessBlock { _ -> AnyObject! in
+                    object.saveInBackground().continue(successBlock: { _ -> AnyObject! in
                         return self.loadObjects()
-                    }
+                    })
                 }
             })
 
-            presentViewController(alertDialog, animated: true, completion: nil)
+            present(alertDialog, animated: true, completion: nil)
         } else {
             let alertView = UIAlertView(
                 title: "Add Todo",
@@ -88,8 +86,8 @@ class DeletionTableViewController: PFQueryTableViewController, UIAlertViewDelega
                 otherButtonTitles: "Save"
             )
 
-            alertView.alertViewStyle = .PlainTextInput
-            alertView.textFieldAtIndex(0)?.placeholder = "Name"
+            alertView.alertViewStyle = .plainTextInput
+            alertView.textField(at: 0)?.placeholder = "Name"
 
             alertView.show()
         }
@@ -97,22 +95,22 @@ class DeletionTableViewController: PFQueryTableViewController, UIAlertViewDelega
 
     @objc
     func deleteSelectedItems() {
-        removeObjectsAtIndexPaths(tableView.indexPathsForSelectedRows)
+        removeObjects(at: tableView.indexPathsForSelectedRows)
     }
 
     // MARK - UIAlertViewDelegate
 
     @objc
-    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+    func alertView(_ alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         if (buttonIndex == alertView.cancelButtonIndex) {
             return
         }
 
-        if let title = alertView.textFieldAtIndex(0)?.text {
+        if let title = alertView.textField(at: 0)?.text {
             let object = PFObject(className: self.parseClassName!, dictionary: [ "title": title ])
-            object.saveEventually().continueWithSuccessBlock { _ -> AnyObject! in
+            object.saveEventually().continue(successBlock: { _ -> AnyObject! in
                 return self.loadObjects()
-            }
+            })
         }
     }
 }

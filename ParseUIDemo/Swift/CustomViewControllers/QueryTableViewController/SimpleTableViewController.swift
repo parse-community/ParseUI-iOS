@@ -29,7 +29,7 @@ class SimpleTableViewController: PFQueryTableViewController {
     // MARK: Init
 
     convenience init(className: String?) {
-        self.init(style: .Plain, className: className)
+        self.init(style: .plain, className: className)
 
         title = "Simple Table"
         pullToRefreshEnabled = true
@@ -38,18 +38,18 @@ class SimpleTableViewController: PFQueryTableViewController {
 
     // MARK: Data
 
-    override func queryForTable() -> PFQuery {
-        return super.queryForTable().orderByAscending("priority")
+    override func queryForTable() -> PFQuery<PFObject> {
+        return super.queryForTable().order(byAscending: "priority")
     }
 
     // MARK: TableView
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, object: PFObject?) -> PFTableViewCell? {
         let cellIdentifier = "cell"
 
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? PFTableViewCell
         if cell == nil {
-            cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
+            cell = PFTableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         }
 
         cell?.textLabel?.text = object?["title"] as? String

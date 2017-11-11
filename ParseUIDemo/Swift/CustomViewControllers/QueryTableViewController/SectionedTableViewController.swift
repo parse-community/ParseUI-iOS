@@ -32,7 +32,7 @@ class SectionedTableViewController: PFQueryTableViewController {
     // MARK: Init
 
     convenience init(className: String?) {
-        self.init(style: .Plain, className: className)
+        self.init(style: .plain, className: className)
 
         title = "Sectioned Table"
         pullToRefreshEnabled = true
@@ -40,10 +40,10 @@ class SectionedTableViewController: PFQueryTableViewController {
 
     // MARK: Data
 
-    override func objectsDidLoad(error: NSError?) {
+    func objectsDidLoad(error: NSError?) {
         super.objectsDidLoad(error)
 
-        sections.removeAll(keepCapacity: false)
+        sections.removeAll(keepingCapacity: false)
         if let objects = objects {
             for object in objects {
                 let priority = (object["priority"] as? Int) ?? 0
@@ -52,12 +52,12 @@ class SectionedTableViewController: PFQueryTableViewController {
                 sections[priority] = array
             }
         }
-        sectionKeys = sections.keys.sort(<)
+        sectionKeys = sections.keys.sorted(by: <)
 
         tableView.reloadData()
     }
 
-    override func objectAtIndexPath(indexPath: NSIndexPath?) -> PFObject? {
+    func objectAtIndexPath(indexPath: NSIndexPath?) -> PFObject? {
         if let indexPath = indexPath {
             let array = sections[sectionKeys[indexPath.section]]
             return array?[indexPath.row]
@@ -68,25 +68,24 @@ class SectionedTableViewController: PFQueryTableViewController {
 
 extension SectionedTableViewController {
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sections.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let array = sections[sectionKeys[section]]
         return array?.count ?? 0
     }
-
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Priority \(sectionKeys[section])"
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, object: PFObject?) -> PFTableViewCell? {
         let cellIdentifier = "cell"
 
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? PFTableViewCell
         if cell == nil {
-            cell = PFTableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
+            cell = PFTableViewCell(style: .default, reuseIdentifier: cellIdentifier)
         }
 
         cell?.textLabel?.text = object?["title"] as? String

@@ -30,25 +30,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     // MARK: UIApplicationDelegate
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        
         Parse.setApplicationId("UdNpOP2XFoEiXLZEBDl6xONmCMH8VjETmnEsl0xJ", clientKey: "wNJFho0fQaQFQ2Fe1x9b67lVBakJiAtFj1Uz30A9")
-        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions);
-        PFTwitterUtils.initializeWithConsumerKey("3Q9hMEKqqSg4ie2pibZ2sVJuv", consumerSecret: "IEZ9wv2d1EpXNGFKGp7sAGdxRtyqtPwygyciFZwTHTGhPp4FMj")
+        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions);
+        PFTwitterUtils.initialize(withConsumerKey: "3Q9hMEKqqSg4ie2pibZ2sVJuv", consumerSecret: "IEZ9wv2d1EpXNGFKGp7sAGdxRtyqtPwygyciFZwTHTGhPp4FMj")
 
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let configuration = ParseClientConfiguration {
+            // Add your Parse applicationId:
+            $0.applicationId = Configuration.parseParameters.kParseApplicationId
+            // Uncomment and add your clientKey (it's not required if you are using Parse Server):
+            $0.clientKey = Configuration.parseParameters.kParseClientKey
+            //$0.masterKey = Configuration.parseParameters.kParseMasterKey
+            
+            // Uncomment the following line and change to your Parse Server address;
+            $0.server = Configuration.parseParameters.kParseServer
+            
+            // Enable storing and querying data from Local Datastore.
+            // Remove this line if you don't want to use Local Datastore features or want to use cachePolicy.
+            $0.isLocalDatastoreEnabled = true
+        }
+        Parse.initialize(with: configuration)
+
+        window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: UIDemoViewController())
         window?.makeKeyAndVisible()
 
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.main.async {
             self.setupTestData()
         }
 
         return true
     }
 
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
     }
 
     // MARK: Test Data
@@ -74,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             let todos = try PFQuery(className: "Todo").findObjects()
             if todos.count == 0 {
-                for (index, title) in todoTitles.enumerate() {
+                for (index, title) in todoTitles.enumerated() {
                     let todo = PFObject(className: "Todo")
                     todo["title"] = title
                     todo["priority"] = index % 3
@@ -87,11 +104,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             let apps = try PFQuery(className: "App").findObjects()
             if apps.count == 0 {
-                for (index, appName) in appNames.enumerate() {
-                    let bundle = NSBundle.mainBundle()
-                    if let fileURL = bundle.URLForResource(String(index), withExtension: "png") {
-                        if let data = NSData(contentsOfURL: fileURL) {
-                            let file = PFFile(name: fileURL.lastPathComponent, data: data)
+                for (index, appName) in appNames.enumerated() {
+                    let bundle = Bundle.main
+                    if let fileURL = bundle.url(forResource: String(index), withExtension: "png") {
+                        if let data : NSData = NSData(contentsOf: fileURL) {
+                            let file = PFFile(name: fileURL.lastPathComponent, data: data as Data)
                             let object = PFObject(className: "App")
                             object["icon"] = file
                             object["name"] = appName

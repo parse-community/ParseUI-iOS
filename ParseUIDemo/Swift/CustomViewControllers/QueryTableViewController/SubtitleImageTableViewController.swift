@@ -26,12 +26,12 @@ import ParseUI
 
 class SubtitleImageTableViewController: PFQueryTableViewController {
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, object: PFObject?) -> PFTableViewCell? {
         let cellIdentifier = "cell"
 
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? PFTableViewCell
         if cell == nil {
-            cell = PFTableViewCell(style: .Value1, reuseIdentifier: cellIdentifier)
+            cell = PFTableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
         }
 
         cell?.textLabel?.text = object?["name"] as? String

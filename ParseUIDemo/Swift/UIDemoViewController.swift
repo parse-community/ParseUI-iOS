@@ -60,7 +60,7 @@ enum UIDemoType : Int {
 
     static var count: Int {
         var count = 0
-        while let _ = self.init(rawValue: ++count) { }
+        while let _ = self.init(rawValue: 1+count) { }
         return count
     }
 }
@@ -69,69 +69,69 @@ extension UIDemoType : CustomStringConvertible {
 
     var description: String {
         switch (self) {
-        case LogInDefault:
+        case .LogInDefault:
             return "Log In Default"
-        case LogInUsernamePassword:
+        case .LogInUsernamePassword:
             return "Log In Username and Password"
-        case LogInPasswordForgotten:
+        case .LogInPasswordForgotten:
             return "Log In Password Forgotten"
-        case LogInDone:
+        case .LogInDone:
             return "Log In Done Button"
-        case LogInEmailAsUsername:
+        case .LogInEmailAsUsername:
             return "Log In Email as Username"
-        case LogInFacebook:
+        case .LogInFacebook:
             return "Log In Facebook"
-        case LogInFacebookAndTwitter:
+        case .LogInFacebookAndTwitter:
             return "Log In Facebook and Twitter"
-        case LogInAll:
+        case .LogInAll:
             return "Log In All"
-        case LogInAllNavigation:
+        case .LogInAllNavigation:
             return "Log In All as Navigation"
-        case LogInCustomizedLogoAndBackground:
+        case .LogInCustomizedLogoAndBackground:
             return "Log In Customized Background"
-        case SignUpDefault:
+        case .SignUpDefault:
             return "Sign Up Default"
-        case SignUpUsernamePassword:
+        case .SignUpUsernamePassword:
             return "Sign Up Username and Password"
-        case SignUpUsernamePasswordEmail:
+        case .SignUpUsernamePasswordEmail:
             return "Sign Up Email"
-        case SignUpUsernamePasswordEmailSignUp:
+        case .SignUpUsernamePasswordEmailSignUp:
             return "Sign Up Email And SignUp"
-        case SignUpAll:
+        case .SignUpAll:
             return "Sign Up All"
-        case SignUpEmailAsUsername:
+        case .SignUpEmailAsUsername:
             return "Sign Up Email as Username"
-        case SignUpMinPasswordLength:
+        case .SignUpMinPasswordLength:
             return "Sign Up Minimum Password Length"
-        case SimpleTable:
+        case .SimpleTable:
             return "Simple Table"
-        case PaginatedTable:
+        case .PaginatedTable:
             return "Paginated Table"
-        case SectionedTable:
+        case .SectionedTable:
             return "Sectioned Table"
-        case StoryboardTable:
+        case .StoryboardTable:
             return "Simple Storyboard Table"
         case .DeletionTable:
             return "Deletion Table"
-        case ImageTableDefaultStyle:
+        case .ImageTableDefaultStyle:
             return "Remote Image Table Default Style"
-        case ImageTableSubtitleStyle:
+        case .ImageTableSubtitleStyle:
             return "Remote Image Table Subtitle Style"
-        case SimpleCollection:
+        case .SimpleCollection:
             return "Simple Collection"
-        case PaginatedCollection:
+        case .PaginatedCollection:
             return "Paginated Collection"
-        case SectionedCollection:
+        case .SectionedCollection:
             return "Sectioned Collection"
-        case StoryboardCollection:
+        case .StoryboardCollection:
             return "Simple Storyboard Collection"
-        case DeletionCollection:
+        case .DeletionCollection:
             return "Deletion Collection"
-        case ImageCollection:
+        case .ImageCollection:
             return "Remote Image Collection"
-        case Product:
+        case .Product:
             return "Product"
-        case CustomizedProduct:
+        case .CustomizedProduct:
             return "Customized Product"
         }
     }
@@ -144,23 +144,23 @@ class UIDemoViewController: UITableViewController {
         super.viewDidLoad()
 
         title = "ParseUI Demo"
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
 }
 
 extension UIDemoViewController {
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UIDemoType.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath:indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for:indexPath)
         cell.textLabel?.text = UIDemoType(rawValue: indexPath.row)?.description
         return cell
     }
@@ -168,7 +168,7 @@ extension UIDemoViewController {
 
 extension UIDemoViewController {
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let demoType = UIDemoType(rawValue: indexPath.row) {
             switch (demoType) {
                 // -----
@@ -177,106 +177,106 @@ extension UIDemoViewController {
             case .LogInDefault:
                 let logInViewController = PFLogInViewController()
                 logInViewController.delegate = self
-                presentViewController(logInViewController, animated: true, completion: nil)
+                present(logInViewController, animated: true, completion: nil)
             case .LogInUsernamePassword:
                 let logInViewController = PFLogInViewController()
                 logInViewController.delegate = self
-                logInViewController.fields = [.UsernameAndPassword, .DismissButton]
-                presentViewController(logInViewController, animated: true, completion: nil)
+                logInViewController.fields = [.usernameAndPassword, .dismissButton]
+                present(logInViewController, animated: true, completion: nil)
             case .LogInPasswordForgotten:
                 let logInViewController = PFLogInViewController()
                 logInViewController.delegate = self
-                logInViewController.fields = [.UsernameAndPassword, .PasswordForgotten, .DismissButton]
-                presentViewController(logInViewController, animated: true, completion: nil)
+                logInViewController.fields = [.usernameAndPassword, .passwordForgotten, .dismissButton]
+                present(logInViewController, animated: true, completion: nil)
             case .LogInDone:
                 let logInViewController = PFLogInViewController()
                 logInViewController.delegate = self
-                logInViewController.fields = [.UsernameAndPassword, .LogInButton, .DismissButton]
-                presentViewController(logInViewController, animated: true, completion: nil)
+                logInViewController.fields = [.usernameAndPassword, .logInButton, .dismissButton]
+                present(logInViewController, animated: true, completion: nil)
             case .LogInEmailAsUsername:
                 let logInViewController = PFLogInViewController()
                 logInViewController.delegate = self
-                logInViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .DismissButton]
+                logInViewController.fields = [.usernameAndPassword, .logInButton, .signUpButton, .dismissButton]
                 logInViewController.emailAsUsername = true
-                presentViewController(logInViewController, animated: true, completion: nil)
+                present(logInViewController, animated: true, completion: nil)
             case .LogInFacebook:
                 let logInViewController = PFLogInViewController()
                 logInViewController.delegate = self
-                logInViewController.fields = [.UsernameAndPassword, .Facebook, .DismissButton]
-                presentViewController(logInViewController, animated: true, completion: nil)
+                logInViewController.fields = [.usernameAndPassword, .facebook, .dismissButton]
+                present(logInViewController, animated: true, completion: nil)
             case .LogInFacebookAndTwitter:
                 let logInViewController = PFLogInViewController()
                 logInViewController.delegate = self
-                logInViewController.fields = [.Facebook, .Twitter, .DismissButton]
-                presentViewController(logInViewController, animated: true, completion: nil)
+                logInViewController.fields = [.facebook, .twitter, .dismissButton]
+                present(logInViewController, animated: true, completion: nil)
             case .LogInAll:
                 let logInViewController = PFLogInViewController()
                 logInViewController.delegate = self
-                logInViewController.fields = [.UsernameAndPassword, .PasswordForgotten, .LogInButton, .Facebook, .Twitter, .SignUpButton, .DismissButton]
+                logInViewController.fields = [.usernameAndPassword, .passwordForgotten, .logInButton, .facebook, .twitter, .signUpButton, .dismissButton]
                 if let signUpController = logInViewController.signUpController {
                     signUpController.delegate = self
-                    signUpController.fields = [.UsernameAndPassword, .Email, .Additional, .SignUpButton, .DismissButton]
+                    signUpController.fields = [.email, .additional, .signUpButton, .dismissButton]
                 }
-                presentViewController(logInViewController, animated: true, completion: nil)
+                present(logInViewController, animated: true, completion: nil)
             case .LogInAllNavigation:
                 let logInViewController = PFLogInViewController()
                 logInViewController.delegate = self
-                logInViewController.fields = [.UsernameAndPassword, .PasswordForgotten, .LogInButton, .Facebook, .Twitter, .SignUpButton, .DismissButton]
+                logInViewController.fields = [.usernameAndPassword, .passwordForgotten, .logInButton, .facebook, .twitter, .signUpButton, .dismissButton]
                 if let signUpViewController = logInViewController.signUpController {
                     signUpViewController.delegate = self
-                    signUpViewController.fields = [.UsernameAndPassword, .Email, .Additional, .SignUpButton, .DismissButton]
+                    signUpViewController.fields = [.email, .additional, .signUpButton, .dismissButton]
                 }
                 navigationController?.pushViewController(logInViewController, animated: true)
             case .LogInCustomizedLogoAndBackground:
                 let logInViewController = CustomLogInViewController()
                 logInViewController.delegate = self
-                logInViewController.fields = [.Default, .Facebook, .Twitter]
+                logInViewController.fields = [.default, .facebook, .twitter]
 
                 let signUpViewController = CustomSignUpViewController()
                 signUpViewController.delegate = self
-                signUpViewController.fields = .Default
+                signUpViewController.fields = .default
 
                 logInViewController.signUpController = signUpViewController
-                presentViewController(logInViewController, animated: true, completion: nil)
+                present(logInViewController, animated: true, completion: nil)
                 // -----
                 // PFSignUpViewController
                 // -----
             case .SignUpDefault:
                 let signUpViewController = PFSignUpViewController()
                 signUpViewController.delegate = self
-                presentViewController(signUpViewController, animated: true, completion: nil)
+                present(signUpViewController, animated: true, completion: nil)
             case .SignUpUsernamePassword:
                 let signUpViewController = PFSignUpViewController()
                 signUpViewController.delegate = self
-                signUpViewController.fields = [.UsernameAndPassword, .DismissButton]
-                presentViewController(signUpViewController, animated: true, completion: nil)
+                signUpViewController.fields = [.email, .dismissButton]
+                present(signUpViewController, animated: true, completion: nil)
             case .SignUpUsernamePasswordEmail:
                 let signUpViewController = PFSignUpViewController()
                 signUpViewController.delegate = self
-                signUpViewController.fields = [.UsernameAndPassword, .Email, .DismissButton]
-                presentViewController(signUpViewController, animated: true, completion: nil)
+                signUpViewController.fields = [.email, .dismissButton]
+                present(signUpViewController, animated: true, completion: nil)
             case .SignUpUsernamePasswordEmailSignUp:
                 let signUpViewController = PFSignUpViewController()
                 signUpViewController.delegate = self
-                signUpViewController.fields = [.UsernameAndPassword, .Email, .SignUpButton, .DismissButton]
-                presentViewController(signUpViewController, animated: true, completion: nil)
+                signUpViewController.fields = [.email, .signUpButton, .dismissButton]
+                present(signUpViewController, animated: true, completion: nil)
             case .SignUpAll:
                 let signUpViewController = PFSignUpViewController()
                 signUpViewController.delegate = self
-                signUpViewController.fields = [.UsernameAndPassword, .Email, .Additional, .SignUpButton, .DismissButton]
-                presentViewController(signUpViewController, animated: true, completion: nil)
+                signUpViewController.fields = [.email, .additional, .signUpButton, .dismissButton]
+                present(signUpViewController, animated: true, completion: nil)
             case .SignUpEmailAsUsername:
                 let signUpViewController = PFSignUpViewController()
                 signUpViewController.delegate = self
-                signUpViewController.fields = [.UsernameAndPassword, .SignUpButton, .DismissButton]
+                signUpViewController.fields = [.email, .signUpButton, .dismissButton]
                 signUpViewController.emailAsUsername = true
-                presentViewController(signUpViewController, animated: true, completion: nil)
+                present(signUpViewController, animated: true, completion: nil)
             case .SignUpMinPasswordLength:
                 let signUpViewController = PFSignUpViewController()
                 signUpViewController.delegate = self
-                signUpViewController.fields = [.UsernameAndPassword, .SignUpButton, .DismissButton]
+                signUpViewController.fields = [.email, .signUpButton, .dismissButton]
                 signUpViewController.minPasswordLength = 6
-                presentViewController(signUpViewController, animated: true, completion: nil)
+                present(signUpViewController, animated: true, completion: nil)
                 // -----
                 // PFQueryTableViewController
                 // -----
@@ -291,7 +291,7 @@ extension UIDemoViewController {
                 navigationController?.pushViewController(tableViewController, animated: true)
             case .StoryboardTable:
                 let storyboard = UIStoryboard(name: "SimpleQueryTableStoryboard-Swift", bundle: nil)
-                let tableViewController = storyboard.instantiateViewControllerWithIdentifier("StoryboardTableViewController") as? StoryboardTableViewController
+                let tableViewController = storyboard.instantiateViewController(withIdentifier: "StoryboardTableViewController") as? StoryboardTableViewController
                 navigationController?.pushViewController(tableViewController!, animated: true)
             case .DeletionTable:
                 let tableViewController = DeletionTableViewController(className: "PublicTodo");
@@ -324,7 +324,7 @@ extension UIDemoViewController {
                 navigationController?.pushViewController(collectionViewController, animated: true)
             case .StoryboardCollection:
                 let storyboard = UIStoryboard(name: "SimpleQueryCollectionStoryboard-Swift", bundle: nil)
-                let collectionViewController = storyboard.instantiateViewControllerWithIdentifier("StoryboardCollectionViewController") as? StoryboardCollectionViewController
+                let collectionViewController = storyboard.instantiateViewController(withIdentifier: "StoryboardCollectionViewController") as? StoryboardCollectionViewController
                 navigationController?.pushViewController(collectionViewController!, animated: true)
             case .DeletionCollection:
                 let collectionViewController = DeletionCollectionViewController(className: "PublicTodo");
@@ -350,7 +350,7 @@ extension UIDemoViewController {
 extension UIDemoViewController : PFLogInViewControllerDelegate {
 
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }
@@ -358,7 +358,7 @@ extension UIDemoViewController : PFLogInViewControllerDelegate {
 extension UIDemoViewController : PFSignUpViewControllerDelegate {
 
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }

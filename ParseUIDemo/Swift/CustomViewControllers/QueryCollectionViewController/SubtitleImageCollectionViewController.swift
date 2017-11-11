@@ -46,17 +46,17 @@ class SubtitleImageCollectionViewController: PFQueryCollectionViewController {
 
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             let bounds = UIEdgeInsetsInsetRect(view.bounds, layout.sectionInset)
-            let sideLength = min(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) / 2.0 - layout.minimumInteritemSpacing
-            layout.itemSize = CGSizeMake(sideLength, sideLength)
+            let sideLength = min(bounds.size.width, bounds.size.height) / 2.0 - layout.minimumInteritemSpacing
+            layout.itemSize = CGSize(sideLength, sideLength)
         }
     }
 
     // MARK: CollectionView
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFCollectionViewCell? {
-        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath, object: object)
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, object: PFObject?) -> PFCollectionViewCell? {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath, object: object)
 
-        cell?.textLabel.textAlignment = .Center
+        cell?.textLabel.textAlignment = .center
         cell?.textLabel.text = object?["name"] as? String
 
         cell?.imageView.file = object?["icon"] as? PFFile
@@ -66,7 +66,7 @@ class SubtitleImageCollectionViewController: PFQueryCollectionViewController {
         }
 
         cell?.contentView.layer.borderWidth = 1.0
-        cell?.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell?.contentView.layer.borderColor = UIColor.lightGray.cgColor
         
         return cell
     }

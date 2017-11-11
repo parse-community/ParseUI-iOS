@@ -29,8 +29,8 @@ class DeletionCollectionViewController: PFQueryCollectionViewController, UIAlert
         collectionView?.allowsMultipleSelection = true
 
         navigationItem.rightBarButtonItems = [
-            editButtonItem(),
-            UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addTodo")
+            editButtonItem,
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: "addTodo")
         ]
     }
 
@@ -39,17 +39,17 @@ class DeletionCollectionViewController: PFQueryCollectionViewController, UIAlert
 
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             let bounds = UIEdgeInsetsInsetRect(view.bounds, layout.sectionInset)
-            let sideLength = min(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) / 2.0 - layout.minimumInteritemSpacing
-            layout.itemSize = CGSizeMake(sideLength, sideLength)
+            let sideLength = min(bounds.size.width, bounds.size.height) / 2.0 - layout.minimumInteritemSpacing
+            layout.itemSize = CGSize(sideLength, sideLength)
         }
     }
 
-    override func setEditing(editing: Bool, animated: Bool) {
+    override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
 
         if (editing) {
             navigationItem.leftBarButtonItem = UIBarButtonItem(
-                barButtonSystemItem: .Trash,
+                barButtonSystemItem: .trash,
                 target: self,
                 action: "deleteSelectedItems"
             )
@@ -61,24 +61,24 @@ class DeletionCollectionViewController: PFQueryCollectionViewController, UIAlert
     @objc
     func addTodo() {
         if #available(iOS 8.0, *) {
-            let alertDialog = UIAlertController(title: "Add Todo", message: nil, preferredStyle: .Alert)
+            let alertDialog = UIAlertController(title: "Add Todo", message: nil, preferredStyle: .alert)
 
             var titleTextField : UITextField? = nil
-            alertDialog.addTextFieldWithConfigurationHandler() {
+            alertDialog.addTextField() {
                 titleTextField = $0
             }
 
-            alertDialog.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            alertDialog.addAction(UIAlertAction(title: "Save", style: .Default) { action in
+            alertDialog.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alertDialog.addAction(UIAlertAction(title: "Save", style: .default) { action in
                 if let title = titleTextField?.text {
                     let object = PFObject(className: self.parseClassName!, dictionary: [ "title": title ])
-                    object.saveEventually().continueWithSuccessBlock { _ -> AnyObject! in
+                    object.saveEventually().continue(successBlock: { _ -> AnyObject! in
                         return self.loadObjects()
-                    }
+                    })
                 }
-                })
+            })
 
-            presentViewController(alertDialog, animated: true, completion: nil)
+            present(alertDialog, animated: true, completion: nil)
         } else {
             let alertView = UIAlertView(
                 title: "Add Todo",
@@ -88,8 +88,8 @@ class DeletionCollectionViewController: PFQueryCollectionViewController, UIAlert
                 otherButtonTitles: "Save"
             )
 
-            alertView.alertViewStyle = .PlainTextInput
-            alertView.textFieldAtIndex(0)?.placeholder = "Name"
+            alertView.alertViewStyle = .plainTextInput
+            alertView.textField(at: 0)?.placeholder = "Name"
 
             alertView.show()
         }
@@ -97,18 +97,18 @@ class DeletionCollectionViewController: PFQueryCollectionViewController, UIAlert
 
     @objc
     func deleteSelectedItems() {
-        removeObjectsAtIndexPaths(collectionView?.indexPathsForSelectedItems())
+        removeObjects(at: collectionView?.indexPathsForSelectedItems)
     }
 
     // MARK - UICollectionViewDataSource
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFCollectionViewCell? {
-        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath, object: object)
-        cell?.textLabel.textAlignment = .Center
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, object: PFObject?) -> PFCollectionViewCell? {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath as IndexPath, object: object)
+        cell?.textLabel.textAlignment = .center
         cell?.textLabel.text = object?["title"] as? String
 
         cell?.contentView.layer.borderWidth = 1.0
-        cell?.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell?.contentView.layer.borderColor = UIColor.lightGray.cgColor
 
         return cell
     }
@@ -116,20 +116,20 @@ class DeletionCollectionViewController: PFQueryCollectionViewController, UIAlert
     // MARK - UIAlertViewDelegate
 
     @objc
-    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+    func alertView(_ alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         if (buttonIndex == alertView.cancelButtonIndex) {
             return
         }
 
-        if let title =  alertView.textFieldAtIndex(0)?.text {
+        if let title =  alertView.textField(at: 0)?.text {
             let object = PFObject(
                 className: self.parseClassName!,
                 dictionary: [ "title": title ]
             )
             
-            object.saveEventually().continueWithSuccessBlock { _ -> AnyObject! in
+            object.saveEventually().continue(successBlock: { _ -> AnyObject! in
                 return self.loadObjects()
-            }
+            })
         }
     }
 }

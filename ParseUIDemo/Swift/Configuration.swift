@@ -21,21 +21,37 @@
 
 import UIKit
 
-import Parse
-import ParseUI
-
-class CustomProductTableViewController: PFProductTableViewController {
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let product = objects?[indexPath.row]
-        if let identifier = product?["productIdentifier"] as? String, identifier == "Cooper" {
-            PFPurchase.buyProduct(identifier) { error in
-                if error == nil {
-                    UIAlertView(title: "Success!", message: "Yes!", delegate: nil, cancelButtonTitle: "OK").show()
-                }
-            }
-        }
-        super.tableView(tableView, didSelectRowAt: indexPath)
+open class Configuration {
+    
+    public struct parseParameters {
+        static let kParseApplicationId = "ParseUIDemo"
+        static let kParseMasterKey     = ""
+        static let kParseClientKey     = "unset"
+        static let kParseApiKey        = "unset"
+        static let kParseServer        = "http://localhost:1337/parse"
+        static let kParseAdminUserName = ""
+        static let kParseAdminPassword = ""
     }
+    
+}
 
+extension CGRect {
+    init(_ x:CGFloat, _ y:CGFloat, _ w:CGFloat, _ h:CGFloat) {
+        self.init(x:x, y:y, width:w, height:h)
+    }
+}
+extension CGSize {
+    init(_ width:CGFloat, _ height:CGFloat) {
+        self.init(width:width, height:height)
+    }
+}
+extension CGPoint {
+    init(_ x:CGFloat, _ y:CGFloat) {
+        self.init(x:x, y:y)
+    }
+}
+extension CGVector {
+    init (_ dx:CGFloat, _ dy:CGFloat) {
+        self.init(dx:dx, dy:dy)
+    }
 }

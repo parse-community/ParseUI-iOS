@@ -29,10 +29,10 @@ class CustomLogInViewController: PFLogInViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.blueColor()
+        view.backgroundColor = UIColor.blue
 
         let label = UILabel()
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         label.text = "All Custom!"
         label.sizeToFit()
         logInView?.logo = label

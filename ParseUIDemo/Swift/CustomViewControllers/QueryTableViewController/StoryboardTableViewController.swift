@@ -28,18 +28,18 @@ class StoryboardTableViewController: PFQueryTableViewController {
 
     // MARK: Data
 
-    override func queryForTable() -> PFQuery {
-        return super.queryForTable().orderByAscending("priority")
+    override func queryForTable() -> PFQuery<PFObject> {
+        return super.queryForTable().order(byAscending: "priority")
     }
 
     // MARK: TableView
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, object: PFObject?) -> PFTableViewCell? {
         let cellIdentifier = "cell"
 
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? PFTableViewCell
         if cell == nil {
-            cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
+            cell = PFTableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         }
 
         var title: String?

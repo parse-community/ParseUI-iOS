@@ -25,19 +25,19 @@ import Parse
 import ParseUI
 
 class SimpleCollectionReusableView : UICollectionReusableView {
-    let label: UILabel = UILabel(frame: CGRectZero)
+    let label: UILabel = UILabel(frame: CGRect.zero)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        label.textAlignment = .Center
+        label.textAlignment = .center
         addSubview(label)
     }
 
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
 
-        label.textAlignment = .Center
+        label.textAlignment = .center
         addSubview(label)
     }
 
@@ -70,7 +70,7 @@ class SectionedCollectionViewController: PFQueryCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView?.registerClass(SimpleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+        collectionView?.register(SimpleCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
     }
 
     override func viewWillLayoutSubviews() {
@@ -78,18 +78,18 @@ class SectionedCollectionViewController: PFQueryCollectionViewController {
 
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             let bounds = UIEdgeInsetsInsetRect(view.bounds, layout.sectionInset)
-            let sideLength = min(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) / 2.0 - layout.minimumInteritemSpacing
-            layout.itemSize = CGSizeMake(sideLength, sideLength)
+            let sideLength = min(bounds.size.width, bounds.size.height) / 2.0 - layout.minimumInteritemSpacing
+            layout.itemSize = CGSize(sideLength, sideLength)
         }
     }
 
     // MARK: Data
 
-    override func objectsDidLoad(error: NSError?) {
+    func objectsDidLoad(error: NSError?) {
         super.objectsDidLoad(error)
 
-        sections.removeAll(keepCapacity: false)
-        if let objects = objects as? [PFObject] {
+        sections.removeAll(keepingCapacity: false)
+        if objects.count > 0 {
             for object in objects {
                 let priority = (object["priority"] as? Int) ?? 0
                 var array = sections[priority] ?? Array()
@@ -97,12 +97,12 @@ class SectionedCollectionViewController: PFQueryCollectionViewController {
                 sections[priority] = array
             }
         }
-        sectionKeys = sections.keys.sort(<)
+        sectionKeys = sections.keys.sorted(by: <)
 
         collectionView?.reloadData()
     }
 
-    override func objectAtIndexPath(indexPath: NSIndexPath?) -> PFObject? {
+    func objectAtIndexPath(indexPath: NSIndexPath?) -> PFObject? {
         if let indexPath = indexPath {
             let array = sections[sectionKeys[indexPath.section]]
             return array?[indexPath.row]
@@ -114,41 +114,41 @@ class SectionedCollectionViewController: PFQueryCollectionViewController {
 
 extension SectionedCollectionViewController {
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sections.count
     }
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let array = sections[sectionKeys[section]]
         return array?.count ?? 0
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFCollectionViewCell? {
-        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath, object: object)
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, object: PFObject?) -> PFCollectionViewCell? {
 
-        cell?.textLabel.textAlignment = .Center
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath as IndexPath, object: object)
+
+        cell?.textLabel.textAlignment = .center
         cell?.textLabel.text = object?["title"] as? String
 
         cell?.contentView.layer.borderWidth = 1.0
-        cell?.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell?.contentView.layer.borderColor = UIColor.lightGray.cgColor
 
         return cell
     }
 
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader,
-            let view = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as? SimpleCollectionReusableView {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as? SimpleCollectionReusableView {
                 view.label.text = "Priority \(sectionKeys[indexPath.section])"
                 return view
         }
-        return super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, atIndexPath: indexPath)
+        return super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath)
     }
 
-    override func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if sections.count > 0 {
-            return CGSizeMake(CGRectGetWidth(collectionView.bounds), 40.0)
+            return CGSize(collectionView.bounds.size.width, 40.0)
         }
-        return CGSizeZero
+        return CGSize.zero
     }
-
 }

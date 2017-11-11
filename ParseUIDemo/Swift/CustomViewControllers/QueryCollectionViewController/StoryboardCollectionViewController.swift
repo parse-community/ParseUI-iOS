@@ -42,29 +42,29 @@ class StoryboardCollectionViewController: PFQueryCollectionViewController {
 
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             let bounds = UIEdgeInsetsInsetRect(view.bounds, layout.sectionInset)
-            let sideLength = min(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) / 2.0 - layout.minimumInteritemSpacing
-            layout.itemSize = CGSizeMake(sideLength, sideLength)
+            let sideLength = min(bounds.size.width, bounds.size.height) / 2.0 - layout.minimumInteritemSpacing
+            layout.itemSize = CGSize(sideLength, sideLength)
         }
     }
 
     // MARK: Data
 
-    override func queryForCollection() -> PFQuery {
-        return super.queryForCollection().orderByAscending("priority")
+    override func queryForCollection() -> PFQuery<PFObject> {
+        return super.queryForCollection().order(byAscending: "priority")
     }
 
     // MARK: CollectionView
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFCollectionViewCell? {
-        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath, object: object)
-        cell?.textLabel.textAlignment = .Center
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, object: PFObject?) -> PFCollectionViewCell? {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath as IndexPath, object: object)
+        cell?.textLabel.textAlignment = .center
 
         if let title = object?["title"] as? String {
             let attributedTitle = NSMutableAttributedString(string: title)
             if let priority = object?["priority"] as? Int {
-                let attributes = [NSFontAttributeName : UIFont.systemFontOfSize(13.0), NSForegroundColorAttributeName : UIColor.grayColor()]
+                let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 13.0), NSForegroundColorAttributeName : UIColor.gray]
                 let string = NSAttributedString(string: "\nPriority: \(priority)", attributes: attributes)
-                attributedTitle.appendAttributedString(string)
+                attributedTitle.append(string)
             }
             cell?.textLabel.attributedText = attributedTitle
         } else {
@@ -72,7 +72,7 @@ class StoryboardCollectionViewController: PFQueryCollectionViewController {
         }
 
         cell?.contentView.layer.borderWidth = 1.0
-        cell?.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell?.contentView.layer.borderColor = UIColor.lightGray.cgColor
         
         return cell
     }
