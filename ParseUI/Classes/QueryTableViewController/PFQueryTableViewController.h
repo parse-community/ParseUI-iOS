@@ -184,6 +184,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeObjectsAtIndexPaths:(nullable NSArray<NSIndexPath *> *)indexPaths animated:(BOOL)animated;
 
 /**
+ Removes the cell at the specified indexPath, with or without animation.
+ Important: This method only removes the cell. It does not delete any PFObject on the backend. 
+ */
+- (void)removeCellAtIndexPath:(nullable NSIndexPath *)indexPath animated:(BOOL)animated;
+
+/**
+ Removes the cells at the specified indexPaths, with or without animation.
+ Important: This method only removes the cells. It does not delete any PFObject on the backend.
+ */
+- (void)removeCellsAtIndexPaths:(NSArray *)indexPaths animated:(BOOL)animated;
+
+/**
  Clears the table of all objects.
  */
 - (void)clear;
