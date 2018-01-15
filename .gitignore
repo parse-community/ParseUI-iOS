@@ -18,3 +18,5 @@ DerivedData
 build
 
 ParseUI.xcworkspace
+
+Carthage
