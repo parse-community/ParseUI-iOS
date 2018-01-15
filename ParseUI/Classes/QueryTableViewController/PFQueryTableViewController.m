@@ -208,9 +208,11 @@
 }
 
 - (void)clear {
-    [_mutableObjects removeAllObjects];
-    [self.tableView reloadData];
-    _currentPage = 0;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_mutableObjects removeAllObjects];
+        [self.tableView reloadData];
+        _currentPage = 0;
+    });
 }
 
 - (BFTask<NSArray<__kindof PFObject *> *> *)loadObjects {
@@ -226,38 +228,38 @@
 
     BFTaskCompletionSource<NSArray<__kindof PFObject *> *> *source = [BFTaskCompletionSource taskCompletionSource];
     [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
-        if (![Parse isLocalDatastoreEnabled] &&
-            query.cachePolicy != kPFCachePolicyCacheOnly &&
-            error.code == kPFErrorCacheMiss) {
-            // no-op on cache miss
-            return;
-        }
-
-        self.loading = NO;
-
-        if (error) {
-            _lastLoadCount = -1;
-            [self _refreshPaginationCell];
-        } else {
-            _currentPage = page;
-            _lastLoadCount = [foundObjects count];
-
-            if (clear) {
-                [_mutableObjects removeAllObjects];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (![Parse isLocalDatastoreEnabled] &&
+                query.cachePolicy != kPFCachePolicyCacheOnly &&
+                error.code == kPFErrorCacheMiss) {
+                // no-op on cache miss
+                return;
             }
 
-            [_mutableObjects addObjectsFromArray:foundObjects];
+            self.loading = NO;
+
+            if (error) {
+                _lastLoadCount = -1;
+            } else {
+                _currentPage = page;
+                _lastLoadCount = [foundObjects count];
+
+                if (clear) {
+                    [_mutableObjects removeAllObjects];
+                }
+
+                [_mutableObjects addObjectsFromArray:foundObjects];
+            }
             [self.tableView reloadData];
-        }
+            [self objectsDidLoad:error];
+            [self.refreshControl endRefreshing];
 
-        [self objectsDidLoad:error];
-        [self.refreshControl endRefreshing];
-
-        if (error) {
-            [source trySetError:error];
-        } else {
-            [source trySetResult:foundObjects];
-        }
+            if (error) {
+                [source trySetError:error];
+            } else {
+                [source trySetResult:foundObjects];
+            }
+        });
     }];
 
     return source.task;
@@ -266,7 +268,6 @@
 - (void)loadNextPage {
     if (!self.loading) {
         [self loadObjects:(_currentPage + 1) clear:NO];
-        [self _refreshPaginationCell];
     }
 }
 
@@ -484,14 +485,6 @@
             !self.editing &&
             [self.objects count] != 0 &&
             (_lastLoadCount == -1 || _lastLoadCount >= (NSInteger)self.objectsPerPage));
-}
-
-// Selectively refresh pagination cell
-- (void)_refreshPaginationCell {
-    if ([self _shouldShowPaginationCell]) {
-        [self.tableView reloadRowsAtIndexPaths:@[ [self _indexPathForPaginationCell] ]
-                              withRowAnimation:UITableViewRowAnimationNone];
-    }
 }
 
 // The row of the pagination cell

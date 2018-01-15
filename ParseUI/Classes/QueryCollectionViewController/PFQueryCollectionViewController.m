@@ -44,8 +44,6 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
     NSInteger _lastLoadCount;  // The count of objects from the last load.
 }
 
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
-
 @property (nonatomic, strong) PFLoadingView *loadingView;
 
 @property (nonatomic, strong) PFActivityIndicatorCollectionReusableView *currentNextPageView;
@@ -128,11 +126,10 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
                    withReuseIdentifier:PFQueryCollectionViewNextPageReusableViewIdentifier];
 
     if (self.pullToRefreshEnabled) {
-        self.refreshControl = [[UIRefreshControl alloc] init];
-        [self.refreshControl addTarget:self
+        self.collectionView.refreshControl = [[UIRefreshControl alloc] init];
+        [self.collectionView.refreshControl addTarget:self
                                 action:@selector(_refreshControlValueChanged:)
                       forControlEvents:UIControlEventValueChanged];
-        [self.collectionView addSubview:self.refreshControl];
         self.collectionView.alwaysBounceVertical = YES;
     }
 }
@@ -200,7 +197,7 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
     }
 
     BFContinuationBlock deletionHandlerBlock = ^id (BFTask *task) {
-        self.refreshControl.enabled = YES;
+        self.collectionView.refreshControl.enabled = YES;
 
         if (task.error) {
             [self _handleDeletionError:task.error];
@@ -240,38 +237,40 @@ static NSString *const PFQueryCollectionViewNextPageReusableViewIdentifier = @"n
 
     BFTaskCompletionSource<NSArray<__kindof PFObject *> *> *source = [BFTaskCompletionSource taskCompletionSource];
     [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
-        if (![Parse isLocalDatastoreEnabled] &&
-            query.cachePolicy != kPFCachePolicyCacheOnly &&
-            error.code == kPFErrorCacheMiss) {
-            // no-op on cache miss
-            return;
-        }
-
-        self.loading = NO;
-
-        if (error) {
-            _lastLoadCount = -1;
-            _currentNextPageView.animating = NO;
-        } else {
-            _currentPage = page;
-            _lastLoadCount = [foundObjects count];
-
-            if (clear) {
-                [_mutableObjects removeAllObjects];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (![Parse isLocalDatastoreEnabled] &&
+                query.cachePolicy != kPFCachePolicyCacheOnly &&
+                error.code == kPFErrorCacheMiss) {
+                // no-op on cache miss
+                return;
             }
 
-            [_mutableObjects addObjectsFromArray:foundObjects];
-            [self.collectionView reloadData];
-        }
+            self.loading = NO;
 
-        [self objectsDidLoad:error];
-        [self.refreshControl endRefreshing];
+            if (error) {
+                _lastLoadCount = -1;
+                _currentNextPageView.animating = NO;
+            } else {
+                _currentPage = page;
+                _lastLoadCount = [foundObjects count];
 
-        if (error) {
-            [source trySetError:error];
-        } else {
-            [source trySetResult:foundObjects];
-        }
+                if (clear) {
+                    [_mutableObjects removeAllObjects];
+                }
+
+                [_mutableObjects addObjectsFromArray:foundObjects];
+                [self.collectionView reloadData];
+            }
+
+            [self objectsDidLoad:error];
+            [self.collectionView.refreshControl endRefreshing];
+
+            if (error) {
+                [source trySetError:error];
+            } else {
+                [source trySetResult:foundObjects];
+            }
+        });
     }];
     return source.task;
 }
